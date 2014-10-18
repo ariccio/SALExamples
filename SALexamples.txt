@@ -180,29 +180,479 @@ From specstrings_strict.h:
 *   void ReadBuf(__in FILE *fp,__inout struct *buf_s b) {        
 *     fread(&b,b->sz,sizeof(char),fp);                           
 *   }                                                            
-   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC>%grep% -I -r -n _satisfies_ .
 ./atlmfc/include/atlbase.h:319: _When_(bInitialLock != 0, _Acquires_lock_(this->m_cs) _Post_satisfies_(this->m_bLocked != 0))
-./atlmfc/include/atlbase.h:320: _When_(bInitialLock == 0, _Post_satisfies_(this->m_bLocked == 0))
-./atlmfc/include/atlbase.h:325: _When_(this->m_bLocked != 0, _Requires_lock_held_(this->m_cs) _Releases_lock_(this->m_cs) _Post_satisfies_(this->m_bLocked == 0))
-./atlmfc/include/atlbase.h:328: _Acquires_lock_(this->m_cs) _Post_satisfies_(this->m_bLocked != 0)
-./atlmfc/include/atlbase.h:329: _On_failure_(_Post_satisfies_(this->m_bLocked == 0))
-./atlmfc/include/atlbase.h:332: _Releases_lock_(this->m_cs) _Post_satisfies_(this->m_bLocked == 0)
+
+    /////////////////////////////////////////////////////////////////////////////
+    // Threading Model Support
+
+    template< class TLock >
+    class CComCritSecLock
+    {
+    public:
+        _Post_same_lock_(cs, this->m_cs)
+        _When_(bInitialLock != 0, _Acquires_lock_(this->m_cs) _Post_satisfies_(this->m_bLocked != 0))
+        _When_(bInitialLock == 0, _Post_satisfies_(this->m_bLocked == 0))
+        CComCritSecLock(
+            _Inout_ TLock& cs,
+            _In_ bool bInitialLock = true );
+
+        _When_(this->m_bLocked != 0, _Requires_lock_held_(this->m_cs) _Releases_lock_(this->m_cs) _Post_satisfies_(this->m_bLocked == 0))
+        ~CComCritSecLock() throw();
+
+        _Acquires_lock_(this->m_cs) _Post_satisfies_(this->m_bLocked != 0)
+        _On_failure_(_Post_satisfies_(this->m_bLocked == 0))
+        HRESULT Lock() throw();
+
+        _Releases_lock_(this->m_cs) _Post_satisfies_(this->m_bLocked == 0)
+        void Unlock() throw();
+
+    // Implementation
+    private:
+        TLock& m_cs;
+        bool m_bLocked;
+
+    // Private to avoid accidental use
+        CComCritSecLock(_In_ const CComCritSecLock&) throw();
+        CComCritSecLock& operator=(_In_ const CComCritSecLock&) throw();
+    };
+
+
+
 ./atlmfc/include/atlbase.h:347:_When_(bInitialLock != 0, _Acquires_lock_(this->m_cs) _Post_satisfies_(this->m_bLocked != 0))
-./atlmfc/include/atlbase.h:348:_When_(bInitialLock == 0, _Post_satisfies_(this->m_bLocked == 0))
-./atlmfc/include/atlbase.h:369:_When_(this->m_bLocked != 0, _Requires_lock_held_(this->m_cs) _Releases_lock_(this->m_cs) _Post_satisfies_(this->m_bLocked == 0))
-./atlmfc/include/atlbase.h:379:_Acquires_lock_(this->m_cs) _Post_satisfies_(this->m_bLocked != 0)
-./atlmfc/include/atlbase.h:380:_On_failure_(_Post_satisfies_(this->m_bLocked == 0))
+
+    template< class TLock >
+    _Post_same_lock_(cs, this->m_cs)
+    _When_(bInitialLock != 0, _Acquires_lock_(this->m_cs) _Post_satisfies_(this->m_bLocked != 0))
+    _When_(bInitialLock == 0, _Post_satisfies_(this->m_bLocked == 0))
+    #pragma warning(suppress: 26166) // Constructor throws on failure of Lock() method
+    inline CComCritSecLock< TLock >::CComCritSecLock(
+            _Inout_ TLock& cs,
+            _In_ bool bInitialLock) :
+        m_cs( cs ),
+        m_bLocked( false )
+    {
+        if( bInitialLock )
+        {
+            HRESULT hr;
+
+            hr = Lock();
+            if( FAILED( hr ) )
+            {
+                AtlThrow( hr );
+            }
+        }
+    }
+
+    template< class TLock >
+    _When_(this->m_bLocked != 0, _Requires_lock_held_(this->m_cs) _Releases_lock_(this->m_cs) _Post_satisfies_(this->m_bLocked == 0))
+    inline CComCritSecLock< TLock >::~CComCritSecLock() throw()
+    {
+        if( m_bLocked )
+        {
+            Unlock();
+        }
+    }
+
+    template< class TLock >
+    _Acquires_lock_(this->m_cs) _Post_satisfies_(this->m_bLocked != 0)
+    _On_failure_(_Post_satisfies_(this->m_bLocked == 0))
+    #pragma warning(suppress: 26165) // Lock is acquired by template lock object '(this->m_cs).m_sec'
+    inline HRESULT CComCritSecLock< TLock >::Lock() throw()
+    {
+        HRESULT hr;
+
+        ATLASSERT( !m_bLocked );
+        ATLASSUME(!m_bLocked);
+        hr = m_cs.Lock();
+        if( FAILED( hr ) )
+        {
+            return( hr );
+        }
+        m_bLocked = true;
+
+        return( S_OK );
+    }
+
 ./atlmfc/include/atlbase.h:399:_Releases_lock_(this->m_cs) _Post_satisfies_(this->m_bLocked == 0)
+
+    template< class TLock >
+    _Releases_lock_(this->m_cs) _Post_satisfies_(this->m_bLocked == 0)
+    #pragma warning(suppress: 26167) // Lock is released by template lock object '(this->m_cs).m_sec'
+    inline void CComCritSecLock< TLock >::Unlock() throw()
+    {
+        ATLASSUME( m_bLocked );
+    #pragma warning(suppress: 26110) // Template parameter hides lock object
+        m_cs.Unlock();
+        m_bLocked = false;
+    }
+
+
+
 ./atlmfc/include/atlbase.h:1275:        _When_(bInitialLock != 0, _Acquires_lock_(this->m_cs) _Post_satisfies_(this->m_bLocked != 0))
-./atlmfc/include/atlbase.h:1276:        _When_(bInitialLock == 0, _Post_satisfies_(this->m_bLocked == 0))
-./atlmfc/include/atlbase.h:1287:        _When_(this->m_bLocked != 0, _Requires_lock_held_(this->m_cs) _Releases_lock_(this->m_cs) _Post_satisfies_(this->m_bLocked == 0))
-./atlmfc/include/atlbase.h:1296:        _Acquires_lock_(this->m_cs) _Post_satisfies_(this->m_bLocked != 0)
-./atlmfc/include/atlbase.h:1305:        _Releases_lock_(this->m_cs) _Post_satisfies_(this->m_bLocked == 0)
+
+    class CCritSecLock
+    {
+    public:
+        _Post_same_lock_(cs, this->m_cs)
+        _When_(bInitialLock != 0, _Acquires_lock_(this->m_cs) _Post_satisfies_(this->m_bLocked != 0))
+        _When_(bInitialLock == 0, _Post_satisfies_(this->m_bLocked == 0))
+        CCritSecLock(
+            _Inout_ CRITICAL_SECTION& cs,
+            _In_ bool bInitialLock = true) : m_cs(cs), m_bLocked(false)
+        {
+            if( bInitialLock )
+            {
+                Lock();
+            }		
+        }
+            
+        _When_(this->m_bLocked != 0, _Requires_lock_held_(this->m_cs) _Releases_lock_(this->m_cs) _Post_satisfies_(this->m_bLocked == 0))
+        ~CCritSecLock() throw()
+        {
+            if( m_bLocked )
+            {
+                Unlock();
+            }
+        }
+
+        _Acquires_lock_(this->m_cs) _Post_satisfies_(this->m_bLocked != 0)
+        void Lock()
+        {
+            ATLASSERT( !m_bLocked );
+
+            ::EnterCriticalSection( &m_cs );
+            m_bLocked = true;
+        }
+
+        _Releases_lock_(this->m_cs) _Post_satisfies_(this->m_bLocked == 0)
+        void Unlock() throw()
+        {
+            ATLASSUME( m_bLocked );
+            ::LeaveCriticalSection( &m_cs );
+            m_bLocked = false;	
+        }
+
+    // Implementation
+    private:
+        CRITICAL_SECTION& m_cs;
+        bool m_bLocked;
+
+    // Private to avoid accidental use
+        CCritSecLock(_In_ const CCritSecLock&) throw();
+        CCritSecLock& operator=(_In_ const CCritSecLock&) throw();
+    };
+
 ./atlmfc/include/atlcom.h:2069: static _Always_(_Post_satisfies_(return == hr || return == E_POINTER))
+
+    template <HRESULT hr>
+    class CComFailCreator
+    {
+    public:
+        static _Always_(_Post_satisfies_(return == hr || return == E_POINTER))
+        HRESULT WINAPI CreateInstance(
+            _In_opt_ void*, 
+            _In_ REFIID, 
+            _COM_Outptr_result_maybenull_ LPVOID* ppv)
+        {
+            if (ppv == NULL)
+                return E_POINTER;
+            *ppv = NULL;
+
+            return hr;
+        }
+    };
+
+
+
+
+
+
 ./atlmfc/include/atlcom.h:2435: _Post_satisfies_(return <= 0)   // Ensure callers handle error cases, but S_OK is only success status supported
+
+    // the functions in this class don't need to be virtual because
+    // they are called from CComObject
+    class CComObjectRootBase
+    {
+    public:
+        CComObjectRootBase()
+        {
+            m_dwRef = 0L;
+        }
+        ~CComObjectRootBase()
+        {
+        }
+        HRESULT FinalConstruct()
+        {
+            return S_OK;
+        }
+        // For library initialization only
+        _Post_satisfies_(return <= 0)   // Ensure callers handle error cases, but S_OK is only success status supported
+        HRESULT _AtlFinalConstruct()
+        {
+            return S_OK;
+        }
+        void FinalRelease() 
+        {
+        }
+        void _AtlFinalRelease() // temp
+        {
+        }		
+
+        void _HRPass(_In_ HRESULT hr)		// temp 
+        {
+            (hr);
+        }
+
+        void _HRFail(_In_ HRESULT hr)		// temp...
+        {
+            (hr);
+        }
+
+
+        //ObjectMain is called during Module::Init and Module::Term
+        static void WINAPI ObjectMain(_In_ bool /* bStarting */);
+
+        static const struct _ATL_CATMAP_ENTRY* GetCategoryMap() 
+        {
+            return NULL;
+        }
+        static HRESULT WINAPI InternalQueryInterface(
+            _Inout_ void* pThis,
+            _In_ const _ATL_INTMAP_ENTRY* pEntries, 		
+            _In_ REFIID iid, 
+            _COM_Outptr_ void** ppvObject)
+        {
+            // Only Assert here. AtlInternalQueryInterface will return the correct HRESULT if ppvObject == NULL
+    #ifndef _ATL_OLEDB_CONFORMANCE_TESTS
+            ATLASSERT(ppvObject != NULL);
+    #endif
+            ATLASSERT(pThis != NULL);
+            // First entry in the com map should be a simple map entry
+            ATLASSERT(pEntries->pFunc == _ATL_SIMPLEMAPENTRY);
+        #if defined(_ATL_DEBUG_INTERFACES) || defined(_ATL_DEBUG_QI)
+            LPCTSTR pszClassName = (LPCTSTR) pEntries[-1].dw;
+            (pszClassName);
+        #endif // _ATL_DEBUG_INTERFACES
+            HRESULT hRes = AtlInternalQueryInterface(pThis, pEntries, iid, ppvObject);
+        #if defined(_ATL_DEBUG_INTERFACES) && !defined(_ATL_STATIC_LIB_IMPL)
+            _AtlDebugInterfacesModule.AddThunk((IUnknown**)ppvObject, pszClassName, iid);
+        #endif // _ATL_DEBUG_INTERFACES
+            return _ATLDUMPIID(iid, pszClassName, hRes);
+        }
+
+    //Outer funcs
+        ULONG OuterAddRef()
+        {
+            return m_pOuterUnknown->AddRef();
+        }
+        ULONG OuterRelease()
+        {
+            return m_pOuterUnknown->Release();
+        }
+        HRESULT OuterQueryInterface(
+            _In_ REFIID iid, 
+            _COM_Outptr_ void** ppvObject)
+        {
+            return m_pOuterUnknown->QueryInterface(iid, ppvObject);
+        }
+
+        void SetVoid(_In_opt_ void*) 
+        {
+        }
+        void InternalFinalConstructAddRef() 
+        {
+        }
+        void InternalFinalConstructRelease()
+        {
+            ATLASSUME(m_dwRef == 0);
+        }
+        // If this assert occurs, your object has probably been deleted
+        // Try using DECLARE_PROTECT_FINAL_CONSTRUCT()
+
+     #ifdef _ATL_USE_WINAPI_FAMILY_DESKTOP_APP
+        static HRESULT WINAPI _Break(
+            _In_opt_ void* /* pv */, 
+            _In_ REFIID iid, 
+            _COM_Outptr_result_maybenull_ void** /* ppvObject */, 
+            _In_ DWORD_PTR /* dw */)
+        {
+            (iid);
+            _ATLDUMPIID(iid, _T("Break due to QI for interface "), S_OK);
+            __debugbreak();
+            _Analysis_assume_(FALSE);   // not reached, no need to analyze
+            return S_FALSE;
+        }
+    #endif // _ATL_USE_WINAPI_FAMILY_DESKTOP_APP
+
+        static _Post_equal_to_(E_NOINTERFACE) HRESULT WINAPI _NoInterface(
+            _In_opt_ void* /* pv */, 
+            _In_ REFIID /* iid */, 
+            _Outptr_ void** /* ppvObject */, 
+            _In_ DWORD_PTR /* dw */)
+        {
+            return E_NOINTERFACE;
+        }
+        static HRESULT WINAPI _Creator(
+            _In_ void* pv, 
+            _In_ REFIID iid, 
+            _COM_Outptr_ void** ppvObject, 
+            _In_ DWORD_PTR dw)
+        {
+            _ATL_CREATORDATA* pcd = (_ATL_CREATORDATA*)dw;
+            return pcd->pFunc(pv, iid, ppvObject);
+        }
+        static HRESULT WINAPI _Delegate(
+            _In_ void* pv, 
+            _In_ REFIID iid, 
+            _COM_Outptr_ void** ppvObject, 
+            _In_ DWORD_PTR dw)
+        {
+            HRESULT hRes = E_NOINTERFACE;
+            IUnknown* p = *(IUnknown**)((DWORD_PTR)pv + dw);
+            *ppvObject = NULL;
+            if (p != NULL)
+                hRes = p->QueryInterface(iid, ppvObject);
+            return hRes;
+        }
+        static HRESULT WINAPI _Chain(
+            _In_ void* pv, 
+            _In_ REFIID iid, 
+            _COM_Outptr_ void** ppvObject, 
+            _In_ DWORD_PTR dw)
+        {
+            _ATL_CHAINDATA* pcd = (_ATL_CHAINDATA*)dw;
+            void* p = (void*)((DWORD_PTR)pv + pcd->dwOffset);
+            return InternalQueryInterface(p, pcd->pFunc(), iid, ppvObject);
+        }
+        static HRESULT WINAPI _ChainAttr(
+            _In_ void* pv, 
+            _In_ REFIID iid, 
+            _COM_Outptr_result_maybenull_ void** ppvObject, 
+            _In_ DWORD_PTR dw)
+        {
+            const _ATL_INTMAP_ENTRY* (WINAPI *pFunc)() = (const _ATL_INTMAP_ENTRY* (WINAPI *)())dw;
+            const _ATL_INTMAP_ENTRY *pEntries = pFunc();
+            *ppvObject = NULL;
+            if (pEntries == NULL)
+                return S_OK;
+            return InternalQueryInterface(pv, pEntries, iid, ppvObject);
+        }
+        static HRESULT WINAPI _Cache(
+            _In_ void* pv, 
+            _In_ REFIID iid, 
+            _COM_Outptr_result_maybenull_ void** ppvObject, 
+            _In_ DWORD_PTR dw)
+        {
+            HRESULT hRes = E_NOINTERFACE;
+            _ATL_CACHEDATA* pcd = (_ATL_CACHEDATA*)dw;
+            IUnknown** pp = (IUnknown**)((DWORD_PTR)pv + pcd->dwOffsetVar);
+            *ppvObject = NULL;
+            if (*pp == NULL)
+                hRes = pcd->pFunc(pv, __uuidof(IUnknown), (void**)pp);
+            if (*pp != NULL)
+                hRes = (*pp)->QueryInterface(iid, ppvObject);
+            return hRes;
+        }
+
+        union
+        {
+            long m_dwRef;
+            IUnknown* m_pOuterUnknown;
+        };
+    };
+
+
+
+
 ./atlmfc/include/atlcomcli.h:34:_Post_satisfies_(FAILED(return))
-./atlmfc/include/atlcomcli.h:42:_When_(nError == 0, _Post_equal_to_(0)) _When_(nError != 0, _Post_satisfies_(return < 0))
+
+    /////////////////////////////////////////////////////////////////////////////
+    // Error to HRESULT helpers
+
+    _Post_satisfies_(FAILED(return))
+    ATL_NOINLINE inline HRESULT AtlHresultFromLastError() throw()
+    {
+        DWORD dwErr = ::GetLastError();
+        return HRESULT_FROM_WIN32(dwErr);
+    }
+
+    ATL_NOINLINE inline
+    _When_(nError == 0, _Post_equal_to_(0)) _When_(nError != 0, _Post_satisfies_(return < 0))
+    HRESULT AtlHresultFromWin32(_In_ DWORD nError) throw()
+    {
+        return( HRESULT_FROM_WIN32( nError ) );
+    }
+
+
+
+
 ./atlmfc/include/atldb.h:2652:    _Post_satisfies_(return == S_OK || return == S_FALSE)
 ./atlmfc/include/atldbcli.h:1221:       _Post_satisfies_(this->m_nAccessors == nAccessors)
 ./atlmfc/include/atlsync.h:156: _When_(bInitialLock != 0, _Acquires_lock_(this->m_mtx) _Post_satisfies_(this->m_bLocked != 0))
@@ -285,7 +735,31 @@ C:\Program Files (x86)\Windows Kits\8.1\Include>%grep% -I -r -n _satisfies_ .
 ./km/ntddk.h:5342:_Post_satisfies_(return >= 0 && return <= 2)
 ./km/ntddk.h:5843:_Post_satisfies_(return >= 0 && return <= 2)
 ./km/ntddk.h:5869:_Post_satisfies_(return >= 0 && return <= 2)
+
+
+
+
 ./km/ntddk.h:7253:_When_(_Old_(*Length) == 0, _Post_satisfies_(return < 0))
+    #if (NTDDI_VERSION >= NTDDI_WIN7)
+    _IRQL_requires_max_(DISPATCH_LEVEL)
+    _When_(_Old_(*Length) == 0, _Post_satisfies_(return < 0))
+    NTKERNELAPI
+    NTSTATUS
+    KeQueryLogicalProcessorRelationship (
+        _In_opt_ PPROCESSOR_NUMBER ProcessorNumber,
+        _In_ LOGICAL_PROCESSOR_RELATIONSHIP RelationshipType,
+        _Out_writes_bytes_opt_(*Length) PSYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX Information,
+        _Always_(_Inout_) PULONG Length
+        );
+    #endif
+
+
+
+
+
+
+
+
 ./km/ntifs.h:3518:_Post_satisfies_(return >= 8 && return <= SECURITY_MAX_SID_SIZE)
 ./km/ntifs.h:12714:_Post_satisfies_(return == 1 || return == 0)
 ./km/ntstrsafe.h:259:_Post_satisfies_(cchDest > 0 && cchDest <= cchMax)
@@ -21895,6 +22369,33 @@ C:\Program Files (x86)\Windows Kits\8.1\Include>%grep% -I -r -n _Literal_ .
 
 C:\Program Files (x86)\Windows Kits\8.1\Include>%grep% -I -r -n _Notliteral_ .
 ./km/miniport.h:5208:    _In_ _Notliteral_ volatile UCHAR *Register
+
+    //
+    // I/O space read and write macros.
+    //
+    //  The READ/WRITE_REGISTER_* calls manipulate I/O registers in MEMORY space.
+    //
+    //  The READ/WRITE_PORT_* calls manipulate I/O registers in PORT space.
+    //
+
+    #ifdef __cplusplus
+    extern "C" {
+    #endif
+
+    __forceinline
+    UCHAR
+    READ_REGISTER_UCHAR (
+        _In_ _Notliteral_ volatile UCHAR *Register
+        )
+    {
+        _ReadWriteBarrier();
+        return *Register;
+    }
+
+
+
+
+
 ./km/miniport.h:5218:    _In_ _Notliteral_ volatile USHORT *Register
 ./km/miniport.h:5228:    _In_ _Notliteral_ volatile ULONG *Register
 ./km/miniport.h:5238:    _In_ _Notliteral_ volatile ULONG64 *Register
@@ -23679,6 +24180,58 @@ C:\Program Files (x86)\Windows Kits\8.1\Include>%grep% -I -r -n _Valid_ .
 
 C:\Program Files (x86)\Windows Kits\8.1\Include>%grep% -I -r -n _Pre_ .
 ./km/classpnp.h:1403:     _Pre_equal_to_(RequestHistory->TotalHistoryCount)
+
+    /*++////////////////////////////////////////////////////////////////////////////
+
+    PCLASS_COMPRESS_HISTORY_DATA()
+
+    Routine Description:
+
+        This routine is a callback into the driver to perform "compression" of the
+        history data that is saved during retry of SRBs.  The function will only be
+        called when the history array is full (UsedHistoryCount == TotalHistoryCount).
+        This function must reduce the overall UsedHistoryCount by at least one
+        element (and update the UsedHistoryCount field appropriately).
+        .  that may have occurred during an SRB transfer.  It closely matches the
+        API set of ClassInterpretSenseInfo, with modifications to allow for a history
+        of why the request was previously retried (and when), and changes the retry
+        interval from being in seconds to being in milliseconds.  Finally, use of this
+        extended API removes all retry logic from classpnp for these requests.  Thus,
+        the provided routine must return FALSE when it determines the number of times
+        the request should be retried has been exceeded.
+
+    Irql:
+
+        This routine will be called at KIRQL <= DISPATCH_LEVEL
+
+    NOTE:
+
+        Although it is not illegal to have both a PCLASS_INTERPRET_SENSE_INFO() and
+        a PCLASS_ERROR() routine, the PCLASS_ERROR() function will only be called
+        if the class driver (as part of its PCLASS_INTERPRET_SENSE_INFO() routine)
+        calls into the legacy ClassInterpretSenseInfo().
+
+    Arguments:
+
+
+    --*/
+    _IRQL_requires_max_(DISPATCH_LEVEL)
+    _At_(RequestHistory->UsedHistoryCount,
+         _Pre_equal_to_(RequestHistory->TotalHistoryCount)
+         _Out_range_(0, RequestHistory->TotalHistoryCount - 1))
+    typedef
+    VOID
+    (*PCLASS_COMPRESS_RETRY_HISTORY_DATA) (
+        _In_     PDEVICE_OBJECT DeviceObject,
+        _Inout_  PSRB_HISTORY   RequestHistory
+        );
+
+
+
+
+
+
+
 ./km/crt/conio.h:30:__DEFINE_CPP_OVERLOAD_STANDARD_FUNC_0_0_CGETS(char *, _CRTIMP, _cgets, _Pre_notnull_ _Post_z_, char, _Buffer)
 ./km/crt/conio.h:90:__DEFINE_CPP_OVERLOAD_STANDARD_FUNC_0_0_CGETS(wchar_t *, _CRTIMP, _cgetws, _Pre_notnull_ _Post_z_, wchar_t, _Buffer)
 ./km/crt/crtdbg.h:703:        _Pre_maybenull_ _Post_invalid_ void * _Memory,
