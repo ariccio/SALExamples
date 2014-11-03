@@ -1139,7 +1139,24 @@ C:\Program Files (x86)\Windows Kits\8.1\Include>%grep% -I -r -n _At_ .
 ./um/LMDFS.h:797:_When_(Level == 150, _At_(Buffer, _Outptr_result_bytebuffer_(sizeof(DFS_INFO_150))))
 ./um/LMDFS.h:816:_When_(Level == 101, _At_(Buffer, _In_reads_bytes_(sizeof(DFS_INFO_101))))
 ./um/LMDFS.h:852:_When_(Level == 101, _At_(Buffer, _In_reads_bytes_(sizeof(DFS_INFO_101))))
-./um/Midles.h:129:    _In_opt_ _At_(*pBuffer, _Pre_readable_byte_size_(BufferSize)) char **pBuffer,
+
+
+./um/Midles.h:129:
+
+    RPC_STATUS  RPC_ENTRY
+    MesBufferHandleReset(
+        _In_ handle_t Handle,
+        _In_ unsigned long HandleStyle,
+        _In_ MIDL_ES_CODE Operation,
+        _In_opt_ _At_(*pBuffer, _Pre_readable_byte_size_(BufferSize)) char **pBuffer,
+        _In_ unsigned long BufferSize,
+        _Out_opt_ unsigned long *pEncodedSize
+        );
+
+
+
+
+
 ./um/ncryptprotect.h:354:       _At_((LPWSTR*)ppvInfo, _Out_))
 ./um/netcfgx.h:228:            _At_(*rgelt, _Out_writes_to_(celt, *pceltFetched))  INetCfgBindingInterface **rgelt,
 ./um/netcfgx.h:268:            _At_(*rgelt, _Out_writes_to_(celt, *pceltFetched))  INetCfgBindingInterface **rgelt,
@@ -1882,6 +1899,26 @@ C:\Program Files (x86)\Windows Kits\8.1\Include>%grep% -I -r -n _Post_ .
 ./shared/specstrings.h:392:#define _Frees_ptr_opt_           _SAL_L_Source_(_Frees_ptr_opt_, (),  _Pre_maybenull_ _Post_ptr_invalid_ __drv_freesMem(Mem))
 ./shared/specstrings.h:404:       _At_((after), _Post_maybenull_ _Post_writable_byte_size_(size) \
 ./shared/specstrings.h:406:       _At_((before), _Post_ptr_invalid_ __drv_freesMem(Mem))
+
+    // Functions which behave like realloc in that they may succeed by
+    // freeing one block of memory and allocating another, or may fail, in
+    // which case the original block is still valid, or may be used to
+    // free memory directly by requesting that the new block is of size
+    // zero.  We do not say here whether the before may be null, we leave
+    // that to the annotation on the argument
+    #define _Reallocation_function_(after, before, size) \
+           _Success_((after) != NULL || (size) == 0) \
+           _At_((after), _Post_maybenull_ _Post_writable_byte_size_(size) \
+                _When_(((before) == NULL || (size) > 0), _Must_inspect_result_)) \
+           _At_((before), _Post_ptr_invalid_ __drv_freesMem(Mem))
+
+    #define _Ret_reallocated_bytes_(before, size) \
+           _Reallocation_function_(_Curr_, before, size)
+
+
+
+
+
 ./shared/specstrings.h:426:               _When_(return != FLT_PREOP_SUCCESS_WITH_CALLBACK && return != FLT_PREOP_SYNCHRONIZE, _Post_null_)))
 ./shared/specstrings.h:433:     _At_(*_Curr_, _Pre_null_ _On_failure_(_Post_null_)))
 ./shared/specstrings.h:458:                                    _Post_writable_size_(size) \
@@ -2036,8 +2073,351 @@ C:\Program Files (x86)\Windows Kits\8.1\Include>%grep% -I -r -n _Post_ .
 ./um/gdiplusheaders.h:700:    _Post_equal_to_(status)
 ./um/heapapi.h:94:_Post_writable_byte_size_(dwBytes)
 ./um/heapapi.h:107:_Post_writable_byte_size_(dwBytes)
+
 ./um/httpserv.h:1215:    _Ret_opt_ _Post_writable_byte_size_(cbAllocation)
+
+    // 
+    // Connection descriptor
+    // 
+    class __declspec(uuid("d9a5de00-3346-4599-9826-fe88565e1226"))
+    IHttpConnection
+    {
+    public:
+        virtual
+        BOOL
+        IsConnected(
+            VOID
+        ) const = 0;
+
+        virtual
+        
+        _Ret_opt_ _Post_writable_byte_size_(cbAllocation)
+        VOID *
+        AllocateMemory(
+            DWORD               cbAllocation
+        ) = 0;
+
+        virtual
+        IHttpConnectionModuleContextContainer *
+        GetModuleContextContainer(
+            VOID
+        ) = 0;
+    };
+
+
+
+
+
+
+
+
+
+
+
+
 ./um/httpserv.h:1385:    _Ret_opt_ _Post_writable_byte_size_(cbAllocation)
+
+//this whole class was well-SAL-annotated!
+
+    // 
+    // Context object representing the processing of an HTTP request
+    // 
+    class __declspec(uuid("424c1b8c-a1ba-44d7-ac98-9f8f457701a5"))
+    IHttpContext
+    {
+     public:
+        virtual
+        IHttpSite *
+        GetSite(
+            VOID
+        ) = 0;
+
+        virtual
+        IHttpApplication *
+        GetApplication(
+            VOID
+        ) = 0;
+
+        virtual
+        IHttpConnection *
+        GetConnection(
+            VOID
+        ) = 0;
+
+        virtual
+        IHttpRequest *
+        GetRequest(
+            VOID
+        ) = 0;
+
+        virtual
+        IHttpResponse *
+        GetResponse(
+            VOID
+        ) = 0;
+
+        virtual
+        BOOL
+        GetResponseHeadersSent(
+            VOID
+        ) const = 0;
+
+        virtual
+        IHttpUser *
+        GetUser(
+            VOID
+        ) const = 0;
+
+        virtual
+        IHttpModuleContextContainer *
+        GetModuleContextContainer(
+            VOID
+        ) = 0;
+
+        virtual
+        VOID
+        IndicateCompletion(
+            _In_ REQUEST_NOTIFICATION_STATUS     notificationStatus
+        ) = 0;
+
+        virtual
+        HRESULT
+        PostCompletion(
+            _In_ DWORD                cbBytes
+        ) = 0;
+
+        virtual
+        VOID
+        DisableNotifications(
+            _In_ DWORD                dwNotifications,
+            _In_ DWORD                dwPostNotifications
+        ) = 0;
+
+        virtual
+        BOOL
+        GetNextNotification(
+            _In_ REQUEST_NOTIFICATION_STATUS    status,
+            _Out_ DWORD *                       pdwNotification,
+            _Out_ BOOL *                        pfIsPostNotification,
+            _Outptr_ CHttpModule **          ppModuleInfo,
+            _Outptr_ IHttpEventProvider **   ppRequestOutput
+        ) = 0;
+
+        virtual
+        BOOL
+        GetIsLastNotification(
+            _In_ REQUEST_NOTIFICATION_STATUS   status
+        ) = 0;
+
+        virtual
+        HRESULT
+        ExecuteRequest(
+            _In_ BOOL                   fAsync,
+            _In_ IHttpContext *         pHttpContext,
+            _In_ DWORD                  dwExecuteFlags,
+            _In_ IHttpUser *            pHttpUser,
+            _Out_ BOOL *                pfCompletionExpected = NULL
+        ) = 0;
+
+        virtual
+        DWORD
+        GetExecuteFlags(
+            VOID
+        ) const = 0;
+
+        virtual
+        HRESULT
+        GetServerVariable(
+            _In_ PCSTR          pszVariableName,
+            _Outptr_result_buffer_(*pcchValueLength)
+            PCWSTR *            ppszValue,
+            _Out_ DWORD *       pcchValueLength
+        ) = 0;
+
+        virtual
+        HRESULT
+        GetServerVariable(
+            _In_ PCSTR          pszVariableName,
+            _Outptr_result_bytebuffer_(*pcchValueLength)
+            PCSTR *             ppszValue,
+            _Out_ DWORD *       pcchValueLength
+        ) = 0;
+
+        virtual
+        HRESULT
+        SetServerVariable(
+            PCSTR               pszVariableName,
+            PCWSTR              pszVariableValue
+        ) = 0;
+
+        virtual
+        
+        _Ret_opt_ _Post_writable_byte_size_(cbAllocation)
+        VOID *
+        AllocateRequestMemory(
+            _In_ DWORD          cbAllocation
+        ) = 0;
+
+        virtual
+        IHttpUrlInfo *
+        GetUrlInfo(
+            VOID
+        ) = 0;
+
+        virtual
+        IMetadataInfo *
+        GetMetadata(
+            VOID
+        ) = 0;
+
+        virtual
+        _Ret_writes_(*pcchPhysicalPath)
+        PCWSTR
+        GetPhysicalPath(
+            _Out_ DWORD *       pcchPhysicalPath = NULL
+        ) = 0;
+
+        virtual
+        _Ret_writes_(*pcchScriptName)
+        PCWSTR
+        GetScriptName(
+            _Out_ DWORD *       pcchScriptName = NULL
+        ) const = 0;
+
+        virtual
+        _Ret_writes_(*pcchScriptTranslated)
+        PCWSTR
+        GetScriptTranslated(
+            _Out_ DWORD *       pcchScriptTranslated = NULL
+        ) = 0;
+
+        virtual
+        IScriptMapInfo *
+        GetScriptMap(
+            VOID
+        ) const = 0;
+
+        virtual
+        VOID
+        SetRequestHandled(
+            VOID
+        ) = 0;
+
+        virtual
+        IHttpFileInfo *
+        GetFileInfo(
+            VOID
+        ) const = 0;
+
+        virtual
+        HRESULT
+        MapPath(
+            _In_ PCWSTR         pszUrl,
+            _Inout_updates_(*pcbPhysicalPath)
+            PWSTR               pszPhysicalPath,
+            _Inout_ DWORD *     pcbPhysicalPath
+        ) = 0;
+
+        virtual
+        HRESULT
+        NotifyCustomNotification(
+            _In_ ICustomNotificationProvider *  pCustomOutput,
+            _Out_ BOOL *                        pfCompletionExpected
+        ) = 0;
+
+        virtual
+        IHttpContext *
+        GetParentContext(
+            VOID
+        ) const = 0;
+
+        virtual
+        IHttpContext *
+        GetRootContext(
+            VOID
+        ) const = 0;
+
+        virtual
+        HRESULT
+        CloneContext(
+            _In_ DWORD          dwCloneFlags,
+            _Outptr_
+            IHttpContext **     ppHttpContext
+        ) = 0;
+
+        virtual
+        HRESULT
+        ReleaseClonedContext(
+            VOID
+        ) = 0;
+
+        virtual
+        HRESULT
+        GetCurrentExecutionStats(
+            _Out_ DWORD *   pdwNotification,
+            _Out_ DWORD *   pdwNotificationStartTickCount = NULL,
+            _Out_ PCWSTR *  ppszModule = NULL,
+            _Out_ DWORD *   pdwModuleStartTickCount = NULL,
+            _Out_ DWORD *   pdwAsyncNotification = NULL,
+            _Out_ DWORD *   pdwAsyncNotificationStartTickCount = NULL
+        ) const = 0;
+
+        virtual
+        IHttpTraceContext *
+        GetTraceContext(
+            VOID
+        ) const = 0;
+
+        virtual
+        HRESULT
+        GetServerVarChanges(
+            _In_    DWORD       dwOldChangeNumber,
+            _Out_   DWORD *     pdwNewChangeNumber,
+            _Inout_ DWORD *     pdwVariableSnapshot,
+            _Inout_ _At_(*ppVariableNameSnapshot, _Pre_readable_size_(*pdwVariableSnapshot) _Post_readable_size_(*pdwVariableSnapshot))
+                    PCSTR **    ppVariableNameSnapshot,
+            _Inout_ _At_(*ppVariableValueSnapshot, _Pre_readable_size_(*pdwVariableSnapshot) _Post_readable_size_(*pdwVariableSnapshot))
+                    PCWSTR **   ppVariableValueSnapshot,
+            _Out_   DWORD *     pdwDiffedVariables,
+            _Out_   DWORD **    ppDiffedVariableIndices
+        ) = 0;
+
+        virtual
+        HRESULT
+        CancelIo(
+            VOID
+        ) = 0;
+
+        virtual
+        HRESULT
+        MapHandler(
+            _In_ DWORD          dwSiteId,
+            _In_ PCWSTR         pszSiteName,
+            _In_ PCWSTR         pszUrl,
+            _In_ PCSTR          pszVerb,
+            _Outptr_
+            IScriptMapInfo **   ppScriptMap,
+            _In_ BOOL           fIgnoreWildcardMappings = FALSE
+        ) = 0;
+
+        __declspec(deprecated("This method is deprecated. Use the HttpGetExtendedInterface helper function instead."))
+        virtual
+        HRESULT
+        GetExtendedInterface(
+            _In_ HTTP_CONTEXT_INTERFACE_VERSION version,
+            _Outptr_ PVOID * ppInterface
+        ) = 0;
+    };
+
+
+
+
+
+
+
+
+
+
 ./um/httpserv.h:1507:        _Inout_ _At_(*ppVariableNameSnapshot, _Pre_readable_size_(*pdwVariableSnapshot) _Post_readable_size_(*pdwVariableSnapshot))
 ./um/httpserv.h:1509:        _Inout_ _At_(*ppVariableValueSnapshot, _Pre_readable_size_(*pdwVariableSnapshot) _Post_readable_size_(*pdwVariableSnapshot))
 ./um/httpserv.h:2497:        _Inout_ _At_(*ppbBuffer, _Pre_readable_size_(cbBytesToCopy) _Post_readable_size_(cbBytesToCopy) _Post_writable_size_(cbNewBuffer))
@@ -8905,7 +9285,7 @@ C:\Program Files (x86)\Windows Kits\8.1\Include>%grep% -I -r -n _Inout_updates_ 
 ./um/Iads.h:10889:            _COM_Outptr_  void **ppvObject);
 ./um/Iads.h:11308:            _COM_Outptr_  void **ppvObject);
 ./um/Iads.h:11604:            _COM_Outptr_  void **ppvObject);
-./um/Iads.h:11901:            _COM_Outptr_  void **ppvObject);
+./um/Iads.h:119               _COM_Outptr_  void **ppvObject);
 ./um/Iads.h:12171:            _COM_Outptr_  void **ppvObject);
 ./um/Iads.h:12422:            _COM_Outptr_  void **ppvObject);
 ./um/Iads.h:12576:            _COM_Outptr_  void **ppvObject);
@@ -24575,7 +24955,32 @@ C:\Program Files (x86)\Windows Kits\8.1\Include>%grep% -I -r -n _Pre_ .
 ./um/httpserv.h:1509:        _Inout_ _At_(*ppVariableValueSnapshot, _Pre_readable_size_(*pdwVariableSnapshot) _Post_readable_size_(*pdwVariableSnapshot))
 ./um/httpserv.h:2497:        _Inout_ _At_(*ppbBuffer, _Pre_readable_size_(cbBytesToCopy) _Post_readable_size_(cbBytesToCopy) _Post_writable_size_(cbNewBuffer))
 ./um/memoryapi.h:111:    _Pre_notnull_ _When_(dwFreeType == MEM_DECOMMIT, _Post_invalid_) _When_(dwFreeType == MEM_RELEASE, _Post_ptr_invalid_) LPVOID lpAddress,
-./um/memoryapi.h:183:    _Pre_notnull_ _When_(dwFreeType == MEM_DECOMMIT, _Post_invalid_) _When_(dwFreeType == MEM_RELEASE, _Post_ptr_invalid_) LPVOID lpAddress,
+.
+
+    _When_(((dwFreeType&(MEM_RELEASE|MEM_DECOMMIT)))==(MEM_RELEASE|MEM_DECOMMIT),
+        __drv_reportError("Passing both MEM_RELEASE and MEM_DECOMMIT to VirtualFree is not allowed. This results in the failure of this call"))
+
+    _When_(dwFreeType==0,
+        __drv_reportError("Passing zero as the dwFreeType parameter to VirtualFree is not allowed. This results in the failure of this call"))
+
+    _When_(((dwFreeType&MEM_RELEASE))!=0 && dwSize!=0,
+        __drv_reportError("Passing MEM_RELEASE and a non-zero dwSize parameter to VirtualFree is not allowed. This results in the failure of this call"))
+    _Success_(return != FALSE)
+    WINBASEAPI
+    BOOL
+    WINAPI
+    VirtualFree(
+        _Pre_notnull_ _When_(dwFreeType == MEM_DECOMMIT, _Post_invalid_) _When_(dwFreeType == MEM_RELEASE, _Post_ptr_invalid_) LPVOID lpAddress,
+        _In_ SIZE_T dwSize,
+        _In_ DWORD dwFreeType
+        );
+
+
+
+
+
+
+/um/memoryapi.h:183:    _Pre_notnull_ _When_(dwFreeType == MEM_DECOMMIT, _Post_invalid_) _When_(dwFreeType == MEM_RELEASE, _Post_ptr_invalid_) LPVOID lpAddress,
 ./um/Midles.h:129:    _In_opt_ _At_(*pBuffer, _Pre_readable_byte_size_(BufferSize)) char **pBuffer,
 ./um/ncrypt.h:399:    _Pre_notnull_ PVOID   pvInput);
 ./um/ntgdi.h:40:#define __out_post_bcount_opt(size) _Pre_maybenull_ _Post_valid_  _Post_writable_byte_size_(size)
@@ -42709,3 +43114,1660 @@ C:\Program Files (x86)\Windows Kits\8.1\Include>%grep% -I -r -n _Frees_ptr_opt_ 
 ./wdf/umdf/2.0/wudfwdm.h:1030:    _Inout_ _At_(UnicodeString->Buffer, _Frees_ptr_opt_)
 
 C:\Program Files (x86)\Windows Kits\8.1\Include>
+
+
+C:\Program Files (x86)\Windows Kits\8.1\Include>%grep% -I -r _In_function_class_ .
+./km/wdm.h:        _When_((((_In_function_class_(DRIVER_INITIALIZE))
+./km/wdm.h:               ||(_In_function_class_(DRIVER_DISPATCH)))),
+./km/wdmsec.h:      _When_((((_In_function_class_(DRIVER_INITIALIZE)) ||(_In_function_class_(DRIVER_DISPATCH)))),
+./shared/driverspecs.h:    // This can be tested by the condition function _In_function_class_()
+./shared/sal.h:__PRIMOP(int, _In_function_class_(__In_impl_ char*);)
+./shared/sal.h:#define _In_function_class_(x)  _In_function_class_(#x)
+./shared/sal.h:#define _Called_from_function_class_(x) _In_function_class_(x)
+
+C:\Program Files (x86)\Windows Kits\8.1\Include>
+
+
+
+
+C:\Program Files (x86)\Windows Kits\8.1\Include>%grep% -I -r _Function_class_ .
+./km/dispmprt.h:#define _Function_class_DXGK_(param)    _Function_class_(param)
+./km/dispmprt.h:#define _Function_class_DXGK_(param)
+./km/dispmprt.h:_Function_class_DXGK_(DXGKDDI_PROTECTED_CALLBACK)
+    //
+    // DxgkCbExcludeAdapterAccess callback.
+    //
+
+    typedef
+    _Function_class_DXGK_(DXGKDDI_PROTECTED_CALLBACK)
+    _IRQL_requires_DXGK_(PASSIVE_LEVEL)
+    VOID
+    (*DXGKDDI_PROTECTED_CALLBACK)(
+        _In_ CONST PVOID MiniportDeviceContext,
+        _In_ PVOID ProtectedCallbackContext,
+        _In_ NTSTATUS ProtectionStatus
+        );
+
+
+
+
+./km/dispmprt.h:_Function_class_DXGK_(DXGKDDI_I2C_TRANSMIT_DATA_TO_DISPLAY)
+./km/dispmprt.h:_Function_class_DXGK_(DXGKDDI_I2C_RECEIVE_DATA_FROM_DISPLAY)
+./km/dispmprt.h:_Function_class_DXGK_(DXGKDDI_OPM_GET_CERTIFICATE_SIZE)
+./km/dispmprt.h:_Function_class_DXGK_(DXGKDDI_OPM_GET_CERTIFICATE)
+./km/dispmprt.h:_Function_class_DXGK_(DXGKDDI_OPM_CREATE_PROTECTED_OUTPUT)
+./km/dispmprt.h:_Function_class_DXGK_(DXGKDDI_OPM_GET_RANDOM_NUMBER)
+./km/dispmprt.h:_Function_class_DXGK_(DXGKDDI_OPM_SET_SIGNING_KEY_AND_SEQUENCE_NUMBERS)
+./km/dispmprt.h:_Function_class_DXGK_(DXGKDDI_OPM_GET_INFORMATION)
+./km/dispmprt.h:_Function_class_DXGK_(DXGKDDI_OPM_GET_COPP_COMPATIBLE_INFORMATION)
+./km/dispmprt.h:_Function_class_DXGK_(DXGKDDI_OPM_CONFIGURE_PROTECTED_OUTPUT)
+./km/dispmprt.h:_Function_class_DXGK_(DXGKDDI_OPM_DESTROY_PROTECTED_OUTPUT)
+./km/dispmprt.h:_Function_class_DXGK_(DXGK_BRIGHTNESS_GET_POSSIBLE)
+./km/dispmprt.h:_Function_class_DXGK_(DXGK_BRIGHTNESS_SET)
+./km/dispmprt.h:_Function_class_DXGK_(DXGK_BRIGHTNESS_GET)
+./km/dispmprt.h:_Function_class_DXGK_(DXGK_BRIGHTNESS_GET_CAPS)
+./km/dispmprt.h:_Function_class_DXGK_(DXGK_BRIGHTNESS_SET_STATE)
+./km/dispmprt.h:_Function_class_DXGK_(DXGK_BRIGHTNESS_SET_BACKLIGHT_OPTIMIZATION)
+./km/dispmprt.h:_Function_class_DXGK_(DXGK_BRIGHTNESS_GET_BACKLIGHT_REDUCTION)
+./km/dispmprt.h:_Function_class_DXGK_(DXGKDDI_MIRACAST_QUERY_CAPS)
+./km/dispmprt.h:_Function_class_DXGK_(DXGKCB_MIRACAST_SEND_MESSAGE_CALLBACK)
+./km/dispmprt.h:_Function_class_DXGK_(DXGKCB_MIRACAST_SEND_MESSAGE)
+./km/dispmprt.h:_Function_class_DXGK_(DXGKCB_MIRACAST_REPORT_CHUNK_INFO)
+./km/dispmprt.h:_Function_class_DXGK_(DXGKDDI_MIRACAST_CREATE_CONTEXT)
+./km/dispmprt.h:_Function_class_DXGK_(DXGKDDI_MIRACAST_DESTROY_CONTEXT)
+./km/dispmprt.h:_Function_class_DXGK_(DXGKDDI_MIRACAST_HANDLE_IO_CONTROL)
+./km/dispmprt.h:_Function_class_DXGK_(DXGKCB_AGP_ALLOCATE_POOL)
+./km/dispmprt.h:_Function_class_DXGK_(DXGKCB_AGP_FREE_POOL)
+./km/dispmprt.h:_Function_class_DXGK_(DXGKCB_AGP_SET_COMMAND)
+./km/dispmprt.h:_Function_class_DXGK_(DXGKCB_EVAL_ACPI_METHOD)
+./km/dispmprt.h:_Function_class_DXGK_(DXGKCB_GET_DEVICE_INFORMATION)
+./km/dispmprt.h:_Function_class_DXGK_(DXGKCB_INDICATE_CHILD_STATUS)
+./km/dispmprt.h:_Function_class_DXGK_(DXGKCB_MAP_MEMORY)
+./km/dispmprt.h:_Function_class_DXGK_(DXGKCB_QUERY_SERVICES)
+./km/dispmprt.h:_Function_class_DXGK_(DXGKCB_QUEUE_DPC)
+./km/dispmprt.h:_Function_class_DXGK_(DXGKCB_READ_DEVICE_SPACE)
+./km/dispmprt.h:_Function_class_DXGK_(DXGKCB_SYNCHRONIZE_EXECUTION)
+./km/dispmprt.h:_Function_class_DXGK_(DXGKCB_UNMAP_MEMORY)
+./km/dispmprt.h:_Function_class_DXGK_(DXGKCB_WRITE_DEVICE_SPACE)
+./km/dispmprt.h:_Function_class_DXGK_(DXGKCB_IS_DEVICE_PRESENT)
+./km/dispmprt.h:_Function_class_DXGK_(DXGKCB_LOG_ETW_EVENT)
+./km/dispmprt.h:_Function_class_DXGK_(DXGKCB_EXCLUDE_ADAPTER_ACCESS)
+./km/dispmprt.h:_Function_class_DXGK_(DXGKCB_ACQUIRE_POST_DISPLAY_OWNERSHIP)
+./km/dispmprt.h:_Function_class_DXGK_(DXGKDDI_ADD_DEVICE)
+./km/dispmprt.h:_Function_class_DXGK_(DXGKDDI_START_DEVICE)
+./km/dispmprt.h:_Function_class_DXGK_(DXGKDDI_STOP_DEVICE)
+./km/dispmprt.h:_Function_class_DXGK_(DXGKDDI_REMOVE_DEVICE)
+./km/dispmprt.h:_Function_class_DXGK_(DXGKDDI_DISPATCH_IO_REQUEST)
+./km/dispmprt.h:_Function_class_DXGK_(DXGKDDI_QUERY_CHILD_RELATIONS)
+./km/dispmprt.h:_Function_class_DXGK_(DXGKDDI_QUERY_CHILD_STATUS)
+./km/dispmprt.h:_Function_class_DXGK_(DXGKDDI_INTERRUPT_ROUTINE)
+./km/dispmprt.h:_Function_class_DXGK_(DXGKDDI_DPC_ROUTINE)
+./km/dispmprt.h:_Function_class_DXGK_(DXGKDDI_QUERY_DEVICE_DESCRIPTOR)
+./km/dispmprt.h:_Function_class_DXGK_(DXGKDDI_SET_POWER_STATE)
+./km/dispmprt.h:_Function_class_DXGK_(DXGKDDI_NOTIFY_ACPI_EVENT)
+./km/dispmprt.h:_Function_class_DXGK_(DXGKDDI_RESET_DEVICE)
+./km/dispmprt.h:_Function_class_DXGK_(DXGKDDI_UNLOAD)
+./km/dispmprt.h:_Function_class_DXGK_(DXGKDDI_QUERY_INTERFACE)
+./km/dispmprt.h:_Function_class_DXGK_(DXGKDDI_CONTROL_ETW_LOGGING)
+./km/dispmprt.h:_Function_class_DXGK_(DXGKDDI_LINK_DEVICE)
+./km/dispmprt.h:_Function_class_DXGK_(DXGKDDI_STOP_DEVICE_AND_RELEASE_POST_DISPLAY_OWNERSHIP)
+./km/dispmprt.h:_Function_class_DXGK_(DXGKDDI_SYSTEM_DISPLAY_ENABLE)
+./km/dispmprt.h:_Function_class_DXGK_(DXGKDDI_SYSTEM_DISPLAY_WRITE)
+./km/dispmprt.h:_Function_class_DXGK_(DXGKDDI_GET_CHILD_CONTAINER_ID)
+./km/dispmprt.h:_Function_class_DXGK_(DXGKDDI_NOTIFY_SURPRISE_REMOVAL)
+./km/hubbusif.h:_Function_class_(USB_BUSIFFN_CREATE_USB_DEVICE)
+./km/hubbusif.h:_Function_class_(USB_BUSIFFN_CREATE_USB_DEVICE_EX)
+./km/hubbusif.h:_Function_class_(USB_BUSIFFN_CREATE_USB_DEVICE_V7)
+./km/hubbusif.h:_Function_class_(USB_BUSIFFN_INITIALIZE_USB_DEVICE)
+./km/hubbusif.h:_Function_class_(USB_BUSIFFN_INITIALIZE_USB_DEVICE_EX)
+./km/hubbusif.h:_Function_class_(USB_BUSIFFN_REMOVE_USB_DEVICE)
+./km/hubbusif.h:_Function_class_(USB_BUSIFFN_GET_USB_DESCRIPTORS)
+./km/hubbusif.h:_Function_class_(USB_BUSIFFN_RESTORE_DEVICE)
+./km/hubbusif.h:_Function_class_(USB_BUSIFFN_GET_POTRTHACK_FLAGS)
+./km/hubbusif.h:_Function_class_(USB_BUSIFFN_GET_DEVICE_INFORMATION)
+./km/hubbusif.h:_Function_class_(USB_BUSIFFN_GET_CONTROLLER_INFORMATION)
+./km/hubbusif.h:_Function_class_(USB_BUSIFFN_CONTROLLER_SELECTIVE_SUSPEND)
+./km/hubbusif.h:_Function_class_(USB_BUSIFFN_GET_EXTENDED_HUB_INFO)
+./km/hubbusif.h:_Function_class_(USB_BUSIFFN_GET_ROOTHUB_SYM_NAME)
+./km/hubbusif.h:_Function_class_(USB_BUSIFFN_GET_DEVICE_BUSCONTEXT)
+./km/hubbusif.h:_Function_class_(USB_BUSIFFN_INITIALIZE_20HUB)
+./km/hubbusif.h:_Function_class_(USB_BUSIFFN_IS_ROOT)
+./km/hubbusif.h:_Function_class_(USB_BUSIFFN_ACQUIRE_SEMAPHORE)
+./km/hubbusif.h:_Function_class_(USB_BUSIFFN_RELEASE_SEMAPHORE)
+./km/hubbusif.h:_Function_class_(RH_INIT_CALLBACK)
+./km/hubbusif.h:_Function_class_(USB_BUSIFFN_ROOTHUB_INIT_NOTIFY)
+./km/hubbusif.h:_Function_class_(USB_BUSIFFN_FLUSH_TRANSFERS)
+./km/hubbusif.h:_Function_class_(USB_BUSIFFN_CALC_PIPE_BANDWIDTH)
+./km/hubbusif.h:_Function_class_(USB_BUSIFFN_SET_BUS_WAKE_MODE)
+./km/hubbusif.h:_Function_class_(USB_BUSIFFN_SET_DEVICE_FLAG)
+./km/hubbusif.h:_Function_class_(USB_BUSIFFN_SET_DEVHANDLE_DATA)
+./km/hubbusif.h:_Function_class_(USB_BUSIFFN_TEST_POINT)
+./km/hubbusif.h:_Function_class_(USB_BUSIFFN_GET_DEVICE_PERFORMANCE_INFO)
+./km/hubbusif.h:_Function_class_(USB_BUSIFFN_WAIT_ASYNC_POWERUP)
+./km/hubbusif.h:_Function_class_(USB_BUSIFFN_GET_DEVICE_ADDRESS)
+./km/hubbusif.h:_Function_class_(USB_BUSIFFN_DEREF_DEVICE_HANDLE)
+./km/hubbusif.h:_Function_class_(USB_BUSIFFN_REF_DEVICE_HANDLE)
+./km/hubbusif.h:_Function_class_(USB_BUSIFFN_SET_DEVICE_HANDLE_IDLE_READY_STATE)
+./km/hubbusif.h:_Function_class_(USB_BUSIFFN_GET_CONTAINER_ID_FOR_PORT)
+./km/hubbusif.h:_Function_class_(USB_BUSIFFN_SET_CONTAINER_ID_FOR_PORT)
+./km/hubbusif.h:_Function_class_(USB_BUSIFFN_ABORT_ALL_DEVICE_PIPES)
+./km/hubbusif.h:_Function_class_(USB_BUSIFFN_GET_DEBUG_PORT_NUMBER)
+./km/hubbusif.h:_Function_class_(USB_BUSIFFN_SET_MSOS20_SUPPORT)
+./km/hubbusif.h:_Function_class_(USB_BUSIFFN_SET_CLEAR_ROOT_PORT_RESUME_TIME)
+./km/hubbusif.h:_Function_class_(USB_BUSIFFN_SET_DEVICE_ERRATA_FLAG)
+./km/ip6firewall.h:_Function_class_(IPv6FirewallHookProcType)
+./km/ipfirewall.h:_Function_class_(IPPacketFirewallPtrType)
+./km/mf.h:_Function_class_(MF_ENUMERATE_CHILD)
+./km/ndis.h:_Function_class_(NDIS_TIMER_FUNCTION)
+./km/ndis.h:_Function_class_(SET_OPTIONS)
+./km/ndis.h:_Function_class_(PROTOCOL_CO_OID_REQUEST)
+./km/ndis.h:_Function_class_(PROTOCOL_CO_OID_REQUEST_COMPLETE)
+./km/ndis.h:_Function_class_(PROTOCOL_CO_CREATE_VC)
+./km/ndis.h:_Function_class_(PROTOCOL_CO_DELETE_VC)
+./km/ndis.h:_Function_class_(PROTOCOL_CO_AF_REGISTER_NOTIFY)
+./km/ndis.h:_Function_class_(PROTOCOL_CO_RECEIVE_NET_BUFFER_LISTS)
+./km/ndis.h:_Function_class_(PROTOCOL_CO_SEND_NET_BUFFER_LISTS_COMPLETE)
+./km/ndis.h:_Function_class_(PROTOCOL_CO_STATUS_EX)
+./km/ndis.h:_Function_class_(PROTOCOL_CL_NOTIFY_CLOSE_AF)
+./km/ndis.h:_Function_class_(PROTOCOL_CL_OPEN_AF_COMPLETE_EX)
+./km/ndis.h:_Function_class_(PROTOCOL_CM_NOTIFY_CLOSE_AF_COMPLETE)
+./km/ndis.h:_Function_class_(PROTOCOL_OID_REQUEST_COMPLETE)
+./km/ndis.h:_Function_class_(PROTOCOL_RECEIVE_NET_BUFFER_LISTS)
+./km/ndis.h:_Function_class_(PROTOCOL_SEND_NET_BUFFER_LISTS_COMPLETE)
+./km/ndis.h:_Function_class_(PROTOCOL_DIRECT_OID_REQUEST_COMPLETE)
+./km/ndis.h:_Function_class_(PROTOCOL_BIND_ADAPTER_EX)
+./km/ndis.h:_Function_class_(PROTOCOL_UNBIND_ADAPTER_EX)
+./km/ndis.h:_Function_class_(PROTOCOL_OPEN_ADAPTER_COMPLETE_EX)
+./km/ndis.h:_Function_class_(PROTOCOL_CLOSE_ADAPTER_COMPLETE_EX)
+./km/ndis.h:_Function_class_(PROTOCOL_STATUS_EX)
+./km/ndis.h:_Function_class_(PROTOCOL_NET_PNP_EVENT)
+./km/ndis.h:_Function_class_(PROTOCOL_UNINSTALL)
+./km/ndis.h:_Function_class_(MINIPORT_CO_CREATE_VC)
+./km/ndis.h:_Function_class_(MINIPORT_CO_DELETE_VC)
+./km/ndis.h:_Function_class_(MINIPORT_CO_ACTIVATE_VC)
+./km/ndis.h:_Function_class_(MINIPORT_CO_DEACTIVATE_VC)
+./km/ndis.h:_Function_class_(MINIPORT_CO_SEND_NET_BUFFER_LISTS)
+./km/ndis.h:_Function_class_(MINIPORT_CO_OID_REQUEST)
+./km/ndis.h:_Function_class_(MINIPORT_ISR)
+./km/ndis.h:_Function_class_(MINIPORT_INTERRUPT_DPC)
+./km/ndis.h:_Function_class_(MINIPORT_DISABLE_INTERRUPT)
+./km/ndis.h:_Function_class_(MINIPORT_ENABLE_INTERRUPT)
+./km/ndis.h:_Function_class_(MINIPORT_MESSAGE_INTERRUPT)
+./km/ndis.h:_Function_class_(MINIPORT_MESSAGE_INTERRUPT_DPC)
+./km/ndis.h:_Function_class_(MINIPORT_DISABLE_MESSAGE_INTERRUPT)
+./km/ndis.h:_Function_class_(MINIPORT_ENABLE_MESSAGE_INTERRUPT)
+./km/ndis.h:_Function_class_(MINIPORT_SYNCHRONIZE_INTERRUPT)
+./km/ndis.h:_Function_class_(MINIPORT_ADD_DEVICE)
+./km/ndis.h:_Function_class_(MINIPORT_REMOVE_DEVICE)
+./km/ndis.h:_Function_class_(MINIPORT_PROCESS_SG_LIST)
+./km/ndis.h:_Function_class_(MINIPORT_ALLOCATE_SHARED_MEM_COMPLETE)
+./km/ndis.h:_Function_class_(MINIPORT_INITIALIZE)
+./km/ndis.h:_Function_class_(MINIPORT_HALT)
+./km/ndis.h:_Function_class_(MINIPORT_PAUSE)
+./km/ndis.h:_Function_class_(MINIPORT_RESTART)
+./km/ndis.h:_Function_class_(MINIPORT_OID_REQUEST)
+./km/ndis.h:_Function_class_(MINIPORT_UNLOAD)
+./km/ndis.h:_Function_class_(MINIPORT_SHUTDOWN)
+./km/ndis.h:_Function_class_(MINIPORT_DEVICE_PNP_EVENT_NOTIFY)
+./km/ndis.h:_Function_class_(MINIPORT_CANCEL_SEND)
+./km/ndis.h:_Function_class_(MINIPORT_CHECK_FOR_HANG)
+./km/ndis.h:_Function_class_(MINIPORT_RESET)
+./km/ndis.h:_Function_class_(MINIPORT_CANCEL_OID_REQUEST)
+./km/ndis.h:_Function_class_(MINIPORT_SEND_NET_BUFFER_LISTS)
+./km/ndis.h:_Function_class_(MINIPORT_RETURN_NET_BUFFER_LISTS)
+./km/ndis.h:_Function_class_(MINIPORT_DIRECT_OID_REQUEST)
+./km/ndis.h:_Function_class_(MINIPORT_CANCEL_DIRECT_OID_REQUEST)
+./km/ndis.h:_Function_class_(NDIS_IO_WORKITEM_FUNCTION)
+./km/ndis.h:_Function_class_(PROTOCOL_CL_OPEN_AF_COMPLETE)
+./km/ndis.h:_Function_class_(PROTOCOL_CL_CLOSE_AF_COMPLETE)
+./km/ndis.h:_Function_class_(PROTOCOL_CL_REGISTER_SAP_COMPLETE)
+./km/ndis.h:_Function_class_(PROTOCOL_CL_DEREGISTER_SAP_COMPLETE)
+./km/ndis.h:_Function_class_(PROTOCOL_CL_MAKE_CALL_COMPLETE)
+./km/ndis.h:_Function_class_(PROTOCOL_CL_CLOSE_CALL_COMPLETE)
+./km/ndis.h:_Function_class_(PROTOCOL_CL_ADD_PARTY_COMPLETE)
+./km/ndis.h:_Function_class_(PROTOCOL_CL_DROP_PARTY_COMPLETE)
+./km/ndis.h:_Function_class_(PROTOCOL_CL_INCOMING_CALL)
+./km/ndis.h:_Function_class_(PROTOCOL_CL_CALL_CONNECTED)
+./km/ndis.h:_Function_class_(PROTOCOL_CL_INCOMING_CLOSE_CALL)
+./km/ndis.h:_Function_class_(PROTOCOL_CL_INCOMING_DROP_PARTY)
+./km/ndis.h:_Function_class_(PROTOCOL_CL_MODIFY_CALL_QOS_COMPLETE)
+./km/ndis.h:_Function_class_(PROTOCOL_CL_INCOMING_CALL_QOS_CHANGE)
+./km/ndis.h:_Function_class_(PROTOCOL_CM_OPEN_AF)
+./km/ndis.h:_Function_class_(PROTOCOL_CM_CLOSE_AF)
+./km/ndis.h:_Function_class_(PROTOCOL_CM_REG_SAP)
+./km/ndis.h:_Function_class_(PROTOCOL_CM_DEREGISTER_SAP)
+./km/ndis.h:_Function_class_(PROTOCOL_CM_MAKE_CALL)
+./km/ndis.h:_Function_class_(PROTOCOL_CM_CLOSE_CALL)
+./km/ndis.h:_Function_class_(PROTOCOL_CM_MODIFY_QOS_CALL)
+./km/ndis.h:_Function_class_(PROTOCOL_CM_INCOMING_CALL_COMPLETE)
+./km/ndis.h:_Function_class_(PROTOCOL_CM_ACTIVATE_VC_COMPLETE)
+./km/ndis.h:_Function_class_(PROTOCOL_CM_DEACTIVATE_VC_COMPLETE)
+./km/ndis.h:_Function_class_(PROTOCOL_CM_ADD_PARTY)
+./km/ndis.h:_Function_class_(PROTOCOL_CM_DROP_PARTY)
+./km/ndis.h:_Function_class_(FILTER_ATTACH)
+./km/ndis.h:_Function_class_(FILTER_DETACH)
+./km/ndis.h:_Function_class_(FILTER_SET_MODULE_OPTIONS)
+./km/ndis.h:_Function_class_(FILTER_RESTART)
+./km/ndis.h:_Function_class_(FILTER_PAUSE)
+./km/ndis.h:_Function_class_(FILTER_OID_REQUEST)
+./km/ndis.h:_Function_class_(FILTER_CANCEL_OID_REQUEST)
+./km/ndis.h:_Function_class_(FILTER_SEND_NET_BUFFER_LISTS)
+./km/ndis.h:_Function_class_(FILTER_CANCEL_SEND_NET_BUFFER_LISTS)
+./km/ndis.h:_Function_class_(FILTER_RETURN_NET_BUFFER_LISTS)
+./km/ndis.h:_Function_class_(FILTER_SEND_NET_BUFFER_LISTS_COMPLETE)
+./km/ndis.h:_Function_class_(FILTER_RECEIVE_NET_BUFFER_LISTS)
+./km/ndis.h:_Function_class_(FILTER_DEVICE_PNP_EVENT_NOTIFY)
+./km/ndis.h:_Function_class_(FILTER_NET_PNP_EVENT)
+./km/ndis.h:_Function_class_(FILTER_STATUS)
+./km/ndis.h:_Function_class_(FILTER_OID_REQUEST_COMPLETE)
+./km/ndis.h:_Function_class_(FILTER_DIRECT_OID_REQUEST)
+./km/ndis.h:_Function_class_(FILTER_DIRECT_OID_REQUEST_COMPLETE)
+./km/ndis.h:_Function_class_(FILTER_CANCEL_DIRECT_OID_REQUEST)
+./km/ndis.h:_Function_class_(IF_QUERY_OBJECT)
+./km/ndis.h:_Function_class_(IF_SET_OBJECT)
+./km/ntddk.h:_Function_class_(RTL_RUN_ONCE_INIT_FN)
+./km/ntddk.h:_Function_class_(RTL_AVL_COMPARE_ROUTINE)
+./km/ntddk.h:_Function_class_(RTL_AVL_ALLOCATE_ROUTINE)
+./km/ntddk.h:_Function_class_(RTL_AVL_FREE_ROUTINE)
+./km/ntddk.h:_Function_class_(RTL_AVL_MATCH_FUNCTION)
+./km/ntddk.h:_Function_class_(RTL_GENERIC_COMPARE_ROUTINE)
+./km/ntddk.h:_Function_class_(RTL_GENERIC_ALLOCATE_ROUTINE)
+./km/ntddk.h:_Function_class_(RTL_GENERIC_FREE_ROUTINE)
+./km/ntddk.h:_Function_class_(EXPAND_STACK_CALLOUT)
+./km/ntddk.h:_Function_class_(PCI_READ_WRITE_CONFIG)
+./km/ntddk.h:_Function_class_(PCI_PIN_TO_LINE)
+./km/ntddk.h:_Function_class_(PCI_LINE_TO_PIN)
+./km/ntddk.h:_Function_class_(PCI_ROOT_BUS_CAPABILITY)
+./km/ntddk.h:_Function_class_(PCI_EXPRESS_WAKE_CONTROL)
+./km/ntddk.h:_Function_class_(PCI_PREPARE_MULTISTAGE_RESUME)
+./km/ntddpcm.h:_Function_class_(PCMCIA_MODIFY_MEMORY_WINDOW)
+./km/ntddpcm.h:_Function_class_(PCMCIA_SET_VPP)
+./km/ntddpcm.h:_Function_class_(PCMCIA_IS_WRITE_PROTECTED)
+./km/ntddpcm.h:_Function_class_(PCMCIA_READ_CONFIG)
+./km/ntddpcm.h:_Function_class_(PCMCIA_WRITE_CONFIG)
+./km/ntddsd.h:_Function_class_(SDBUS_CALLBACK_ROUTINE)
+./km/nthalext.h:_Function_class_(TIMER_INITIALIZE)
+./km/nthalext.h:_Function_class_(TIMER_QUERY_COUNTER)
+./km/nthalext.h:_Function_class_(TIMER_ACKNOWLEDGE_INTERRUPT)
+./km/nthalext.h:_Function_class_(TIMER_SET_DIVISOR)
+./km/nthalext.h:_Function_class_(TIMER_ARM_TIMER)
+./km/nthalext.h:_Function_class_(TIMER_SET_MESSAGE_INTERRUPT_ROUTING)
+./km/nthalext.h:_Function_class_(TIMER_CHANGE_LOSSLESS_RATE)
+./km/nthalext.h:_Function_class_(TIMER_SET_INTERRUPT_VECTOR)
+./km/nthalext.h:_Function_class_(TIMER_FIXED_STALL)
+./km/nthalext.h:_Function_class_(TIMER_STOP)
+./km/nthalext.h:_Function_class_(DMA_INITIALIZE_CONTROLLER)
+./km/nthalext.h:_Function_class_(DMA_VALIDATE_REQUEST_LINE_BINDING)
+./km/nthalext.h:_Function_class_(DMA_QUERY_MAX_FRAGMENTS)
+./km/nthalext.h:_Function_class_(DMA_PROGRAM_CHANNEL)
+./km/nthalext.h:_Function_class_(DMA_CONFIGURE_CHANNEL)
+./km/nthalext.h:_Function_class_(DMA_FLUSH_CHANNEL)
+./km/nthalext.h:_Function_class_(DMA_HANDLE_INTERRUPT)
+./km/nthalext.h:_Function_class_(DMA_READ_DMA_COUNTER)
+./km/nthalext.h:_Function_class_(DMA_REPORT_COMMON_BUFFER)
+./km/nthalext.h:_Function_class_(DMA_CANCEL_TRANSFER)
+./km/ntifs.h:_Function_class_(RTL_HEAP_COMMIT_ROUTINE)
+./km/ntifs.h:_Function_class_(RTL_ALLOCATE_STRING_ROUTINE)
+./km/ntifs.h:_Function_class_(RTL_REALLOCATE_STRING_ROUTINE)
+./km/ntifs.h:_Function_class_(RTL_FREE_STRING_ROUTINE)
+./km/ntifs.h:_Function_class_(POWER_SETTING_CALLBACK)
+./km/ntifs.h:_Function_class_(FAST_IO_READ)
+./km/ntifs.h:_Function_class_(FAST_IO_WRITE)
+./km/ntifs.h:_Function_class_(FAST_IO_MDL_READ)
+./km/ntifs.h:_Function_class_(FAST_IO_MDL_READ_COMPLETE)
+./km/ntifs.h:_Function_class_(FAST_IO_PREPARE_MDL_WRITE)
+./km/ntifs.h:_Function_class_(FAST_IO_MDL_WRITE_COMPLETE)
+./km/ntpoapi.h:_Function_class_(ENTER_STATE_SYSTEM_HANDLER)
+./km/ntpoapi.h:_Function_class_(ENTER_STATE_HANDLER)
+./km/ntpoapi.h:_Function_class_(ENTER_STATE_NOTIFY_HANDLER)
+./km/ntpoapi.h:_Function_class_(PROCESSOR_IDLE_HANDLER)
+./km/ntpoapi.h:_Function_class_(PROCESSOR_IDLE_FUNCTION)
+./km/oprghdlr.h:_Function_class_(ACPI_OP_REGION_CALLBACK)
+./km/oprghdlr.h:_Function_class_(ACPI_OP_REGION_HANDLER)
+./km/sercx/1.0/sercx.h:_Function_class_(EVT_SERCX_FILEOPEN)
+./km/sercx/1.0/sercx.h:_Function_class_(EVT_SERCX_FILECLOSE)
+./km/sercx/1.0/sercx.h:_Function_class_(EVT_SERCX_FILECLEANUP)
+./km/sercx/1.0/sercx.h:_Function_class_(EVT_SERCX_TRANSMIT)
+./km/sercx/1.0/sercx.h:_Function_class_(EVT_SERCX_RECEIVE)
+./km/sercx/1.0/sercx.h:_Function_class_(EVT_SERCX_WAITMASK)
+./km/sercx/1.0/sercx.h:_Function_class_(EVT_SERCX_PURGE)
+./km/sercx/1.0/sercx.h:_Function_class_(EVT_SERCX_CONTROL)
+./km/sercx/1.0/sercx.h:_Function_class_(EVT_SERCX_TRANSMIT_CANCEL)
+./km/sercx/1.0/sercx.h:_Function_class_(EVT_SERCX_RECEIVE_CANCEL)
+./km/sercx/1.0/sercx.h:_Function_class_(EVT_SERCX_APPLY_CONFIG)
+./km/sercx/2.0/sercx.h:_Function_class_(EVT_SERCX2_FILEOPEN)
+./km/sercx/2.0/sercx.h:_Function_class_(EVT_SERCX2_FILECLOSE)
+./km/sercx/2.0/sercx.h:_Function_class_(EVT_SERCX2_SET_WAIT_MASK)
+./km/sercx/2.0/sercx.h:_Function_class_(EVT_SERCX2_PURGE_FIFOS)
+./km/sercx/2.0/sercx.h:_Function_class_(EVT_SERCX2_CONTROL)
+./km/sercx/2.0/sercx.h:_Function_class_(EVT_SERCX2_APPLY_CONFIG)
+./km/sercx/2.0/sercx.h:_Function_class_(EVT_SERCX2_SYSTEM_DMA_TRANSMIT_INITIALIZE_TRANSACTION)
+./km/sercx/2.0/sercx.h:_Function_class_(EVT_SERCX2_SYSTEM_DMA_RECEIVE_INITIALIZE_TRANSACTION)
+./km/sercx/2.0/sercx.h:_Function_class_(EVT_SERCX2_SYSTEM_DMA_TRANSMIT_CLEANUP_TRANSACTION)
+./km/sercx/2.0/sercx.h:_Function_class_(EVT_SERCX2_SYSTEM_DMA_RECEIVE_CLEANUP_TRANSACTION)
+./km/sercx/2.0/sercx.h:_Function_class_(EVT_SERCX2_SYSTEM_DMA_TRANSMIT_CONFIGURE_DMA_CHANNEL)
+./km/sercx/2.0/sercx.h:_Function_class_(EVT_SERCX2_SYSTEM_DMA_RECEIVE_CONFIGURE_DMA_CHANNEL)
+./km/sercx/2.0/sercx.h:_Function_class_(EVT_SERCX2_SYSTEM_DMA_RECEIVE_ENABLE_NEW_DATA_NOTIFICATION)
+./km/sercx/2.0/sercx.h:_Function_class_(EVT_SERCX2_SYSTEM_DMA_RECEIVE_CANCEL_NEW_DATA_NOTIFICATION)
+./km/sercx/2.0/sercx.h:_Function_class_(EVT_SERCX2_PIO_TRANSMIT_INITIALIZE_TRANSACTION)
+./km/sercx/2.0/sercx.h:_Function_class_(EVT_SERCX2_PIO_RECEIVE_INITIALIZE_TRANSACTION)
+./km/sercx/2.0/sercx.h:_Function_class_(EVT_SERCX2_PIO_TRANSMIT_CLEANUP_TRANSACTION)
+./km/sercx/2.0/sercx.h:_Function_class_(EVT_SERCX2_PIO_RECEIVE_CLEANUP_TRANSACTION)
+./km/sercx/2.0/sercx.h:_Function_class_(EVT_SERCX2_PIO_TRANSMIT_WRITE_BUFFER)
+./km/sercx/2.0/sercx.h:_Function_class_(EVT_SERCX2_PIO_RECEIVE_READ_BUFFER)
+./km/sercx/2.0/sercx.h:_Function_class_(EVT_SERCX2_PIO_TRANSMIT_ENABLE_READY_NOTIFICATION)
+./km/sercx/2.0/sercx.h:_Function_class_(EVT_SERCX2_PIO_RECEIVE_ENABLE_READY_NOTIFICATION)
+./km/sercx/2.0/sercx.h:_Function_class_(EVT_SERCX2_PIO_TRANSMIT_CANCEL_READY_NOTIFICATION)
+./km/sercx/2.0/sercx.h:_Function_class_(EVT_SERCX2_PIO_RECEIVE_CANCEL_READY_NOTIFICATION)
+./km/sercx/2.0/sercx.h:_Function_class_(EVT_SERCX2_PIO_TRANSMIT_DRAIN_FIFO)
+./km/sercx/2.0/sercx.h:_Function_class_(EVT_SERCX2_PIO_TRANSMIT_CANCEL_DRAIN_FIFO)
+./km/sercx/2.0/sercx.h:_Function_class_(EVT_SERCX2_PIO_TRANSMIT_PURGE_FIFO)
+./km/sercx/2.0/sercx.h:_Function_class_(EVT_SERCX2_SYSTEM_DMA_TRANSMIT_DRAIN_FIFO)
+./km/sercx/2.0/sercx.h:_Function_class_(EVT_SERCX2_SYSTEM_DMA_TRANSMIT_CANCEL_DRAIN_FIFO)
+./km/sercx/2.0/sercx.h:_Function_class_(EVT_SERCX2_SYSTEM_DMA_TRANSMIT_PURGE_FIFO)
+./km/sercx/2.0/sercx.h:_Function_class_(EVT_SERCX2_SELECT_NEXT_RECEIVE_TRANSACTION_TYPE)
+./km/sercx/2.0/sercx.h:_Function_class_(EVT_SERCX2_SELECT_NEXT_TRANSMIT_TRANSACTION_TYPE)
+./km/sercx/2.0/sercx.h:_Function_class_(EVT_SERCX2_CUSTOM_TRANSMIT_TRANSACTION_INITIALIZE)
+./km/sercx/2.0/sercx.h:_Function_class_(EVT_SERCX2_CUSTOM_RECEIVE_TRANSACTION_INITIALIZE)
+./km/sercx/2.0/sercx.h:_Function_class_(EVT_SERCX2_CUSTOM_TRANSMIT_TRANSACTION_START)
+./km/sercx/2.0/sercx.h:_Function_class_(EVT_SERCX2_CUSTOM_RECEIVE_TRANSACTION_START)
+./km/sercx/2.0/sercx.h:_Function_class_(EVT_SERCX2_CUSTOM_TRANSMIT_TRANSACTION_CLEANUP)
+./km/sercx/2.0/sercx.h:_Function_class_(EVT_SERCX2_CUSTOM_RECEIVE_TRANSACTION_CLEANUP)
+./km/sercx/2.0/sercx.h:_Function_class_(EVT_SERCX2_CUSTOM_RECEIVE_TRANSACTION_ENABLE_NEW_DATA_NOTIFICATION)
+./km/sercx/2.0/sercx.h:_Function_class_(EVT_SERCX2_CUSTOM_RECEIVE_TRANSACTION_QUERY_PROGRESS)
+./km/spb/1.0/spbcx.h:_Function_class_(EVT_SPB_TARGET_CONNECT)
+./km/spb/1.0/spbcx.h:_Function_class_(EVT_SPB_TARGET_DISCONNECT)
+./km/spb/1.0/spbcx.h:_Function_class_(EVT_SPB_CONTROLLER_LOCK)
+./km/spb/1.0/spbcx.h:_Function_class_(EVT_SPB_CONTROLLER_UNLOCK)
+./km/spb/1.0/spbcx.h:_Function_class_(EVT_SPB_CONTROLLER_READ)
+./km/spb/1.0/spbcx.h:_Function_class_(EVT_SPB_CONTROLLER_WRITE)
+./km/spb/1.0/spbcx.h:_Function_class_(EVT_SPB_CONTROLLER_SEQUENCE)
+./km/spb/1.0/spbcx.h:_Function_class_(EVT_SPB_CONTROLLER_OTHER)
+./km/vpci.h:_Function_class_(VPCI_WRITE_BLOCK)
+./km/vpci.h:_Function_class_(VPCI_READ_BLOCK)
+./km/wdm.h:_Function_class_(RTL_QUERY_REGISTRY_ROUTINE)
+./km/wdm.h:_Function_class_(ALLOCATE_FUNCTION)
+./km/wdm.h:_Function_class_(FREE_FUNCTION)
+./km/wdm.h:_Function_class_(ALLOCATE_FUNCTION_EX)
+./km/wdm.h:_Function_class_(FREE_FUNCTION_EX)
+./km/wdm.h:_Function_class_(KSYNCHRONIZE_ROUTINE)
+./km/wdm.h:_Function_class_(KDEFERRED_ROUTINE)
+./km/wdm.h:_Function_class_(KSTART_ROUTINE)
+./km/wdm.h:_Function_class_(KSERVICE_ROUTINE)
+./km/wdm.h:_Function_class_(KMESSAGE_SERVICE_ROUTINE)
+./km/wdm.h:_Function_class_(KIPI_BROADCAST_WORKER)
+./km/wdm.h:_Function_class_(KBUGCHECK_CALLBACK_ROUTINE)
+./km/wdm.h:_Function_class_(KBUGCHECK_REASON_CALLBACK_ROUTINE)
+./km/wdm.h:_Function_class_(NMI_CALLBACK)
+./km/wdm.h:_Function_class_(PROCESSOR_CALLBACK_FUNCTION)
+./km/wdm.h:_Function_class_(WORKER_THREAD_ROUTINE)
+./km/wdm.h:_Function_class_(EXT_CALLBACK)
+./km/wdm.h:_Function_class_(EXT_DELETE_CALLBACK)
+./km/wdm.h:_Function_class_(CALLBACK_FUNCTION)
+./km/wdm.h:_Function_class_(EX_CALLBACK_FUNCTION)
+./km/wdm.h:_Function_class_(SE_IMAGE_VERIFICATION_CALLBACK_FUNCTION)
+./km/wdm.h:_Function_class_(IO_DPC_ROUTINE)
+./km/wdm.h:_Function_class_(IO_TIMER_ROUTINE)
+./km/wdm.h:_Function_class_(DRIVER_INITIALIZE)
+./km/wdm.h:_Function_class_(DRIVER_CANCEL)
+./km/wdm.h:_Function_class_(DRIVER_DISPATCH)
+./km/wdm.h:_Function_class_(DRIVER_STARTIO)
+./km/wdm.h:_Function_class_(DRIVER_UNLOAD)
+./km/wdm.h:_Function_class_(DRIVER_ADD_DEVICE)
+./km/wdm.h:_Function_class_(FAST_IO_CHECK_IF_POSSIBLE)
+./km/wdm.h:_Function_class_(FAST_IO_READ)
+./km/wdm.h:_Function_class_(FAST_IO_WRITE)
+./km/wdm.h:_Function_class_(FAST_IO_QUERY_BASIC_INFO)
+./km/wdm.h:_Function_class_(FAST_IO_QUERY_STANDARD_INFO)
+./km/wdm.h:_Function_class_(FAST_IO_LOCK)
+./km/wdm.h:_Function_class_(FAST_IO_UNLOCK_SINGLE)
+./km/wdm.h:_Function_class_(FAST_IO_UNLOCK_ALL)
+./km/wdm.h:_Function_class_(FAST_IO_UNLOCK_ALL_BY_KEY)
+./km/wdm.h:_Function_class_(FAST_IO_DEVICE_CONTROL)
+./km/wdm.h:_Function_class_(FAST_IO_ACQUIRE_FILE)
+./km/wdm.h:_Function_class_(FAST_IO_RELEASE_FILE)
+./km/wdm.h:_Function_class_(FAST_IO_DETACH_DEVICE)
+./km/wdm.h:_Function_class_(FAST_IO_QUERY_NETWORK_OPEN_INFO)
+./km/wdm.h:_Function_class_(FAST_IO_MDL_READ)
+./km/wdm.h:_Function_class_(FAST_IO_MDL_READ_COMPLETE)
+./km/wdm.h:_Function_class_(FAST_IO_PREPARE_MDL_WRITE)
+./km/wdm.h:_Function_class_(FAST_IO_MDL_WRITE_COMPLETE)
+./km/wdm.h:_Function_class_(FAST_IO_ACQUIRE_FOR_MOD_WRITE)
+./km/wdm.h:_Function_class_(FAST_IO_RELEASE_FOR_MOD_WRITE)
+./km/wdm.h:_Function_class_(FAST_IO_ACQUIRE_FOR_CCFLUSH)
+./km/wdm.h:_Function_class_(FAST_IO_RELEASE_FOR_CCFLUSH)
+./km/wdm.h:_Function_class_(FAST_IO_READ_COMPRESSED)
+./km/wdm.h:_Function_class_(FAST_IO_WRITE_COMPRESSED)
+./km/wdm.h:_Function_class_(FAST_IO_MDL_READ_COMPLETE_COMPRESSED)
+./km/wdm.h:_Function_class_(FAST_IO_MDL_WRITE_COMPLETE_COMPRESSED)
+./km/wdm.h:_Function_class_(FAST_IO_QUERY_OPEN)
+./km/wdm.h:_Function_class_(DRIVER_CONTROL)
+./km/wdm.h:_Function_class_(IO_COMPLETION_ROUTINE)
+./km/wdm.h:_Function_class_(IO_WORKITEM_ROUTINE)
+./km/wdm.h:_Function_class_(IO_WORKITEM_ROUTINE_EX)
+./km/wdm.h:_Function_class_(WMI_NOTIFICATION_CALLBACK)
+./km/wdm.h:_Function_class_(TRANSLATE_BUS_ADDRESS)
+./km/wdm.h:_Function_class_(GET_DMA_ADAPTER)
+./km/wdm.h:_Function_class_(GET_SET_DEVICE_DATA)
+./km/wdm.h:_Function_class_(GET_VIRTUAL_DEVICE_DATA)
+./km/wdm.h:_Function_class_(SET_VIRTUAL_DEVICE_DATA)
+./km/wdm.h:_Function_class_(GET_VIRTUAL_DEVICE_LOCATION)
+./km/wdm.h:_Function_class_(GET_VIRTUAL_DEVICE_RESOURCES)
+./km/wdm.h:_Function_class_(ENABLE_VIRTUALIZATION)
+./km/wdm.h:_Function_class_(GET_VIRTUAL_FUNCTION_PROBED_BARS)
+./km/wdm.h:_Function_class_(SET_D3COLD_SUPPORT)
+./km/wdm.h:_Function_class_(GET_IDLE_WAKE_INFO)
+./km/wdm.h:_Function_class_(GET_D3COLD_CAPABILITY)
+./km/wdm.h:_Function_class_(GET_D3COLD_LAST_TRANSITION_STATUS)
+./km/wdm.h:_Function_class_(DRIVER_NOTIFICATION_CALLBACK_ROUTINE)
+./km/wdm.h:_Function_class_(DEVICE_CHANGE_COMPLETE_CALLBACK)
+./km/wdm.h:_Function_class_(DRIVER_LIST_CONTROL)
+./km/wdm.h:_Function_class_(DMA_COMPLETION_ROUTINE)
+./km/wdm.h:_Function_class_(REQUEST_POWER_COMPLETE)
+./km/wdm.h:_Function_class_(POWER_SETTING_CALLBACK)
+./km/wdm.h:_Function_class_(PO_FX_COMPONENT_ACTIVE_CONDITION_CALLBACK)
+./km/wdm.h:_Function_class_(PO_FX_COMPONENT_IDLE_CONDITION_CALLBACK)
+./km/wdm.h:_Function_class_(PO_FX_COMPONENT_IDLE_STATE_CALLBACK)
+./km/wdm.h:_Function_class_(PO_FX_DEVICE_POWER_REQUIRED_CALLBACK)
+./km/wdm.h:_Function_class_(PO_FX_DEVICE_POWER_NOT_REQUIRED_CALLBACK)
+./km/wdm.h:_Function_class_(PO_FX_POWER_CONTROL_CALLBACK)
+./km/wdm.h:_Function_class_(PO_FX_COMPONENT_CRITICAL_TRANSITION_CALLBACK)
+./km/wmilib.h:_Function_class_(WMI_QUERY_REGINFO_CALLBACK)
+./km/wmilib.h:_Function_class_(WMI_QUERY_DATABLOCK_CALLBACK)
+./km/wmilib.h:_Function_class_(WMI_SET_DATABLOCK_CALLBACK)
+./km/wmilib.h:_Function_class_(WMI_SET_DATAITEM_CALLBACK)
+./km/wmilib.h:_Function_class_(WMI_EXECUTE_METHOD_CALLBACK)
+./km/wmilib.h:_Function_class_(WMI_FUNCTION_CONTROL_CALLBACK)
+./shared/apiset.h:_Function_class_(API_SET_LOAD_SCHEMA_RTN)
+./shared/apiset.h:_Function_class_(API_SET_LOOKUP_HELPER_RTN)
+./shared/apiset.h:_Function_class_(API_SET_RELEASE_SCHEMA_RTN)
+./shared/batclass.h:_Function_class_(BCLASS_QUERY_TAG_CALLBACK)
+./shared/batclass.h:_Function_class_(BCLASS_QUERY_INFORMATION_CALLBACK)
+./shared/batclass.h:_Function_class_(BCLASS_QUERY_STATUS_CALLBACK)
+./shared/batclass.h:_Function_class_(BCLASS_SET_STATUS_NOTIFY_CALLBACK)
+./shared/batclass.h:_Function_class_(BCLASS_SET_INFORMATION_CALLBACK)
+./shared/batclass.h:_Function_class_(BCLASS_DISABLE_STATUS_NOTIFY_CALLBACK)
+./shared/d3dkmddi.h:#define _Function_class_DXGK_(param)    _Function_class_(param)
+./shared/d3dkmddi.h:#define _Function_class_DXGK_(param)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_RENDER)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_PRESENT)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_RENDER)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_STOPCAPTURE)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKCB_NOTIFY_INTERRUPT)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKCB_NOTIFY_DPC)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_OPENALLOCATIONINFO)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_CLOSEALLOCATION)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_DESTROYDEVICE)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_DESTROYCONTEXT)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKCB_GETHANDLEPARENT)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKCB_GETHANDLEDATA)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKCB_ENUMHANDLECHILDREN)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKCB_GETCAPTUREADDRESS)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_CREATEDEVICE)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_CREATECONTEXT)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_SETPALETTE)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_SETPOINTERSHAPE)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_SETPOINTERPOSITION)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_QUERYADAPTERINFO)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_ACQUIRESWIZZLINGRANGE)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_RELEASESWIZZLINGRANGE)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_CREATEALLOCATION)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_CREATEALLOCATION2)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKCB_CREATECONTEXTALLOCATION)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKCB_DESTROYCONTEXTALLOCATION)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_DESCRIBEALLOCATION)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_GETSTANDARDALLOCATIONDRIVERDATA)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_DESTROYALLOCATION)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_PATCH)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_SUBMITCOMMAND)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_PREEMPTCOMMAND)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_CANCELCOMMAND)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_QUERYCURRENTFENCE)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_CONTROLINTERRUPT)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_CONTROLINTERRUPT2)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_BUILDPAGINGBUFFER)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_DESCRIBEPAGETABLE)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_UPDATEPAGETABLE)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_UPDATEPAGEDIRECTORY)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_MOVEPAGEDIRECTORY)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_SUBMITRENDER)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_ESCAPE)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_COLLECTDBGINFO)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_CREATEOVERLAY)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_UPDATEOVERLAY)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_FLIPOVERLAY)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_DESTROYOVERLAY)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_GETSCANLINE)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_ISSUPPORTEDVIDPN)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_ENUMVIDPNCOFUNCMODALITY)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_RECOMMENDFUNCTIONALVIDPN)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_SETVIDPNSOURCEADDRESS)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_SETVIDPNSOURCEADDRESSWITHMULTIPLANEOVERLAY)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_CHECKMULTIPLANEOVERLAYSUPPORT)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_SETVIDPNSOURCEVISIBILITY)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_COMMITVIDPN)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_UPDATEACTIVEVIDPNPRESENTPATH)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_RECOMMENDVIDPNTOPOLOGY)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_VIDPNTOPOLOGY_GETNUMPATHS)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_VIDPNTOPOLOGY_GETNUMPATHSFROMSOURCE)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_VIDPNTOPOLOGY_ENUMPATHTARGETSFROMSOURCE)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_VIDPNTOPOLOGY_GETPATHSOURCEFROMTARGET)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_VIDPNTOPOLOGY_ACQUIREPATHINFO)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_VIDPNTOPOLOGY_ACQUIREFIRSTPATHINFO)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_VIDPNTOPOLOGY_ACQUIRENEXTPATHINFO)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_VIDPNTOPOLOGY_UPDATEPATHSUPPORTINFO)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_VIDPNTOPOLOGY_RELEASEPATHINFO)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_VIDPNTOPOLOGY_CREATENEWPATHINFO)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_VIDPNTOPOLOGY_ADDPATH)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_VIDPNTOPOLOGY_REMOVEPATH)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_VIDPNSOURCEMODESET_GETNUMMODES)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_VIDPNSOURCEMODESET_ACQUIREFIRSTMODEINFO)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_VIDPNSOURCEMODESET_ACQUIRENEXTMODEINFO)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_VIDPNSOURCEMODESET_ACQUIREPINNEDMODEINFO)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_VIDPNSOURCEMODESET_RELEASEMODEINFO)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_VIDPNSOURCEMODESET_CREATENEWMODEINFO)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_VIDPNSOURCEMODESET_ADDMODE)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_VIDPNSOURCEMODESET_PINMODE)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_VIDPNTARGETMODESET_GETNUMMODES)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_VIDPNTARGETMODESET_ACQUIREFIRSTMODEINFO)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_VIDPNTARGETMODESET_ACQUIRENEXTMODEINFO)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_VIDPNTARGETMODESET_ACQUIREPINNEDMODEINFO)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_VIDPNTARGETMODESET_RELEASEMODEINFO)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_VIDPNTARGETMODESET_CREATENEWMODEINFO)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_VIDPNTARGETMODESET_ADDMODE)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_VIDPNTARGETMODESET_PINMODE)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_VIDPN_GETTOPOLOGY)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_VIDPN_ACQUIRESOURCEMODESET)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_VIDPN_RELEASESOURCEMODESET)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_VIDPN_CREATENEWSOURCEMODESET)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_VIDPN_ASSIGNSOURCEMODESET)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_VIDPN_ASSIGNMULTISAMPLINGMETHODSET)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_VIDPN_ACQUIRETARGETMODESET)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_VIDPN_RELEASETARGETMODESET)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_VIDPN_CREATENEWTARGETMODESET)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_VIDPN_ASSIGNTARGETMODESET)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKCB_QUERYVIDPNINTERFACE)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_MONITORSOURCEMODESET_GETNUMMODES)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_MONITORSOURCEMODESET_ACQUIREPREFERREDMODEINFO)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_MONITORSOURCEMODESET_ACQUIREFIRSTMODEINFO)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_MONITORSOURCEMODESET_ACQUIRENEXTMODEINFO)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_MONITORSOURCEMODESET_CREATENEWMODEINFO)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_MONITORSOURCEMODESET_ADDMODE)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_MONITORSOURCEMODESET_RELEASEMODEINFO)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_MONITORFREQUENCYRANGESET_GETNUMFREQUENCYRANGES)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_MONITORFREQUENCYRANGESET_ACQUIREFIRSTFREQUENCYRANGEINFO)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_MONITORFREQUENCYRANGESET_ACQUIRENEXTFREQUENCYRANGEINFO)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_MONITORFREQUENCYRANGESET_RELEASEFREQUENCYRANGEINFO)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_MONITORDESCRIPTORSET_GETNUMDESCRIPTORS)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_MONITORDESCRIPTORSET_ACQUIREFIRSTDESCRIPTORINFO)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_MONITORDESCRIPTORSET_ACQUIRENEXTDESCRIPTORINFO)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_MONITORDESCRIPTORSET_RELEASEDESCRIPTORINFO)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_MONITOR_ACQUIREMONITORSOURCEMODESET)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_MONITOR_RELEASEMONITORSOURCEMODESET)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_MONITOR_GETMONITORFREQUENCYRANGESET)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_MONITOR_GETMONITORDESCRIPTORSET)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_MONITOR_GETADDITIONALMONITORMODESET)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_MONITOR_RELEASEADDITIONALMONITORMODESET)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKCB_QUERYMONITORINTERFACE)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_QUERYVIDPNHWCAPABILITY)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKCB_PRESENT_DISPLAYONLY_PROGRESS)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_PRESENTDISPLAYONLY)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_QUERYDEPENDENTENGINEGROUP)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_QUERYENGINESTATUS)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_RESETENGINE)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_RESETFROMTIMEOUT)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_RESTARTFROMTIMEOUT)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_SETDISPLAYPRIVATEDRIVERFORMAT)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_RECOMMENDMONITORMODES)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDISETPOWERCOMPONENTFSTATE)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDISETPOWERPSTATE)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDIPOWERRUNTIMECONTROLREQUEST)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKCB_SETPOWERCOMPONENTACTIVE)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKCB_POWERRUNTIMECONTROLREQUEST)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKCB_SETPOWERCOMPONENTIDLE)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKCB_SETPOWERCOMPONENTLATENCY)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKCB_SETPOWERCOMPONENTRESIDENCY)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKCB_COMPLETEFSTATETRANSITION)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_GETNODEMETADATA)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKCB_COMPLETEPSTATETRANSITION)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKCB_NOTIFYVSYNC)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_FORMATHISTORYBUFFER)
+./shared/d3dkmddi.h:    _Function_class_DXGK_(DXGKDDI_CALIBRATEGPUCLOCK)
+./shared/driverspecs.h:    #define __drv_functionClass(x) _SAL1_Source_(__drv_functionClass, (x), _Function_class_(x))
+./shared/no_sal2.h:#ifdef _Function_class_
+./shared/no_sal2.h:#undef _Function_class_
+./shared/no_sal2.h:#define _Function_class_(n)
+./shared/ntdef.h:_Function_class_(EXCEPTION_ROUTINE)
+./shared/poclass.h:_Function_class_(PROCESSOR_PCC_DOORBELL_CALLBACK)
+./shared/poclass.h:_Function_class_(PROCESSOR_PCC_RING_DOORBELL)
+./shared/poclass.h:_Function_class_(DEVICE_ACTIVE_COOLING)
+./shared/poclass.h:_Function_class_(DEVICE_PASSIVE_COOLING)
+./shared/sal.h:#define _Function_class_(x)  _SAL2_Source_(_Function_class_, (x), _SA_annotes1(SAL_functionClassNew, _SA_SPECSTRIZE(x)))
+./um/memoryapi.h:_Function_class_(BAD_MEMORY_CALLBACK_ROUTINE)
+./um/winnt.h:_Function_class_(EXCEPTION_ROUTINE)
+./um/winnt.h:_Function_class_(GET_RUNTIME_FUNCTION_CALLBACK)
+./um/winnt.h:_Function_class_(OUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK)
+./um/winnt.h:_Function_class_(GET_RUNTIME_FUNCTION_CALLBACK)
+./um/winnt.h:_Function_class_(OUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK)
+./um/winnt.h:_Function_class_(GET_RUNTIME_FUNCTION_CALLBACK)
+./um/winnt.h:_Function_class_(OUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK)
+./um/winnt.h:_Function_class_(RTL_UMS_SCHEDULER_ENTRY_POINT)
+./wdf/kmdf/1.11/wdfchildlist.h:_Function_class_(EVT_WDF_CHILD_LIST_CREATE_DEVICE)
+./wdf/kmdf/1.11/wdfchildlist.h:_Function_class_(EVT_WDF_CHILD_LIST_SCAN_FOR_CHILDREN)
+./wdf/kmdf/1.11/wdfchildlist.h:_Function_class_(EVT_WDF_CHILD_LIST_IDENTIFICATION_DESCRIPTION_COPY)
+./wdf/kmdf/1.11/wdfchildlist.h:_Function_class_(EVT_WDF_CHILD_LIST_IDENTIFICATION_DESCRIPTION_DUPLICATE)
+./wdf/kmdf/1.11/wdfchildlist.h:_Function_class_(EVT_WDF_CHILD_LIST_IDENTIFICATION_DESCRIPTION_COMPARE)
+./wdf/kmdf/1.11/wdfchildlist.h:_Function_class_(EVT_WDF_CHILD_LIST_IDENTIFICATION_DESCRIPTION_CLEANUP)
+./wdf/kmdf/1.11/wdfchildlist.h:_Function_class_(EVT_WDF_CHILD_LIST_ADDRESS_DESCRIPTION_COPY)
+./wdf/kmdf/1.11/wdfchildlist.h:_Function_class_(EVT_WDF_CHILD_LIST_ADDRESS_DESCRIPTION_DUPLICATE)
+./wdf/kmdf/1.11/wdfchildlist.h:_Function_class_(EVT_WDF_CHILD_LIST_ADDRESS_DESCRIPTION_CLEANUP)
+./wdf/kmdf/1.11/wdfchildlist.h:_Function_class_(EVT_WDF_CHILD_LIST_DEVICE_REENUMERATED)
+./wdf/kmdf/1.11/wdfcontrol.h:_Function_class_(EVT_WDF_DEVICE_SHUTDOWN_NOTIFICATION)
+./wdf/kmdf/1.11/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_FILE_CREATE)
+./wdf/kmdf/1.11/wdfdevice.h:_Function_class_(EVT_WDF_FILE_CLOSE)
+./wdf/kmdf/1.11/wdfdevice.h:_Function_class_(EVT_WDF_FILE_CLEANUP)
+./wdf/kmdf/1.11/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_PNP_STATE_CHANGE_NOTIFICATION)
+./wdf/kmdf/1.11/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_POWER_STATE_CHANGE_NOTIFICATION)
+./wdf/kmdf/1.11/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_POWER_POLICY_STATE_CHANGE_NOTIFICATION)
+./wdf/kmdf/1.11/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_D0_ENTRY)
+./wdf/kmdf/1.11/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_D0_ENTRY_POST_INTERRUPTS_ENABLED)
+./wdf/kmdf/1.11/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_D0_EXIT)
+./wdf/kmdf/1.11/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_D0_EXIT_PRE_INTERRUPTS_DISABLED)
+./wdf/kmdf/1.11/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_PREPARE_HARDWARE)
+./wdf/kmdf/1.11/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_RELEASE_HARDWARE)
+./wdf/kmdf/1.11/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_SELF_MANAGED_IO_CLEANUP)
+./wdf/kmdf/1.11/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_SELF_MANAGED_IO_FLUSH)
+./wdf/kmdf/1.11/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_SELF_MANAGED_IO_INIT)
+./wdf/kmdf/1.11/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_SELF_MANAGED_IO_SUSPEND)
+./wdf/kmdf/1.11/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_SELF_MANAGED_IO_RESTART)
+./wdf/kmdf/1.11/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_QUERY_STOP)
+./wdf/kmdf/1.11/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_QUERY_REMOVE)
+./wdf/kmdf/1.11/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_SURPRISE_REMOVAL)
+./wdf/kmdf/1.11/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_USAGE_NOTIFICATION)
+./wdf/kmdf/1.11/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_USAGE_NOTIFICATION_EX)
+./wdf/kmdf/1.11/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_RELATIONS_QUERY)
+./wdf/kmdf/1.11/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_ARM_WAKE_FROM_S0)
+./wdf/kmdf/1.11/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_ARM_WAKE_FROM_SX)
+./wdf/kmdf/1.11/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_ARM_WAKE_FROM_SX_WITH_REASON)
+./wdf/kmdf/1.11/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_DISARM_WAKE_FROM_S0)
+./wdf/kmdf/1.11/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_DISARM_WAKE_FROM_SX)
+./wdf/kmdf/1.11/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_WAKE_FROM_S0_TRIGGERED)
+./wdf/kmdf/1.11/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_WAKE_FROM_SX_TRIGGERED)
+./wdf/kmdf/1.11/wdfdevice.h:_Function_class_(EVT_WDFDEVICE_WDM_IRP_PREPROCESS)
+./wdf/kmdf/1.11/wdfdevice.h:_Function_class_(EVT_WDFDEVICE_WDM_IRP_DISPATCH)
+./wdf/kmdf/1.11/wdfdevice.h:_Function_class_(EVT_WDF_IO_IN_CALLER_CONTEXT)
+./wdf/kmdf/1.11/wdfdevice.h:_Function_class_(EVT_WDFDEVICE_WDM_POST_PO_FX_REGISTER_DEVICE)
+./wdf/kmdf/1.11/wdfdevice.h:_Function_class_(EVT_WDFDEVICE_WDM_PRE_PO_FX_UNREGISTER_DEVICE)
+./wdf/kmdf/1.11/wdfdmaenabler.h:_Function_class_(EVT_WDF_DMA_ENABLER_FILL)
+./wdf/kmdf/1.11/wdfdmaenabler.h:_Function_class_(EVT_WDF_DMA_ENABLER_FLUSH)
+./wdf/kmdf/1.11/wdfdmaenabler.h:_Function_class_(EVT_WDF_DMA_ENABLER_ENABLE)
+./wdf/kmdf/1.11/wdfdmaenabler.h:_Function_class_(EVT_WDF_DMA_ENABLER_DISABLE)
+./wdf/kmdf/1.11/wdfdmaenabler.h:_Function_class_(EVT_WDF_DMA_ENABLER_SELFMANAGED_IO_START)
+./wdf/kmdf/1.11/wdfdmaenabler.h:_Function_class_(EVT_WDF_DMA_ENABLER_SELFMANAGED_IO_STOP)
+./wdf/kmdf/1.11/wdfdmatransaction.h:_Function_class_(EVT_WDF_PROGRAM_DMA)
+./wdf/kmdf/1.11/wdfdmatransaction.h:_Function_class_(EVT_WDF_DMA_TRANSACTION_CONFIGURE_DMA_CHANNEL)
+./wdf/kmdf/1.11/wdfdmatransaction.h:_Function_class_(EVT_WDF_DMA_TRANSACTION_DMA_TRANSFER_COMPLETE)
+./wdf/kmdf/1.11/wdfdmatransaction.h:_Function_class_(EVT_WDF_RESERVE_DMA)
+./wdf/kmdf/1.11/wdfdpc.h:_Function_class_(EVT_WDF_DPC)
+./wdf/kmdf/1.11/wdfdriver.h:_Function_class_(EVT_WDF_DRIVER_DEVICE_ADD)
+./wdf/kmdf/1.11/wdfdriver.h:_Function_class_(EVT_WDF_DRIVER_UNLOAD)
+./wdf/kmdf/1.11/wdfdriver.h:_Function_class_(EVT_WDF_TRACE_CALLBACK)
+./wdf/kmdf/1.11/wdffdo.h:_Function_class_(EVT_WDF_DEVICE_FILTER_RESOURCE_REQUIREMENTS)
+./wdf/kmdf/1.11/wdffdo.h:_Function_class_(EVT_WDF_DEVICE_REMOVE_ADDED_RESOURCES)
+./wdf/kmdf/1.11/wdfinterrupt.h:_Function_class_(EVT_WDF_INTERRUPT_ISR)
+./wdf/kmdf/1.11/wdfinterrupt.h:_Function_class_(EVT_WDF_INTERRUPT_SYNCHRONIZE)
+./wdf/kmdf/1.11/wdfinterrupt.h:_Function_class_(EVT_WDF_INTERRUPT_DPC)
+./wdf/kmdf/1.11/wdfinterrupt.h:_Function_class_(EVT_WDF_INTERRUPT_WORKITEM)
+./wdf/kmdf/1.11/wdfinterrupt.h:_Function_class_(EVT_WDF_INTERRUPT_ENABLE)
+./wdf/kmdf/1.11/wdfinterrupt.h:_Function_class_(EVT_WDF_INTERRUPT_DISABLE)
+./wdf/kmdf/1.11/wdfio.h:_Function_class_(EVT_WDF_IO_QUEUE_IO_DEFAULT)
+./wdf/kmdf/1.11/wdfio.h:_Function_class_(EVT_WDF_IO_QUEUE_IO_STOP)
+./wdf/kmdf/1.11/wdfio.h:_Function_class_(EVT_WDF_IO_QUEUE_IO_RESUME)
+./wdf/kmdf/1.11/wdfio.h:_Function_class_(EVT_WDF_IO_QUEUE_IO_READ)
+./wdf/kmdf/1.11/wdfio.h:_Function_class_(EVT_WDF_IO_QUEUE_IO_WRITE)
+./wdf/kmdf/1.11/wdfio.h:_Function_class_(EVT_WDF_IO_QUEUE_IO_DEVICE_CONTROL)
+./wdf/kmdf/1.11/wdfio.h:_Function_class_(EVT_WDF_IO_QUEUE_IO_INTERNAL_DEVICE_CONTROL)
+./wdf/kmdf/1.11/wdfio.h:_Function_class_(EVT_WDF_IO_QUEUE_IO_CANCELED_ON_QUEUE)
+./wdf/kmdf/1.11/wdfio.h:_Function_class_(EVT_WDF_IO_QUEUE_STATE)
+./wdf/kmdf/1.11/wdfio.h:_Function_class_(EVT_WDF_IO_ALLOCATE_RESOURCES_FOR_RESERVED_REQUEST)
+./wdf/kmdf/1.11/wdfio.h:_Function_class_(EVT_WDF_IO_ALLOCATE_REQUEST_RESOURCES)
+./wdf/kmdf/1.11/wdfio.h:_Function_class_(EVT_WDF_IO_WDM_IRP_FOR_FORWARD_PROGRESS)
+./wdf/kmdf/1.11/wdfiotarget.h:_Function_class_(EVT_WDF_IO_TARGET_QUERY_REMOVE)
+./wdf/kmdf/1.11/wdfiotarget.h:_Function_class_(EVT_WDF_IO_TARGET_REMOVE_CANCELED)
+./wdf/kmdf/1.11/wdfiotarget.h:_Function_class_(EVT_WDF_IO_TARGET_REMOVE_COMPLETE)
+./wdf/kmdf/1.11/wdfobject.h:_Function_class_(EVT_WDF_OBJECT_CONTEXT_CLEANUP)
+./wdf/kmdf/1.11/wdfobject.h:_Function_class_(EVT_WDF_OBJECT_CONTEXT_DESTROY)
+./wdf/kmdf/1.11/wdfpdo.h:_Function_class_(EVT_WDF_DEVICE_RESOURCES_QUERY)
+./wdf/kmdf/1.11/wdfpdo.h:_Function_class_(EVT_WDF_DEVICE_RESOURCE_REQUIREMENTS_QUERY)
+./wdf/kmdf/1.11/wdfpdo.h:_Function_class_(EVT_WDF_DEVICE_EJECT)
+./wdf/kmdf/1.11/wdfpdo.h:_Function_class_(EVT_WDF_DEVICE_SET_LOCK)
+./wdf/kmdf/1.11/wdfpdo.h:_Function_class_(EVT_WDF_DEVICE_ENABLE_WAKE_AT_BUS)
+./wdf/kmdf/1.11/wdfpdo.h:_Function_class_(EVT_WDF_DEVICE_DISABLE_WAKE_AT_BUS)
+./wdf/kmdf/1.11/wdfpdo.h:_Function_class_(EVT_WDF_DEVICE_REPORTED_MISSING)
+./wdf/kmdf/1.11/wdfqueryinterface.h:_Function_class_(EVT_WDF_DEVICE_PROCESS_QUERY_INTERFACE_REQUEST)
+./wdf/kmdf/1.11/wdfrequest.h:_Function_class_(EVT_WDF_REQUEST_CANCEL)
+./wdf/kmdf/1.11/wdfrequest.h:_Function_class_(EVT_WDF_REQUEST_COMPLETION_ROUTINE)
+./wdf/kmdf/1.11/wdftimer.h:_Function_class_(EVT_WDF_TIMER)
+./wdf/kmdf/1.11/wdfusb.h:_Function_class_(EVT_WDF_USB_READER_COMPLETION_ROUTINE)
+./wdf/kmdf/1.11/wdfusb.h:_Function_class_(EVT_WDF_USB_READERS_FAILED)
+./wdf/kmdf/1.11/wdfwmi.h:_Function_class_(EVT_WDF_WMI_INSTANCE_QUERY_INSTANCE)
+./wdf/kmdf/1.11/wdfwmi.h:_Function_class_(EVT_WDF_WMI_INSTANCE_SET_INSTANCE)
+./wdf/kmdf/1.11/wdfwmi.h:_Function_class_(EVT_WDF_WMI_INSTANCE_SET_ITEM)
+./wdf/kmdf/1.11/wdfwmi.h:_Function_class_(EVT_WDF_WMI_INSTANCE_EXECUTE_METHOD)
+./wdf/kmdf/1.11/wdfwmi.h:_Function_class_(EVT_WDF_WMI_PROVIDER_FUNCTION_CONTROL)
+./wdf/kmdf/1.11/wdfworkitem.h:_Function_class_(EVT_WDF_WORKITEM)
+./wdf/kmdf/1.13/wdfchildlist.h:_Function_class_(EVT_WDF_CHILD_LIST_CREATE_DEVICE)
+./wdf/kmdf/1.13/wdfchildlist.h:_Function_class_(EVT_WDF_CHILD_LIST_SCAN_FOR_CHILDREN)
+./wdf/kmdf/1.13/wdfchildlist.h:_Function_class_(EVT_WDF_CHILD_LIST_IDENTIFICATION_DESCRIPTION_COPY)
+./wdf/kmdf/1.13/wdfchildlist.h:_Function_class_(EVT_WDF_CHILD_LIST_IDENTIFICATION_DESCRIPTION_DUPLICATE)
+./wdf/kmdf/1.13/wdfchildlist.h:_Function_class_(EVT_WDF_CHILD_LIST_IDENTIFICATION_DESCRIPTION_COMPARE)
+./wdf/kmdf/1.13/wdfchildlist.h:_Function_class_(EVT_WDF_CHILD_LIST_IDENTIFICATION_DESCRIPTION_CLEANUP)
+./wdf/kmdf/1.13/wdfchildlist.h:_Function_class_(EVT_WDF_CHILD_LIST_ADDRESS_DESCRIPTION_COPY)
+./wdf/kmdf/1.13/wdfchildlist.h:_Function_class_(EVT_WDF_CHILD_LIST_ADDRESS_DESCRIPTION_DUPLICATE)
+./wdf/kmdf/1.13/wdfchildlist.h:_Function_class_(EVT_WDF_CHILD_LIST_ADDRESS_DESCRIPTION_CLEANUP)
+./wdf/kmdf/1.13/wdfchildlist.h:_Function_class_(EVT_WDF_CHILD_LIST_DEVICE_REENUMERATED)
+./wdf/kmdf/1.13/wdfcontrol.h:_Function_class_(EVT_WDF_DEVICE_SHUTDOWN_NOTIFICATION)
+./wdf/kmdf/1.13/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_FILE_CREATE)
+./wdf/kmdf/1.13/wdfdevice.h:_Function_class_(EVT_WDF_FILE_CLOSE)
+./wdf/kmdf/1.13/wdfdevice.h:_Function_class_(EVT_WDF_FILE_CLEANUP)
+./wdf/kmdf/1.13/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_PNP_STATE_CHANGE_NOTIFICATION)
+./wdf/kmdf/1.13/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_POWER_STATE_CHANGE_NOTIFICATION)
+./wdf/kmdf/1.13/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_POWER_POLICY_STATE_CHANGE_NOTIFICATION)
+./wdf/kmdf/1.13/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_D0_ENTRY)
+./wdf/kmdf/1.13/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_D0_ENTRY_POST_INTERRUPTS_ENABLED)
+./wdf/kmdf/1.13/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_D0_EXIT)
+./wdf/kmdf/1.13/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_D0_EXIT_PRE_INTERRUPTS_DISABLED)
+./wdf/kmdf/1.13/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_PREPARE_HARDWARE)
+./wdf/kmdf/1.13/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_RELEASE_HARDWARE)
+./wdf/kmdf/1.13/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_SELF_MANAGED_IO_CLEANUP)
+./wdf/kmdf/1.13/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_SELF_MANAGED_IO_FLUSH)
+./wdf/kmdf/1.13/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_SELF_MANAGED_IO_INIT)
+./wdf/kmdf/1.13/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_SELF_MANAGED_IO_SUSPEND)
+./wdf/kmdf/1.13/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_SELF_MANAGED_IO_RESTART)
+./wdf/kmdf/1.13/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_QUERY_STOP)
+./wdf/kmdf/1.13/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_QUERY_REMOVE)
+./wdf/kmdf/1.13/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_SURPRISE_REMOVAL)
+./wdf/kmdf/1.13/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_USAGE_NOTIFICATION)
+./wdf/kmdf/1.13/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_USAGE_NOTIFICATION_EX)
+./wdf/kmdf/1.13/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_RELATIONS_QUERY)
+./wdf/kmdf/1.13/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_ARM_WAKE_FROM_S0)
+./wdf/kmdf/1.13/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_ARM_WAKE_FROM_SX)
+./wdf/kmdf/1.13/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_ARM_WAKE_FROM_SX_WITH_REASON)
+./wdf/kmdf/1.13/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_DISARM_WAKE_FROM_S0)
+./wdf/kmdf/1.13/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_DISARM_WAKE_FROM_SX)
+./wdf/kmdf/1.13/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_WAKE_FROM_S0_TRIGGERED)
+./wdf/kmdf/1.13/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_WAKE_FROM_SX_TRIGGERED)
+./wdf/kmdf/1.13/wdfdevice.h:_Function_class_(EVT_WDFDEVICE_WDM_IRP_PREPROCESS)
+./wdf/kmdf/1.13/wdfdevice.h:_Function_class_(EVT_WDFDEVICE_WDM_IRP_DISPATCH)
+./wdf/kmdf/1.13/wdfdevice.h:_Function_class_(EVT_WDF_IO_IN_CALLER_CONTEXT)
+./wdf/kmdf/1.13/wdfdevice.h:_Function_class_(EVT_WDFDEVICE_WDM_POST_PO_FX_REGISTER_DEVICE)
+./wdf/kmdf/1.13/wdfdevice.h:_Function_class_(EVT_WDFDEVICE_WDM_PRE_PO_FX_UNREGISTER_DEVICE)
+./wdf/kmdf/1.13/wdfdmaenabler.h:_Function_class_(EVT_WDF_DMA_ENABLER_FILL)
+./wdf/kmdf/1.13/wdfdmaenabler.h:_Function_class_(EVT_WDF_DMA_ENABLER_FLUSH)
+./wdf/kmdf/1.13/wdfdmaenabler.h:_Function_class_(EVT_WDF_DMA_ENABLER_ENABLE)
+./wdf/kmdf/1.13/wdfdmaenabler.h:_Function_class_(EVT_WDF_DMA_ENABLER_DISABLE)
+./wdf/kmdf/1.13/wdfdmaenabler.h:_Function_class_(EVT_WDF_DMA_ENABLER_SELFMANAGED_IO_START)
+./wdf/kmdf/1.13/wdfdmaenabler.h:_Function_class_(EVT_WDF_DMA_ENABLER_SELFMANAGED_IO_STOP)
+./wdf/kmdf/1.13/wdfdmatransaction.h:_Function_class_(EVT_WDF_PROGRAM_DMA)
+./wdf/kmdf/1.13/wdfdmatransaction.h:_Function_class_(EVT_WDF_DMA_TRANSACTION_CONFIGURE_DMA_CHANNEL)
+./wdf/kmdf/1.13/wdfdmatransaction.h:_Function_class_(EVT_WDF_DMA_TRANSACTION_DMA_TRANSFER_COMPLETE)
+./wdf/kmdf/1.13/wdfdmatransaction.h:_Function_class_(EVT_WDF_RESERVE_DMA)
+./wdf/kmdf/1.13/wdfdpc.h:_Function_class_(EVT_WDF_DPC)
+./wdf/kmdf/1.13/wdfdriver.h:_Function_class_(EVT_WDF_DRIVER_DEVICE_ADD)
+./wdf/kmdf/1.13/wdfdriver.h:_Function_class_(EVT_WDF_DRIVER_UNLOAD)
+./wdf/kmdf/1.13/wdfdriver.h:_Function_class_(EVT_WDF_TRACE_CALLBACK)
+./wdf/kmdf/1.13/wdffdo.h:_Function_class_(EVT_WDF_DEVICE_FILTER_RESOURCE_REQUIREMENTS)
+./wdf/kmdf/1.13/wdffdo.h:_Function_class_(EVT_WDF_DEVICE_REMOVE_ADDED_RESOURCES)
+./wdf/kmdf/1.13/wdfinterrupt.h:_Function_class_(EVT_WDF_INTERRUPT_ISR)
+./wdf/kmdf/1.13/wdfinterrupt.h:_Function_class_(EVT_WDF_INTERRUPT_SYNCHRONIZE)
+./wdf/kmdf/1.13/wdfinterrupt.h:_Function_class_(EVT_WDF_INTERRUPT_DPC)
+./wdf/kmdf/1.13/wdfinterrupt.h:_Function_class_(EVT_WDF_INTERRUPT_WORKITEM)
+./wdf/kmdf/1.13/wdfinterrupt.h:_Function_class_(EVT_WDF_INTERRUPT_ENABLE)
+./wdf/kmdf/1.13/wdfinterrupt.h:_Function_class_(EVT_WDF_INTERRUPT_DISABLE)
+./wdf/kmdf/1.13/wdfio.h:_Function_class_(EVT_WDF_IO_QUEUE_IO_DEFAULT)
+./wdf/kmdf/1.13/wdfio.h:_Function_class_(EVT_WDF_IO_QUEUE_IO_STOP)
+./wdf/kmdf/1.13/wdfio.h:_Function_class_(EVT_WDF_IO_QUEUE_IO_RESUME)
+./wdf/kmdf/1.13/wdfio.h:_Function_class_(EVT_WDF_IO_QUEUE_IO_READ)
+./wdf/kmdf/1.13/wdfio.h:_Function_class_(EVT_WDF_IO_QUEUE_IO_WRITE)
+./wdf/kmdf/1.13/wdfio.h:_Function_class_(EVT_WDF_IO_QUEUE_IO_DEVICE_CONTROL)
+./wdf/kmdf/1.13/wdfio.h:_Function_class_(EVT_WDF_IO_QUEUE_IO_INTERNAL_DEVICE_CONTROL)
+./wdf/kmdf/1.13/wdfio.h:_Function_class_(EVT_WDF_IO_QUEUE_IO_CANCELED_ON_QUEUE)
+./wdf/kmdf/1.13/wdfio.h:_Function_class_(EVT_WDF_IO_QUEUE_STATE)
+./wdf/kmdf/1.13/wdfio.h:_Function_class_(EVT_WDF_IO_ALLOCATE_RESOURCES_FOR_RESERVED_REQUEST)
+./wdf/kmdf/1.13/wdfio.h:_Function_class_(EVT_WDF_IO_ALLOCATE_REQUEST_RESOURCES)
+./wdf/kmdf/1.13/wdfio.h:_Function_class_(EVT_WDF_IO_WDM_IRP_FOR_FORWARD_PROGRESS)
+./wdf/kmdf/1.13/wdfiotarget.h:_Function_class_(EVT_WDF_IO_TARGET_QUERY_REMOVE)
+./wdf/kmdf/1.13/wdfiotarget.h:_Function_class_(EVT_WDF_IO_TARGET_REMOVE_CANCELED)
+./wdf/kmdf/1.13/wdfiotarget.h:_Function_class_(EVT_WDF_IO_TARGET_REMOVE_COMPLETE)
+./wdf/kmdf/1.13/wdfobject.h:_Function_class_(EVT_WDF_OBJECT_CONTEXT_CLEANUP)
+./wdf/kmdf/1.13/wdfobject.h:_Function_class_(EVT_WDF_OBJECT_CONTEXT_DESTROY)
+./wdf/kmdf/1.13/wdfpdo.h:_Function_class_(EVT_WDF_DEVICE_RESOURCES_QUERY)
+./wdf/kmdf/1.13/wdfpdo.h:_Function_class_(EVT_WDF_DEVICE_RESOURCE_REQUIREMENTS_QUERY)
+./wdf/kmdf/1.13/wdfpdo.h:_Function_class_(EVT_WDF_DEVICE_EJECT)
+./wdf/kmdf/1.13/wdfpdo.h:_Function_class_(EVT_WDF_DEVICE_SET_LOCK)
+./wdf/kmdf/1.13/wdfpdo.h:_Function_class_(EVT_WDF_DEVICE_ENABLE_WAKE_AT_BUS)
+./wdf/kmdf/1.13/wdfpdo.h:_Function_class_(EVT_WDF_DEVICE_DISABLE_WAKE_AT_BUS)
+./wdf/kmdf/1.13/wdfpdo.h:_Function_class_(EVT_WDF_DEVICE_REPORTED_MISSING)
+./wdf/kmdf/1.13/wdfqueryinterface.h:_Function_class_(EVT_WDF_DEVICE_PROCESS_QUERY_INTERFACE_REQUEST)
+./wdf/kmdf/1.13/wdfrequest.h:_Function_class_(EVT_WDF_REQUEST_CANCEL)
+./wdf/kmdf/1.13/wdfrequest.h:_Function_class_(EVT_WDF_REQUEST_COMPLETION_ROUTINE)
+./wdf/kmdf/1.13/wdftimer.h:_Function_class_(EVT_WDF_TIMER)
+./wdf/kmdf/1.13/wdfusb.h:_Function_class_(EVT_WDF_USB_READER_COMPLETION_ROUTINE)
+./wdf/kmdf/1.13/wdfusb.h:_Function_class_(EVT_WDF_USB_READERS_FAILED)
+./wdf/kmdf/1.13/wdfwmi.h:_Function_class_(EVT_WDF_WMI_INSTANCE_QUERY_INSTANCE)
+./wdf/kmdf/1.13/wdfwmi.h:_Function_class_(EVT_WDF_WMI_INSTANCE_SET_INSTANCE)
+./wdf/kmdf/1.13/wdfwmi.h:_Function_class_(EVT_WDF_WMI_INSTANCE_SET_ITEM)
+./wdf/kmdf/1.13/wdfwmi.h:_Function_class_(EVT_WDF_WMI_INSTANCE_EXECUTE_METHOD)
+./wdf/kmdf/1.13/wdfwmi.h:_Function_class_(EVT_WDF_WMI_PROVIDER_FUNCTION_CONTROL)
+./wdf/kmdf/1.13/wdfworkitem.h:_Function_class_(EVT_WDF_WORKITEM)
+./wdf/kmdf/1.9/wdfchildlist.h:_Function_class_(EVT_WDF_CHILD_LIST_CREATE_DEVICE)
+./wdf/kmdf/1.9/wdfchildlist.h:_Function_class_(EVT_WDF_CHILD_LIST_SCAN_FOR_CHILDREN)
+./wdf/kmdf/1.9/wdfchildlist.h:_Function_class_(EVT_WDF_CHILD_LIST_IDENTIFICATION_DESCRIPTION_COPY)
+./wdf/kmdf/1.9/wdfchildlist.h:_Function_class_(EVT_WDF_CHILD_LIST_IDENTIFICATION_DESCRIPTION_DUPLICATE)
+./wdf/kmdf/1.9/wdfchildlist.h:_Function_class_(EVT_WDF_CHILD_LIST_IDENTIFICATION_DESCRIPTION_COMPARE)
+./wdf/kmdf/1.9/wdfchildlist.h:_Function_class_(EVT_WDF_CHILD_LIST_IDENTIFICATION_DESCRIPTION_CLEANUP)
+./wdf/kmdf/1.9/wdfchildlist.h:_Function_class_(EVT_WDF_CHILD_LIST_ADDRESS_DESCRIPTION_COPY)
+./wdf/kmdf/1.9/wdfchildlist.h:_Function_class_(EVT_WDF_CHILD_LIST_ADDRESS_DESCRIPTION_DUPLICATE)
+./wdf/kmdf/1.9/wdfchildlist.h:_Function_class_(EVT_WDF_CHILD_LIST_ADDRESS_DESCRIPTION_CLEANUP)
+./wdf/kmdf/1.9/wdfchildlist.h:_Function_class_(EVT_WDF_CHILD_LIST_DEVICE_REENUMERATED)
+./wdf/kmdf/1.9/wdfcontrol.h:_Function_class_(EVT_WDF_DEVICE_SHUTDOWN_NOTIFICATION)
+./wdf/kmdf/1.9/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_FILE_CREATE)
+./wdf/kmdf/1.9/wdfdevice.h:_Function_class_(EVT_WDF_FILE_CLOSE)
+./wdf/kmdf/1.9/wdfdevice.h:_Function_class_(EVT_WDF_FILE_CLEANUP)
+./wdf/kmdf/1.9/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_PNP_STATE_CHANGE_NOTIFICATION)
+./wdf/kmdf/1.9/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_POWER_STATE_CHANGE_NOTIFICATION)
+./wdf/kmdf/1.9/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_POWER_POLICY_STATE_CHANGE_NOTIFICATION)
+./wdf/kmdf/1.9/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_D0_ENTRY)
+./wdf/kmdf/1.9/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_D0_ENTRY_POST_INTERRUPTS_ENABLED)
+./wdf/kmdf/1.9/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_D0_EXIT)
+./wdf/kmdf/1.9/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_D0_EXIT_PRE_INTERRUPTS_DISABLED)
+./wdf/kmdf/1.9/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_PREPARE_HARDWARE)
+./wdf/kmdf/1.9/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_RELEASE_HARDWARE)
+./wdf/kmdf/1.9/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_SELF_MANAGED_IO_CLEANUP)
+./wdf/kmdf/1.9/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_SELF_MANAGED_IO_FLUSH)
+./wdf/kmdf/1.9/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_SELF_MANAGED_IO_INIT)
+./wdf/kmdf/1.9/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_SELF_MANAGED_IO_SUSPEND)
+./wdf/kmdf/1.9/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_SELF_MANAGED_IO_RESTART)
+./wdf/kmdf/1.9/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_QUERY_STOP)
+./wdf/kmdf/1.9/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_QUERY_REMOVE)
+./wdf/kmdf/1.9/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_SURPRISE_REMOVAL)
+./wdf/kmdf/1.9/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_USAGE_NOTIFICATION)
+./wdf/kmdf/1.9/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_RELATIONS_QUERY)
+./wdf/kmdf/1.9/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_ARM_WAKE_FROM_S0)
+./wdf/kmdf/1.9/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_ARM_WAKE_FROM_SX)
+./wdf/kmdf/1.9/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_ARM_WAKE_FROM_SX_WITH_REASON)
+./wdf/kmdf/1.9/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_DISARM_WAKE_FROM_S0)
+./wdf/kmdf/1.9/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_DISARM_WAKE_FROM_SX)
+./wdf/kmdf/1.9/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_WAKE_FROM_S0_TRIGGERED)
+./wdf/kmdf/1.9/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_WAKE_FROM_SX_TRIGGERED)
+./wdf/kmdf/1.9/wdfdevice.h:_Function_class_(EVT_WDFDEVICE_WDM_IRP_PREPROCESS)
+./wdf/kmdf/1.9/wdfdevice.h:_Function_class_(EVT_WDF_IO_IN_CALLER_CONTEXT)
+./wdf/kmdf/1.9/wdfdmaenabler.h:_Function_class_(EVT_WDF_DMA_ENABLER_FILL)
+./wdf/kmdf/1.9/wdfdmaenabler.h:_Function_class_(EVT_WDF_DMA_ENABLER_FLUSH)
+./wdf/kmdf/1.9/wdfdmaenabler.h:_Function_class_(EVT_WDF_DMA_ENABLER_ENABLE)
+./wdf/kmdf/1.9/wdfdmaenabler.h:_Function_class_(EVT_WDF_DMA_ENABLER_DISABLE)
+./wdf/kmdf/1.9/wdfdmaenabler.h:_Function_class_(EVT_WDF_DMA_ENABLER_SELFMANAGED_IO_START)
+./wdf/kmdf/1.9/wdfdmaenabler.h:_Function_class_(EVT_WDF_DMA_ENABLER_SELFMANAGED_IO_STOP)
+./wdf/kmdf/1.9/wdfdmatransaction.h:_Function_class_(EVT_WDF_PROGRAM_DMA)
+./wdf/kmdf/1.9/wdfdpc.h:_Function_class_(EVT_WDF_DPC)
+./wdf/kmdf/1.9/wdfdriver.h:_Function_class_(EVT_WDF_DRIVER_DEVICE_ADD)
+./wdf/kmdf/1.9/wdfdriver.h:_Function_class_(EVT_WDF_DRIVER_UNLOAD)
+./wdf/kmdf/1.9/wdfdriver.h:_Function_class_(EVT_WDF_TRACE_CALLBACK)
+./wdf/kmdf/1.9/wdffdo.h:_Function_class_(EVT_WDF_DEVICE_FILTER_RESOURCE_REQUIREMENTS)
+./wdf/kmdf/1.9/wdffdo.h:_Function_class_(EVT_WDF_DEVICE_REMOVE_ADDED_RESOURCES)
+./wdf/kmdf/1.9/wdfinterrupt.h:_Function_class_(EVT_WDF_INTERRUPT_ISR)
+./wdf/kmdf/1.9/wdfinterrupt.h:_Function_class_(EVT_WDF_INTERRUPT_SYNCHRONIZE)
+./wdf/kmdf/1.9/wdfinterrupt.h:_Function_class_(EVT_WDF_INTERRUPT_DPC)
+./wdf/kmdf/1.9/wdfinterrupt.h:_Function_class_(EVT_WDF_INTERRUPT_ENABLE)
+./wdf/kmdf/1.9/wdfinterrupt.h:_Function_class_(EVT_WDF_INTERRUPT_DISABLE)
+./wdf/kmdf/1.9/wdfio.h:_Function_class_(EVT_WDF_IO_QUEUE_IO_DEFAULT)
+./wdf/kmdf/1.9/wdfio.h:_Function_class_(EVT_WDF_IO_QUEUE_IO_STOP)
+./wdf/kmdf/1.9/wdfio.h:_Function_class_(EVT_WDF_IO_QUEUE_IO_RESUME)
+./wdf/kmdf/1.9/wdfio.h:_Function_class_(EVT_WDF_IO_QUEUE_IO_READ)
+./wdf/kmdf/1.9/wdfio.h:_Function_class_(EVT_WDF_IO_QUEUE_IO_WRITE)
+./wdf/kmdf/1.9/wdfio.h:_Function_class_(EVT_WDF_IO_QUEUE_IO_DEVICE_CONTROL)
+./wdf/kmdf/1.9/wdfio.h:_Function_class_(EVT_WDF_IO_QUEUE_IO_INTERNAL_DEVICE_CONTROL)
+./wdf/kmdf/1.9/wdfio.h:_Function_class_(EVT_WDF_IO_QUEUE_IO_CANCELED_ON_QUEUE)
+./wdf/kmdf/1.9/wdfio.h:_Function_class_(EVT_WDF_IO_QUEUE_STATE)
+./wdf/kmdf/1.9/wdfio.h:_Function_class_(EVT_WDF_IO_ALLOCATE_RESOURCES_FOR_RESERVED_REQUEST)
+./wdf/kmdf/1.9/wdfio.h:_Function_class_(EVT_WDF_IO_ALLOCATE_REQUEST_RESOURCES)
+./wdf/kmdf/1.9/wdfio.h:_Function_class_(EVT_WDF_IO_WDM_IRP_FOR_FORWARD_PROGRESS)
+./wdf/kmdf/1.9/wdfiotarget.h:_Function_class_(EVT_WDF_IO_TARGET_QUERY_REMOVE)
+./wdf/kmdf/1.9/wdfiotarget.h:_Function_class_(EVT_WDF_IO_TARGET_REMOVE_CANCELED)
+./wdf/kmdf/1.9/wdfiotarget.h:_Function_class_(EVT_WDF_IO_TARGET_REMOVE_COMPLETE)
+./wdf/kmdf/1.9/wdfobject.h:_Function_class_(EVT_WDF_OBJECT_CONTEXT_CLEANUP)
+./wdf/kmdf/1.9/wdfobject.h:_Function_class_(EVT_WDF_OBJECT_CONTEXT_DESTROY)
+./wdf/kmdf/1.9/wdfpdo.h:_Function_class_(EVT_WDF_DEVICE_RESOURCES_QUERY)
+./wdf/kmdf/1.9/wdfpdo.h:_Function_class_(EVT_WDF_DEVICE_RESOURCE_REQUIREMENTS_QUERY)
+./wdf/kmdf/1.9/wdfpdo.h:_Function_class_(EVT_WDF_DEVICE_EJECT)
+./wdf/kmdf/1.9/wdfpdo.h:_Function_class_(EVT_WDF_DEVICE_SET_LOCK)
+./wdf/kmdf/1.9/wdfpdo.h:_Function_class_(EVT_WDF_DEVICE_ENABLE_WAKE_AT_BUS)
+./wdf/kmdf/1.9/wdfpdo.h:_Function_class_(EVT_WDF_DEVICE_DISABLE_WAKE_AT_BUS)
+./wdf/kmdf/1.9/wdfqueryinterface.h:_Function_class_(EVT_WDF_DEVICE_PROCESS_QUERY_INTERFACE_REQUEST)
+./wdf/kmdf/1.9/wdfrequest.h:_Function_class_(EVT_WDF_REQUEST_CANCEL)
+./wdf/kmdf/1.9/wdfrequest.h:_Function_class_(EVT_WDF_REQUEST_COMPLETION_ROUTINE)
+./wdf/kmdf/1.9/wdftimer.h:_Function_class_(EVT_WDF_TIMER)
+./wdf/kmdf/1.9/wdfusb.h:_Function_class_(EVT_WDF_USB_READER_COMPLETION_ROUTINE)
+./wdf/kmdf/1.9/wdfusb.h:_Function_class_(EVT_WDF_USB_READERS_FAILED)
+./wdf/kmdf/1.9/wdfwmi.h:_Function_class_(EVT_WDF_WMI_INSTANCE_QUERY_INSTANCE)
+./wdf/kmdf/1.9/wdfwmi.h:_Function_class_(EVT_WDF_WMI_INSTANCE_SET_INSTANCE)
+./wdf/kmdf/1.9/wdfwmi.h:_Function_class_(EVT_WDF_WMI_INSTANCE_SET_ITEM)
+./wdf/kmdf/1.9/wdfwmi.h:_Function_class_(EVT_WDF_WMI_INSTANCE_EXECUTE_METHOD)
+./wdf/kmdf/1.9/wdfwmi.h:_Function_class_(EVT_WDF_WMI_PROVIDER_FUNCTION_CONTROL)
+./wdf/kmdf/1.9/wdfworkitem.h:_Function_class_(EVT_WDF_WORKITEM)
+./wdf/umdf/1.11/wudfinterrupt.h:_Function_class_(WUDF_INTERRUPT_ISR)
+./wdf/umdf/1.11/wudfinterrupt.h:_Function_class_(WUDF_INTERRUPT_ENABLE)
+./wdf/umdf/1.11/wudfinterrupt.h:_Function_class_(WUDF_INTERRUPT_DISABLE)
+./wdf/umdf/1.11/wudfinterrupt.h:_Function_class_(WUDF_INTERRUPT_WORKITEM)
+./wdf/umdf/2.0/wdfchildlist.h:_Function_class_(EVT_WDF_CHILD_LIST_CREATE_DEVICE)
+./wdf/umdf/2.0/wdfchildlist.h:_Function_class_(EVT_WDF_CHILD_LIST_SCAN_FOR_CHILDREN)
+./wdf/umdf/2.0/wdfchildlist.h:_Function_class_(EVT_WDF_CHILD_LIST_IDENTIFICATION_DESCRIPTION_COPY)
+./wdf/umdf/2.0/wdfchildlist.h:_Function_class_(EVT_WDF_CHILD_LIST_IDENTIFICATION_DESCRIPTION_DUPLICATE)
+./wdf/umdf/2.0/wdfchildlist.h:_Function_class_(EVT_WDF_CHILD_LIST_IDENTIFICATION_DESCRIPTION_COMPARE)
+./wdf/umdf/2.0/wdfchildlist.h:_Function_class_(EVT_WDF_CHILD_LIST_IDENTIFICATION_DESCRIPTION_CLEANUP)
+./wdf/umdf/2.0/wdfchildlist.h:_Function_class_(EVT_WDF_CHILD_LIST_ADDRESS_DESCRIPTION_COPY)
+./wdf/umdf/2.0/wdfchildlist.h:_Function_class_(EVT_WDF_CHILD_LIST_ADDRESS_DESCRIPTION_DUPLICATE)
+./wdf/umdf/2.0/wdfchildlist.h:_Function_class_(EVT_WDF_CHILD_LIST_ADDRESS_DESCRIPTION_CLEANUP)
+./wdf/umdf/2.0/wdfchildlist.h:_Function_class_(EVT_WDF_CHILD_LIST_DEVICE_REENUMERATED)
+./wdf/umdf/2.0/wdfcontrol.h:_Function_class_(EVT_WDF_DEVICE_SHUTDOWN_NOTIFICATION)
+./wdf/umdf/2.0/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_FILE_CREATE)
+./wdf/umdf/2.0/wdfdevice.h:_Function_class_(EVT_WDF_FILE_CLOSE)
+./wdf/umdf/2.0/wdfdevice.h:_Function_class_(EVT_WDF_FILE_CLEANUP)
+./wdf/umdf/2.0/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_PNP_STATE_CHANGE_NOTIFICATION)
+./wdf/umdf/2.0/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_POWER_STATE_CHANGE_NOTIFICATION)
+./wdf/umdf/2.0/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_POWER_POLICY_STATE_CHANGE_NOTIFICATION)
+./wdf/umdf/2.0/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_D0_ENTRY)
+./wdf/umdf/2.0/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_D0_ENTRY_POST_INTERRUPTS_ENABLED)
+./wdf/umdf/2.0/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_D0_EXIT)
+./wdf/umdf/2.0/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_D0_EXIT_PRE_INTERRUPTS_DISABLED)
+./wdf/umdf/2.0/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_PREPARE_HARDWARE)
+./wdf/umdf/2.0/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_RELEASE_HARDWARE)
+./wdf/umdf/2.0/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_SELF_MANAGED_IO_CLEANUP)
+./wdf/umdf/2.0/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_SELF_MANAGED_IO_FLUSH)
+./wdf/umdf/2.0/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_SELF_MANAGED_IO_INIT)
+./wdf/umdf/2.0/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_SELF_MANAGED_IO_SUSPEND)
+./wdf/umdf/2.0/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_SELF_MANAGED_IO_RESTART)
+./wdf/umdf/2.0/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_QUERY_STOP)
+./wdf/umdf/2.0/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_QUERY_REMOVE)
+./wdf/umdf/2.0/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_SURPRISE_REMOVAL)
+./wdf/umdf/2.0/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_USAGE_NOTIFICATION)
+./wdf/umdf/2.0/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_USAGE_NOTIFICATION_EX)
+./wdf/umdf/2.0/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_RELATIONS_QUERY)
+./wdf/umdf/2.0/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_ARM_WAKE_FROM_S0)
+./wdf/umdf/2.0/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_ARM_WAKE_FROM_SX)
+./wdf/umdf/2.0/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_ARM_WAKE_FROM_SX_WITH_REASON)
+./wdf/umdf/2.0/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_DISARM_WAKE_FROM_S0)
+./wdf/umdf/2.0/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_DISARM_WAKE_FROM_SX)
+./wdf/umdf/2.0/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_WAKE_FROM_S0_TRIGGERED)
+./wdf/umdf/2.0/wdfdevice.h:_Function_class_(EVT_WDF_DEVICE_WAKE_FROM_SX_TRIGGERED)
+./wdf/umdf/2.0/wdfdevice.h:_Function_class_(EVT_WDFDEVICE_WDM_IRP_PREPROCESS)
+./wdf/umdf/2.0/wdfdevice.h:_Function_class_(EVT_WDFDEVICE_WDM_IRP_DISPATCH)
+./wdf/umdf/2.0/wdfdevice.h:_Function_class_(EVT_WDF_IO_IN_CALLER_CONTEXT)
+./wdf/umdf/2.0/wdfdevice.h:_Function_class_(EVT_WDFDEVICE_WDM_POST_PO_FX_REGISTER_DEVICE)
+./wdf/umdf/2.0/wdfdevice.h:_Function_class_(EVT_WDFDEVICE_WDM_PRE_PO_FX_UNREGISTER_DEVICE)
+./wdf/umdf/2.0/wdfdriver.h:_Function_class_(EVT_WDF_DRIVER_DEVICE_ADD)
+./wdf/umdf/2.0/wdfdriver.h:_Function_class_(EVT_WDF_DRIVER_UNLOAD)
+./wdf/umdf/2.0/wdfdriver.h:_Function_class_(EVT_WDF_TRACE_CALLBACK)
+./wdf/umdf/2.0/wdffdo.h:_Function_class_(EVT_WDF_DEVICE_FILTER_RESOURCE_REQUIREMENTS)
+./wdf/umdf/2.0/wdffdo.h:_Function_class_(EVT_WDF_DEVICE_REMOVE_ADDED_RESOURCES)
+./wdf/umdf/2.0/wdfinterrupt.h:_Function_class_(EVT_WDF_INTERRUPT_ISR)
+./wdf/umdf/2.0/wdfinterrupt.h:_Function_class_(EVT_WDF_INTERRUPT_SYNCHRONIZE)
+./wdf/umdf/2.0/wdfinterrupt.h:_Function_class_(EVT_WDF_INTERRUPT_DPC)
+./wdf/umdf/2.0/wdfinterrupt.h:_Function_class_(EVT_WDF_INTERRUPT_WORKITEM)
+./wdf/umdf/2.0/wdfinterrupt.h:_Function_class_(EVT_WDF_INTERRUPT_ENABLE)
+./wdf/umdf/2.0/wdfinterrupt.h:_Function_class_(EVT_WDF_INTERRUPT_DISABLE)
+./wdf/umdf/2.0/wdfio.h:_Function_class_(EVT_WDF_IO_QUEUE_IO_DEFAULT)
+./wdf/umdf/2.0/wdfio.h:_Function_class_(EVT_WDF_IO_QUEUE_IO_STOP)
+./wdf/umdf/2.0/wdfio.h:_Function_class_(EVT_WDF_IO_QUEUE_IO_RESUME)
+./wdf/umdf/2.0/wdfio.h:_Function_class_(EVT_WDF_IO_QUEUE_IO_READ)
+./wdf/umdf/2.0/wdfio.h:_Function_class_(EVT_WDF_IO_QUEUE_IO_WRITE)
+./wdf/umdf/2.0/wdfio.h:_Function_class_(EVT_WDF_IO_QUEUE_IO_DEVICE_CONTROL)
+./wdf/umdf/2.0/wdfio.h:_Function_class_(EVT_WDF_IO_QUEUE_IO_INTERNAL_DEVICE_CONTROL)
+./wdf/umdf/2.0/wdfio.h:_Function_class_(EVT_WDF_IO_QUEUE_IO_CANCELED_ON_QUEUE)
+./wdf/umdf/2.0/wdfio.h:_Function_class_(EVT_WDF_IO_QUEUE_STATE)
+./wdf/umdf/2.0/wdfio.h:_Function_class_(EVT_WDF_IO_ALLOCATE_RESOURCES_FOR_RESERVED_REQUEST)
+./wdf/umdf/2.0/wdfio.h:_Function_class_(EVT_WDF_IO_ALLOCATE_REQUEST_RESOURCES)
+./wdf/umdf/2.0/wdfio.h:_Function_class_(EVT_WDF_IO_WDM_IRP_FOR_FORWARD_PROGRESS)
+./wdf/umdf/2.0/wdfiotarget.h:_Function_class_(EVT_WDF_IO_TARGET_QUERY_REMOVE)
+./wdf/umdf/2.0/wdfiotarget.h:_Function_class_(EVT_WDF_IO_TARGET_REMOVE_CANCELED)
+./wdf/umdf/2.0/wdfiotarget.h:_Function_class_(EVT_WDF_IO_TARGET_REMOVE_COMPLETE)
+./wdf/umdf/2.0/wdfobject.h:_Function_class_(EVT_WDF_OBJECT_CONTEXT_CLEANUP)
+./wdf/umdf/2.0/wdfobject.h:_Function_class_(EVT_WDF_OBJECT_CONTEXT_DESTROY)
+./wdf/umdf/2.0/wdfpdo.h:_Function_class_(EVT_WDF_DEVICE_RESOURCES_QUERY)
+./wdf/umdf/2.0/wdfpdo.h:_Function_class_(EVT_WDF_DEVICE_RESOURCE_REQUIREMENTS_QUERY)
+./wdf/umdf/2.0/wdfpdo.h:_Function_class_(EVT_WDF_DEVICE_EJECT)
+./wdf/umdf/2.0/wdfpdo.h:_Function_class_(EVT_WDF_DEVICE_SET_LOCK)
+./wdf/umdf/2.0/wdfpdo.h:_Function_class_(EVT_WDF_DEVICE_ENABLE_WAKE_AT_BUS)
+./wdf/umdf/2.0/wdfpdo.h:_Function_class_(EVT_WDF_DEVICE_DISABLE_WAKE_AT_BUS)
+./wdf/umdf/2.0/wdfpdo.h:_Function_class_(EVT_WDF_DEVICE_REPORTED_MISSING)
+./wdf/umdf/2.0/wdfqueryinterface.h:_Function_class_(EVT_WDF_DEVICE_PROCESS_QUERY_INTERFACE_REQUEST)
+./wdf/umdf/2.0/wdfrequest.h:_Function_class_(EVT_WDF_REQUEST_CANCEL)
+./wdf/umdf/2.0/wdfrequest.h:_Function_class_(EVT_WDF_REQUEST_COMPLETION_ROUTINE)
+./wdf/umdf/2.0/wdfrequest.h:_Function_class_(EVT_WDF_REQUEST_IMPERSONATE)
+./wdf/umdf/2.0/wdftimer.h:_Function_class_(EVT_WDF_TIMER)
+./wdf/umdf/2.0/wdfusb.h:_Function_class_(EVT_WDF_USB_READER_COMPLETION_ROUTINE)
+./wdf/umdf/2.0/wdfusb.h:_Function_class_(EVT_WDF_USB_READERS_FAILED)
+./wdf/umdf/2.0/wdfwmi.h:_Function_class_(EVT_WDF_WMI_INSTANCE_QUERY_INSTANCE)
+./wdf/umdf/2.0/wdfwmi.h:_Function_class_(EVT_WDF_WMI_INSTANCE_SET_INSTANCE)
+./wdf/umdf/2.0/wdfwmi.h:_Function_class_(EVT_WDF_WMI_INSTANCE_SET_ITEM)
+./wdf/umdf/2.0/wdfwmi.h:_Function_class_(EVT_WDF_WMI_INSTANCE_EXECUTE_METHOD)
+./wdf/umdf/2.0/wdfwmi.h:_Function_class_(EVT_WDF_WMI_PROVIDER_FUNCTION_CONTROL)
+./wdf/umdf/2.0/wdfworkitem.h:_Function_class_(EVT_WDF_WORKITEM)
+./wdf/umdf/2.0/wudfwdm.h:_Function_class_(DRIVER_INITIALIZE)
+./wdf/umdf/2.0/wudfwdm.h:_Function_class_(PO_FX_COMPONENT_ACTIVE_CONDITION_CALLBACK)
+./wdf/umdf/2.0/wudfwdm.h:_Function_class_(PO_FX_COMPONENT_IDLE_CONDITION_CALLBACK)
+./wdf/umdf/2.0/wudfwdm.h:_Function_class_(PO_FX_COMPONENT_IDLE_STATE_CALLBACK)
+./wdf/umdf/2.0/wudfwdm.h:_Function_class_(PO_FX_DEVICE_POWER_REQUIRED_CALLBACK)
+./wdf/umdf/2.0/wudfwdm.h:_Function_class_(PO_FX_DEVICE_POWER_NOT_REQUIRED_CALLBACK)
+./wdf/umdf/2.0/wudfwdm.h:_Function_class_(PO_FX_POWER_CONTROL_CALLBACK)
+./wdf/umdf/2.0/wudfwdm.h:_Function_class_(PO_FX_COMPONENT_CRITICAL_TRANSITION_CALLBACK)
+
+
+
+
+
+C:\Program Files (x86)\Windows Kits\8.1\Include>%grep% -I -r _Enum_is_bitflag_ .
+./km/wdm.h:typedef _Enum_is_bitflag_ enum _POOL_TYPE POOL_TYPE;
+./km/wdm.h:typedef _Enum_is_bitflag_ enum _POOL_TYPE {
+./km/wdm.h:} _Enum_is_bitflag_ POOL_TYPE;
+./km/wdm.h:typedef _Enum_is_bitflag_ enum _EX_POOL_PRIORITY {
+./km/wdm.h:typedef _Enum_is_bitflag_ enum _WORK_QUEUE_TYPE {
+./shared/no_sal2.h:#ifdef _Enum_is_bitflag_
+./shared/no_sal2.h:#undef _Enum_is_bitflag_
+./shared/no_sal2.h:#define _Enum_is_bitflag_
+./shared/ntdef.h:typedef _Enum_is_bitflag_ enum _SUITE_TYPE {
+./shared/sal.h:#define _Enum_is_bitflag_    _SAL2_Source_(_Enum_is_bitflag_, (), _SA_annotes0(SAL_enumIsBitflag))
+./wdf/umdf/2.0/wudfwdm.h:typedef _Enum_is_bitflag_ enum _POOL_TYPE {
+./wdf/umdf/2.0/wudfwdm.h:} _Enum_is_bitflag_ POOL_TYPE;
+
+C:\Program Files (x86)\Windows Kits\8.1\Include>
+
+
+
+
+C:\Program Files (x86)\Windows Kits\8.1\Include>%grep% -I -r _Strict_type_match_ .
+./km/wdm.h:    _In_ _Strict_type_match_ WAIT_TYPE WaitType,
+./km/wdm.h:    _In_ _Strict_type_match_ KWAIT_REASON WaitReason,
+./km/wdm.h:    _In_ _Strict_type_match_ KWAIT_REASON WaitReason,
+./shared/no_sal2.h:#ifdef _Strict_type_match_
+./shared/no_sal2.h:#undef _Strict_type_match_
+./shared/no_sal2.h:#define _Strict_type_match_
+./shared/sal.h:#define _Strict_type_match_  _SAL2_Source_(_Strict_type_match, (), _SA_annotes0(SAL_strictType2))
+./um/winternl.h:    _In_ _Strict_type_match_
+./wdf/kmdf/1.11/wdfdevice.h:    _Strict_type_match_
+./wdf/kmdf/1.11/wdfdevice.h:    _Strict_type_match_
+./wdf/kmdf/1.11/wdfdevice.h:    _Strict_type_match_
+./wdf/kmdf/1.11/wdfdevice.h:    _Strict_type_match_
+./wdf/kmdf/1.11/wdffdo.h:    _Strict_type_match_
+./wdf/kmdf/1.11/wdffdo.h:    _Strict_type_match_
+./wdf/kmdf/1.11/wdfiotarget.h:    _Strict_type_match_
+./wdf/kmdf/1.11/wdfiotarget.h:    _Strict_type_match_
+./wdf/kmdf/1.11/wdfiotarget.h:    _Strict_type_match_
+./wdf/kmdf/1.11/wdfiotarget.h:    _Strict_type_match_
+./wdf/kmdf/1.11/wdfiotarget.h:    _Strict_type_match_
+./wdf/kmdf/1.11/wdfiotarget.h:    _Strict_type_match_
+./wdf/kmdf/1.11/wdfmemory.h:    _Strict_type_match_
+./wdf/kmdf/1.11/wdfmemory.h:    _Strict_type_match_
+./wdf/kmdf/1.11/wdfmemory.h:    _Strict_type_match_
+./wdf/kmdf/1.11/wdfmemory.h:    _Strict_type_match_
+./wdf/kmdf/1.11/wdfregistry.h:    _Strict_type_match_
+./wdf/kmdf/1.11/wdfregistry.h:    _Strict_type_match_
+./wdf/kmdf/1.11/wdfresource.h:    _Strict_type_match_
+./wdf/kmdf/1.11/wdfresource.h:    _Strict_type_match_
+./wdf/kmdf/1.13/wdfdevice.h:    _Strict_type_match_
+./wdf/kmdf/1.13/wdfdevice.h:    _Strict_type_match_
+./wdf/kmdf/1.13/wdfdevice.h:    _Strict_type_match_
+./wdf/kmdf/1.13/wdfdevice.h:    _Strict_type_match_
+./wdf/kmdf/1.13/wdfdevice.h:    _Strict_type_match_
+./wdf/kmdf/1.13/wdfdevice.h:    _Strict_type_match_
+./wdf/kmdf/1.13/wdffdo.h:    _Strict_type_match_
+./wdf/kmdf/1.13/wdffdo.h:    _Strict_type_match_
+./wdf/kmdf/1.13/wdffdo.h:    _Strict_type_match_
+./wdf/kmdf/1.13/wdffdo.h:    _Strict_type_match_
+./wdf/kmdf/1.13/wdfiotarget.h:    _Strict_type_match_
+./wdf/kmdf/1.13/wdfiotarget.h:    _Strict_type_match_
+./wdf/kmdf/1.13/wdfiotarget.h:    _Strict_type_match_
+./wdf/kmdf/1.13/wdfiotarget.h:    _Strict_type_match_
+./wdf/kmdf/1.13/wdfiotarget.h:    _Strict_type_match_
+./wdf/kmdf/1.13/wdfiotarget.h:    _Strict_type_match_
+./wdf/kmdf/1.13/wdfmemory.h:    _Strict_type_match_
+./wdf/kmdf/1.13/wdfmemory.h:    _Strict_type_match_
+./wdf/kmdf/1.13/wdfmemory.h:    _Strict_type_match_
+./wdf/kmdf/1.13/wdfmemory.h:    _Strict_type_match_
+./wdf/kmdf/1.13/wdfregistry.h:    _Strict_type_match_
+./wdf/kmdf/1.13/wdfregistry.h:    _Strict_type_match_
+./wdf/kmdf/1.13/wdfresource.h:    _Strict_type_match_
+./wdf/kmdf/1.13/wdfresource.h:    _Strict_type_match_
+./wdf/kmdf/1.9/wdfdevice.h:    _Strict_type_match_
+./wdf/kmdf/1.9/wdfdevice.h:    _Strict_type_match_
+./wdf/kmdf/1.9/wdfdevice.h:    _Strict_type_match_
+./wdf/kmdf/1.9/wdfdevice.h:    _Strict_type_match_
+./wdf/kmdf/1.9/wdffdo.h:    _Strict_type_match_
+./wdf/kmdf/1.9/wdffdo.h:    _Strict_type_match_
+./wdf/kmdf/1.9/wdfiotarget.h:    _Strict_type_match_
+./wdf/kmdf/1.9/wdfiotarget.h:    _Strict_type_match_
+./wdf/kmdf/1.9/wdfiotarget.h:    _Strict_type_match_
+./wdf/kmdf/1.9/wdfiotarget.h:    _Strict_type_match_
+./wdf/kmdf/1.9/wdfmemory.h:    _Strict_type_match_
+./wdf/kmdf/1.9/wdfmemory.h:    _Strict_type_match_
+./wdf/kmdf/1.9/wdfmemory.h:    _Strict_type_match_
+./wdf/kmdf/1.9/wdfmemory.h:    _Strict_type_match_
+./wdf/kmdf/1.9/wdfregistry.h:    _Strict_type_match_
+./wdf/kmdf/1.9/wdfregistry.h:    _Strict_type_match_
+./wdf/kmdf/1.9/wdfresource.h:    _Strict_type_match_
+./wdf/kmdf/1.9/wdfresource.h:    _Strict_type_match_
+./wdf/umdf/2.0/wdfdevice.h:    _Strict_type_match_
+./wdf/umdf/2.0/wdfdevice.h:    _Strict_type_match_
+./wdf/umdf/2.0/wdfdevice.h:    _Strict_type_match_
+./wdf/umdf/2.0/wdfdevice.h:    _Strict_type_match_
+./wdf/umdf/2.0/wdfdevice.h:    _Strict_type_match_
+./wdf/umdf/2.0/wdfdevice.h:    _Strict_type_match_
+./wdf/umdf/2.0/wdffdo.h:    _Strict_type_match_
+./wdf/umdf/2.0/wdffdo.h:    _Strict_type_match_
+./wdf/umdf/2.0/wdffdo.h:    _Strict_type_match_
+./wdf/umdf/2.0/wdffdo.h:    _Strict_type_match_
+./wdf/umdf/2.0/wdfiotarget.h:    _Strict_type_match_
+./wdf/umdf/2.0/wdfiotarget.h:    _Strict_type_match_
+./wdf/umdf/2.0/wdfiotarget.h:    _Strict_type_match_
+./wdf/umdf/2.0/wdfiotarget.h:    _Strict_type_match_
+./wdf/umdf/2.0/wdfmemory.h:    _Strict_type_match_
+./wdf/umdf/2.0/wdfmemory.h:    _Strict_type_match_
+./wdf/umdf/2.0/wdfregistry.h:    _Strict_type_match_
+./wdf/umdf/2.0/wdfregistry.h:    _Strict_type_match_
+
+
+
+
+
+C:\Program Files (x86)\Windows Kits\8.1\Include>%grep% -I -r _Maybe_raises_SEH_exception_ .
+./km/ntddk.h:_Maybe_raises_SEH_exception_
+./km/wdm.h:_Maybe_raises_SEH_exception_
+./km/wdm.h:_Maybe_raises_SEH_exception_
+./km/wdm.h:_Maybe_raises_SEH_exception_
+./km/wdm.h:_When_(AccessMode==1, _Maybe_raises_SEH_exception_ _IRQL_requires_max_(APC_LEVEL))
+./km/wdm.h:_When_(AccessMode==UserMode, _Maybe_raises_SEH_exception_ _IRQL_requires_max_(APC_LEVEL) _Post_notnull_)
+./km/wdm.h:_When_(AccessMode==UserMode, _Maybe_raises_SEH_exception_ _IRQL_requires_max_(APC_LEVEL) _Post_notnull_)
+./shared/no_sal2.h:#ifdef _Maybe_raises_SEH_exception_
+./shared/no_sal2.h:#undef _Maybe_raises_SEH_exception_
+./shared/no_sal2.h:#define _Maybe_raises_SEH_exception_
+./shared/sal.h:#define _Maybe_raises_SEH_exception_impl_   [__M_(__d_=0)]
+./shared/sal.h:#define _Maybe_raises_SEH_exception_   _SAL2_Source_(_Maybe_raises_SEH_exception_, (x), _Pre_ _SA_annotes1(SAL_inTry,__yes))
+./shared/sal.h:#define _Raises_SEH_exception_         _SAL2_Source_(_Raises_SEH_exception_, (x), _Maybe_raises_SEH_exception_ _Analysis_noreturn_)
+./um/synchapi.h:_Maybe_raises_SEH_exception_
+
+
+
+
+
+C:\Program Files (x86)\Windows Kits\8.1\Include>%grep% -I -r __PRIMOP .
+./shared/driverspecs.h:    __PRIMOP(int, _Holds_resource_(__In_impl_ __deferTypecheck char *,__In_impl_ char *);)
+./shared/driverspecs.h:    __PRIMOP(int, _Holds_resource_global_(__In_impl_ char *, ...);)
+./shared/driverspecs.h:    __PRIMOP(int, _Is_kernel_(void);)
+./shared/driverspecs.h:    __PRIMOP(int, _Is_driver_(void);)
+./shared/sal.h:#define __PRIMOP(type, fun)            _SA_annotes0(SAL_primop)  type __SA_##fun;
+./shared/sal.h:#define __PRIMOP(type, fun)            _SA_annotes0(SAL_primop) type __SA_##fun
+./shared/sal.h:#define __PRIMOP(type, fun)
+./shared/sal.h:__PRIMOP(char *, _Macro_value_(__In_impl_ char *));
+./shared/sal.h:__PRIMOP(int, _Macro_defined_(__In_impl_ char *));
+./shared/sal.h:__PRIMOP(char *, _Strstr_(__In_impl_ char *, __In_impl_ char *));
+./shared/sal.h:__PRIMOP(int, _In_function_class_(__In_impl_ char*);)
+./shared/specstrings.h:#undef __PRIMOP
+./shared/specstrings.h:#define __PRIMOP(type, fun)
+
+
+
+
+
+
+
+C:\Program Files (x86)\Windows Kits\8.1\Include>%grep% -I -r __ANNOTATION .
+./shared/concurrencysal.h:__ANNOTATION(SAL_guarded_by(__deferTypecheck void *));
+./shared/concurrencysal.h:__ANNOTATION(SAL_write_guarded_by(__deferTypecheck void *));
+./shared/concurrencysal.h:__ANNOTATION(SAL_requires_lock_held(__deferTypecheck void *));
+./shared/concurrencysal.h:__ANNOTATION(SAL_requires_exclusive_lock_held(__deferTypecheck void *));
+./shared/concurrencysal.h:__ANNOTATION(SAL_requires_shared_lock_held(__deferTypecheck void *));
+./shared/concurrencysal.h:__ANNOTATION(SAL_requires_lock_not_held(__deferTypecheck void *));
+./shared/concurrencysal.h:__ANNOTATION(SAL_requires_no_locks_held(void));
+./shared/concurrencysal.h:__ANNOTATION(SAL_set_lock_count_to_zero(__deferTypecheck void *));
+./shared/concurrencysal.h:__ANNOTATION(SAL_set_lock_count_to_one(__deferTypecheck void *));
+./shared/concurrencysal.h:__ANNOTATION(SAL_acquires_lock(__deferTypecheck void *));
+./shared/concurrencysal.h:__ANNOTATION(SAL_acquires_exclusive_lock(__deferTypecheck void *));
+./shared/concurrencysal.h:__ANNOTATION(SAL_acquires_shared_lock(__deferTypecheck void *));
+./shared/concurrencysal.h:__ANNOTATION(SAL_releases_lock(__deferTypecheck void *));
+./shared/concurrencysal.h:__ANNOTATION(SAL_releases_exclusive_lock(__deferTypecheck void *));
+./shared/concurrencysal.h:__ANNOTATION(SAL_releases_shared_lock(__deferTypecheck void *));
+./shared/concurrencysal.h:__ANNOTATION(SAL_ignore_lock_match(__deferTypecheck void *));
+./shared/concurrencysal.h:__ANNOTATION(SAL_has_lock_property(__AuToQuOtE __In_impl_ char *));
+./shared/concurrencysal.h:__ANNOTATION(SAL_has_lock_level(__AuToQuOtE __In_impl_ char *));
+./shared/concurrencysal.h:__ANNOTATION(SAL_lock_level_order(__deferTypecheck void *, __deferTypecheck void *));
+./shared/concurrencysal.h:__ANNOTATION(SAL_no_competing_thread(void));
+./shared/concurrencysal.h:__ANNOTATION(SAL_set_same_lock(__deferTypecheck void *, __deferTypecheck void *));
+./shared/driverspecs.h:    __ANNOTATION(SAL_internal_kernel_driver();)
+./shared/driverspecs.h:    __ANNOTATION(SAL_kernel();)
+./shared/driverspecs.h:    __ANNOTATION(SAL_nokernel();)
+./shared/driverspecs.h:    __ANNOTATION(SAL_driver();)
+./shared/driverspecs.h:    __ANNOTATION(SAL_nodriver();)
+./shared/driverspecs.h:    __ANNOTATION(SAL_landmark(__In_impl_ char *);)
+./shared/driverspecs.h:    __ANNOTATION(SAL_acquire(__In_impl_ char *);)
+./shared/driverspecs.h:    __ANNOTATION(SAL_release(__In_impl_ char *);)
+./shared/driverspecs.h:    __ANNOTATION(SAL_acquireGlobal(__In_impl_ char *, ...);)
+./shared/driverspecs.h:    __ANNOTATION(SAL_releaseGlobal(__In_impl_ char *, ...);)
+./shared/driverspecs.h:    __ANNOTATION(SAL_mustHold(__In_impl_ char *);)
+./shared/driverspecs.h:    __ANNOTATION(SAL_mustHoldGlobal(__In_impl_ char *, ...);)
+./shared/driverspecs.h:    __ANNOTATION(SAL_neverHold(__In_impl_ char *);)
+./shared/driverspecs.h:    __ANNOTATION(SAL_neverHoldGlobal(__In_impl_ char *, ...);)
+./shared/driverspecs.h:    __ANNOTATION(SAL_clearDoInit(enum __SAL_YesNo);)
+./shared/driverspecs.h:    __ANNOTATION(SAL_IoGetDmaAdapter(void);)
+./shared/driverspecs.h:    __ANNOTATION(SAL_return(__In_impl_ __AuToQuOtE char *);)
+./shared/driverspecs.h:    __ANNOTATION(SAL_strictTypeMatch(__int64);)
+./shared/driverspecs.h:    __ANNOTATION(SAL_strictType(__In_impl_ __AuToQuOtE char *);) // currently 1/2 args
+./shared/driverspecs.h:    __ANNOTATION(SAL_IsAliased(void);)
+./shared/driverspecs.h:    __ANNOTATION(SAL_NeedsRelease(enum __SAL_YesNo);)
+./shared/driverspecs.h:    __ANNOTATION(SAL_preferredFunction(__In_impl_ __AuToQuOtE char *,
+./shared/driverspecs.h:    __ANNOTATION(SAL_preferredFunction3(__In_impl_ __AuToQuOtE char *,
+./shared/driverspecs.h:    __ANNOTATION(SAL_error(__In_impl_ __AuToQuOtE char *);)
+./shared/driverspecs.h:    __ANNOTATION(SAL_error2(__In_impl_ __AuToQuOtE char *, __In_impl_ __int64);)
+./shared/driverspecs.h:    __ANNOTATION(SAL_floatSaved(void);)
+./shared/driverspecs.h:    __ANNOTATION(SAL_floatRestored(void);)
+./shared/driverspecs.h:    __ANNOTATION(SAL_floatUsed(void);)
+./shared/driverspecs.h:    __ANNOTATION(SAL_IsFormatString(__In_impl_ char *);)
+./shared/driverspecs.h:    __ANNOTATION(SAL_completionType(__In_impl_ __AuToQuOtE char *);)
+./shared/driverspecs.h:    __ANNOTATION(SAL_callbackType(__In_impl_ __AuToQuOtE char *);)
+./shared/kernelspecs.h:    __ANNOTATION(SAL_IRQL(__int64);)
+./shared/kernelspecs.h:    __ANNOTATION(SAL_raiseIRQL(__int64);)
+./shared/kernelspecs.h:    __ANNOTATION(SAL_IRQL(__int64);)
+./shared/kernelspecs.h:    __ANNOTATION(SAL_maxIRQL(__int64);)
+./shared/kernelspecs.h:    __ANNOTATION(SAL_minIRQL(__int64);)
+./shared/kernelspecs.h:    __ANNOTATION(SAL_saveIRQL(void);)
+./shared/kernelspecs.h:    __ANNOTATION(SAL_saveIRQLGlobal(__In_impl_ char *, ...);)
+./shared/kernelspecs.h:    __ANNOTATION(SAL_restoreIRQL(void);)
+./shared/kernelspecs.h:    __ANNOTATION(SAL_restoreIRQLGlobal(__In_impl_ char *, ...);)
+./shared/kernelspecs.h:    __ANNOTATION(SAL_minFunctionIrql(__int64);)
+./shared/kernelspecs.h:    __ANNOTATION(SAL_maxFunctionIrql(__int64);)
+./shared/kernelspecs.h:    __ANNOTATION(SAL_sameIRQL(void);)
+./shared/kernelspecs.h:    __ANNOTATION(SAL_UseCancelIrql(void);)
+./shared/sal.h:#define __ANNOTATION(fun)              _SA_annotes0(SAL_annotation)  void __SA_##fun;
+./shared/sal.h:#define __ANNOTATION(fun)              _SA_annotes0(SAL_annotation) void __SA_##fun
+./shared/sal.h:#define __ANNOTATION(fun)
+./shared/sal.h:__ANNOTATION(SAL_useHeader(void));
+./shared/sal.h:__ANNOTATION(SAL_bound(void));
+./shared/sal.h:__ANNOTATION(SAL_allocator(void));   //??? resolve with PFD
+./shared/sal.h:__ANNOTATION(SAL_file_parser(__AuToQuOtE __In_impl_ char *, __In_impl_ char *));
+./shared/sal.h:__ANNOTATION(SAL_source_code_content(__In_impl_ char *));
+./shared/sal.h:__ANNOTATION(SAL_analysisHint(__AuToQuOtE __In_impl_ char *));
+./shared/sal.h:__ANNOTATION(SAL_untrusted_data_source(__AuToQuOtE __In_impl_ char *));
+./shared/sal.h:__ANNOTATION(SAL_untrusted_data_source_this(__AuToQuOtE __In_impl_ char *));
+./shared/sal.h:__ANNOTATION(SAL_validated(__AuToQuOtE __In_impl_ char *));
+./shared/sal.h:__ANNOTATION(SAL_validated_this(__AuToQuOtE __In_impl_ char *));
+./shared/sal.h:__ANNOTATION(SAL_encoded(void));
+./shared/sal.h:__ANNOTATION(SAL_adt(__AuToQuOtE __In_impl_ char *, __AuToQuOtE __In_impl_ char *));
+./shared/sal.h:__ANNOTATION(SAL_add_adt_property(__AuToQuOtE __In_impl_ char *, __AuToQuOtE __In_impl_ char *));
+./shared/sal.h:__ANNOTATION(SAL_remove_adt_property(__AuToQuOtE __In_impl_ char *, __AuToQuOtE __In_impl_ char *));
+./shared/sal.h:__ANNOTATION(SAL_transfer_adt_property_from(__AuToQuOtE __In_impl_ char *));
+./shared/sal.h:__ANNOTATION(SAL_post_type(__AuToQuOtE __In_impl_ char *));
+./shared/sal.h:__ANNOTATION(SAL_volatile(void));
+./shared/sal.h:__ANNOTATION(SAL_nonvolatile(void));
+./shared/sal.h:__ANNOTATION(SAL_entrypoint(__AuToQuOtE __In_impl_ char *, __AuToQuOtE __In_impl_ char *));
+./shared/sal.h:__ANNOTATION(SAL_blocksOn(__In_impl_ void*));
+./shared/sal.h:__ANNOTATION(SAL_mustInspect(void));
+./shared/sal.h:__ANNOTATION(SAL_TypeName(__AuToQuOtE __In_impl_ char *));
+./shared/sal.h:__ANNOTATION(SAL_interlocked(void);)
+./shared/sal.h:__ANNOTATION(SAL_analysisMode(__AuToQuOtE __In_impl_ char *mode);)
+./shared/sal.h:__ANNOTATION(SAL_functionClassNew(__In_impl_ char*);)
+./shared/specstrings.h:__ANNOTATION(SAL_valueUndefined());
+./shared/specstrings.h:__ANNOTATION(SAL_failureDefault(enum __SAL_failureKind));
+./shared/specstrings.h:#undef __ANNOTATION
+./shared/specstrings.h:#define __ANNOTATION(fun) /* fun */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+C:\Program Files (x86)\Windows Kits\8.1\Include>%grep% -C -rnI _At_ .|%grep% "_When_\|_Pre_satisfies_\|_Post_satisfies_" > "C:\Users\Alexander Riccio\sal_At_.txt"
+
+./km/crt/memory.h:38:_At_buffer_((unsigned char*)_Dst, _Iter_, _Size, _Post_satisfies_(((unsigned char*)_Dst)[_Iter_] == ((unsigned char*)_Src)[_Iter_]))
+./km/crt/string.h:52:_At_buffer_((unsigned char*)_Dst, _Iter_, _MaxCount, _Post_satisfies_(((unsigned char*)_Dst)[_Iter_] == ((unsigned char*)_Src)[_Iter_]))
+./km/crt/string.h:62:_At_buffer_((unsigned char*)_Dst, _Iter_, _Size, _Post_satisfies_(((unsigned char*)_Dst)[_Iter_] == _Val))
+./km/crt/wchar.h:1206:_At_buffer_((unsigned char*)_Dst, _Iter_, _Size, _Post_satisfies_(((unsigned char*)_Dst)[_Iter_] == ((unsigned char*)_Src)[_Iter_]))
+./km/crt/wchar.h:1232:_At_buffer_(_S1, _Iter_, _N, _Post_satisfies_(_S1[_Iter_] == _S2[_Iter_]))
+./km/crt/_70_exception:43:_At_buffer_((unsigned char*)_Dst, _Iter_, _MaxCount, _Post_satisfies_(((unsigned char*)_Dst)[_Iter_] == ((unsigned char*)_Src)[_Iter_]))
+./km/dispmprt.h:1036:    _When_(Buffer == NULL, _At_(BufferSize, _In_range_(==, 0)))
+./km/hidpddi.h:69:_At_(DeviceDescription->CollectionDesc, _When_(return==0, __drv_allocatesMem(Mem)))
+./km/hidpddi.h:70:_At_(DeviceDescription->ReportIDs, _When_(return==0, __drv_allocatesMem(Mem)))
+./km/ndis.h:4076:    _Out_ _When_(return==NDIS_STATUS_SUCCESS, _At_(*ConfigurationHandle, __drv_allocatesMem(mem)))
+./km/ndis.h:5961:_When_(return==0,_At_(NetBufferList->Context, __drv_allocatesMem(mem)))
+./km/ndis.h-6067-_Pre_satisfies_(AlignMultiple == 1 || AlignMultiple == 2 || AlignMultiple == 4 ||
+./km/ntddk.h:3354:    _When_(AllocateDestinationString, _Out_ _At_(DestinationString->Buffer, __drv_allocatesMem(Mem)))
+./km/ntddk.h-3355-    _When_(!AllocateDestinationString, _Inout_)
+./km/ntddk.h-9096-    _Out_ _When_(return==0,
+./km/ntddk.h-9107-    _Out_ _When_(return==0,
+./km/ntddk.h-9564-        _When_(return == 0, __drv_allocatesMem(Mem)))
+./km/ntifs.h-1748-_When_(TokenInformationClass == TokenAccessInformation,
+./km/ntifs.h:2230:    _When_(AllocateDestinationString, _Out_ _At_(DestinationString->Buffer, __drv_allocatesMem(Mem)))
+./km/ntifs.h-2231-    _When_(!AllocateDestinationString, _Inout_)
+./km/ntifs.h:2241:_When_(AllocateDestinationString, _At_(DestinationString->Buffer, _Post_notnull_ __drv_allocatesMem(Mem)))
+./km/ntifs.h:2261:    _When_(AllocateDestinationString, _Out_ _At_(DestinationString->Buffer, __drv_allocatesMem(Mem)))
+./km/ntifs.h-2262-    _When_(!AllocateDestinationString, _Inout_)
+./km/ntifs.h:2276:    _When_(AllocateDestinationString, _Out_ _At_(DestinationString->Buffer, __drv_allocatesMem(Mem)))
+./km/ntifs.h-2277-    _When_(!AllocateDestinationString, _Inout_)
+./km/ntifs.h:2291:    _When_(AllocateDestinationString, _Out_ _At_(DestinationString->Buffer, __drv_allocatesMem(Mem)))
+./km/ntifs.h-2292-    _When_(!AllocateDestinationString, _Inout_)
+./km/ntifs.h:2306:    _When_(AllocateDestinationString, _Out_ _At_(DestinationString->Buffer, __drv_allocatesMem(Mem)))
+./km/ntifs.h-2307-    _When_(!AllocateDestinationString, _Inout_)
+./km/ntifs.h:2352:    _When_(AllocateDestinationString, _Out_ _At_(DestinationString->Buffer, __drv_allocatesMem(Mem)))
+./km/ntifs.h-2353-    _When_(!AllocateDestinationString, _Inout_)
+./km/ntifs.h:13713:_When_(QUERY_TYPE_ULONG(TokenInformationClass), _At_((PULONG)TokenInformation, _Out_))
+./km/ntifs.h:13714:_When_(!QUERY_TYPE_ULONG(TokenInformationClass), _At_(TokenInformation, _Outptr_result_buffer_(_Inexpressible_(token-dependent))))
+./km/ntifs.h:16396:_When_(_Old_(LongName->Buffer) != LongName->Buffer, _At_(LongName->Buffer, __drv_allocatesMem(Mem)))
+./km/ntifs.h:17561:_When_(NotifyIrp == NULL, _At_(FullDirectoryName, _In_opt_))
+./km/ntifs.h:17562:_When_(NotifyIrp != NULL, _At_(FullDirectoryName, _In_))
+./km/ntstrsafe.h-225-_When_(_Old_(*ppszSrc) != NULL, _Unchanged_(*ppszSrc))
+./km/ntstrsafe.h:226:_When_(_Old_(*ppszSrc) == NULL, _At_(*ppszSrc, _Post_z_))
+./km/ntstrsafe.h-242-_When_(_Old_(*ppszSrc) != NULL, _Unchanged_(*ppszSrc))
+./km/ntstrsafe.h:243:_When_(_Old_(*ppszSrc) == NULL, _At_(*ppszSrc, _Post_z_))
+./km/ntstrsafe.h-12227-    _When_(_Old_(*ppszSrc) != NULL, _Unchanged_(*ppszSrc))
+./km/ntstrsafe.h:12228:_When_(_Old_(*ppszSrc) == NULL, _At_(*ppszSrc, _Post_z_))
+./km/ntstrsafe.h-12263-    _When_(_Old_(*ppszSrc) != NULL, _Unchanged_(*ppszSrc))
+./km/ntstrsafe.h:12264:_When_(_Old_(*ppszSrc) == NULL, _At_(*ppszSrc, _Post_z_))
+./km/storport.h:8224:    _Out_ _At_(*PMdl, _When_(return==0, _Post_null_))
+./km/storport.h:8225:    _At_(*PMdl, _When_(return!=0, __drv_aliasesMem __drv_allocatesMem(Mem) _Post_notnull_))
+./km/storport.h-9744-        _When_(return!=STOR_STATUS_SUCCESS, _Post_null_)
+./km/storport.h-9745-        _When_(return==STOR_STATUS_SUCCESS, __drv_aliasesMem __drv_allocatesMem(Mem) _Post_notnull_
+./km/storport.h-9790-        _When_(return!=STOR_STATUS_SUCCESS, _Post_null_)
+./km/storport.h-9791-        _When_(return==STOR_STATUS_SUCCESS, __drv_aliasesMem __drv_allocatesMem(Mem) _Post_notnull_))
+./km/storport.h-10144-        _When_(return!=STOR_STATUS_SUCCESS, _Post_null_)
+./km/storport.h-10145-        _When_(return==STOR_STATUS_SUCCESS, _Post_notnull_ _Post_writable_byte_size_(NumberOfBytes)))
+./km/wdm.h:10146:    _When_(AllocateDestinationString, _Out_ _At_(DestinationString->Buffer, __drv_allocatesMem(Mem)))
+./km/wdm.h-10147-    _When_(!AllocateDestinationString, _Inout_)
+./km/wdm.h-10157-_When_(AllocateDestinationString,
+./km/wdm.h-10160-_When_(!AllocateDestinationString,
+./km/wdm.h-10164-_When_(AllocateDestinationString, _Must_inspect_result_)
+./km/wdm.h:10169:    _When_(AllocateDestinationString, _Out_ _At_(DestinationString->Buffer, __drv_allocatesMem(Mem)))
+./km/wdm.h-10170-    _When_(!AllocateDestinationString, _Inout_)
+./km/wdm.h-10247-    _When_(SourceString->Length > DestinationString->MaximumLength,
+
+
+./km/wdm.h-10264-_When_(_Old_(Destination->Length) + Source->Length <= Destination->MaximumLength,
+
+
+    #if (NTDDI_VERSION >= NTDDI_WIN2K)
+    _Success_(1)
+    _Unchanged_(Destination->MaximumLength)
+    _Unchanged_(Destination->Buffer)
+    _When_(_Old_(Destination->Length) + Source->Length <= Destination->MaximumLength,
+        _At_(Destination->Length,
+             _Post_equal_to_(_Old_(Destination->Length) + Source->Length))
+        _At_(return, _Out_range_(==, 0)))
+    _When_(_Old_(Destination->Length) + Source->Length > Destination->MaximumLength,
+        _Unchanged_(Destination->Length)
+        _At_(return, _Out_range_(<, 0)))
+    NTSYSAPI
+    NTSTATUS
+    NTAPI
+    RtlAppendUnicodeStringToString (
+        _Inout_ PUNICODE_STRING Destination,
+        _In_ PCUNICODE_STRING Source
+        );
+    #endif
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+./km/wdm.h-10268-_When_(_Old_(Destination->Length) + Source->Length > Destination->MaximumLength,
+./km/wdm.h-10284-_When_(_Old_(Destination->Length) + _String_length_(Source) * sizeof(WCHAR) <= Destination->MaximumLength,
+./km/wdm.h-10288-_When_(_Old_(Destination->Length) + _String_length_(Source) * sizeof(WCHAR) > Destination->MaximumLength,
+./km/wdm.h-12321-    _When_(lpVersionInformation->dwOSVersionInfoSize == sizeof(RTL_OSVERSIONINFOEXW),
+./km/wdm.h-14951-_When_(return>=0, _Kernel_float_saved_)
+./km/wdm.h:14952:_At_(*FloatSave, _When_(return>=0, _Kernel_acquires_resource_(FloatState)))
+./km/wdm.h-15678-_When_(return>=0, _Kernel_float_saved_)
+./km/wdm.h:15679:_At_(*FloatSave, _When_(return>=0, _Kernel_acquires_resource_(FloatState)))
+./km/wdm.h-16580-_When_(return>=0, _Kernel_float_saved_)
+./km/wdm.h:16581:_At_(*FloatSave, _When_(return>=0, _Kernel_acquires_resource_(FloatState)))
+./km/wdm.h-18791-_When_(return>=0, _Kernel_float_saved_)
+./km/wdm.h:18792:_At_(*XStateSave, _When_(return>=0, _Kernel_acquires_resource_(FloatState)))
+./km/wdm.h-22558-_When_(AccessMode==KernelMode, _IRQL_requires_max_(DISPATCH_LEVEL))
+./km/wdm.h-22559-_When_(AccessMode==UserMode, _Maybe_raises_SEH_exception_ _IRQL_requires_max_(APC_LEVEL) _Post_notnull_)
+./km/wdm.h-22589-_When_(AccessMode==KernelMode, _IRQL_requires_max_(DISPATCH_LEVEL))
+./km/wdm.h-22590-_When_(AccessMode==UserMode, _Maybe_raises_SEH_exception_ _IRQL_requires_max_(APC_LEVEL) _Post_notnull_)
+./km/wdm.h:25877:    _Post_ _At_(*DriverObjectExtension, _When_(return==0,
+./km/wdm.h-25879-    _When_(return == 0, _Outptr_result_bytebuffer_(DriverObjectExtensionSize))
+./km/wdm.h:26070:_When_(MajorFunction == IRP_MJ_WRITE, _At_(Buffer, _In_))
+./km/wdm.h:26071:_When_(MajorFunction == IRP_MJ_READ, _At_(Buffer, _Out_))
+./km/wdm.h:26072:_When_(MajorFunction != IRP_MJ_READ && MajorFunction != IRP_MJ_WRITE, _At_(Buffer, _Pre_null_))
+./km/wdm.h-26705-        _When_((((_In_function_class_(DRIVER_INITIALIZE))
+./km/wdm.h:27027:    _Out_ _When_(return!=0, _Kernel_IoGetDmaAdapter_ _At_(*NumberOfMapRegisters, _Must_inspect_result_))
+./km/wdm.h:28896:_When_(ControlCode==EVENT_ACTIVITY_CTRL_CREATE_ID, _IRQL_requires_max_(HIGH_LEVEL) _At_(ActivityId, _Out_))
+./km/wdm.h:28897:_When_(ControlCode==EVENT_ACTIVITY_CTRL_GET_ID, _IRQL_requires_max_(APC_LEVEL) _At_(ActivityId, _Out_))
+./km/wdm.h:28898:_When_(ControlCode==EVENT_ACTIVITY_CTRL_SET_ID, _IRQL_requires_max_(APC_LEVEL) _At_(ActivityId, _In_))
+./km/wdm.h:28899:_When_(ControlCode==EVENT_ACTIVITY_CTRL_GET_SET_ID, _IRQL_requires_max_(APC_LEVEL) _At_(ActivityId, _Inout_))
+./km/wdm.h:28900:_When_(ControlCode==EVENT_ACTIVITY_CTRL_CREATE_SET_ID, _IRQL_requires_max_(APC_LEVEL) _At_(ActivityId, _Out_))
+./km/wdm.h-29590-_When_((DeviceProperty & __string_type),
+./km/wdm.h-29594-_When_((DeviceProperty & __multiString_type),
+./km/wdm.h-29643-    _Out_ _When_(return==0, 
+./km/wdm.h-29684-        _When_(return==0, __drv_allocatesMem(Mem)))
+./km/wdm.h-29701-    _When_(return==0, 
+./km/wdm.h-29751-        _When_(return==0, __drv_allocatesMem(Mem)))
+./km/wdmsec.h-399-	    _When_((((_In_function_class_(DRIVER_INITIALIZE)) ||(_In_function_class_(DRIVER_DISPATCH)))),
+./shared/bcrypt.h:1288:        _When_(_Old_(*ppBuffer) != NULL, _At_(*ppBuffer, _Out_writes_bytes_to_(*pcbBuffer, *pcbBuffer)))
+./shared/bcrypt.h-1289-        _When_(_Old_(*ppBuffer) == NULL, _Outptr_result_bytebuffer_all_(*pcbBuffer))
+./shared/bcrypt.h:1298:        _When_(_Old_(*ppBuffer) != NULL, _At_(*ppBuffer, _Out_writes_bytes_to_(*pcbBuffer, *pcbBuffer)))
+./shared/bcrypt.h-1299-        _When_(_Old_(*ppBuffer) == NULL, _Outptr_result_bytebuffer_all_(*pcbBuffer))
+./shared/bcrypt.h:1327:        _When_(_Old_(*ppBuffer) != NULL, _At_(*ppBuffer, _Out_writes_bytes_to_(*pcbBuffer, *pcbBuffer)))
+./shared/bcrypt.h-1328-        _When_(_Old_(*ppBuffer) == NULL, _Outptr_result_bytebuffer_all_(*pcbBuffer))
+./shared/bcrypt.h:1347:        _When_(_Old_(*ppBuffer) != NULL, _At_(*ppBuffer, _Out_writes_bytes_to_(*pcbBuffer, *pcbBuffer)))
+./shared/bcrypt.h-1348-        _When_(_Old_(*ppBuffer) == NULL, _Outptr_result_bytebuffer_all_(*pcbBuffer))
+./shared/bcrypt.h:1379:        _When_(_Old_(*ppBuffer) != NULL, _At_(*ppBuffer, _Out_writes_bytes_to_(*pcbBuffer, *pcbBuffer)))
+./shared/bcrypt.h-1380-        _When_(_Old_(*ppBuffer) == NULL, _Outptr_result_bytebuffer_all_(*pcbBuffer))
+./shared/bcrypt.h:1403:        _When_(_Old_(*ppBuffer) != NULL, _At_(*ppBuffer, _Out_writes_bytes_to_(*pcbBuffer, *pcbBuffer)))
+./shared/bcrypt.h-1404-        _When_(_Old_(*ppBuffer) == NULL, _Outptr_result_bytebuffer_all_(*pcbBuffer))
+./shared/bcrypt.h:1418:        _When_(_Old_(*ppBuffer) != NULL, _At_(*ppBuffer, _Out_writes_bytes_to_(*pcbBuffer, *pcbBuffer)))
+./shared/bcrypt.h-1419-        _When_(_Old_(*ppBuffer) == NULL, _Outptr_result_bytebuffer_all_(*pcbBuffer))
+./shared/bcrypt.h:1445:        _When_(_Old_(*ppbValue) != NULL, _At_(*ppbValue, _Out_writes_bytes_to_(*pcbValue, *pcbValue)))
+./shared/bcrypt.h-1446-        _When_(_Old_(*ppbValue) == NULL, _Outptr_result_bytebuffer_all_(*pcbValue))
+./shared/bcrypt.h:1497:        _When_(_Old_(*ppBuffer) != NULL, _At_(*ppBuffer, _Out_writes_bytes_to_(*pcbBuffer, *pcbBuffer)))
+./shared/bcrypt.h-1498-        _When_(_Old_(*ppBuffer) == NULL, _Outptr_result_bytebuffer_all_(*pcbBuffer))
+./shared/driverspecs.h-263-    #define __drv_when(cond, annotes) _When_(cond, annotes _SAL_nop_impl_)
+./shared/mstcpip.h:1393:_At_((PSOCKADDR_IN6)a, _When_(af == AF_INET6, _Out_))
+./shared/no_sal2.h-24-#define _When_(c,a)
+./shared/sal.h:62:   These annotations, like _At_ and _When_, are used with annotations from
+./shared/sal.h-258-// _When_(expr, annos) specifies that the annotations listed in 'annos' only
+./shared/sal.h-1528-#define _Post_satisfies_impl_(cond)     _Post_impl_ _Satisfies_impl_(cond)
+./shared/sal.h-1753-#define _When_impl_(expr, annos)       [SAL_when(p1=#expr)] _Group_(annos)
+./shared/sal.h-1972-#define _When_impl_(expr, annos)        annos
+./shared/sal.h-2072-#define _When_impl_(expr, annos)
+./shared/specstrings.h-405-            _When_(((before) == NULL || (size) > 0), _Must_inspect_result_)) \
+./shared/specstrings.h-426-               _When_(return != FLT_PREOP_SUCCESS_WITH_CALLBACK && return != FLT_PREOP_SYNCHRONIZE, _Post_null_)))
+./shared/specstrings.h-459-                                    _Post_satisfies_(_Curr_ - _Old_(_Curr_) == size)) \
+./shared/specstrings.h-470-                                    _Post_satisfies_(((char*)_Curr_) - ((void*)_Old_(_Curr_)) == size)) \
+./shared/specstrings_strict.h-473-*  _When_(expr, annotes) : annotation list annotes applies when 'expr' is true
+./shared/specstrings_strict.h-619-#define _When_(expr, annotes)    __allowed(on_parameter_or_return)
+./shared/strsafe.h-210-_When_(_Old_(*ppszSrc) != NULL, _Unchanged_(*ppszSrc))
+./shared/strsafe.h:211:_When_(_Old_(*ppszSrc) == NULL, _At_(*ppszSrc, _Post_z_))
+./shared/strsafe.h-227-_When_(_Old_(*ppszSrc) != NULL, _Unchanged_(*ppszSrc))
+./shared/strsafe.h:228:_When_(_Old_(*ppszSrc) == NULL, _At_(*ppszSrc, _Post_z_))
+./shared/strsafe.h-10318-    _When_(_Old_(*ppszSrc) != NULL, _Unchanged_(*ppszSrc))
+./shared/strsafe.h:10319:_When_(_Old_(*ppszSrc) == NULL, _At_(*ppszSrc, _Post_z_))
+./shared/strsafe.h-10354-    _When_(_Old_(*ppszSrc) != NULL, _Unchanged_(*ppszSrc))
+./shared/strsafe.h:10355:_When_(_Old_(*ppszSrc) == NULL, _At_(*ppszSrc, _Post_z_))
+./um/eaphostpeerconfigapis.h-139-                            _When_(*ppbUserBlob != NULL, _Pre_writable_size_(*pdwUserBlobSize))
+./um/LMDFS.h:758:_When_(Level == 1, _At_(Buffer, _Outptr_result_bytebuffer_(*EntriesRead * sizeof(DFS_INFO_1))))
+./um/LMDFS.h:759:_When_(Level == 2, _At_(Buffer, _Outptr_result_bytebuffer_(*EntriesRead * sizeof(DFS_INFO_2))))
+./um/LMDFS.h:760:_When_(Level == 3, _At_(Buffer, _Outptr_result_bytebuffer_(*EntriesRead * sizeof(DFS_INFO_3))))
+./um/LMDFS.h:761:_When_(Level == 4, _At_(Buffer, _Outptr_result_bytebuffer_(*EntriesRead * sizeof(DFS_INFO_4))))
+./um/LMDFS.h:762:_When_(Level == 5, _At_(Buffer, _Outptr_result_bytebuffer_(*EntriesRead * sizeof(DFS_INFO_5))))
+./um/LMDFS.h:763:_When_(Level == 6, _At_(Buffer, _Outptr_result_bytebuffer_(*EntriesRead * sizeof(DFS_INFO_6))))
+./um/LMDFS.h:764:_When_(Level == 8, _At_(Buffer, _Outptr_result_bytebuffer_(*EntriesRead * sizeof(DFS_INFO_8))))
+./um/LMDFS.h:765:_When_(Level == 9, _At_(Buffer, _Outptr_result_bytebuffer_(*EntriesRead * sizeof(DFS_INFO_9))))
+./um/LMDFS.h:766:_When_(Level == 200, _At_(Buffer, _Outptr_result_bytebuffer_(*EntriesRead * sizeof(DFS_INFO_200))))
+./um/LMDFS.h:767:_When_(Level == 300, _At_(Buffer, _Outptr_result_bytebuffer_(*EntriesRead * sizeof(DFS_INFO_300))))
+./um/LMDFS.h:786:_When_(Level == 1, _At_(Buffer, _Outptr_result_bytebuffer_(sizeof(DFS_INFO_1))))
+./um/LMDFS.h:787:_When_(Level == 2, _At_(Buffer, _Outptr_result_bytebuffer_(sizeof(DFS_INFO_2))))
+./um/LMDFS.h:788:_When_(Level == 3, _At_(Buffer, _Outptr_result_bytebuffer_(sizeof(DFS_INFO_3))))
+./um/LMDFS.h:789:_When_(Level == 4, _At_(Buffer, _Outptr_result_bytebuffer_(sizeof(DFS_INFO_4))))
+./um/LMDFS.h:790:_When_(Level == 5, _At_(Buffer, _Outptr_result_bytebuffer_(sizeof(DFS_INFO_5))))
+./um/LMDFS.h:791:_When_(Level == 6, _At_(Buffer, _Outptr_result_bytebuffer_(sizeof(DFS_INFO_6))))
+./um/LMDFS.h:792:_When_(Level == 7, _At_(Buffer, _Outptr_result_bytebuffer_(sizeof(DFS_INFO_7))))
+./um/LMDFS.h:793:_When_(Level == 8, _At_(Buffer, _Outptr_result_bytebuffer_(sizeof(DFS_INFO_8))))
+./um/LMDFS.h:794:_When_(Level == 9, _At_(Buffer, _Outptr_result_bytebuffer_(sizeof(DFS_INFO_9))))
+./um/LMDFS.h:795:_When_(Level == 50, _At_(Buffer, _Outptr_result_bytebuffer_(sizeof(DFS_INFO_50))))
+./um/LMDFS.h:796:_When_(Level == 100, _At_(Buffer, _Outptr_result_bytebuffer_(sizeof(DFS_INFO_100))))
+./um/LMDFS.h:797:_When_(Level == 150, _At_(Buffer, _Outptr_result_bytebuffer_(sizeof(DFS_INFO_150))))
+./um/LMDFS.h:816:_When_(Level == 101, _At_(Buffer, _In_reads_bytes_(sizeof(DFS_INFO_101))))
+./um/LMDFS.h:852:_When_(Level == 101, _At_(Buffer, _In_reads_bytes_(sizeof(DFS_INFO_101))))
+./um/ncryptprotect.h-353-_When_(dwInfoType == NCRYPT_PROTECTION_INFO_TYPE_DESCRIPTOR_STRING,
+./um/netcfgx.h-230-            _When_(celt==1, _Out_opt_) _When_(celt!=1, _Out_)  ULONG *pceltFetched) = 0;
+./um/netcfgx.h-270-            _When_(celt==1, _Out_opt_) _When_(celt!=1, _Out_)  ULONG *pceltFetched);
+./um/netcfgx.h-352-            _When_(celt==1, _Out_opt_) _When_(celt!=1, _Out_)  ULONG *pceltFetched) = 0;
+./um/netcfgx.h-392-            _When_(celt==1, _Out_opt_) _When_(celt!=1, _Out_)  ULONG *pceltFetched);
+./um/netcfgx.h-474-            _When_(celt==1, _Out_opt_) _When_(celt!=1, _Out_)  ULONG *pceltFetched) = 0;
+./um/netcfgx.h-514-            _When_(celt==1, _Out_opt_) _When_(celt!=1, _Out_)  ULONG *pceltFetched);
+./um/netcfgx.idl-138-        [out, annotation("_When_(celt==1, _Out_opt_) _When_(celt!=1, _Out_)")] ULONG *pceltFetched);
+./um/NtDsAPI.h:2513:_When_(InfoLevel == 1, _At_(ppInfo, _Outptr_result_bytebuffer_(*pcOut * sizeof(DS_DOMAIN_CONTROLLER_INFO_1A))))
+./um/NtDsAPI.h:2514:_When_(InfoLevel == 2, _At_(ppInfo, _Outptr_result_bytebuffer_(*pcOut * sizeof(DS_DOMAIN_CONTROLLER_INFO_2A))))
+./um/NtDsAPI.h:2515:_When_(InfoLevel == 3, _At_(ppInfo, _Outptr_result_bytebuffer_(*pcOut * sizeof(DS_DOMAIN_CONTROLLER_INFO_3A))))
+./um/NtDsAPI.h:2527:_When_(InfoLevel == 1, _At_(ppInfo, _Outptr_result_bytebuffer_(*pcOut * sizeof(DS_DOMAIN_CONTROLLER_INFO_1W))))
+./um/NtDsAPI.h:2528:_When_(InfoLevel == 2, _At_(ppInfo, _Outptr_result_bytebuffer_(*pcOut * sizeof(DS_DOMAIN_CONTROLLER_INFO_2W))))
+./um/NtDsAPI.h:2529:_When_(InfoLevel == 3, _At_(ppInfo, _Outptr_result_bytebuffer_(*pcOut * sizeof(DS_DOMAIN_CONTROLLER_INFO_3W))))
+./um/PatchApi.h:416:    _Inout_ _At_(*NewFileBuffer, _When_(*NewFileBuffer != NULL, _Pre_readable_byte_size_(NewFileBufferSize)) _Post_readable_byte_size_(*NewFileActualSize))
+./um/Resapi.h:1327:    _Inout_opt_ _At_(*ppbOutValue, _When_(*ppbOutValue != NULL, _Pre_readable_byte_size_(*pcbOutValueSize)) _Post_readable_byte_size_(*pcbOutValueSize))
+./um/Resapi.h:1338:    _Inout_opt_ _At_(*ppbOutValue, _When_(*ppbOutValue != NULL, _Pre_readable_byte_size_(*pcbOutValueSize)) _Post_readable_byte_size_(*pcbOutValueSize))
+./um/SetupAPI.h:6228:_When_(*PropertyType == DEVPROP_TYPE_STRING, _At_((PWSTR) PropertyBuffer, _Out_writes_bytes_to_opt_(PropertyBufferSize, *RequiredSize)))
+./um/SetupAPI.h:6229:_When_(*PropertyType == DEVPROP_TYPE_STRING_INDIRECT, _At_((PWSTR) PropertyBuffer, _Out_writes_bytes_to_opt_(PropertyBufferSize, *RequiredSize)))
+./um/SetupAPI.h:6230:_When_(*PropertyType == DEVPROP_TYPE_STRING_LIST, _At_((PZZWSTR) PropertyBuffer, _Out_writes_bytes_to_opt_(PropertyBufferSize, *RequiredSize)))
+./um/SetupAPI.h:6279:_When_(*PropertyType == DEVPROP_TYPE_STRING, _At_((PWSTR) PropertyBuffer, _Out_writes_bytes_to_opt_(PropertyBufferSize, *RequiredSize)))
+./um/SetupAPI.h:6280:_When_(*PropertyType == DEVPROP_TYPE_STRING_INDIRECT, _At_((PWSTR) PropertyBuffer, _Out_writes_bytes_to_opt_(PropertyBufferSize, *RequiredSize)))
+./um/SetupAPI.h:6281:_When_(*PropertyType == DEVPROP_TYPE_STRING_LIST, _At_((PZZWSTR) PropertyBuffer, _Out_writes_bytes_to_opt_(PropertyBufferSize, *RequiredSize)))
+./um/SetupAPI.h:6353:_When_(*PropertyType == DEVPROP_TYPE_STRING, _At_((PWSTR) PropertyBuffer, _Out_writes_bytes_to_opt_(PropertyBufferSize, *RequiredSize)))
+./um/SetupAPI.h:6354:_When_(*PropertyType == DEVPROP_TYPE_STRING_INDIRECT, _At_((PWSTR) PropertyBuffer, _Out_writes_bytes_to_opt_(PropertyBufferSize, *RequiredSize)))
+./um/SetupAPI.h:6355:_When_(*PropertyType == DEVPROP_TYPE_STRING_LIST, _At_((PZZWSTR) PropertyBuffer, _Out_writes_bytes_to_opt_(PropertyBufferSize, *RequiredSize)))
+./um/SetupAPI.h:6374:_When_(*PropertyType == DEVPROP_TYPE_STRING, _At_((PWSTR) PropertyBuffer, _Out_writes_bytes_to_opt_(PropertyBufferSize, *RequiredSize)))
+./um/SetupAPI.h:6375:_When_(*PropertyType == DEVPROP_TYPE_STRING_INDIRECT, _At_((PWSTR) PropertyBuffer, _Out_writes_bytes_to_opt_(PropertyBufferSize, *RequiredSize)))
+./um/SetupAPI.h:6376:_When_(*PropertyType == DEVPROP_TYPE_STRING_LIST, _At_((PZZWSTR) PropertyBuffer, _Out_writes_bytes_to_opt_(PropertyBufferSize, *RequiredSize)))
+./um/SetupAPI.h:6503:_When_((*PropertyRegDataType == REG_SZ), _At_((PSTR) PropertyBuffer, _Post_valid_))
+./um/SetupAPI.h:6504:_When_((*PropertyRegDataType == REG_MULTI_SZ), _At_((PZZSTR) PropertyBuffer, _Post_valid_))
+./um/SetupAPI.h:6519:_When_((*PropertyRegDataType == REG_SZ), _At_((PWSTR) PropertyBuffer, _Post_valid_))
+./um/SetupAPI.h:6520:_When_((*PropertyRegDataType == REG_MULTI_SZ), _At_((PZZWSTR) PropertyBuffer, _Post_valid_))
+./um/wiamindr_lh.h:598:            _Outptr_result_maybenull_ _At_(*ppIStream, _When_(return == S_OK, _Post_notnull_))  IStream **ppIStream) = 0;
+./um/wiamindr_lh.h:631:            _Outptr_result_maybenull_ _At_(*ppIStream, _When_(return == S_OK, _Post_notnull_))  IStream **ppIStream);
+./um/wia_lh.h:2995:            _Outptr_result_maybenull_ _At_(*ppDestination, _When_(return == S_OK, _Post_notnull_))  IStream **ppDestination) = 0;
+./um/wia_lh.h:3029:            _Outptr_result_maybenull_ _At_(*ppDestination, _When_(return == S_OK, _Post_notnull_))  IStream **ppDestination);
+./um/winddi.h:4140:_When_(cjSize != 0, _At_(return, _Out_writes_bytes_(cjSize)))
+./um/winddi.h-4593-_When_(pBuffer != NULL && cjBufferSize != 0 && return == 1,
+./um/winddi.h-4596-_On_failure_(_Post_satisfies_(return == 0))          
+./um/winddi.h-4633-_When_(pBuffer != NULL && cjBufferSize != 0 && return == 1,
+./um/winddi.h-4636-_On_failure_(_Post_satisfies_(return == 0))          
+./um/winhttp.h-1169-    _When_((dwOption != WINHTTP_OPTION_USERNAME &&
+./um/WinNls.h:2483:_When_((dwMapFlags & (LCMAP_SORTKEY | LCMAP_BYTEREV | LCMAP_HASH | LCMAP_SORTHANDLE)) != 0, _At_((LPBYTE) lpDestStr, _Out_writes_bytes_opt_(cchDest)))
+./um/WinNls.h:2485:_When_((dwMapFlags & (LCMAP_SORTKEY | LCMAP_BYTEREV)) != 0, _At_((LPBYTE) lpDestStr, _Out_writes_bytes_opt_(cchDest)))
+./um/WinNls.h:2487:_When_(cchSrc != -1,  _At_((WCHAR *) lpSrcStr, _Out_writes_opt_(cchSrc)))
+./um/WinNls.h:2488:_When_(cchDest != -1, _At_((WCHAR *) lpDestStr, _Out_writes_opt_(cchDest)))
+./um/winscard.h:165:    _When_(_Old_(*pcchReaders) == SCARD_AUTOALLOCATE, _At_((LPSTR *)mszReaders, _Outptr_result_buffer_maybenull_(*pcchReaders) _At_(*_Curr_, _Post_z_ _Post_ _NullNull_terminated_)))
+./um/winscard.h-166-    _When_(_Old_(*pcchReaders) != SCARD_AUTOALLOCATE, _Out_writes_opt_(*pcchReaders) _Post_ _NullNull_terminated_)
+./um/winscard.h:174:    _When_(_Old_(*pcchReaders) == SCARD_AUTOALLOCATE, _At_((LPWSTR *)mszReaders, _Outptr_result_buffer_maybenull_(*pcchReaders) _At_(*_Curr_, _Post_z_ _Post_ _NullNull_terminated_)))
+./um/winscard.h-175-    _When_(_Old_(*pcchReaders) != SCARD_AUTOALLOCATE, _Out_writes_opt_(*pcchReaders) _Post_ _NullNull_terminated_)
+./um/winscard.h:191:    _When_(_Old_(*pcchCards) == SCARD_AUTOALLOCATE, _At_((LPSTR *)mszCards, _Outptr_result_buffer_maybenull_(*pcchCards) _At_(*_Curr_, _Post_z_)))
+./um/winscard.h-192-    _When_(_Old_(*pcchCards) != SCARD_AUTOALLOCATE, _Out_writes_opt_z_(*pcchCards))
+./um/winscard.h:202:    _When_(_Old_(*pcchCards) == SCARD_AUTOALLOCATE, _At_((LPWSTR *)mszCards, _Outptr_result_buffer_maybenull_(*pcchCards) _At_(*_Curr_, _Post_z_)))
+./um/winscard.h-203-    _When_(_Old_(*pcchCards) != SCARD_AUTOALLOCATE, _Out_writes_opt_z_(*pcchCards))
+./um/winscard.h:271:    _When_(_Old_(*pcchProvider) == SCARD_AUTOALLOCATE, _At_((LPSTR *)szProvider, _Outptr_result_buffer_all_(*pcchProvider)))
+./um/winscard.h-272-    _When_(_Old_(*pcchProvider) != SCARD_AUTOALLOCATE, _Out_writes_to_(*pcchProvider, *pcchProvider) _Post_z_)
+./um/winscard.h:281:    _When_(_Old_(*pcchProvider) == SCARD_AUTOALLOCATE, _At_((LPWSTR *)szProvider, _Outptr_result_buffer_all_(*pcchProvider)))
+./um/winscard.h-282-    _When_(_Old_(*pcchProvider) != SCARD_AUTOALLOCATE, _Out_writes_to_(*pcchProvider, *pcchProvider) _Post_z_)
+./um/winscard.h:754:    _When_(_Old_(*pcchReaderLen) == SCARD_AUTOALLOCATE, _At_((LPSTR *)mszReaderNames, _Outptr_result_buffer_maybenull_(*pcchReaderLen) _At_(*_Curr_, _Post_z_ _Post_ _NullNull_terminated_)))
+./um/winscard.h-755-    _When_(_Old_(*pcchReaderLen) != SCARD_AUTOALLOCATE, _Out_writes_opt_(*pcchReaderLen) _Post_ _NullNull_terminated_)
+./um/winscard.h:760:    _When_(_Old_(*pcbAtrLen) == SCARD_AUTOALLOCATE, _At_((LPBYTE *)pbAtr, _Outptr_result_buffer_maybenull_(*pcbAtrLen) _At_(*_Curr_, _Post_ _NullNull_terminated_)))
+./um/winscard.h-761-    _When_(_Old_(*pcbAtrLen) != SCARD_AUTOALLOCATE, _Out_writes_opt_(*pcbAtrLen) _Post_ _NullNull_terminated_)
+./um/winscard.h:767:    _When_(_Old_(*pcchReaderLen) == SCARD_AUTOALLOCATE, _At_((LPWSTR *)mszReaderNames, _Outptr_result_buffer_maybenull_(*pcchReaderLen) _At_(*_Curr_, _Post_z_ _Post_ _NullNull_terminated_)))
+./um/winscard.h-768-    _When_(_Old_(*pcchReaderLen) != SCARD_AUTOALLOCATE, _Out_writes_opt_(*pcchReaderLen) _Post_ _NullNull_terminated_)
+./um/winscard.h:773:    _When_(_Old_(*pcbAtrLen) == SCARD_AUTOALLOCATE, _At_((LPBYTE *)pbAtr, _Outptr_result_buffer_maybenull_(*pcbAtrLen) _At_(*_Curr_, _Post_ _NullNull_terminated_)))
+./um/winscard.h-774-    _When_(_Old_(*pcbAtrLen) != SCARD_AUTOALLOCATE, _Out_writes_opt_(*pcbAtrLen) _Post_ _NullNull_terminated_)
+./um/winscard.h:1297:  _When_(_Old_(*pcbIcon) == SCARD_AUTOALLOCATE, _At_((LPBYTE *)pbIcon, _Outptr_result_bytebuffer_all_maybenull_(*pcbIcon)))
+./um/winscard.h-1298-  _When_(_Old_(*pcbIcon) != SCARD_AUTOALLOCATE, _Out_writes_bytes_to_(*pcbIcon, *pcbIcon) _Post_z_)
+./um/winscard.h:1306:  _When_(_Old_(*pcbIcon) == SCARD_AUTOALLOCATE, _At_((LPBYTE *)pbIcon, _Outptr_result_bytebuffer_all_maybenull_(*pcbIcon)))
+./um/winscard.h-1307-  _When_(_Old_(*pcbIcon) != SCARD_AUTOALLOCATE, _Out_writes_bytes_to_(*pcbIcon, *pcbIcon) _Post_z_)
+./um/winscard.h:1339:  _When_(_Old_(*pcchDeviceInstanceId) == SCARD_AUTOALLOCATE, _At_((LPSTR *)szDeviceInstanceId, _Outptr_result_buffer_maybenull_(*pcchDeviceInstanceId) _At_(*_Curr_, _Post_z_ _Post_ _NullNull_terminated_)))
+./um/winscard.h-1340-  _When_(_Old_(*pcchDeviceInstanceId) != SCARD_AUTOALLOCATE, _Out_writes_opt_(*pcchDeviceInstanceId) _Post_ _NullNull_terminated_)
+./um/winscard.h:1348:  _When_(_Old_(*pcchDeviceInstanceId) == SCARD_AUTOALLOCATE, _At_((LPWSTR *)szDeviceInstanceId, _Outptr_result_buffer_maybenull_(*pcchDeviceInstanceId) _At_(*_Curr_, _Post_z_ _Post_ _NullNull_terminated_)))
+./um/winscard.h-1349-  _When_(_Old_(*pcchDeviceInstanceId) != SCARD_AUTOALLOCATE, _Out_writes_opt_(*pcchDeviceInstanceId) _Post_ _NullNull_terminated_)
+./um/winscard.h:1363:  _When_(_Old_(*pcchReaders) == SCARD_AUTOALLOCATE, _At_((LPSTR *)mszReaders, _Outptr_result_buffer_maybenull_(*pcchReaders) _At_(*_Curr_, _Post_z_ _Post_ _NullNull_terminated_)))
+./um/winscard.h-1364-  _When_(_Old_(*pcchReaders) != SCARD_AUTOALLOCATE, _Out_writes_opt_(*pcchReaders) _Post_ _NullNull_terminated_)
+./um/winscard.h:1372:  _When_(_Old_(*pcchReaders) == SCARD_AUTOALLOCATE, _At_((LPWSTR *)mszReaders, _Outptr_result_buffer_maybenull_(*pcchReaders) _At_(*_Curr_, _Post_z_ _Post_ _NullNull_terminated_)))
+./um/winscard.h-1373-  _When_(_Old_(*pcchReaders) != SCARD_AUTOALLOCATE, _Out_writes_opt_(*pcchReaders) _Post_ _NullNull_terminated_)
+./um/winsvc.h-1383-_When_(dwInfoLevel == SERVICE_CONFIG_DESCRIPTION,
+./um/winsvc.h-1385-_When_(dwInfoLevel == SERVICE_CONFIG_FAILURE_ACTIONS,
+./um/winsvc.h-1387-_When_(dwInfoLevel == SERVICE_CONFIG_REQUIRED_PRIVILEGES_INFO,
+./um/winsvc.h-1402-_When_(dwInfoLevel == SERVICE_CONFIG_DESCRIPTION,
+./um/winsvc.h-1404-_When_(dwInfoLevel == SERVICE_CONFIG_FAILURE_ACTIONS,
+./um/winsvc.h-1406-_When_(dwInfoLevel == SERVICE_CONFIG_REQUIRED_PRIVILEGES_INFO,
+./um/WinUser.h:7746:    _When_((format & DT_MODIFYSTRING), _At_((LPSTR)lpchText, _Inout_grows_updates_bypassable_or_z_(cchText, 4)))
+./um/WinUser.h-7747-    _When_((!(format & DT_MODIFYSTRING)), _In_bypassable_reads_or_z_(cchText))
+./um/WinUser.h:7758:    _When_((format & DT_MODIFYSTRING), _At_((LPWSTR)lpchText, _Inout_grows_updates_bypassable_or_z_(cchText, 4)))
+./um/WinUser.h-7759-    _When_((!(format & DT_MODIFYSTRING)), _In_bypassable_reads_or_z_(cchText))
+./um/WinUser.h-7804-    _When_((cchText) < -1, _Unreferenced_parameter_)
+./um/WinUser.h-7805-    _When_((format & DT_MODIFYSTRING), _Inout_grows_updates_bypassable_or_z_(cchText, 4))
+./um/WinUser.h:7806:    _When_((!(format & DT_MODIFYSTRING)), _At_((LPCSTR)lpchText, _In_bypassable_reads_or_z_(cchText)))
+./um/WinUser.h-7818-    _When_((cchText) < -1, _Unreferenced_parameter_)
+./um/WinUser.h-7819-    _When_((format & DT_MODIFYSTRING), _Inout_grows_updates_bypassable_or_z_(cchText, 4))
+./um/WinUser.h:7820:    _When_((!(format & DT_MODIFYSTRING)), _At_((LPCWSTR)lpchText, _In_bypassable_reads_or_z_(cchText)))
+./wdf/umdf/2.0/wudfwdm.h-970-    _When_(SourceString->Length > DestinationString->MaximumLength,
+./wdf/umdf/2.0/wudfwdm.h-987-_When_(_Old_(Destination->Length) + Source->Length <= Destination->MaximumLength,
+./wdf/umdf/2.0/wudfwdm.h-991-_When_(_Old_(Destination->Length) + Source->Length > Destination->MaximumLength,
+./wdf/umdf/2.0/wudfwdm.h-1007-_When_(_Old_(Destination->Length) + _String_length_(Source) * sizeof(WCHAR) <= Destination->MaximumLength,
+./wdf/umdf/2.0/wudfwdm.h-1011-_When_(_Old_(Destination->Length) + _String_length_(Source) * sizeof(WCHAR) > Destination->MaximumLength,
+./winrt/rometadataresolution.h:20:_When_(return == S_OK, _At_(typeNameParts, _Outptr_result_buffer_(*partsCount)));
+./winrt/rometadataresolution.h:21:_When_(return != S_OK, _At_(typeNameParts, _Outptr_))
+./winrt/WeakReference.h:95:            _At_(*objectReference, _When_(FAILED(return), _Null_))
+./winrt/WeakReference.h:96:            _At_(*objectReference, _When_(SUCCEEDED(return), _Maybenull_))
+./winrt/WeakReference.idl:32:cpp_quote("            _At_(*objectReference, _When_(FAILED(return), _Null_))")
+./winrt/WeakReference.idl:33:cpp_quote("            _At_(*objectReference, _When_(SUCCEEDED(return), _Maybenull_))")
+./winrt/wrl/implements.h:318:        _When_(*iidCount == 0, _At_(*iids, _Post_null_))
+./winrt/wrl/implements.h:319:        _When_(*iidCount > 0, _At_(*iids, _Post_notnull_))
+./winrt/wrl/implements.h:1719:        _When_(*iidCount == 0, _At_(*iids, _Post_null_))
+./winrt/wrl/implements.h:1720:        _When_(*iidCount > 0, _At_(*iids, _Post_notnull_))
+./winrt/wrl/implements.h:1855:        _When_(*iidCount == 0, _At_(*iids, _Post_null_))
+./winrt/wrl/implements.h:1856:        _When_(*iidCount > 0, _At_(*iids, _Post_notnull_))
+./winrt/wrl/implements.h:2501:            _When_(*iidCount == 0, _At_(*iids, _Post_null_)) \
+./winrt/wrl/implements.h:2502:            _When_(*iidCount > 0, _At_(*iids, _Post_notnull_)) \
+./winrt/wrl/module.h:1115:        _When_(*iidCount == 0, _At_(*iids, _Post_null_))
+./winrt/wrl/module.h:1116:        _When_(*iidCount > 0, _At_(*iids, _Post_notnull_))
+./winrt/wrl/module.h:1300:            _When_(*iidCount == 0, _At_(*iids, _Post_null_)) \
+./winrt/wrl/module.h:1301:            _When_(*iidCount > 0, _At_(*iids, _Post_notnull_)) \
