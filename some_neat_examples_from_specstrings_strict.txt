@@ -1,0 +1,196 @@
+*  ----------------------------------------------------------------------------
+*  Buffer Annotation Examples
+* 
+*  LWSTDAPI_(BOOL) StrToIntExA(
+*      LPCSTR pszString,  //  No annotation required, const implies __in.
+*      DWORD dwFlags,
+*      __out int *piRet   // A pointer whose dereference will be filled in.
+*  );
+* 
+*  void MyPaintingFunction(
+*      __in HWND hwndControl,     //  An initialized read-only parameter.
+*      __in_opt HDC hdcOptional,  //  An initialized read-only parameter that 
+*                                 //  might be NULL.
+*      __inout IPropertyStore *ppsStore // An initialized parameter that 
+*                                       // may be freely used and modified.
+*  );
+* 
+*  LWSTDAPI_(BOOL) PathCompactPathExA(
+*      __out_ecount(cchMax) LPSTR pszOut, //  A string buffer with cch elements
+*                                         //  that will be '\0' terminated 
+*                                         //  on exit.
+*      LPCSTR pszSrc,                     //  No annotation required, 
+*                                         //  const implies __in.
+*      UINT cchMax,                              
+*      DWORD dwFlags
+*  );
+* 
+*  HRESULT SHLocalAllocBytes(
+*      size_t cb,
+*      __deref_bcount(cb) T **ppv //  A pointer whose dereference will be set
+*                                 //  to an uninitialized buffer with cb bytes.
+*  );
+* 
+*  __inout_bcount_full(cb) : A buffer with cb elements that is fully
+*  initialized at entry and exit, and may be written to by this function.
+* 
+*  __out_ecount_part(count, *countOut) : A buffer with count elements that
+*  will be partially initialized by this function. The function indicates how
+*  much it initialized by setting *countOut.
+* 
+
+
+
+*   // Basic Usage of Struct Annotations                         
+*   #include <stdio.h>                                           
+*   #include <stdlib.h>                                          
+*   struct buf_s {                                               
+*    int sz;                                                     
+*    __field_bcount_full(sz)                                     
+*    char *buf;                                                  
+*   };                                                           
+*   void InitBuf(__out struct *buf_s b,int sz) {                 
+*        b->buf = calloc(sz,sizeof(char));                       
+*        b->sz = sz;                                             
+*   }                                                            
+*   void WriteBuf(__in FILE *fp,__in struct *buf_s b) {          
+*     fwrite(b->buf,b->sz,sizeof(char),fp);                      
+*   }                                                            
+*   void ReadBuf(__in FILE *fp,__inout struct *buf_s b) {        
+*     fread(b->buf,b->sz,sizeof(char),fp);                       
+*   }                                                            
+*                                                                 
+*                                                                 
+*                                                                 
+*   // Inline Allocated Buffer                                   
+*   struct buf_s {                                               
+*    int sz;                                                     
+*    __field_bcount(sz)                                          
+*    char buf[1];                                                
+*   };                                                           
+*   void WriteBuf(__in FILE *fp,__in struct *buf_s b) {          
+*     fwrite(&(b->buf),b->sz,sizeof(char),fp);                   
+*   }                                                            
+*   void ReadBuf(__in FILE *fp,__inout struct *buf_s b) {        
+*     fread(&(b->buf),b->sz,sizeof(char),fp);                    
+*   }                                                            
+*                                                                 
+*                                                                 
+*                                                                 
+*   // Embedded Header Structure                                 
+*   __struct_bcount(sz)                                          
+*   struct buf_s {                                               
+*    int sz;                                                     
+*   };                                                           
+*   void WriteBuf(__in FILE *fp,__in struct *buf_s b) {          
+*     fwrite(&b,b->sz,sizeof(char),fp);                          
+*   }                                                            
+*   void ReadBuf(__in FILE *fp,__inout struct *buf_s b) {        
+*     fread(&b,b->sz,sizeof(char),fp);                           
+*   }                                                            
+
+
+
+/*************************************************************************** 
+* Macros to classify the entrypoints and indicate their category.
+*
+* Pre-defined control point categories include: RPC, KERNEL, GDI.
+*
+* Pre-defined control point macros include:
+*  __rpc_entry, __kernel_entry, __gdi_entry.
+***************************************************************************/
+#define __control_entrypoint(category)     __allowed(on_function) 
+#define __rpc_entry                        __allowed(on_function) 
+#define __kernel_entry                     __allowed(on_function) 
+#define __gdi_entry                        __allowed(on_function)  
+
+/*************************************************************************** 
+* Macros to track untrusted data and their validation. The list of untrusted
+* sources include:
+*
+* FILE                     - File reading stream or API
+* NETWORK                  - Socket readers
+* INTERNET                 - WinInet and WinHttp readers
+* USER_REGISTRY            - HKCU portions of the registry
+* USER_MODE                - Parameters to kernel entry points
+* RPC                      - Parameters to RPC entry points 
+* DRIVER                   - Device driver 
+***************************************************************************/
+#define __in_data_source(src_sym)       __allowed(on_parameter) 
+#define __out_data_source(src_sym)      __allowed(on_parameter) 
+#define __field_data_source(src_sym)    __allowed(on_field)
+#define __this_out_data_source(src_syn) __allowed(on_function)
+
+/************************************************************************** 
+* Macros to tag file parsing code. Predefined formats include:
+*  PNG                     - Portable Network Graphics
+*  JPEG                    - Joint Photographic Experts Group
+*  BMP                     - Bitmap
+*  RC_BMP                  - Resource bitmap
+*  WMF                     - Windows Metafile
+*  EMF                     - Windows Enhanced Metafile
+*  GIF                     - Graphics Interchange Format
+*  MIME_TYPE               - MIME type from header tokens
+*  MAIL_MONIKER            - MAIL information refered by URL moniker
+*  HTML                    - HyperText Markup Language
+*  WMPHOTO                 - Windows media photo
+*  OE_VCARD                - Outlook Express virtual card
+*  OE_CONTACT              - Outlook Express contact
+*  MIDI                    - Musical Instrument Digital Interface
+*  LDIF                    - LDAP Data Interchange Format
+*  AVI                     - Audio Visual Interchange
+*  ACM                     - Audio Compression Manager
+**************************************************************************/
+#define __out_validated(filetype_sym)         __allowed(on_parameter) 
+#define __this_out_validated(filetype_sym)    __allowed(on_function)   
+#define __file_parser(filetype_sym)           __allowed(on_function) 
+#define __file_parser_class(filetype_sym)     __allowed(on_struct)  
+#define __file_parser_library(filetype_sym)   __allowed(as_global_decl)  
+
+/*************************************************************************** 
+* Macros to track the code content in the file. The type of code
+* contents currently tracked:
+*
+* NDIS_DRIVER                   - NDIS Device driver 
+***************************************************************************/
+#define __source_code_content(codetype_sym)     __allowed(as_global_decl) 
+
+/*************************************************************************** 
+* Macros to track the code content in the class. The type of code
+* contents currently tracked:
+*
+* DCOM                          - Class implementing DCOM
+***************************************************************************/
+#define __class_code_content(codetype_sym)    __allowed(on_struct) 
+
+/*************************************************************************
+* Macros to tag encoded function pointers
+**************************************************************************/
+#define __encoded_pointer                 
+#define __encoded_array                   
+#define __field_encoded_pointer           __allowed(on_field)
+#define __field_encoded_array             __allowed(on_field)
+
+#define __transfer(formal)                __allowed(on_parameter_or_return) 
+#define __assume_validated(exp)           __allowed(as_statement_with_arg(exp))
+
+
+/************************************************************************* 
+* Macros to encode abstract properties of values. Used by SALadt.h
+*************************************************************************/
+#define __type_has_adt_prop(adt,prop)     __allowed(on_typdecl)
+#define __out_has_adt_prop(adt,prop)      __allowed(on_parameter)
+#define __out_not_has_adt_prop(adt,prop)  __allowed(on_parameter)
+#define __out_transfer_adt_prop(arg)      __allowed(on_parameter)
+#define __out_has_type_adt_props(typ)     __allowed(on_parameter)
+
+/************************************************************************* 
+* Macros used by Prefast for Drivers 
+* 
+*  __possibly_notnullterminated :
+*
+*  Used for return values of parameters or functions that do not
+*  guarantee nulltermination in all cases.
+*
+*************************************************************************/
+#define __possibly_notnullterminated    __allowed(on_parameter_or_return)
