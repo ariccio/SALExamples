@@ -23,7 +23,7 @@ e.g. void Foo( _Out_ptrdiff_cap_(pchMax) char* pch, const char* pchMax ) { while
 e.g. void CopyStr( _In_z_ const char* szFrom, _Out_z_cap_(cchTo) char* szTo, size_t cchTo );
 e.g. size_t CopyCharRange( _In_count_(cchFrom) const char* rgchFrom, size_t cchFrom, _Out_cap_post_count_(cchTo,return)) char* rgchTo, size_t cchTo );
 e.g. size_t CopyStr( _In_z_ const char* szFrom, _Out_z_cap_post_count_(cchTo,return+1) char* szTo, size_t cchTo );
-only use with dereferenced arguments e.g. '*pcch' 
+only use with dereferenced arguments e.g. '*pcch'
 e.g. GetString( _Out_z_capcount_(*pLen+1) char* sz, size_t* pLen );
 e.g. void ModifyIndices( _Inout_count_(cIndices) int* rgIndeces, size_t cIndices );
 e.g. void ModifyIndices( _Inout_count_(cIndices) int* rgIndeces, size_t cIndices );
@@ -33,7 +33,7 @@ e.g. void AppendStr( _In_z_ const char* szFrom, _Inout_z_cap_(cchTo) char* szTo,
  e.g.  void CloneString( _In_z_ const wchar_t* wzFrom, _Deref_out_z_ wchar_t** pWzTo );
  e.g. void SaveStringArray( _In_count_(cStrings) _Deref_pre_z_ const wchar_t* const rgpwch[] );
  e.g. void FillInArrayOfStr32( _In_count_(cStrings) _Deref_pre_cap_c_(32) _Deref_post_z_ wchar_t* const rgpwch[] );
- e.g. void SaveMatrix( _In_count_(n) _Deref_pre_count_(n) const Elem** matrix, size_t n ); 
+ e.g. void SaveMatrix( _In_count_(n) _Deref_pre_count_(n) const Elem** matrix, size_t n );
  e.g. void PrintStringArray( _In_count_(cElems) _Deref_pre_valid_ LPCSTR rgStr[], size_t cElems );
  e.g. void CloneString( _In_z_ const Wchar_t* wzIn _Out_ _Deref_post_z_ wchar_t** pWzOut );
  e.g. HRESULT HrAllocateMemory( size_t cb, _Out_ _Deref_post_bytecap_(cb) void** ppv );
@@ -82,7 +82,7 @@ _Ret_maybenull_ LPCWSTR GetToken(_In_reads_(dwBufLen) LPCWSTR pwszBuffer, DWORD_
 //http://www.getcodesamples.com/src/626B7D27/912681E6
    /**
     @framework_function="MIDL_user_free"
-    
+
       Purpose:  RPC stub routine to allocate memory.                                            <br>
                                                                                                 <br>
       Notes:                                                                                    <br>
@@ -108,7 +108,7 @@ _Ret_maybenull_ LPCWSTR GetToken(_In_reads_(dwBufLen) LPCWSTR pwszBuffer, DWORD_
 
    /**
     @framework_function="MIDL_user_free"
-    
+
       Purpose:  RPC stub routine to free allocated memory.                                      <br>
                                                                                                 <br>
       Notes:                                                                                    <br>
@@ -122,64 +122,64 @@ _Ret_maybenull_ LPCWSTR GetToken(_In_reads_(dwBufLen) LPCWSTR pwszBuffer, DWORD_
 
       return;
    }
-   
-   
-   
+
+
+
    ------------------------------------------------------------------------------------------------
-   
-   
-   
+
+
+
 From specstrings_strict.h:
 
 
 
-*   // Basic Usage of Struct Annotations                         
-*   #include <stdio.h>                                           
-*   #include <stdlib.h>                                          
-*   struct buf_s {                                               
-*    int sz;                                                     
-*    __field_bcount_full(sz)                                     
-*    char *buf;                                                  
-*   };                                                           
-*   void InitBuf(__out struct *buf_s b,int sz) {                 
-*        b->buf = calloc(sz,sizeof(char));                       
-*        b->sz = sz;                                             
-*   }                                                            
-*   void WriteBuf(__in FILE *fp,__in struct *buf_s b) {          
-*     fwrite(b->buf,b->sz,sizeof(char),fp);                      
-*   }                                                            
-*   void ReadBuf(__in FILE *fp,__inout struct *buf_s b) {        
-*     fread(b->buf,b->sz,sizeof(char),fp);                       
-*   }                                                            
-*                                                                 
-*                                                                 
-*                                                                 
-*   // Inline Allocated Buffer                                   
-*   struct buf_s {                                               
-*    int sz;                                                     
-*    __field_bcount(sz)                                          
-*    char buf[1];                                                
-*   };                                                           
-*   void WriteBuf(__in FILE *fp,__in struct *buf_s b) {          
-*     fwrite(&(b->buf),b->sz,sizeof(char),fp);                   
-*   }                                                            
-*   void ReadBuf(__in FILE *fp,__inout struct *buf_s b) {        
-*     fread(&(b->buf),b->sz,sizeof(char),fp);                    
-*   }                                                            
-*                                                                 
-*                                                                 
-*                                                                 
-*   // Embedded Header Structure                                 
-*   __struct_bcount(sz)                                          
-*   struct buf_s {                                               
-*    int sz;                                                     
-*   };                                                           
-*   void WriteBuf(__in FILE *fp,__in struct *buf_s b) {          
-*     fwrite(&b,b->sz,sizeof(char),fp);                          
-*   }                                                            
-*   void ReadBuf(__in FILE *fp,__inout struct *buf_s b) {        
-*     fread(&b,b->sz,sizeof(char),fp);                           
-*   }                                                            
+*   // Basic Usage of Struct Annotations
+*   #include <stdio.h>
+*   #include <stdlib.h>
+*   struct buf_s {
+*    int sz;
+*    __field_bcount_full(sz)
+*    char *buf;
+*   };
+*   void InitBuf(__out struct *buf_s b,int sz) {
+*        b->buf = calloc(sz,sizeof(char));
+*        b->sz = sz;
+*   }
+*   void WriteBuf(__in FILE *fp,__in struct *buf_s b) {
+*     fwrite(b->buf,b->sz,sizeof(char),fp);
+*   }
+*   void ReadBuf(__in FILE *fp,__inout struct *buf_s b) {
+*     fread(b->buf,b->sz,sizeof(char),fp);
+*   }
+*
+*
+*
+*   // Inline Allocated Buffer
+*   struct buf_s {
+*    int sz;
+*    __field_bcount(sz)
+*    char buf[1];
+*   };
+*   void WriteBuf(__in FILE *fp,__in struct *buf_s b) {
+*     fwrite(&(b->buf),b->sz,sizeof(char),fp);
+*   }
+*   void ReadBuf(__in FILE *fp,__inout struct *buf_s b) {
+*     fread(&(b->buf),b->sz,sizeof(char),fp);
+*   }
+*
+*
+*
+*   // Embedded Header Structure
+*   __struct_bcount(sz)
+*   struct buf_s {
+*    int sz;
+*   };
+*   void WriteBuf(__in FILE *fp,__in struct *buf_s b) {
+*     fwrite(&b,b->sz,sizeof(char),fp);
+*   }
+*   void ReadBuf(__in FILE *fp,__inout struct *buf_s b) {
+*     fread(&b,b->sz,sizeof(char),fp);
+*   }
 
 
 
@@ -370,9 +370,9 @@ C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC>%grep% -I -r -n _satisfie
             if( bInitialLock )
             {
                 Lock();
-            }		
+            }
         }
-            
+
         _When_(this->m_bLocked != 0, _Requires_lock_held_(this->m_cs) _Releases_lock_(this->m_cs) _Post_satisfies_(this->m_bLocked == 0))
         ~CCritSecLock() throw()
         {
@@ -396,7 +396,7 @@ C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC>%grep% -I -r -n _satisfie
         {
             ATLASSUME( m_bLocked );
             ::LeaveCriticalSection( &m_cs );
-            m_bLocked = false;	
+            m_bLocked = false;
         }
 
     // Implementation
@@ -417,8 +417,8 @@ C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC>%grep% -I -r -n _satisfie
     public:
         static _Always_(_Post_satisfies_(return == hr || return == E_POINTER))
         HRESULT WINAPI CreateInstance(
-            _In_opt_ void*, 
-            _In_ REFIID, 
+            _In_opt_ void*,
+            _In_ REFIID,
             _COM_Outptr_result_maybenull_ LPVOID* ppv)
         {
             if (ppv == NULL)
@@ -458,14 +458,14 @@ C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC>%grep% -I -r -n _satisfie
         {
             return S_OK;
         }
-        void FinalRelease() 
+        void FinalRelease()
         {
         }
         void _AtlFinalRelease() // temp
         {
-        }		
+        }
 
-        void _HRPass(_In_ HRESULT hr)		// temp 
+        void _HRPass(_In_ HRESULT hr)		// temp
         {
             (hr);
         }
@@ -479,14 +479,14 @@ C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC>%grep% -I -r -n _satisfie
         //ObjectMain is called during Module::Init and Module::Term
         static void WINAPI ObjectMain(_In_ bool /* bStarting */);
 
-        static const struct _ATL_CATMAP_ENTRY* GetCategoryMap() 
+        static const struct _ATL_CATMAP_ENTRY* GetCategoryMap()
         {
             return NULL;
         }
         static HRESULT WINAPI InternalQueryInterface(
             _Inout_ void* pThis,
-            _In_ const _ATL_INTMAP_ENTRY* pEntries, 		
-            _In_ REFIID iid, 
+            _In_ const _ATL_INTMAP_ENTRY* pEntries,
+            _In_ REFIID iid,
             _COM_Outptr_ void** ppvObject)
         {
             // Only Assert here. AtlInternalQueryInterface will return the correct HRESULT if ppvObject == NULL
@@ -517,16 +517,16 @@ C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC>%grep% -I -r -n _satisfie
             return m_pOuterUnknown->Release();
         }
         HRESULT OuterQueryInterface(
-            _In_ REFIID iid, 
+            _In_ REFIID iid,
             _COM_Outptr_ void** ppvObject)
         {
             return m_pOuterUnknown->QueryInterface(iid, ppvObject);
         }
 
-        void SetVoid(_In_opt_ void*) 
+        void SetVoid(_In_opt_ void*)
         {
         }
-        void InternalFinalConstructAddRef() 
+        void InternalFinalConstructAddRef()
         {
         }
         void InternalFinalConstructRelease()
@@ -538,9 +538,9 @@ C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC>%grep% -I -r -n _satisfie
 
      #ifdef _ATL_USE_WINAPI_FAMILY_DESKTOP_APP
         static HRESULT WINAPI _Break(
-            _In_opt_ void* /* pv */, 
-            _In_ REFIID iid, 
-            _COM_Outptr_result_maybenull_ void** /* ppvObject */, 
+            _In_opt_ void* /* pv */,
+            _In_ REFIID iid,
+            _COM_Outptr_result_maybenull_ void** /* ppvObject */,
             _In_ DWORD_PTR /* dw */)
         {
             (iid);
@@ -552,26 +552,26 @@ C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC>%grep% -I -r -n _satisfie
     #endif // _ATL_USE_WINAPI_FAMILY_DESKTOP_APP
 
         static _Post_equal_to_(E_NOINTERFACE) HRESULT WINAPI _NoInterface(
-            _In_opt_ void* /* pv */, 
-            _In_ REFIID /* iid */, 
-            _Outptr_ void** /* ppvObject */, 
+            _In_opt_ void* /* pv */,
+            _In_ REFIID /* iid */,
+            _Outptr_ void** /* ppvObject */,
             _In_ DWORD_PTR /* dw */)
         {
             return E_NOINTERFACE;
         }
         static HRESULT WINAPI _Creator(
-            _In_ void* pv, 
-            _In_ REFIID iid, 
-            _COM_Outptr_ void** ppvObject, 
+            _In_ void* pv,
+            _In_ REFIID iid,
+            _COM_Outptr_ void** ppvObject,
             _In_ DWORD_PTR dw)
         {
             _ATL_CREATORDATA* pcd = (_ATL_CREATORDATA*)dw;
             return pcd->pFunc(pv, iid, ppvObject);
         }
         static HRESULT WINAPI _Delegate(
-            _In_ void* pv, 
-            _In_ REFIID iid, 
-            _COM_Outptr_ void** ppvObject, 
+            _In_ void* pv,
+            _In_ REFIID iid,
+            _COM_Outptr_ void** ppvObject,
             _In_ DWORD_PTR dw)
         {
             HRESULT hRes = E_NOINTERFACE;
@@ -582,9 +582,9 @@ C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC>%grep% -I -r -n _satisfie
             return hRes;
         }
         static HRESULT WINAPI _Chain(
-            _In_ void* pv, 
-            _In_ REFIID iid, 
-            _COM_Outptr_ void** ppvObject, 
+            _In_ void* pv,
+            _In_ REFIID iid,
+            _COM_Outptr_ void** ppvObject,
             _In_ DWORD_PTR dw)
         {
             _ATL_CHAINDATA* pcd = (_ATL_CHAINDATA*)dw;
@@ -592,9 +592,9 @@ C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC>%grep% -I -r -n _satisfie
             return InternalQueryInterface(p, pcd->pFunc(), iid, ppvObject);
         }
         static HRESULT WINAPI _ChainAttr(
-            _In_ void* pv, 
-            _In_ REFIID iid, 
-            _COM_Outptr_result_maybenull_ void** ppvObject, 
+            _In_ void* pv,
+            _In_ REFIID iid,
+            _COM_Outptr_result_maybenull_ void** ppvObject,
             _In_ DWORD_PTR dw)
         {
             const _ATL_INTMAP_ENTRY* (WINAPI *pFunc)() = (const _ATL_INTMAP_ENTRY* (WINAPI *)())dw;
@@ -605,9 +605,9 @@ C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC>%grep% -I -r -n _satisfie
             return InternalQueryInterface(pv, pEntries, iid, ppvObject);
         }
         static HRESULT WINAPI _Cache(
-            _In_ void* pv, 
-            _In_ REFIID iid, 
-            _COM_Outptr_result_maybenull_ void** ppvObject, 
+            _In_ void* pv,
+            _In_ REFIID iid,
+            _COM_Outptr_result_maybenull_ void** ppvObject,
             _In_ DWORD_PTR dw)
         {
             HRESULT hRes = E_NOINTERFACE;
@@ -2076,9 +2076,9 @@ C:\Program Files (x86)\Windows Kits\8.1\Include>%grep% -I -r -n _Post_ .
 
 ./um/httpserv.h:1215:    _Ret_opt_ _Post_writable_byte_size_(cbAllocation)
 
-    // 
+    //
     // Connection descriptor
-    // 
+    //
     class __declspec(uuid("d9a5de00-3346-4599-9826-fe88565e1226"))
     IHttpConnection
     {
@@ -2090,7 +2090,7 @@ C:\Program Files (x86)\Windows Kits\8.1\Include>%grep% -I -r -n _Post_ .
         ) const = 0;
 
         virtual
-        
+
         _Ret_opt_ _Post_writable_byte_size_(cbAllocation)
         VOID *
         AllocateMemory(
@@ -2119,9 +2119,9 @@ C:\Program Files (x86)\Windows Kits\8.1\Include>%grep% -I -r -n _Post_ .
 
 //this whole class was well-SAL-annotated!
 
-    // 
+    //
     // Context object representing the processing of an HTTP request
-    // 
+    //
     class __declspec(uuid("424c1b8c-a1ba-44d7-ac98-9f8f457701a5"))
     IHttpContext
     {
@@ -2251,7 +2251,7 @@ C:\Program Files (x86)\Windows Kits\8.1\Include>%grep% -I -r -n _Post_ .
         ) = 0;
 
         virtual
-        
+
         _Ret_opt_ _Post_writable_byte_size_(cbAllocation)
         VOID *
         AllocateRequestMemory(
@@ -6213,7 +6213,7 @@ C:\Program Files (x86)\Windows Kits\8.1\Include>%grep% -I -r -n _Inout_updates_ 
 ./km/storport.h:10264:    _Outptr_ PSTOR_SCATTER_GATHER_LIST* SgList
 ./km/usbbusif.h:458:    _Outptr_result_bytebuffer_maybenull_(*FunctionDescriptorBufferLength) PUSBC_FUNCTION_DESCRIPTOR *FunctionDescriptorBuffer,
 ./km/usbdlib.h:378:    _Outptr_result_bytebuffer_(sizeof(URB)) PURB        *Urb
-./km/usbdlib.h:387:    _Outptr_result_bytebuffer_(sizeof(struct _URB_ISOCH_TRANSFER) 
+./km/usbdlib.h:387:    _Outptr_result_bytebuffer_(sizeof(struct _URB_ISOCH_TRANSFER)
 ./km/wdm.h:21081:    _Outptr_ PCALLBACK_OBJECT *CallbackObject,
 ./km/wdm.h:21902:                            _Outptr_opt_ PCUNICODE_STRING    *ObjectName
 ./km/wdm.h:21922:    _Outptr_opt_ PCUNICODE_STRING *ObjectName,
@@ -6244,7 +6244,7 @@ C:\Program Files (x86)\Windows Kits\8.1\Include>%grep% -I -r -n _Inout_updates_ 
 ./km/wmilib.h:63:    _Outptr_result_maybenull_ PDEVICE_OBJECT *Pdo
 ./km/wsk.h:234:    _Outptr_result_maybenull_ PVOID *AcceptSocketContext,
 ./km/wsk.h:235:    _Outptr_result_maybenull_ CONST WSK_CLIENT_CONNECTION_DISPATCH **AcceptSocketDispatch
-./km/wsk.h:642:    _Outptr_ PADDRINFOEXW *Result, 
+./km/wsk.h:642:    _Outptr_ PADDRINFOEXW *Result,
 ./shared/apiset.h:203:    _Outptr_ PCAPI_SET_NAMESPACE_ARRAY *Schema,
 ./shared/apiset.h:204:    _Outptr_ PVOID *Context
 ./shared/bcrypt.h:1289:        _When_(_Old_(*ppBuffer) == NULL, _Outptr_result_bytebuffer_all_(*pcbBuffer))
@@ -6333,7 +6333,7 @@ C:\Program Files (x86)\Windows Kits\8.1\Include>%grep% -I -r -n _Inout_updates_ 
 ./shared/netioapi.h:1703:    _Outptr_ PMIB_IPPATH_TABLE *Table
 ./shared/netioapi.h:1914:    _Outptr_ PMIB_IPNET_TABLE2 *Table
 ./shared/netioapi.h:2139:    _Outptr_result_buffer_(*SortedAddressPairCount)
-./shared/rpcasync.h:349:    _Outptr_result_bytebuffer_(*BlobSize) PVOID *ErrorBlob, 
+./shared/rpcasync.h:349:    _Outptr_result_bytebuffer_(*BlobSize) PVOID *ErrorBlob,
 ./shared/rpcdce.h:436:    _Outptr_ RPC_CSTR __RPC_FAR * StringBinding
 ./shared/rpcdce.h:445:    _Outptr_ RPC_WSTR __RPC_FAR * StringBinding
 ./shared/rpcdce.h:461:    _Outptr_ RPC_CSTR __RPC_FAR * StringBinding
@@ -6355,8 +6355,8 @@ C:\Program Files (x86)\Windows Kits\8.1\Include>%grep% -I -r -n _Inout_updates_ 
 ./shared/rpcdce.h:573:    _Outptr_opt_ RPC_CSTR __RPC_FAR * NetworkAddr,
 ./shared/rpcdce.h:574:    _Outptr_opt_ RPC_CSTR __RPC_FAR * Endpoint,
 ./shared/rpcdce.h:575:    _Outptr_opt_ RPC_CSTR __RPC_FAR * NetworkOptions
-./shared/rpcdce.h:704:    _Outptr_ RPC_PROTSEQ_VECTORA __RPC_FAR * __RPC_FAR * ProtseqVector    
-./shared/rpcdce.h:712:    _Outptr_ RPC_PROTSEQ_VECTORW __RPC_FAR * __RPC_FAR * ProtseqVector    
+./shared/rpcdce.h:704:    _Outptr_ RPC_PROTSEQ_VECTORA __RPC_FAR * __RPC_FAR * ProtseqVector
+./shared/rpcdce.h:712:    _Outptr_ RPC_PROTSEQ_VECTORW __RPC_FAR * __RPC_FAR * ProtseqVector
 ./shared/rpcdce.h:727:    _Outptr_ RPC_PROTSEQ_VECTOR __RPC_FAR * __RPC_FAR * ProtseqVector
 ./shared/rpcdce.h:802:    _Outptr_ RPC_BINDING_VECTOR __RPC_FAR * __RPC_FAR * BindingVector
 ./shared/rpcdce.h:813:    _Outptr_ RPC_MGR_EPV __RPC_FAR * __RPC_FAR * MgrEpv
@@ -6885,8 +6885,8 @@ C:\Program Files (x86)\Windows Kits\8.1\Include>%grep% -I -r -n _Inout_updates_ 
 ./um/amvideo.h:176:    STDMETHOD(QueryInterface)(THIS_ REFIID riid, _Outptr_ LPVOID *ppvObj) PURE;
 ./um/amvideo.h:197:    STDMETHOD(GetCaption)(THIS_ _Outptr_ BSTR *pstrCaption) PURE;
 ./um/animationcoordinator.h:134:            _COM_Outptr_  void **ppvObject);
-./um/appmgmt.h:210:    _Outptr_ 
-./um/appmgmt.h:214:    _Outptr_ 
+./um/appmgmt.h:210:    _Outptr_
+./um/appmgmt.h:214:    _Outptr_
 ./um/Asptlb.h:248:            _COM_Outptr_  void **ppvObject);
 ./um/Asptlb.h:404:            _COM_Outptr_  void **ppvObject);
 ./um/Asptlb.h:583:            _COM_Outptr_  void **ppvObject);
@@ -7725,9 +7725,9 @@ C:\Program Files (x86)\Windows Kits\8.1\Include>%grep% -I -r -n _Inout_updates_ 
 ./um/cryptxml.h:1367:    _Outptr_     HCRYPTXML           *phCryptXml
 ./um/cryptxml.h:1417:    _Outptr_result_maybenull_ const CRYPT_XML_OBJECT **ppObject
 ./um/cryptxml.h:1475:    _Outptr_     HCRYPTXML            *phReference
-./um/cryptxml.h:1737:    _Outptr_     const CRYPT_XML_DOC_CTXT **ppStruct	
-./um/cryptxml.h:1752:    _Outptr_     const CRYPT_XML_SIGNATURE **ppStruct	
-./um/cryptxml.h:1766:    _Outptr_     const CRYPT_XML_REFERENCE **ppStruct	
+./um/cryptxml.h:1737:    _Outptr_     const CRYPT_XML_DOC_CTXT **ppStruct
+./um/cryptxml.h:1752:    _Outptr_     const CRYPT_XML_SIGNATURE **ppStruct
+./um/cryptxml.h:1766:    _Outptr_     const CRYPT_XML_REFERENCE **ppStruct
 ./um/cryptxml.h:1899:    _Outptr_     CRYPT_XML_ALGORITHM_INFO        **ppAlgInfo
 ./um/cryptxml.h:2291:    _Outptr_     CRYPT_XML_ALGORITHM_INFO        **ppAlgInfo
 ./um/cscobj.h:903:            _COM_Outptr_  void **ppvObject);
@@ -7811,212 +7811,212 @@ C:\Program Files (x86)\Windows Kits\8.1\Include>%grep% -I -r -n _Inout_updates_ 
 ./um/ctfutb.h:2069:            _COM_Outptr_  void **ppvObject);
 ./um/ctfutb.h:2223:            _COM_Outptr_  void **ppvObject);
 ./um/ctxtcall.h:118:            _COM_Outptr_  void **ppvObject);
-./um/d2d1.h:1244:        _Outptr_ ID2D1Factory **factory 
-./um/d2d1.h:1471:        _Outptr_ ID2D1Bitmap **bitmap 
-./um/d2d1.h:1534:        _Outptr_ ID2D1GradientStopCollection **gradientStopCollection 
-./um/d2d1.h:1587:        _Outptr_ ID2D1GradientStopCollection **gradientStopCollection 
-./um/d2d1.h:2452:        _Outptr_ ID2D1Geometry **sourceGeometry 
-./um/d2d1.h:2598:        _Outptr_ ID2D1GeometrySink **geometrySink 
-./um/d2d1.h:2635:        _Outptr_ ID2D1TessellationSink **tessellationSink 
-./um/d2d1.h:2696:        _Outptr_result_maybenull_ IDWriteRenderingParams **textRenderingParams 
-./um/d2d1.h:2729:        _Outptr_ ID2D1Bitmap **bitmap 
-./um/d2d1.h:2739:        _Outptr_ ID2D1Bitmap **bitmap 
-./um/d2d1.h:2753:        _Outptr_ ID2D1Bitmap **bitmap 
-./um/d2d1.h:2765:        _Outptr_ ID2D1BitmapBrush **bitmapBrush 
-./um/d2d1.h:2771:        _Outptr_ ID2D1SolidColorBrush **solidColorBrush 
-./um/d2d1.h:2792:        _Outptr_ ID2D1GradientStopCollection **gradientStopCollection 
-./um/d2d1.h:2799:        _Outptr_ ID2D1LinearGradientBrush **linearGradientBrush 
-./um/d2d1.h:2806:        _Outptr_ ID2D1RadialGradientBrush **radialGradientBrush 
-./um/d2d1.h:2847:        _Outptr_ ID2D1BitmapRenderTarget **bitmapRenderTarget 
-./um/d2d1.h:2866:        _Outptr_ ID2D1Layer **layer 
-./um/d2d1.h:2874:        _Outptr_ ID2D1Mesh **mesh 
-./um/d2d1.h:3046:        _Outptr_result_maybenull_ IDWriteRenderingParams **textRenderingParams 
-./um/d2d1.h:3212:        _Outptr_ ID2D1Bitmap **bitmap 
-./um/d2d1.h:3223:        _Outptr_ ID2D1Bitmap **bitmap 
-./um/d2d1.h:3238:        _Outptr_ ID2D1Bitmap **bitmap 
-./um/d2d1.h:3252:        _Outptr_ ID2D1Bitmap **bitmap 
-./um/d2d1.h:3267:        _Outptr_ ID2D1BitmapBrush **bitmapBrush 
-./um/d2d1.h:3283:        _Outptr_ ID2D1BitmapBrush **bitmapBrush 
-./um/d2d1.h:3300:        _Outptr_ ID2D1BitmapBrush **bitmapBrush 
-./um/d2d1.h:3310:        _Outptr_ ID2D1SolidColorBrush **solidColorBrush 
-./um/d2d1.h:3321:        _Outptr_ ID2D1SolidColorBrush **solidColorBrush 
-./um/d2d1.h:3332:        _Outptr_ ID2D1GradientStopCollection **gradientStopCollection 
-./um/d2d1.h:3343:        _Outptr_ ID2D1LinearGradientBrush **linearGradientBrush 
-./um/d2d1.h:3355:        _Outptr_ ID2D1LinearGradientBrush **linearGradientBrush 
-./um/d2d1.h:3366:        _Outptr_ ID2D1RadialGradientBrush **radialGradientBrush 
-./um/d2d1.h:3378:        _Outptr_ ID2D1RadialGradientBrush **radialGradientBrush 
-./um/d2d1.h:3387:        _Outptr_ ID2D1BitmapRenderTarget **bitmapRenderTarget 
-./um/d2d1.h:3397:        _Outptr_ ID2D1BitmapRenderTarget **bitmapRenderTarget 
-./um/d2d1.h:3408:        _Outptr_ ID2D1BitmapRenderTarget **bitmapRenderTarget 
-./um/d2d1.h:3420:        _Outptr_ ID2D1BitmapRenderTarget **bitmapRenderTarget 
-./um/d2d1.h:3433:        _Outptr_ ID2D1BitmapRenderTarget **bitmapRenderTarget 
-./um/d2d1.h:3443:        _Outptr_ ID2D1Layer **layer 
-./um/d2d1.h:3452:        _Outptr_ ID2D1Layer **layer 
-./um/d2d1.h:3643:        _Outptr_ ID2D1Bitmap **bitmap 
-./um/d2d1.h:3772:        _Outptr_ ID2D1RectangleGeometry **rectangleGeometry 
-./um/d2d1.h:3777:        _Outptr_ ID2D1RoundedRectangleGeometry **roundedRectangleGeometry 
-./um/d2d1.h:3782:        _Outptr_ ID2D1EllipseGeometry **ellipseGeometry 
-./um/d2d1.h:3793:        _Outptr_ ID2D1GeometryGroup **geometryGroup 
-./um/d2d1.h:3799:        _Outptr_ ID2D1TransformedGeometry **transformedGeometry 
-./um/d2d1.h:3808:        _Outptr_ ID2D1PathGeometry **pathGeometry 
-./um/d2d1.h:3820:        _Outptr_ ID2D1StrokeStyle **strokeStyle 
-./um/d2d1.h:3831:        _Outptr_ ID2D1DrawingStateBlock **drawingStateBlock 
-./um/d2d1.h:3841:        _Outptr_ ID2D1RenderTarget **renderTarget 
-./um/d2d1.h:3851:        _Outptr_ ID2D1HwndRenderTarget **hwndRenderTarget 
-./um/d2d1.h:3862:        _Outptr_ ID2D1RenderTarget **renderTarget 
-./um/d2d1.h:3871:        _Outptr_ ID2D1DCRenderTarget **dcRenderTarget 
-./um/d2d1.h:3878:        _Outptr_ ID2D1RectangleGeometry **rectangleGeometry 
-./um/d2d1.h:3888:        _Outptr_ ID2D1RoundedRectangleGeometry **roundedRectangleGeometry 
-./um/d2d1.h:3898:        _Outptr_ ID2D1EllipseGeometry **ellipseGeometry 
-./um/d2d1.h:3909:        _Outptr_ ID2D1TransformedGeometry **transformedGeometry 
-./um/d2d1.h:3921:        _Outptr_ ID2D1StrokeStyle **strokeStyle 
-./um/d2d1.h:3931:        _Outptr_ ID2D1DrawingStateBlock **drawingStateBlock 
-./um/d2d1.h:3940:        _Outptr_ ID2D1DrawingStateBlock **drawingStateBlock 
-./um/d2d1.h:3951:        _Outptr_ ID2D1RenderTarget **renderTarget 
-./um/d2d1.h:3962:        _Outptr_ ID2D1HwndRenderTarget **hwndRenderTarget 
-./um/d2d1.h:3973:        _Outptr_ ID2D1RenderTarget **renderTarget 
-./um/d2d1.h:4053:        _Outptr_ ID2D1Factory **factory 
-./um/d2d1.h:4346:        _Outptr_ ID2D1Bitmap **bitmap 
-./um/d2d1.h:4486:        _Outptr_ ID2D1GradientStopCollection **gradientStopCollection 
-./um/d2d1.h:4581:        _Outptr_ ID2D1GradientStopCollection **gradientStopCollection 
-./um/d2d1.h:5225:        _Outptr_ ID2D1Geometry **sourceGeometry 
-./um/d2d1.h:5515:        _Outptr_ ID2D1GeometrySink **geometrySink 
-./um/d2d1.h:5613:        _Outptr_ ID2D1TessellationSink **tessellationSink 
-./um/d2d1.h:5697:        _Outptr_result_maybenull_ IDWriteRenderingParams **textRenderingParams 
-./um/d2d1.h:5745:        _Outptr_ ID2D1Bitmap **bitmap 
-./um/d2d1.h:5752:        _Outptr_ ID2D1Bitmap **bitmap 
-./um/d2d1.h:5760:        _Outptr_ ID2D1Bitmap **bitmap 
-./um/d2d1.h:5768:        _Outptr_ ID2D1BitmapBrush **bitmapBrush 
-./um/d2d1.h:5775:        _Outptr_ ID2D1SolidColorBrush **solidColorBrush 
-./um/d2d1.h:5784:        _Outptr_ ID2D1GradientStopCollection **gradientStopCollection 
-./um/d2d1.h:5792:        _Outptr_ ID2D1LinearGradientBrush **linearGradientBrush 
-./um/d2d1.h:5800:        _Outptr_ ID2D1RadialGradientBrush **radialGradientBrush 
-./um/d2d1.h:5809:        _Outptr_ ID2D1BitmapRenderTarget **bitmapRenderTarget 
-./um/d2d1.h:5815:        _Outptr_ ID2D1Layer **layer 
-./um/d2d1.h:5820:        _Outptr_ ID2D1Mesh **mesh 
-./um/d2d1.h:5975:        _Outptr_result_maybenull_ IDWriteRenderingParams **textRenderingParams 
-./um/d2d1.h:6262:        _Outptr_ ID2D1Bitmap **bitmap 
-./um/d2d1.h:6925:        _Outptr_ ID2D1RectangleGeometry **rectangleGeometry 
-./um/d2d1.h:6931:        _Outptr_ ID2D1RoundedRectangleGeometry **roundedRectangleGeometry 
-./um/d2d1.h:6937:        _Outptr_ ID2D1EllipseGeometry **ellipseGeometry 
-./um/d2d1.h:6945:        _Outptr_ ID2D1GeometryGroup **geometryGroup 
-./um/d2d1.h:6952:        _Outptr_ ID2D1TransformedGeometry **transformedGeometry 
-./um/d2d1.h:6957:        _Outptr_ ID2D1PathGeometry **pathGeometry 
-./um/d2d1.h:6965:        _Outptr_ ID2D1StrokeStyle **strokeStyle 
-./um/d2d1.h:6972:        _Outptr_ ID2D1DrawingStateBlock **drawingStateBlock 
-./um/d2d1.h:6979:        _Outptr_ ID2D1RenderTarget **renderTarget 
-./um/d2d1.h:6986:        _Outptr_ ID2D1HwndRenderTarget **hwndRenderTarget 
-./um/d2d1.h:6993:        _Outptr_ ID2D1RenderTarget **renderTarget 
-./um/d2d1.h:6999:        _Outptr_ ID2D1DCRenderTarget **dcRenderTarget 
+./um/d2d1.h:1244:        _Outptr_ ID2D1Factory **factory
+./um/d2d1.h:1471:        _Outptr_ ID2D1Bitmap **bitmap
+./um/d2d1.h:1534:        _Outptr_ ID2D1GradientStopCollection **gradientStopCollection
+./um/d2d1.h:1587:        _Outptr_ ID2D1GradientStopCollection **gradientStopCollection
+./um/d2d1.h:2452:        _Outptr_ ID2D1Geometry **sourceGeometry
+./um/d2d1.h:2598:        _Outptr_ ID2D1GeometrySink **geometrySink
+./um/d2d1.h:2635:        _Outptr_ ID2D1TessellationSink **tessellationSink
+./um/d2d1.h:2696:        _Outptr_result_maybenull_ IDWriteRenderingParams **textRenderingParams
+./um/d2d1.h:2729:        _Outptr_ ID2D1Bitmap **bitmap
+./um/d2d1.h:2739:        _Outptr_ ID2D1Bitmap **bitmap
+./um/d2d1.h:2753:        _Outptr_ ID2D1Bitmap **bitmap
+./um/d2d1.h:2765:        _Outptr_ ID2D1BitmapBrush **bitmapBrush
+./um/d2d1.h:2771:        _Outptr_ ID2D1SolidColorBrush **solidColorBrush
+./um/d2d1.h:2792:        _Outptr_ ID2D1GradientStopCollection **gradientStopCollection
+./um/d2d1.h:2799:        _Outptr_ ID2D1LinearGradientBrush **linearGradientBrush
+./um/d2d1.h:2806:        _Outptr_ ID2D1RadialGradientBrush **radialGradientBrush
+./um/d2d1.h:2847:        _Outptr_ ID2D1BitmapRenderTarget **bitmapRenderTarget
+./um/d2d1.h:2866:        _Outptr_ ID2D1Layer **layer
+./um/d2d1.h:2874:        _Outptr_ ID2D1Mesh **mesh
+./um/d2d1.h:3046:        _Outptr_result_maybenull_ IDWriteRenderingParams **textRenderingParams
+./um/d2d1.h:3212:        _Outptr_ ID2D1Bitmap **bitmap
+./um/d2d1.h:3223:        _Outptr_ ID2D1Bitmap **bitmap
+./um/d2d1.h:3238:        _Outptr_ ID2D1Bitmap **bitmap
+./um/d2d1.h:3252:        _Outptr_ ID2D1Bitmap **bitmap
+./um/d2d1.h:3267:        _Outptr_ ID2D1BitmapBrush **bitmapBrush
+./um/d2d1.h:3283:        _Outptr_ ID2D1BitmapBrush **bitmapBrush
+./um/d2d1.h:3300:        _Outptr_ ID2D1BitmapBrush **bitmapBrush
+./um/d2d1.h:3310:        _Outptr_ ID2D1SolidColorBrush **solidColorBrush
+./um/d2d1.h:3321:        _Outptr_ ID2D1SolidColorBrush **solidColorBrush
+./um/d2d1.h:3332:        _Outptr_ ID2D1GradientStopCollection **gradientStopCollection
+./um/d2d1.h:3343:        _Outptr_ ID2D1LinearGradientBrush **linearGradientBrush
+./um/d2d1.h:3355:        _Outptr_ ID2D1LinearGradientBrush **linearGradientBrush
+./um/d2d1.h:3366:        _Outptr_ ID2D1RadialGradientBrush **radialGradientBrush
+./um/d2d1.h:3378:        _Outptr_ ID2D1RadialGradientBrush **radialGradientBrush
+./um/d2d1.h:3387:        _Outptr_ ID2D1BitmapRenderTarget **bitmapRenderTarget
+./um/d2d1.h:3397:        _Outptr_ ID2D1BitmapRenderTarget **bitmapRenderTarget
+./um/d2d1.h:3408:        _Outptr_ ID2D1BitmapRenderTarget **bitmapRenderTarget
+./um/d2d1.h:3420:        _Outptr_ ID2D1BitmapRenderTarget **bitmapRenderTarget
+./um/d2d1.h:3433:        _Outptr_ ID2D1BitmapRenderTarget **bitmapRenderTarget
+./um/d2d1.h:3443:        _Outptr_ ID2D1Layer **layer
+./um/d2d1.h:3452:        _Outptr_ ID2D1Layer **layer
+./um/d2d1.h:3643:        _Outptr_ ID2D1Bitmap **bitmap
+./um/d2d1.h:3772:        _Outptr_ ID2D1RectangleGeometry **rectangleGeometry
+./um/d2d1.h:3777:        _Outptr_ ID2D1RoundedRectangleGeometry **roundedRectangleGeometry
+./um/d2d1.h:3782:        _Outptr_ ID2D1EllipseGeometry **ellipseGeometry
+./um/d2d1.h:3793:        _Outptr_ ID2D1GeometryGroup **geometryGroup
+./um/d2d1.h:3799:        _Outptr_ ID2D1TransformedGeometry **transformedGeometry
+./um/d2d1.h:3808:        _Outptr_ ID2D1PathGeometry **pathGeometry
+./um/d2d1.h:3820:        _Outptr_ ID2D1StrokeStyle **strokeStyle
+./um/d2d1.h:3831:        _Outptr_ ID2D1DrawingStateBlock **drawingStateBlock
+./um/d2d1.h:3841:        _Outptr_ ID2D1RenderTarget **renderTarget
+./um/d2d1.h:3851:        _Outptr_ ID2D1HwndRenderTarget **hwndRenderTarget
+./um/d2d1.h:3862:        _Outptr_ ID2D1RenderTarget **renderTarget
+./um/d2d1.h:3871:        _Outptr_ ID2D1DCRenderTarget **dcRenderTarget
+./um/d2d1.h:3878:        _Outptr_ ID2D1RectangleGeometry **rectangleGeometry
+./um/d2d1.h:3888:        _Outptr_ ID2D1RoundedRectangleGeometry **roundedRectangleGeometry
+./um/d2d1.h:3898:        _Outptr_ ID2D1EllipseGeometry **ellipseGeometry
+./um/d2d1.h:3909:        _Outptr_ ID2D1TransformedGeometry **transformedGeometry
+./um/d2d1.h:3921:        _Outptr_ ID2D1StrokeStyle **strokeStyle
+./um/d2d1.h:3931:        _Outptr_ ID2D1DrawingStateBlock **drawingStateBlock
+./um/d2d1.h:3940:        _Outptr_ ID2D1DrawingStateBlock **drawingStateBlock
+./um/d2d1.h:3951:        _Outptr_ ID2D1RenderTarget **renderTarget
+./um/d2d1.h:3962:        _Outptr_ ID2D1HwndRenderTarget **hwndRenderTarget
+./um/d2d1.h:3973:        _Outptr_ ID2D1RenderTarget **renderTarget
+./um/d2d1.h:4053:        _Outptr_ ID2D1Factory **factory
+./um/d2d1.h:4346:        _Outptr_ ID2D1Bitmap **bitmap
+./um/d2d1.h:4486:        _Outptr_ ID2D1GradientStopCollection **gradientStopCollection
+./um/d2d1.h:4581:        _Outptr_ ID2D1GradientStopCollection **gradientStopCollection
+./um/d2d1.h:5225:        _Outptr_ ID2D1Geometry **sourceGeometry
+./um/d2d1.h:5515:        _Outptr_ ID2D1GeometrySink **geometrySink
+./um/d2d1.h:5613:        _Outptr_ ID2D1TessellationSink **tessellationSink
+./um/d2d1.h:5697:        _Outptr_result_maybenull_ IDWriteRenderingParams **textRenderingParams
+./um/d2d1.h:5745:        _Outptr_ ID2D1Bitmap **bitmap
+./um/d2d1.h:5752:        _Outptr_ ID2D1Bitmap **bitmap
+./um/d2d1.h:5760:        _Outptr_ ID2D1Bitmap **bitmap
+./um/d2d1.h:5768:        _Outptr_ ID2D1BitmapBrush **bitmapBrush
+./um/d2d1.h:5775:        _Outptr_ ID2D1SolidColorBrush **solidColorBrush
+./um/d2d1.h:5784:        _Outptr_ ID2D1GradientStopCollection **gradientStopCollection
+./um/d2d1.h:5792:        _Outptr_ ID2D1LinearGradientBrush **linearGradientBrush
+./um/d2d1.h:5800:        _Outptr_ ID2D1RadialGradientBrush **radialGradientBrush
+./um/d2d1.h:5809:        _Outptr_ ID2D1BitmapRenderTarget **bitmapRenderTarget
+./um/d2d1.h:5815:        _Outptr_ ID2D1Layer **layer
+./um/d2d1.h:5820:        _Outptr_ ID2D1Mesh **mesh
+./um/d2d1.h:5975:        _Outptr_result_maybenull_ IDWriteRenderingParams **textRenderingParams
+./um/d2d1.h:6262:        _Outptr_ ID2D1Bitmap **bitmap
+./um/d2d1.h:6925:        _Outptr_ ID2D1RectangleGeometry **rectangleGeometry
+./um/d2d1.h:6931:        _Outptr_ ID2D1RoundedRectangleGeometry **roundedRectangleGeometry
+./um/d2d1.h:6937:        _Outptr_ ID2D1EllipseGeometry **ellipseGeometry
+./um/d2d1.h:6945:        _Outptr_ ID2D1GeometryGroup **geometryGroup
+./um/d2d1.h:6952:        _Outptr_ ID2D1TransformedGeometry **transformedGeometry
+./um/d2d1.h:6957:        _Outptr_ ID2D1PathGeometry **pathGeometry
+./um/d2d1.h:6965:        _Outptr_ ID2D1StrokeStyle **strokeStyle
+./um/d2d1.h:6972:        _Outptr_ ID2D1DrawingStateBlock **drawingStateBlock
+./um/d2d1.h:6979:        _Outptr_ ID2D1RenderTarget **renderTarget
+./um/d2d1.h:6986:        _Outptr_ ID2D1HwndRenderTarget **hwndRenderTarget
+./um/d2d1.h:6993:        _Outptr_ ID2D1RenderTarget **renderTarget
+./um/d2d1.h:6999:        _Outptr_ ID2D1DCRenderTarget **dcRenderTarget
 ./um/d2d1effectauthor.h:534:        _Outptr_result_bytebuffer_(bufferSize) BYTE **data,
-./um/d2d1effectauthor.h:1171:        _Outptr_ ID2D1Effect **effect 
-./um/d2d1effectauthor.h:1186:        _Outptr_ ID2D1TransformNode **transformNode 
-./um/d2d1effectauthor.h:1192:        _Outptr_ ID2D1BlendTransform **transform 
-./um/d2d1effectauthor.h:1198:        _Outptr_ ID2D1BorderTransform **transform 
-./um/d2d1effectauthor.h:1203:        _Outptr_ ID2D1OffsetTransform **transform 
-./um/d2d1effectauthor.h:1208:        _Outptr_ ID2D1BoundsAdjustmentTransform **transform 
-./um/d2d1effectauthor.h:1239:        _Outptr_ ID2D1ResourceTexture **resourceTexture 
-./um/d2d1effectauthor.h:1244:        _Outptr_ ID2D1ResourceTexture **resourceTexture 
-./um/d2d1effectauthor.h:1251:        _Outptr_ ID2D1VertexBuffer **buffer 
-./um/d2d1effectauthor.h:1256:        _Outptr_ ID2D1VertexBuffer **buffer 
-./um/d2d1effectauthor.h:1270:        _Outptr_ ID2D1ColorContext **colorContext 
-./um/d2d1effectauthor.h:1275:        _Outptr_ ID2D1ColorContext **colorContext 
-./um/d2d1effectauthor.h:1280:        _Outptr_ ID2D1ColorContext **colorContext 
+./um/d2d1effectauthor.h:1171:        _Outptr_ ID2D1Effect **effect
+./um/d2d1effectauthor.h:1186:        _Outptr_ ID2D1TransformNode **transformNode
+./um/d2d1effectauthor.h:1192:        _Outptr_ ID2D1BlendTransform **transform
+./um/d2d1effectauthor.h:1198:        _Outptr_ ID2D1BorderTransform **transform
+./um/d2d1effectauthor.h:1203:        _Outptr_ ID2D1OffsetTransform **transform
+./um/d2d1effectauthor.h:1208:        _Outptr_ ID2D1BoundsAdjustmentTransform **transform
+./um/d2d1effectauthor.h:1239:        _Outptr_ ID2D1ResourceTexture **resourceTexture
+./um/d2d1effectauthor.h:1244:        _Outptr_ ID2D1ResourceTexture **resourceTexture
+./um/d2d1effectauthor.h:1251:        _Outptr_ ID2D1VertexBuffer **buffer
+./um/d2d1effectauthor.h:1256:        _Outptr_ ID2D1VertexBuffer **buffer
+./um/d2d1effectauthor.h:1270:        _Outptr_ ID2D1ColorContext **colorContext
+./um/d2d1effectauthor.h:1275:        _Outptr_ ID2D1ColorContext **colorContext
+./um/d2d1effectauthor.h:1280:        _Outptr_ ID2D1ColorContext **colorContext
 ./um/d2d1effectauthor.h:1337:        _Outptr_result_bytebuffer_(bufferSize) BYTE **data,
-./um/d2d1effectauthor.h:2289:        _Outptr_ ID2D1Effect **effect 
-./um/d2d1effectauthor.h:2302:        _Outptr_ ID2D1TransformNode **transformNode 
-./um/d2d1effectauthor.h:2309:        _Outptr_ ID2D1BlendTransform **transform 
-./um/d2d1effectauthor.h:2316:        _Outptr_ ID2D1BorderTransform **transform 
-./um/d2d1effectauthor.h:2322:        _Outptr_ ID2D1OffsetTransform **transform 
-./um/d2d1effectauthor.h:2328:        _Outptr_ ID2D1BoundsAdjustmentTransform **transform 
-./um/d2d1effectauthor.h:2364:        _Outptr_ ID2D1ResourceTexture **resourceTexture 
-./um/d2d1effectauthor.h:2370:        _Outptr_ ID2D1ResourceTexture **resourceTexture 
-./um/d2d1effectauthor.h:2378:        _Outptr_ ID2D1VertexBuffer **buffer 
-./um/d2d1effectauthor.h:2384:        _Outptr_ ID2D1VertexBuffer **buffer 
-./um/d2d1effectauthor.h:2392:        _Outptr_ ID2D1ColorContext **colorContext 
-./um/d2d1effectauthor.h:2398:        _Outptr_ ID2D1ColorContext **colorContext 
-./um/d2d1effectauthor.h:2404:        _Outptr_ ID2D1ColorContext **colorContext 
+./um/d2d1effectauthor.h:2289:        _Outptr_ ID2D1Effect **effect
+./um/d2d1effectauthor.h:2302:        _Outptr_ ID2D1TransformNode **transformNode
+./um/d2d1effectauthor.h:2309:        _Outptr_ ID2D1BlendTransform **transform
+./um/d2d1effectauthor.h:2316:        _Outptr_ ID2D1BorderTransform **transform
+./um/d2d1effectauthor.h:2322:        _Outptr_ ID2D1OffsetTransform **transform
+./um/d2d1effectauthor.h:2328:        _Outptr_ ID2D1BoundsAdjustmentTransform **transform
+./um/d2d1effectauthor.h:2364:        _Outptr_ ID2D1ResourceTexture **resourceTexture
+./um/d2d1effectauthor.h:2370:        _Outptr_ ID2D1ResourceTexture **resourceTexture
+./um/d2d1effectauthor.h:2378:        _Outptr_ ID2D1VertexBuffer **buffer
+./um/d2d1effectauthor.h:2384:        _Outptr_ ID2D1VertexBuffer **buffer
+./um/d2d1effectauthor.h:2392:        _Outptr_ ID2D1ColorContext **colorContext
+./um/d2d1effectauthor.h:2398:        _Outptr_ ID2D1ColorContext **colorContext
+./um/d2d1effectauthor.h:2404:        _Outptr_ ID2D1ColorContext **colorContext
 ./um/d2d1_1.h:49:    _Outptr_ IUnknown **effectImpl
-./um/d2d1_1.h:1105:        _Outptr_ ID2D1Image **image 
-./um/d2d1_1.h:1335:        _Outptr_opt_ ID2D1Properties **subProperties 
+./um/d2d1_1.h:1105:        _Outptr_ ID2D1Image **image
+./um/d2d1_1.h:1335:        _Outptr_opt_ ID2D1Properties **subProperties
 ./um/d2d1_1.h:1506:        _Outptr_opt_ ID2D1Properties **subProperties
-./um/d2d1_1.h:1555:        _Outptr_opt_ ID2D1Image **input 
-./um/d2d1_1.h:1571:        _Outptr_ ID2D1Image **outputImage 
-./um/d2d1_1.h:1612:        _Outptr_result_maybenull_ ID2D1ColorContext **colorContext 
-./um/d2d1_1.h:1628:        _Outptr_result_maybenull_ IDXGISurface **dxgiSurface 
-./um/d2d1_1.h:1809:        _Outptr_ ID2D1Bitmap1 **bitmap 
-./um/d2d1_1.h:1821:        _Outptr_ ID2D1Bitmap1 **bitmap 
-./um/d2d1_1.h:1837:        _Outptr_ ID2D1ColorContext **colorContext 
-./um/d2d1_1.h:1842:        _Outptr_ ID2D1ColorContext **colorContext 
-./um/d2d1_1.h:1847:        _Outptr_ ID2D1ColorContext **colorContext 
-./um/d2d1_1.h:1857:        _Outptr_ ID2D1Bitmap1 **bitmap 
-./um/d2d1_1.h:1868:        _Outptr_ ID2D1Effect **effect 
-./um/d2d1_1.h:1907:        _Outptr_ ID2D1GradientStopCollection1 **gradientStopCollection1 
-./um/d2d1_1.h:1921:        _Outptr_ ID2D1ImageBrush **imageBrush 
-./um/d2d1_1.h:1928:        _Outptr_ ID2D1BitmapBrush1 **bitmapBrush 
-./um/d2d1_1.h:1938:        _Outptr_ ID2D1CommandList **commandList 
-./um/d2d1_1.h:1994:        _Outptr_ ID2D1Device **device 
-./um/d2d1_1.h:2012:        _Outptr_result_maybenull_ ID2D1Image **image 
-./um/d2d1_1.h:2186:        _Outptr_ ID2D1Bitmap1 **bitmap 
-./um/d2d1_1.h:2201:        _Outptr_ ID2D1Bitmap1 **bitmap 
-./um/d2d1_1.h:2215:        _Outptr_ ID2D1Bitmap1 **bitmap 
-./um/d2d1_1.h:2226:        _Outptr_ ID2D1Bitmap1 **bitmap 
-./um/d2d1_1.h:2238:        _Outptr_ ID2D1ImageBrush **imageBrush 
-./um/d2d1_1.h:2249:        _Outptr_ ID2D1ImageBrush **imageBrush 
-./um/d2d1_1.h:2259:        _Outptr_ ID2D1BitmapBrush1 **bitmapBrush 
-./um/d2d1_1.h:2270:        _Outptr_ ID2D1BitmapBrush1 **bitmapBrush 
-./um/d2d1_1.h:2282:        _Outptr_ ID2D1BitmapBrush1 **bitmapBrush 
-./um/d2d1_1.h:2502:        _Outptr_ ID2D1DeviceContext **deviceContext 
-./um/d2d1_1.h:2513:        _Outptr_ ID2D1PrintControl **printControl 
-./um/d2d1_1.h:2546:        _Outptr_ ID2D1PrintControl **printControl 
-./um/d2d1_1.h:2570:        _Outptr_ ID2D1Device **d2dDevice 
-./um/d2d1_1.h:2582:        _Outptr_ ID2D1StrokeStyle1 **strokeStyle 
-./um/d2d1_1.h:2592:        _Outptr_ ID2D1PathGeometry1 **pathGeometry 
-./um/d2d1_1.h:2605:        _Outptr_ ID2D1DrawingStateBlock1 **drawingStateBlock 
-./um/d2d1_1.h:2616:        _Outptr_ ID2D1GdiMetafile **metafile 
-./um/d2d1_1.h:2683:        _Outptr_ ID2D1Properties **properties 
-./um/d2d1_1.h:2692:        _Outptr_ ID2D1StrokeStyle1 **strokeStyle 
-./um/d2d1_1.h:2702:        _Outptr_ ID2D1DrawingStateBlock1 **drawingStateBlock 
-./um/d2d1_1.h:2711:        _Outptr_ ID2D1DrawingStateBlock1 **drawingStateBlock 
-./um/d2d1_1.h:3232:        _Outptr_ ID2D1Image **image 
-./um/d2d1_1.h:3616:        _Outptr_opt_ ID2D1Properties **subProperties 
-./um/d2d1_1.h:3691:        _Outptr_opt_ ID2D1Image **input 
-./um/d2d1_1.h:3700:        _Outptr_ ID2D1Image **outputImage 
-./um/d2d1_1.h:3777:        _Outptr_result_maybenull_ ID2D1ColorContext **colorContext 
-./um/d2d1_1.h:3786:        _Outptr_result_maybenull_ IDXGISurface **dxgiSurface 
-./um/d2d1_1.h:4043:        _Outptr_ ID2D1Bitmap1 **bitmap 
-./um/d2d1_1.h:4050:        _Outptr_ ID2D1Bitmap1 **bitmap 
-./um/d2d1_1.h:4058:        _Outptr_ ID2D1ColorContext **colorContext 
-./um/d2d1_1.h:4064:        _Outptr_ ID2D1ColorContext **colorContext 
-./um/d2d1_1.h:4070:        _Outptr_ ID2D1ColorContext **colorContext 
-./um/d2d1_1.h:4077:        _Outptr_ ID2D1Bitmap1 **bitmap 
-./um/d2d1_1.h:4083:        _Outptr_ ID2D1Effect **effect 
-./um/d2d1_1.h:4095:        _Outptr_ ID2D1GradientStopCollection1 **gradientStopCollection1 
-./um/d2d1_1.h:4103:        _Outptr_ ID2D1ImageBrush **imageBrush 
-./um/d2d1_1.h:4111:        _Outptr_ ID2D1BitmapBrush1 **bitmapBrush 
-./um/d2d1_1.h:4116:        _Outptr_ ID2D1CommandList **commandList 
-./um/d2d1_1.h:4151:        _Outptr_ ID2D1Device **device 
-./um/d2d1_1.h:4161:        _Outptr_result_maybenull_ ID2D1Image **image 
-./um/d2d1_1.h:4539:        _Outptr_ ID2D1DeviceContext **deviceContext 
-./um/d2d1_1.h:4547:        _Outptr_ ID2D1PrintControl **printControl 
-./um/d2d1_1.h:4609:        _Outptr_ ID2D1Device **d2dDevice 
-./um/d2d1_1.h:4617:        _Outptr_ ID2D1StrokeStyle1 **strokeStyle 
-./um/d2d1_1.h:4622:        _Outptr_ ID2D1PathGeometry1 **pathGeometry 
-./um/d2d1_1.h:4629:        _Outptr_ ID2D1DrawingStateBlock1 **drawingStateBlock 
-./um/d2d1_1.h:4635:        _Outptr_ ID2D1GdiMetafile **metafile 
-./um/d2d1_1.h:4672:        _Outptr_ ID2D1Properties **properties 
+./um/d2d1_1.h:1555:        _Outptr_opt_ ID2D1Image **input
+./um/d2d1_1.h:1571:        _Outptr_ ID2D1Image **outputImage
+./um/d2d1_1.h:1612:        _Outptr_result_maybenull_ ID2D1ColorContext **colorContext
+./um/d2d1_1.h:1628:        _Outptr_result_maybenull_ IDXGISurface **dxgiSurface
+./um/d2d1_1.h:1809:        _Outptr_ ID2D1Bitmap1 **bitmap
+./um/d2d1_1.h:1821:        _Outptr_ ID2D1Bitmap1 **bitmap
+./um/d2d1_1.h:1837:        _Outptr_ ID2D1ColorContext **colorContext
+./um/d2d1_1.h:1842:        _Outptr_ ID2D1ColorContext **colorContext
+./um/d2d1_1.h:1847:        _Outptr_ ID2D1ColorContext **colorContext
+./um/d2d1_1.h:1857:        _Outptr_ ID2D1Bitmap1 **bitmap
+./um/d2d1_1.h:1868:        _Outptr_ ID2D1Effect **effect
+./um/d2d1_1.h:1907:        _Outptr_ ID2D1GradientStopCollection1 **gradientStopCollection1
+./um/d2d1_1.h:1921:        _Outptr_ ID2D1ImageBrush **imageBrush
+./um/d2d1_1.h:1928:        _Outptr_ ID2D1BitmapBrush1 **bitmapBrush
+./um/d2d1_1.h:1938:        _Outptr_ ID2D1CommandList **commandList
+./um/d2d1_1.h:1994:        _Outptr_ ID2D1Device **device
+./um/d2d1_1.h:2012:        _Outptr_result_maybenull_ ID2D1Image **image
+./um/d2d1_1.h:2186:        _Outptr_ ID2D1Bitmap1 **bitmap
+./um/d2d1_1.h:2201:        _Outptr_ ID2D1Bitmap1 **bitmap
+./um/d2d1_1.h:2215:        _Outptr_ ID2D1Bitmap1 **bitmap
+./um/d2d1_1.h:2226:        _Outptr_ ID2D1Bitmap1 **bitmap
+./um/d2d1_1.h:2238:        _Outptr_ ID2D1ImageBrush **imageBrush
+./um/d2d1_1.h:2249:        _Outptr_ ID2D1ImageBrush **imageBrush
+./um/d2d1_1.h:2259:        _Outptr_ ID2D1BitmapBrush1 **bitmapBrush
+./um/d2d1_1.h:2270:        _Outptr_ ID2D1BitmapBrush1 **bitmapBrush
+./um/d2d1_1.h:2282:        _Outptr_ ID2D1BitmapBrush1 **bitmapBrush
+./um/d2d1_1.h:2502:        _Outptr_ ID2D1DeviceContext **deviceContext
+./um/d2d1_1.h:2513:        _Outptr_ ID2D1PrintControl **printControl
+./um/d2d1_1.h:2546:        _Outptr_ ID2D1PrintControl **printControl
+./um/d2d1_1.h:2570:        _Outptr_ ID2D1Device **d2dDevice
+./um/d2d1_1.h:2582:        _Outptr_ ID2D1StrokeStyle1 **strokeStyle
+./um/d2d1_1.h:2592:        _Outptr_ ID2D1PathGeometry1 **pathGeometry
+./um/d2d1_1.h:2605:        _Outptr_ ID2D1DrawingStateBlock1 **drawingStateBlock
+./um/d2d1_1.h:2616:        _Outptr_ ID2D1GdiMetafile **metafile
+./um/d2d1_1.h:2683:        _Outptr_ ID2D1Properties **properties
+./um/d2d1_1.h:2692:        _Outptr_ ID2D1StrokeStyle1 **strokeStyle
+./um/d2d1_1.h:2702:        _Outptr_ ID2D1DrawingStateBlock1 **drawingStateBlock
+./um/d2d1_1.h:2711:        _Outptr_ ID2D1DrawingStateBlock1 **drawingStateBlock
+./um/d2d1_1.h:3232:        _Outptr_ ID2D1Image **image
+./um/d2d1_1.h:3616:        _Outptr_opt_ ID2D1Properties **subProperties
+./um/d2d1_1.h:3691:        _Outptr_opt_ ID2D1Image **input
+./um/d2d1_1.h:3700:        _Outptr_ ID2D1Image **outputImage
+./um/d2d1_1.h:3777:        _Outptr_result_maybenull_ ID2D1ColorContext **colorContext
+./um/d2d1_1.h:3786:        _Outptr_result_maybenull_ IDXGISurface **dxgiSurface
+./um/d2d1_1.h:4043:        _Outptr_ ID2D1Bitmap1 **bitmap
+./um/d2d1_1.h:4050:        _Outptr_ ID2D1Bitmap1 **bitmap
+./um/d2d1_1.h:4058:        _Outptr_ ID2D1ColorContext **colorContext
+./um/d2d1_1.h:4064:        _Outptr_ ID2D1ColorContext **colorContext
+./um/d2d1_1.h:4070:        _Outptr_ ID2D1ColorContext **colorContext
+./um/d2d1_1.h:4077:        _Outptr_ ID2D1Bitmap1 **bitmap
+./um/d2d1_1.h:4083:        _Outptr_ ID2D1Effect **effect
+./um/d2d1_1.h:4095:        _Outptr_ ID2D1GradientStopCollection1 **gradientStopCollection1
+./um/d2d1_1.h:4103:        _Outptr_ ID2D1ImageBrush **imageBrush
+./um/d2d1_1.h:4111:        _Outptr_ ID2D1BitmapBrush1 **bitmapBrush
+./um/d2d1_1.h:4116:        _Outptr_ ID2D1CommandList **commandList
+./um/d2d1_1.h:4151:        _Outptr_ ID2D1Device **device
+./um/d2d1_1.h:4161:        _Outptr_result_maybenull_ ID2D1Image **image
+./um/d2d1_1.h:4539:        _Outptr_ ID2D1DeviceContext **deviceContext
+./um/d2d1_1.h:4547:        _Outptr_ ID2D1PrintControl **printControl
+./um/d2d1_1.h:4609:        _Outptr_ ID2D1Device **d2dDevice
+./um/d2d1_1.h:4617:        _Outptr_ ID2D1StrokeStyle1 **strokeStyle
+./um/d2d1_1.h:4622:        _Outptr_ ID2D1PathGeometry1 **pathGeometry
+./um/d2d1_1.h:4629:        _Outptr_ ID2D1DrawingStateBlock1 **drawingStateBlock
+./um/d2d1_1.h:4635:        _Outptr_ ID2D1GdiMetafile **metafile
+./um/d2d1_1.h:4672:        _Outptr_ ID2D1Properties **properties
 ./um/d2d1_1.h:4812:        _Outptr_ ID2D1Device **d2dDevice
 ./um/d2d1_1.h:4819:        _Outptr_ ID2D1DeviceContext **d2dDeviceContext
 ./um/d2d1_1.h:4861:    _Outptr_ ID2D1Device **d2dDevice
 ./um/d2d1_1.h:4876:    _Outptr_ ID2D1DeviceContext **d2dDeviceContext
-./um/d2d1_2.h:82:        _Outptr_ ID2D1GeometryRealization **geometryRealization 
-./um/d2d1_2.h:90:        _Outptr_ ID2D1GeometryRealization **geometryRealization 
-./um/d2d1_2.h:131:        _Outptr_ ID2D1DeviceContext1 **deviceContext1 
-./um/d2d1_2.h:154:        _Outptr_ ID2D1Device1 **d2dDevice1 
-./um/d2d1_2.h:235:        _Outptr_ ID2D1GeometryRealization **geometryRealization 
-./um/d2d1_2.h:244:        _Outptr_ ID2D1GeometryRealization **geometryRealization 
-./um/d2d1_2.h:541:        _Outptr_ ID2D1DeviceContext1 **deviceContext1 
-./um/d2d1_2.h:595:        _Outptr_ ID2D1Device1 **d2dDevice1 
+./um/d2d1_2.h:82:        _Outptr_ ID2D1GeometryRealization **geometryRealization
+./um/d2d1_2.h:90:        _Outptr_ ID2D1GeometryRealization **geometryRealization
+./um/d2d1_2.h:131:        _Outptr_ ID2D1DeviceContext1 **deviceContext1
+./um/d2d1_2.h:154:        _Outptr_ ID2D1Device1 **d2dDevice1
+./um/d2d1_2.h:235:        _Outptr_ ID2D1GeometryRealization **geometryRealization
+./um/d2d1_2.h:244:        _Outptr_ ID2D1GeometryRealization **geometryRealization
+./um/d2d1_2.h:541:        _Outptr_ ID2D1DeviceContext1 **deviceContext1
+./um/d2d1_2.h:595:        _Outptr_ ID2D1Device1 **d2dDevice1
 ./um/d3d10.h:871:            _COM_Outptr_  void **ppvObject);
 ./um/d3d10.h:1048:            _COM_Outptr_  void **ppvObject);
 ./um/d3d10.h:1236:            _COM_Outptr_  void **ppvObject);
@@ -8706,7 +8706,7 @@ C:\Program Files (x86)\Windows Kits\8.1\Include>%grep% -I -r -n _Inout_updates_ 
 ./um/evr.h:1762:            _COM_Outptr_  void **ppvObject);
 ./um/evr.h:1847:    _Outptr_result_maybenull_ void ** ppVideoPresenter
 ./um/evr.h:1853:    _Outptr_ void ** ppv
-./um/evr.h:1859:    _Outptr_ void ** ppvVideoMixer, 
+./um/evr.h:1859:    _Outptr_ void ** ppvVideoMixer,
 ./um/evr.h:1861:    _Outptr_ void ** ppvVideoPresenter
 ./um/evr.h:1865:    _Outptr_result_maybenull_ void ** ppVideoRenderer
 ./um/evr.h:1873:    _Outptr_ void** ppSampleAllocator
@@ -9161,15 +9161,15 @@ C:\Program Files (x86)\Windows Kits\8.1\Include>%grep% -I -r -n _Inout_updates_ 
 ./um/gpmgmt.h:10005:            _COM_Outptr_  void **ppvObject);
 ./um/gpmgmt.h:10299:            _COM_Outptr_  void **ppvObject);
 ./um/handleapi.h:62:    _Outptr_ LPHANDLE lpTargetHandle,
-./um/HLink.h:299:             _Outptr_ LPWSTR *ppwzReference);                                          
-./um/HLink.h:317:             _Outptr_ LPWSTR *ppwzShortcutFile,                                        
-./um/HLink.h:326:             _Outptr_ LPWSTR *ppwzShortcutFile,                                        
-./um/HLink.h:335:             _Outptr_ LPWSTR *ppwzShortcutFile,                                        
-./um/HLink.h:349:             _Outptr_ LPWSTR *ppwzLocation);                                           
-./um/HLink.h:353:             _Outptr_ LPWSTR *ppwzTarget,                                              
-./um/HLink.h:354:             _Outptr_ LPWSTR *ppwzLocation);                                           
-./um/HLink.h:363:             _Outptr_ LPWSTR *ppwzValue);                                              
-./um/HLink.h:377:             _Outptr_ LPWSTR *ppwzTranslatedURL);                                      
+./um/HLink.h:299:             _Outptr_ LPWSTR *ppwzReference);
+./um/HLink.h:317:             _Outptr_ LPWSTR *ppwzShortcutFile,
+./um/HLink.h:326:             _Outptr_ LPWSTR *ppwzShortcutFile,
+./um/HLink.h:335:             _Outptr_ LPWSTR *ppwzShortcutFile,
+./um/HLink.h:349:             _Outptr_ LPWSTR *ppwzLocation);
+./um/HLink.h:353:             _Outptr_ LPWSTR *ppwzTarget,
+./um/HLink.h:354:             _Outptr_ LPWSTR *ppwzLocation);
+./um/HLink.h:363:             _Outptr_ LPWSTR *ppwzValue);
+./um/HLink.h:377:             _Outptr_ LPWSTR *ppwzTranslatedURL);
 ./um/HLink.h:467:            _Outptr_opt_result_maybenull_  IMoniker **ppimkTarget,
 ./um/HLink.h:469:            _Outptr_opt_result_maybenull_  LPWSTR *ppwzLocation) = 0;
 ./um/HLink.h:479:            _Outptr_opt_  LPWSTR *ppwzTarget,
@@ -9215,8 +9215,8 @@ C:\Program Files (x86)\Windows Kits\8.1\Include>%grep% -I -r -n _Inout_updates_ 
 ./um/httpserv.h:652:        _Outptr_
 ./um/httpserv.h:693:        _Outptr_result_bytebuffer_to_(*pTokenSize, *pTokenSize)
 ./um/httpserv.h:1012:        _Outptr_opt_result_bytebuffer_(*pcchReason)
-./um/httpserv.h:1016:        _Outptr_opt_ 
-./um/httpserv.h:1019:        _Outptr_opt_ 
+./um/httpserv.h:1016:        _Outptr_opt_
+./um/httpserv.h:1019:        _Outptr_opt_
 ./um/httpserv.h:1332:        _Outptr_ CHttpModule **          ppModuleInfo,
 ./um/httpserv.h:1333:        _Outptr_ IHttpEventProvider **   ppRequestOutput
 ./um/httpserv.h:1362:        _Outptr_result_buffer_(*pcchValueLength)
@@ -9360,7 +9360,7 @@ C:\Program Files (x86)\Windows Kits\8.1\Include>%grep% -I -r -n _Inout_updates_ 
 ./um/IEDial.h:232:            _COM_Outptr_  void **ppvObject);
 ./um/IEDial.h:360:            _COM_Outptr_  void **ppvObject);
 ./um/IEPMapi.h:93:    _Outptr_ LPWSTR   *lppwstrDestinationFilePath,
-./um/IEPMapi.h:150:    _Outptr_ LPWSTR   *lppwstrPath                
+./um/IEPMapi.h:150:    _Outptr_ LPWSTR   *lppwstrPath
 ./um/iewebdriver.h:139:            _COM_Outptr_  void **ppvObject);
 ./um/iewebdriver.h:287:            _COM_Outptr_  void **ppvObject);
 ./um/iextag.h:375:            _COM_Outptr_  void **ppvObject);
@@ -9592,7 +9592,7 @@ C:\Program Files (x86)\Windows Kits\8.1\Include>%grep% -I -r -n _Inout_updates_ 
 ./um/LMJoin.h:253:    _Outptr_opt_result_maybenull_z_ LPWSTR *ppPackageTextData
 ./um/LMJoin.h:308:    _Outptr_ LPWSTR             *lpNameBuffer,
 ./um/LMJoin.h:324:    _Outptr_result_buffer_(*OUCount) LPWSTR **OUs
-./um/LMJoin.h:385:    _Outptr_result_buffer_(*EntryCount) LPWSTR **ComputerNames     
+./um/LMJoin.h:385:    _Outptr_result_buffer_(*EntryCount) LPWSTR **ComputerNames
 ./um/LMRemUtl.h:65:    _Outptr_result_bytebuffer_(sizeof(TIME_OF_DAY_INFO)) LPBYTE *BufferPtr
 ./um/LMServer.h:55:    _Outptr_result_buffer_(_Inexpressible_(entriesread)) OUT LPBYTE    *bufptr,
 ./um/LMServer.h:68:    _Outptr_result_buffer_(_Inexpressible_(*EntriesRead))
@@ -9753,7 +9753,7 @@ C:\Program Files (x86)\Windows Kits\8.1\Include>%grep% -I -r -n _Inout_updates_ 
 ./um/mfapi.h:1280:    _Outptr_opt_result_maybenull_                    IMFAttributes**             ppAttributes
 ./um/mfapi.h:1355:    _Outptr_    LPVOID*         ppvObject
 ./um/mfapi.h:2301:    _Outptr_ IMFMediaType**  ppMFType
-./um/mfapi.h:2776:    _Outptr_ IMFMediaBuffer** ppBuffer 
+./um/mfapi.h:2776:    _Outptr_ IMFMediaBuffer** ppBuffer
 ./um/mfapi.h:2991:    _Outptr_ PWSTR *ppsz
 ./um/mfcaptureengine.h:246:            _COM_Outptr_  void **ppvObject);
 ./um/mfcaptureengine.h:328:            _COM_Outptr_  void **ppvObject);
@@ -9833,17 +9833,17 @@ C:\Program Files (x86)\Windows Kits\8.1\Include>%grep% -I -r -n _Inout_updates_ 
 ./um/mfidl.h:5861:            _COM_Outptr_  void **ppvObject);
 ./um/mfidl.h:5991:            _COM_Outptr_  void **ppvObject);
 ./um/mfidl.h:6059:    _Outptr_ IMFMediaSink** ppSink
-./um/mfidl.h:6063:    _Outptr_ IMFActivate ** ppActivate 
-./um/mfidl.h:6078:    _Outptr_ IMFActivate ** ppActivate 
-./um/mfidl.h:6086:    _Outptr_ IMFMediaSink** ppIMediaSink 
-./um/mfidl.h:6093:    _Outptr_ IMFMediaSink** ppIMediaSink 
-./um/mfidl.h:6098:    _Outptr_ IMFMediaSink** ppMediaSink 
-./um/mfidl.h:6106:     _Outptr_ IMFMediaSink** ppMediaSink 
-./um/mfidl.h:6112:     _Outptr_ IMFMediaSink** ppMediaSink 
-./um/mfidl.h:6119:    _Outptr_ IMFMediaSink** ppMuxSink 
-./um/mfidl.h:6126:    _Outptr_ IMFMediaSink** ppIMediaSink 
-./um/mfidl.h:6135:    _Outptr_ IMFMediaSink** ppIMediaSink 
-./um/mfidl.h:6143:     _Outptr_ IMFMediaSink** ppMediaSink 
+./um/mfidl.h:6063:    _Outptr_ IMFActivate ** ppActivate
+./um/mfidl.h:6078:    _Outptr_ IMFActivate ** ppActivate
+./um/mfidl.h:6086:    _Outptr_ IMFMediaSink** ppIMediaSink
+./um/mfidl.h:6093:    _Outptr_ IMFMediaSink** ppIMediaSink
+./um/mfidl.h:6098:    _Outptr_ IMFMediaSink** ppMediaSink
+./um/mfidl.h:6106:     _Outptr_ IMFMediaSink** ppMediaSink
+./um/mfidl.h:6112:     _Outptr_ IMFMediaSink** ppMediaSink
+./um/mfidl.h:6119:    _Outptr_ IMFMediaSink** ppMuxSink
+./um/mfidl.h:6126:    _Outptr_ IMFMediaSink** ppIMediaSink
+./um/mfidl.h:6135:    _Outptr_ IMFMediaSink** ppIMediaSink
+./um/mfidl.h:6143:     _Outptr_ IMFMediaSink** ppMediaSink
 ./um/mfidl.h:6169:            _Outptr_  IMFTopology **ppOutputTopo,
 ./um/mfidl.h:6185:            _COM_Outptr_  void **ppvObject);
 ./um/mfidl.h:6197:            _Outptr_  IMFTopology **ppOutputTopo,
@@ -9972,7 +9972,7 @@ C:\Program Files (x86)\Windows Kits\8.1\Include>%grep% -I -r -n _Inout_updates_ 
 ./um/mfidl.h:15028:    _Outptr_ IMFTopology** ppTranscodeTopo
 ./um/mfidl.h:15050: _Outptr_ IMFCollection** ppAvailableTypes );
 ./um/mfidl.h:15108:            _COM_Outptr_  void **ppvObject);
-./um/mfidl.h:15186: _Outptr_ IMFActivate** ppActivate ); 
+./um/mfidl.h:15186: _Outptr_ IMFActivate** ppActivate );
 ./um/mfidl.h:15223:            _COM_Outptr_  void **ppvObject);
 ./um/mfidl.h:15325:            _COM_Outptr_  void **ppvObject);
 ./um/mfidl.h:15426:            _COM_Outptr_  void **ppvObject);
@@ -10199,7 +10199,7 @@ C:\Program Files (x86)\Windows Kits\8.1\Include>%grep% -I -r -n _Inout_updates_ 
 ./um/mfmediaengine.h:4910:            _COM_Outptr_  IMFMediaSourceExtension **ppMSE);
 ./um/mfmediaengine.idl:333:        [out, annotation("_Outptr_")] IMFMediaError** ppError
 ./um/mfmediaengine.idl:362:        [out, annotation("_Outptr_")] IMFMediaTimeRange** ppBuffered
-./um/mfmediaengine.idl:404:        [out, annotation("_Outptr_")] IMFMediaTimeRange** ppPlayed 
+./um/mfmediaengine.idl:404:        [out, annotation("_Outptr_")] IMFMediaTimeRange** ppPlayed
 ./um/mfmediaengine.idl:408:        [out, annotation("_Outptr_")] IMFMediaTimeRange** ppSeekable
 ./um/mfmediaengine.idl:709:        [out, annotation("_Outptr_")] IUnknown** ppIUnknownCancelCookie,// cancel cookie to be used if we abort the operation early
 ./um/mfmediaengine.idl:720:        [out, annotation("_Outptr_")] IUnknown** ppObject     // pointer to created object
@@ -10302,9 +10302,9 @@ C:\Program Files (x86)\Windows Kits\8.1\Include>%grep% -I -r -n _Inout_updates_ 
 ./um/mfsharingengine.h:1147:            _Outptr_  IInspectable **ppSource) = 0;
 ./um/mfsharingengine.h:1162:            _COM_Outptr_  void **ppvObject);
 ./um/mfsharingengine.h:1177:            _Outptr_  IInspectable **ppSource);
-./um/mfsharingengine.idl:69:        [out, annotation("_Outptr_")] IUnknown** ppEngine   // implements either IMFMediaEngineEx, IMFMediaSharingEngine, 
+./um/mfsharingengine.idl:69:        [out, annotation("_Outptr_")] IUnknown** ppEngine   // implements either IMFMediaEngineEx, IMFMediaSharingEngine,
 ./um/mfsharingengine.idl:132:        [out, annotation("_Outptr_")] IMFMediaSharingEngine** ppEngine
-./um/mfsharingengine.idl:183:        [out, annotation("_Outptr_")] IMFImageSharingEngine** ppEngine 
+./um/mfsharingengine.idl:183:        [out, annotation("_Outptr_")] IMFImageSharingEngine** ppEngine
 ./um/mfsharingengine.idl:269:        [out, annotation("_Outptr_")] IInspectable** ppSource               // implements Windows.Media.PlayTo.PlayToSource
 ./um/mftransform.h:340:            _COM_Outptr_  void **ppvObject);
 ./um/MgmtAPI.h:125:    _Outptr_opt_ LPSTR   *string         // OID string representation
@@ -10322,12 +10322,12 @@ C:\Program Files (x86)\Windows Kits\8.1\Include>%grep% -I -r -n _Inout_updates_ 
 ./um/mi.h:161:# define _Outptr_opt_result_z_
 ./um/mi.h:164:#if !defined(_Outptr_opt_result_maybenull_z_)
 ./um/mi.h:165:# define _Outptr_opt_result_maybenull_z_
-./um/mi.h:1715:        _Outptr_result_maybenull_z_ const MI_Char** queryLang, 
+./um/mi.h:1715:        _Outptr_result_maybenull_z_ const MI_Char** queryLang,
 ./um/mi.h:1716:        _Outptr_result_maybenull_z_ const MI_Char** queryExpr);
-./um/mi.h:1767:        _Outptr_result_maybenull_z_ const MI_Char** queryLang, 
+./um/mi.h:1767:        _Outptr_result_maybenull_z_ const MI_Char** queryLang,
 ./um/mi.h:1768:        _Outptr_result_maybenull_z_ const MI_Char** queryExpr)
 ./um/mi.h:1808:        _Outptr_result_z_ const MI_Char** name);
-./um/mi.h:1821:        _Outptr_ MI_PropertySet** newPropertySet);    
+./um/mi.h:1821:        _Outptr_ MI_PropertySet** newPropertySet);
 ./um/mi.h:1924:    _Outptr_result_z_ const MI_Char** name)
 ./um/mi.h:2017:    _Outptr_ MI_PropertySet** newPropertySet)
 ./um/mi.h:2381:    _Outptr_ void** self,
@@ -10691,7 +10691,7 @@ C:\Program Files (x86)\Windows Kits\8.1\Include>%grep% -I -r -n _Inout_updates_ 
 ./um/Mprapi.h:1933:    _Outptr_result_bytebuffer_((*lpdwEntriesRead)*(dwLevel==0?
 ./um/Mprapi.h:1948:    _Outptr_result_bytebuffer_((*lpdwEntriesRead)*sizeof(RAS_PORT_0)) LPBYTE *  lplpbBuffer,
 ./um/Mprapi.h:2399:    _Outptr_result_bytebuffer_((*lpdwEntriesRead)*sizeof(MPR_INTERFACE_0)) LPBYTE *  lplpbBuffer,
-./um/Mprapi.h:2727:    _Outptr_opt_ _Inout_ LPWSTR*      lplpwsDLLPath 
+./um/Mprapi.h:2727:    _Outptr_opt_ _Inout_ LPWSTR*      lplpwsDLLPath
 ./um/Mprapi.h:2734:    _Outptr_result_bytebuffer_maybenull_((*lpdwEntriesRead)*sizeof(MPR_TRANSPORT_0)) LPBYTE*  lplpBuffer,
 ./um/Mprapi.h:2783:    _Outptr_result_bytebuffer_maybenull_((*lpdwEntriesRead)*sizeof( MPR_INTERFACE_0)) LPBYTE*  lplpBuffer,
 ./um/Mprapi.h:2821:    _Outptr_opt_result_bytebuffer_(*lpdwInterfaceInfoSize)   LPBYTE*         ppInterfaceInfo,
@@ -12348,7 +12348,7 @@ C:\Program Files (x86)\Windows Kits\8.1\Include>%grep% -I -r -n _Inout_updates_ 
 ./um/NetCon.h:2469:            _COM_Outptr_  void **ppvObject);
 ./um/NetCon.h:2625:            _COM_Outptr_  void **ppvObject);
 ./um/netfw.h:493:    _Outptr_ IEnumVARIANT ** newEnum
-./um/netfw.h:505:    _Outptr_result_buffer_(*pdwNumPublicAppCs) PINET_FIREWALL_APP_CONTAINER *ppPublicAppCs 
+./um/netfw.h:505:    _Outptr_result_buffer_(*pdwNumPublicAppCs) PINET_FIREWALL_APP_CONTAINER *ppPublicAppCs
 ./um/netfw.h:510:    _Outptr_result_buffer_(*pdwNumPublicAppCs) PSID_AND_ATTRIBUTES *appContainerSids
 ./um/netfw.h:591:            _COM_Outptr_  void **ppvObject);
 ./um/netfw.h:827:            _COM_Outptr_  void **ppvObject);
@@ -12536,15 +12536,15 @@ C:\Program Files (x86)\Windows Kits\8.1\Include>%grep% -I -r -n _Inout_updates_ 
 ./um/objbase.h:361:_Check_return_ WINOLEAPI  CoGetObject(_In_ LPCWSTR pszName, _In_opt_ BIND_OPTS *pBindOptions, _In_ REFIID riid, _Outptr_ void **ppv);
 ./um/objbase.h:363:                _Out_ ULONG FAR * pchEaten, _Outptr_ LPMONIKER FAR * ppmk);
 ./um/objbase.h:364:_Check_return_ WINOLEAPI  MonikerRelativePathTo(_In_ LPMONIKER pmkSrc, _In_ LPMONIKER pmkDest, _Outptr_ LPMONIKER
-./um/objbase.h:367:                _Outptr_ LPMONIKER FAR* ppmkCommon);  
-./um/objbase.h:368:_Check_return_ WINOLEAPI  CreateBindCtx(_In_ DWORD reserved, _Outptr_ LPBC FAR* ppbc);   
-./um/objbase.h:370:    _Outptr_ LPMONIKER FAR* ppmkComposite);  
-./um/objbase.h:373:_Check_return_ WINOLEAPI  CreateClassMoniker(_In_ REFCLSID rclsid, _Outptr_ LPMONIKER FAR* ppmk);   
-./um/objbase.h:375:_Check_return_ WINOLEAPI  CreateFileMoniker(_In_ LPCOLESTR lpszPathName, _Outptr_ LPMONIKER FAR* ppmk);  
-./um/objbase.h:378:                          _Outptr_ LPMONIKER FAR* ppmk);   
-./um/objbase.h:379:_Check_return_ WINOLEAPI  CreateAntiMoniker(_Outptr_ LPMONIKER FAR* ppmk);    
-./um/objbase.h:380:_Check_return_ WINOLEAPI  CreatePointerMoniker(_In_opt_ LPUNKNOWN punk, _Outptr_ LPMONIKER FAR* ppmk);  
-./um/objbase.h:381:_Check_return_ WINOLEAPI  CreateObjrefMoniker(_In_opt_ LPUNKNOWN punk, _Outptr_ LPMONIKER FAR * ppmk);   
+./um/objbase.h:367:                _Outptr_ LPMONIKER FAR* ppmkCommon);
+./um/objbase.h:368:_Check_return_ WINOLEAPI  CreateBindCtx(_In_ DWORD reserved, _Outptr_ LPBC FAR* ppbc);
+./um/objbase.h:370:    _Outptr_ LPMONIKER FAR* ppmkComposite);
+./um/objbase.h:373:_Check_return_ WINOLEAPI  CreateClassMoniker(_In_ REFCLSID rclsid, _Outptr_ LPMONIKER FAR* ppmk);
+./um/objbase.h:375:_Check_return_ WINOLEAPI  CreateFileMoniker(_In_ LPCOLESTR lpszPathName, _Outptr_ LPMONIKER FAR* ppmk);
+./um/objbase.h:378:                          _Outptr_ LPMONIKER FAR* ppmk);
+./um/objbase.h:379:_Check_return_ WINOLEAPI  CreateAntiMoniker(_Outptr_ LPMONIKER FAR* ppmk);
+./um/objbase.h:380:_Check_return_ WINOLEAPI  CreatePointerMoniker(_In_opt_ LPUNKNOWN punk, _Outptr_ LPMONIKER FAR* ppmk);
+./um/objbase.h:381:_Check_return_ WINOLEAPI  CreateObjrefMoniker(_In_opt_ LPUNKNOWN punk, _Outptr_ LPMONIKER FAR * ppmk);
 ./um/objbase.h:389:_Check_return_ WINOLEAPI  GetRunningObjectTable( _In_ DWORD reserved, _Outptr_ LPRUNNINGOBJECTTABLE FAR* pprot);
 ./um/objbase.h:406:                                   _Outptr_ IBindStatusCallback ** ppIbsc);
 ./um/ObjectArray.h:113:            _COM_Outptr_  void **ppvObject);
@@ -12915,7 +12915,7 @@ C:\Program Files (x86)\Windows Kits\8.1\Include>%grep% -I -r -n _Inout_updates_ 
 ./um/Ole2.h:279:                                        _Outptr_ LPOLESTR FAR* pszUserType);
 ./um/Ole2.h:285:                              _Outptr_ LPENUMFORMATETC FAR* ppenum);
 ./um/Ole2.h:287:WINOLEAPI OleRegEnumVerbs (IN REFCLSID clsid, _Outptr_ LPENUMOLEVERB FAR* ppenum);
-./um/Ole2.h:329:                                    _Outptr_ LPLOCKBYTES FAR* pplkbyt);  
+./um/Ole2.h:329:                                    _Outptr_ LPLOCKBYTES FAR* pplkbyt);
 ./um/oleacc.h:188:STDAPI          ObjectFromLresult(_In_ LRESULT lResult, _In_ REFIID riid, _In_ WPARAM wParam, _Outptr_ void** ppvObject);
 ./um/oleacc.h:190:STDAPI          AccessibleObjectFromWindow(_In_ HWND hwnd, _In_ DWORD dwId, _In_ REFIID riid, _Outptr_ void **ppvObject);
 ./um/oleacc.h:191:STDAPI          AccessibleObjectFromEvent(_In_ HWND hwnd, _In_ DWORD dwId, _In_ DWORD dwChildId, _Outptr_ IAccessible** ppacc, _Out_ VARIANT* pvarChild);
@@ -13330,8 +13330,8 @@ C:\Program Files (x86)\Windows Kits\8.1\Include>%grep% -I -r -n _Inout_updates_ 
 ./um/opmapi.h:424:            _Outptr_result_bytebuffer_(*pulCertificateLength)  BYTE **ppbCertificate,
 ./um/opmapi.h:465:            _COM_Outptr_  void **ppvObject);
 ./um/opmapi.h:478:            _Outptr_result_bytebuffer_(*pulCertificateLength)  BYTE **ppbCertificate,
-./um/opmapi.h:588:    _Outptr_result_buffer_(*pulNumVideoOutputs) IOPMVideoOutput*** pppOPMVideoOutputArray       
-./um/opmapi.h:595:    _Outptr_result_buffer_(*pulNumVideoOutputs) IOPMVideoOutput*** pppOPMVideoOutputArray       
+./um/opmapi.h:588:    _Outptr_result_buffer_(*pulNumVideoOutputs) IOPMVideoOutput*** pppOPMVideoOutputArray
+./um/opmapi.h:595:    _Outptr_result_buffer_(*pulNumVideoOutputs) IOPMVideoOutput*** pppOPMVideoOutputArray
 ./um/opmapi.idl:504:        [out] [annotation("_Outptr_result_bytebuffer_(*pulCertificateLength)")] BYTE** ppbCertificate,
 ./um/opmapi.idl:577:cpp_quote( "    _Outptr_result_buffer_(*pulNumVideoOutputs) IOPMVideoOutput*** pppOPMVideoOutputArray       " )
 ./um/opmapi.idl:586:cpp_quote( "    _Outptr_result_buffer_(*pulNumVideoOutputs) IOPMVideoOutput*** pppOPMVideoOutputArray       " )
@@ -14081,9 +14081,9 @@ C:\Program Files (x86)\Windows Kits\8.1\Include>%grep% -I -r -n _Inout_updates_ 
 ./um/sapi.idl:1978:                [annotation("_Outptr_")] [out] SPPHRASE** ppCoMemPhrase);
 ./um/sapi.idl:1980:                [annotation("_Outptr_")] [out] SPSERIALIZEDPHRASE** ppCoMemPhrase);
 ./um/sapi.idl:1985:                [annotation ("_Outptr_")] [out] LPWSTR* ppszCoMemText,
-./um/sapi.idl:2027:                [annotation ("_Outptr_")] [out] LPWSTR* ppszCoMemXMLResult, 
+./um/sapi.idl:2027:                [annotation ("_Outptr_")] [out] LPWSTR* ppszCoMemXMLResult,
 ./um/sapi.idl:2034:                [annotation("_Outptr_")] [out] ISpStreamFormat** ppStream);
-./um/sapi.idl:2145:                [annotation ("_Outptr_")] [out] LPWSTR* ppszCoMemXMLResult, 
+./um/sapi.idl:2145:                [annotation ("_Outptr_")] [out] LPWSTR* ppszCoMemXMLResult,
 ./um/sapi.idl:2318:                [annotation("_Outptr_")] [out] ISpRecoContext** ppRecoCtxt);
 ./um/sapi.idl:2373:                [annotation ("_Outptr_opt_")] [out, optional] LPWSTR* ppszCoMemErrorText);
 ./um/sapi.idl:2667:                [annotation("_Outptr_"), out, string] LPWSTR* ppCoMemValue );
@@ -14513,9 +14513,9 @@ C:\Program Files (x86)\Windows Kits\8.1\Include>%grep% -I -r -n _Inout_updates_ 
 ./um/sapiddk.idl:816:                [annotation("_Outptr_")] [out] void** ppvEngineGrammarContext);
 ./um/sapiddk.idl:890:                [annotation("_Outptr_")] [out] LPWSTR* ppCoMemValue );
 ./um/sapiddk.idl:927:                [annotation("_Outptr_")] [out] void** ppvCoMemResponse,
-./um/sapiddk.idl:1041:                [annotation("_Outptr_result_buffer_maybenull_(*pulOutFrameSize)")] [out] void** ppCoMemOutFrame, 
-./um/sapiddk.idl:1059:                [annotation("_Outptr_result_bytebuffer_(*pulOutFrameSize)")] [out] void** ppCoMemOutFrame, 
-./um/sapiddk.idl:1064:                [annotation("_Outptr_result_bytebuffer_(*pulOutFrameSize)")] [out] void** ppCoMemOutFrame, 
+./um/sapiddk.idl:1041:                [annotation("_Outptr_result_buffer_maybenull_(*pulOutFrameSize)")] [out] void** ppCoMemOutFrame,
+./um/sapiddk.idl:1059:                [annotation("_Outptr_result_bytebuffer_(*pulOutFrameSize)")] [out] void** ppCoMemOutFrame,
+./um/sapiddk.idl:1064:                [annotation("_Outptr_result_bytebuffer_(*pulOutFrameSize)")] [out] void** ppCoMemOutFrame,
 ./um/sapiddk51.h:300:            _COM_Outptr_  void **ppvObject);
 ./um/sapiddk51.h:416:            _COM_Outptr_  void **ppvObject);
 ./um/sapiddk51.h:613:            _COM_Outptr_  void **ppvObject);
@@ -14763,7 +14763,7 @@ C:\Program Files (x86)\Windows Kits\8.1\Include>%grep% -I -r -n _Inout_updates_ 
 ./um/ServProv.Idl:63:cpp_quote("            HRESULT STDMETHODCALLTYPE QueryService(_In_ REFGUID guidService, _Outptr_ Q** pp)")
 ./um/ServProv.Idl:74:cpp_quote("        /* [iid_is][out] */ _Outptr_ IUnknown __RPC_FAR *__RPC_FAR *ppvObject);")
 ./um/ServProv.Idl:87:        [out, annotation("_Outptr_")] void ** ppvObject);
-./um/sesprp.idl:35:		[out, size_is(,*pcPropertySets), annotation("_Outptr_result_buffer_maybenull_(*pcPropertySets)")] 
+./um/sesprp.idl:35:		[out, size_is(,*pcPropertySets), annotation("_Outptr_result_buffer_maybenull_(*pcPropertySets)")]
 ./um/SetupAPI.h:2738:    _Outptr_result_buffer_(*Count) PCSTR **List,
 ./um/SetupAPI.h:2747:    _Outptr_result_buffer_(*Count) PCWSTR **List,
 ./um/shappmgr.h:216:            _COM_Outptr_  void **ppvObject);
@@ -15376,8 +15376,8 @@ C:\Program Files (x86)\Windows Kits\8.1\Include>%grep% -I -r -n _Inout_updates_ 
 ./um/slpublic.h:1471:    _Outptr_result_buffer_(*pnReturnIds) SLID**             ppReturnIds
 ./um/slpublic.h:1596:    _Outptr_result_bytebuffer_(*pcbLicenseFile) PBYTE*      ppbLicenseFile
 ./um/slpublic.h:1746:    _Outptr_result_bytebuffer_(*pcbValue) PBYTE*            ppbValue
-./um/slpublic.h:1894:    _Outptr_result_bytebuffer_(*pcbTicketBlob) VOID**       ppTicketBlob,  
-./um/slpublic.h:2011:    _Outptr_                    PWSTR*                      ppwszValue 
+./um/slpublic.h:1894:    _Outptr_result_bytebuffer_(*pcbTicketBlob) VOID**       ppTicketBlob,
+./um/slpublic.h:2011:    _Outptr_                    PWSTR*                      ppwszValue
 ./um/slpublic.h:2139:    _Outptr_result_bytebuffer_(*pcbValue) PBYTE*            ppbValue
 ./um/slpublic.h:2240:    _Outptr_result_bytebuffer_(*pcbValue) PBYTE*            ppbValue
 ./um/slpublic.h:2318:    _Outptr_result_bytebuffer_(*pcbValue) BYTE**            ppbValue
@@ -15626,7 +15626,7 @@ C:\Program Files (x86)\Windows Kits\8.1\Include>%grep% -I -r -n _Inout_updates_ 
 ./um/StructuredQueryCondition.h:529:            _Outptr_opt_result_maybenull_  LPWSTR *ppszPropertyName,
 ./um/StructuredQueryCondition.h:691:    _Outptr_opt_result_maybenull_  LPWSTR *ppsz,
 ./um/StructuredQueryCondition.h:706:    _Outptr_opt_result_maybenull_  LPWSTR *ppszPropertyName,
-./um/structuredquerycondition.idl:53:                    [out, unique, annotation("_Outptr_opt_result_maybenull_")] LPWSTR* ppsz, 
+./um/structuredquerycondition.idl:53:                    [out, unique, annotation("_Outptr_opt_result_maybenull_")] LPWSTR* ppsz,
 ./um/structuredquerycondition.idl:83:    HRESULT GetComparisonInfo([out, unique, annotation("_Outptr_opt_result_maybenull_")] LPWSTR *ppszPropertyName,
 ./um/subscriptionservices.h:202:            _COM_Outptr_  void **ppvObject);
 ./um/subscriptionservices.h:309:            _COM_Outptr_  void **ppvObject);
@@ -16346,7 +16346,7 @@ C:\Program Files (x86)\Windows Kits\8.1\Include>%grep% -I -r -n _Inout_updates_ 
 ./um/UIAutomationCore.h:6261:            _COM_Outptr_  void **ppvObject);
 ./um/UIAutomationCore.h:6360:            _COM_Outptr_  void **ppvObject);
 ./um/UIAutomationCore.h:6465:            _COM_Outptr_  void **ppvObject);
-./um/UIAutomationCoreApi.h:769:    _Outptr_ IAccessible ** ppAccessible, 
+./um/UIAutomationCoreApi.h:769:    _Outptr_ IAccessible ** ppAccessible,
 ./um/UIAutomationCoreApi.h:785:    _Outptr_ IRawElementProviderSimple ** ppProvider);
 ./um/UIRibbon.h:369:            _COM_Outptr_  void **ppvObject);
 ./um/UIRibbon.h:464:            _COM_Outptr_  void **ppvObject);
@@ -16424,17 +16424,17 @@ C:\Program Files (x86)\Windows Kits\8.1\Include>%grep% -I -r -n _Inout_updates_ 
 ./um/UrlHist.h:333:            _COM_Outptr_  void **ppvObject);
 ./um/UrlHist.h:468:            _COM_Outptr_  void **ppvObject);
 ./um/UrlHist.h:612:            _COM_Outptr_  void **ppvObject);
-./um/urlmon.h:515:STDAPI CreateURLMoniker(_In_opt_ LPMONIKER pMkCtx, _In_ LPCWSTR szURL, _Outptr_ LPMONIKER FAR * ppmk);             
-./um/urlmon.h:516:STDAPI CreateURLMonikerEx(_In_opt_ LPMONIKER pMkCtx, _In_ LPCWSTR szURL, _Outptr_ LPMONIKER FAR * ppmk, DWORD dwFlags);             
-./um/urlmon.h:519:                                _In_opt_ IEnumFORMATETC *pEFetc, _Outptr_ IBindCtx **ppBC);                   
-./um/urlmon.h:521:STDAPI CreateURLMonikerEx2(_In_opt_ LPMONIKER pMkCtx, _In_ IUri* pUri, _Outptr_ LPMONIKER FAR * ppmk, DWORD dwFlags);             
-./um/urlmon.h:524:                            _Outptr_ IBindCtx **ppBC, DWORD reserved);                                                     
-./um/urlmon.h:526:                                _Outptr_ LPMONIKER *ppmk);                                           
-./um/urlmon.h:528:                                _Outptr_ IBindStatusCallback**  ppBSCBPrev, DWORD dwReserved);       
+./um/urlmon.h:515:STDAPI CreateURLMoniker(_In_opt_ LPMONIKER pMkCtx, _In_ LPCWSTR szURL, _Outptr_ LPMONIKER FAR * ppmk);
+./um/urlmon.h:516:STDAPI CreateURLMonikerEx(_In_opt_ LPMONIKER pMkCtx, _In_ LPCWSTR szURL, _Outptr_ LPMONIKER FAR * ppmk, DWORD dwFlags);
+./um/urlmon.h:519:                                _In_opt_ IEnumFORMATETC *pEFetc, _Outptr_ IBindCtx **ppBC);
+./um/urlmon.h:521:STDAPI CreateURLMonikerEx2(_In_opt_ LPMONIKER pMkCtx, _In_ IUri* pUri, _Outptr_ LPMONIKER FAR * ppmk, DWORD dwFlags);
+./um/urlmon.h:524:                            _Outptr_ IBindCtx **ppBC, DWORD reserved);
+./um/urlmon.h:526:                                _Outptr_ LPMONIKER *ppmk);
+./um/urlmon.h:528:                                _Outptr_ IBindStatusCallback**  ppBSCBPrev, DWORD dwReserved);
 ./um/urlmon.h:536:            _Reserved_ LPVOID pvReserved, REFIID riid, _Outptr_ LPVOID * ppv);
-./um/urlmon.h:542:            _Outptr_ LPSTR * ppszComponentID);                                                      
-./um/urlmon.h:558:STDAPI CreateFormatEnumerator( _In_ _In_range_(>, 0) UINT cfmtetc, _In_reads_(cfmtetc) FORMATETC* rgfmtetc, _Outptr_ IEnumFORMATETC** ppenumfmtetc); 
-./um/urlmon.h:572:    _Outptr_                     LPWSTR  *ppwzMimeOut,          // the suggested mime                                                         
+./um/urlmon.h:542:            _Outptr_ LPSTR * ppszComponentID);
+./um/urlmon.h:558:STDAPI CreateFormatEnumerator( _In_ _In_range_(>, 0) UINT cfmtetc, _In_reads_(cfmtetc) FORMATETC* rgfmtetc, _Outptr_ IEnumFORMATETC** ppenumfmtetc);
+./um/urlmon.h:572:    _Outptr_                     LPWSTR  *ppwzMimeOut,          // the suggested mime
 ./um/urlmon.h:801:            _COM_Outptr_  void **ppvObject);
 ./um/urlmon.h:945:            _COM_Outptr_  void **ppvObject);
 ./um/urlmon.h:1041:            _COM_Outptr_  void **ppvObject);
@@ -16486,8 +16486,8 @@ C:\Program Files (x86)\Windows Kits\8.1\Include>%grep% -I -r -n _Inout_updates_ 
 ./um/urlmon.h:4399:            _COM_Outptr_  void **ppvObject);
 ./um/urlmon.h:4503:            _COM_Outptr_  void **ppvObject);
 ./um/urlmon.h:4634:            _COM_Outptr_  void **ppvObject);
-./um/urlmon.h:4783:STDAPI URLOpenBlockingStreamA(_In_opt_ LPUNKNOWN, _In_ LPCSTR, _Outptr_ LPSTREAM*,DWORD, _In_opt_ LPBINDSTATUSCALLBACK);                      
-./um/urlmon.h:4784:STDAPI URLOpenBlockingStreamW(_In_opt_ LPUNKNOWN, _In_ LPCWSTR, _Outptr_ LPSTREAM*,DWORD, _In_opt_ LPBINDSTATUSCALLBACK);                     
+./um/urlmon.h:4783:STDAPI URLOpenBlockingStreamA(_In_opt_ LPUNKNOWN, _In_ LPCSTR, _Outptr_ LPSTREAM*,DWORD, _In_opt_ LPBINDSTATUSCALLBACK);
+./um/urlmon.h:4784:STDAPI URLOpenBlockingStreamW(_In_opt_ LPUNKNOWN, _In_ LPCWSTR, _Outptr_ LPSTREAM*,DWORD, _In_opt_ LPBINDSTATUSCALLBACK);
 ./um/urlmon.h:4854:            _COM_Outptr_  void **ppvObject);
 ./um/urlmon.h:4976:            _COM_Outptr_  void **ppvObject);
 ./um/urlmon.h:5084:            _COM_Outptr_  void **ppvObject);
@@ -16500,11 +16500,11 @@ C:\Program Files (x86)\Windows Kits\8.1\Include>%grep% -I -r -n _Inout_updates_ 
 ./um/urlmon.h:6181:            _COM_Outptr_  void **ppvObject);
 ./um/urlmon.h:6282:            _COM_Outptr_  void **ppvObject);
 ./um/urlmon.h:6465:            _COM_Outptr_  void **ppvObject);
-./um/urlmon.h:6643:    _Outptr_     IUri      **ppCombinedUri,  
-./um/urlmon.h:6650:    _Outptr_     IUri      **ppCombinedUri,  
-./um/urlmon.h:6675:    _Outptr_     IInternetSession  **ppIInternetSession, 
-./um/urlmon.h:6680:    _Outptr_     LPWSTR *ppwszSecUrl,    
-./um/urlmon.h:6698:    _Outptr_     IUri          **ppSecUri,   
+./um/urlmon.h:6643:    _Outptr_     IUri      **ppCombinedUri,
+./um/urlmon.h:6650:    _Outptr_     IUri      **ppCombinedUri,
+./um/urlmon.h:6675:    _Outptr_     IInternetSession  **ppIInternetSession,
+./um/urlmon.h:6680:    _Outptr_     LPWSTR *ppwszSecUrl,
+./um/urlmon.h:6698:    _Outptr_     IUri          **ppSecUri,
 ./um/urlmon.h:6826:STDAPI CoInternetCreateSecurityManager(_In_opt_ IServiceProvider *pSP, _Outptr_ IInternetSecurityManager **ppSM, DWORD dwReserved);
 ./um/urlmon.h:6828:STDAPI CoInternetCreateZoneManager(_In_opt_ IServiceProvider *pSP, _Outptr_ IInternetZoneManager **ppZM, DWORD dwReserved);
 ./um/urlmon.h:6891:            _COM_Outptr_  void **ppvObject);
@@ -16888,7 +16888,7 @@ C:\Program Files (x86)\Windows Kits\8.1\Include>%grep% -I -r -n _Inout_updates_ 
 ./um/WdsClientApi.h:278:    _Outptr_result_buffer_(*pdwNumValues) PTSTR **pppszValues,
 ./um/WdsClientApi.h:428:    _Outptr_ PWSTR *ppwszServerName,
 ./um/WdsClientApi.h:429:    _Outptr_result_buffer_(*pulCount) PWSTR **pppwszDriverPackages,
-./um/WdsClientApi.h:438:    _Outptr_ PWSTR *ppwszServerName,    
+./um/WdsClientApi.h:438:    _Outptr_ PWSTR *ppwszServerName,
 ./um/WdsClientApi.h:439:    _Outptr_result_buffer_(*pulCount) PWSTR **pppwszDriverPackages,
 ./um/WdsClientApi.h:447:    _Outptr_ PWSTR *ppwszDriverQuery
 ./um/wdspxe.h:482:    _Outptr_opt_result_bytebuffer_(*pbOptionLen) PVOID *ppOptionValue
@@ -16923,42 +16923,42 @@ C:\Program Files (x86)\Windows Kits\8.1\Include>%grep% -I -r -n _Inout_updates_ 
 ./um/WdsTptMgmt.h:5742:            _COM_Outptr_  void **ppvObject);
 ./um/WebEvnts.h:136:            _COM_Outptr_  void **ppvObject);
 ./um/WebEvnts.h:240:            _COM_Outptr_  void **ppvObject);
-./um/WebServices.h:2779:    _Outptr_ void** channelInstance, 
-./um/WebServices.h:2938:    _Outptr_ void** encoderContext, 
-./um/WebServices.h:3001:    _Outptr_ void** decoderContext, 
-./um/WebServices.h:3082:    _Outptr_ void** listenerInstance, 
-./um/WebServices.h:3184:    _Outptr_ void** channelInstance, 
-./um/WebServices.h:3232:    _Outptr_ const struct _CERT_CONTEXT** cert, 
-./um/WebServices.h:3433:    _Outptr_ void** channelState, 
-./um/WebServices.h:6995:    _Outptr_ WS_XML_BUFFER** buffer, 
-./um/WebServices.h:7028:    _Outptr_ WS_XML_READER** reader, 
-./um/WebServices.h:7080:    _Outptr_ const WS_XML_NODE** node, 
-./um/WebServices.h:7289:    _Outptr_ WS_XML_WRITER** writer, 
-./um/WebServices.h:7433:    _Outptr_ WS_XML_BUFFER** xmlBuffer, 
-./um/WebServices.h:7448:    _Outptr_result_bytebuffer_(*byteCount) void** bytes, 
-./um/WebServices.h:7465:    _Outptr_ WS_XML_BUFFER** xmlBuffer, 
-./um/WebServices.h:7611:    _Outptr_ const WS_XML_STRING** prefix, 
-./um/WebServices.h:7656:    _Outptr_result_buffer_(*trimmedCount) WCHAR** trimmedChars, 
-./um/WebServices.h:7690:    _Outptr_ const WS_XML_STRING** ns, 
-./um/WebServices.h:7720:    _Outptr_opt_result_buffer_(*valueCharCount) WCHAR** valueChars, 
-./um/WebServices.h:7758:    _Outptr_ WS_CHANNEL** channel, 
-./um/WebServices.h:8005:    _Outptr_result_maybenull_ WS_XML_DICTIONARY** dictionary, 
+./um/WebServices.h:2779:    _Outptr_ void** channelInstance,
+./um/WebServices.h:2938:    _Outptr_ void** encoderContext,
+./um/WebServices.h:3001:    _Outptr_ void** decoderContext,
+./um/WebServices.h:3082:    _Outptr_ void** listenerInstance,
+./um/WebServices.h:3184:    _Outptr_ void** channelInstance,
+./um/WebServices.h:3232:    _Outptr_ const struct _CERT_CONTEXT** cert,
+./um/WebServices.h:3433:    _Outptr_ void** channelState,
+./um/WebServices.h:6995:    _Outptr_ WS_XML_BUFFER** buffer,
+./um/WebServices.h:7028:    _Outptr_ WS_XML_READER** reader,
+./um/WebServices.h:7080:    _Outptr_ const WS_XML_NODE** node,
+./um/WebServices.h:7289:    _Outptr_ WS_XML_WRITER** writer,
+./um/WebServices.h:7433:    _Outptr_ WS_XML_BUFFER** xmlBuffer,
+./um/WebServices.h:7448:    _Outptr_result_bytebuffer_(*byteCount) void** bytes,
+./um/WebServices.h:7465:    _Outptr_ WS_XML_BUFFER** xmlBuffer,
+./um/WebServices.h:7611:    _Outptr_ const WS_XML_STRING** prefix,
+./um/WebServices.h:7656:    _Outptr_result_buffer_(*trimmedCount) WCHAR** trimmedChars,
+./um/WebServices.h:7690:    _Outptr_ const WS_XML_STRING** ns,
+./um/WebServices.h:7720:    _Outptr_opt_result_buffer_(*valueCharCount) WCHAR** valueChars,
+./um/WebServices.h:7758:    _Outptr_ WS_CHANNEL** channel,
+./um/WebServices.h:8005:    _Outptr_result_maybenull_ WS_XML_DICTIONARY** dictionary,
 ./um/WebServices.h:8032:    _Outptr_ WS_ERROR** error);
-./um/WebServices.h:8167:    _Outptr_ WS_HEAP** heap, 
-./um/WebServices.h:8176:    _Outptr_result_bytebuffer_(size) void** ptr, 
-./um/WebServices.h:8221:    _Outptr_ WS_LISTENER** listener, 
-./um/WebServices.h:8314:    _Outptr_ WS_CHANNEL** channel, 
-./um/WebServices.h:8329:    _Outptr_ WS_MESSAGE** message, 
-./um/WebServices.h:8341:    _Outptr_ WS_MESSAGE** message, 
-./um/WebServices.h:8662:    _Outptr_ WS_SECURITY_TOKEN** token, 
-./um/WebServices.h:8694:    _Outptr_ WS_SECURITY_TOKEN** token, 
-./um/WebServices.h:8859:    _Outptr_ WS_SERVICE_HOST** serviceHost, 
-./um/WebServices.h:8945:    _Outptr_ WS_SERVICE_PROXY** serviceProxy, 
-./um/WebServices.h:9065:    _Outptr_ WS_URL** outUrl, 
-./um/WebServices.h:9119:    _Outptr_ WS_METADATA** metadata, 
-./um/WebServices.h:9169:    _Outptr_result_maybenull_ WS_ENDPOINT_ADDRESS** address, 
-./um/WebServices.h:9235:    _Outptr_ WS_SERVICE_PROXY** serviceProxy, 
-./um/WebServices.h:9258:    _Outptr_ WS_SERVICE_ENDPOINT** serviceEndpoint, 
+./um/WebServices.h:8167:    _Outptr_ WS_HEAP** heap,
+./um/WebServices.h:8176:    _Outptr_result_bytebuffer_(size) void** ptr,
+./um/WebServices.h:8221:    _Outptr_ WS_LISTENER** listener,
+./um/WebServices.h:8314:    _Outptr_ WS_CHANNEL** channel,
+./um/WebServices.h:8329:    _Outptr_ WS_MESSAGE** message,
+./um/WebServices.h:8341:    _Outptr_ WS_MESSAGE** message,
+./um/WebServices.h:8662:    _Outptr_ WS_SECURITY_TOKEN** token,
+./um/WebServices.h:8694:    _Outptr_ WS_SECURITY_TOKEN** token,
+./um/WebServices.h:8859:    _Outptr_ WS_SERVICE_HOST** serviceHost,
+./um/WebServices.h:8945:    _Outptr_ WS_SERVICE_PROXY** serviceProxy,
+./um/WebServices.h:9065:    _Outptr_ WS_URL** outUrl,
+./um/WebServices.h:9119:    _Outptr_ WS_METADATA** metadata,
+./um/WebServices.h:9169:    _Outptr_result_maybenull_ WS_ENDPOINT_ADDRESS** address,
+./um/WebServices.h:9235:    _Outptr_ WS_SERVICE_PROXY** serviceProxy,
+./um/WebServices.h:9258:    _Outptr_ WS_SERVICE_ENDPOINT** serviceEndpoint,
 ./um/WiaDevD.h:54:    STDMETHOD(QueryInterface) (THIS_ REFIID riid, _COM_Outptr_ LPVOID* ppvObj) PURE;
 ./um/WiaDevD.h:89:    STDMETHOD(QueryInterface) (THIS_ REFIID riid, _COM_Outptr_ LPVOID* ppvObj) PURE;
 ./um/wiamdef.h:95:   _Outptr_opt_result_bytebuffer_(cbDevSpecContext) BYTE **ppDevSpecContext, _Outptr_ IWiaDrvItem **ppIWiaDrvItem);
@@ -16997,23 +16997,23 @@ C:\Program Files (x86)\Windows Kits\8.1\Include>%grep% -I -r -n _Inout_updates_ 
 ./um/wia_lh.h:2995:            _Outptr_result_maybenull_ _At_(*ppDestination, _When_(return == S_OK, _Post_notnull_))  IStream **ppDestination) = 0;
 
 /* interface IWiaTransferCallback */
-/* [helpstring][uuid][object] */ 
+/* [helpstring][uuid][object] */
 
         MIDL_INTERFACE("27d4eaaf-28a6-4ca5-9aab-e678168b9527")
         IWiaTransferCallback : public IUnknown
         {
         public:
-            virtual /* [helpstring] */ HRESULT STDMETHODCALLTYPE TransferCallback( 
+            virtual /* [helpstring] */ HRESULT STDMETHODCALLTYPE TransferCallback(
                 /* [in] */ LONG lFlags,
                 /* [in] */ __RPC__in WiaTransferParams *pWiaTransferParams) = 0;
-            
-            virtual /* [helpstring] */ HRESULT STDMETHODCALLTYPE GetNextStream( 
+
+            virtual /* [helpstring] */ HRESULT STDMETHODCALLTYPE GetNextStream(
                 /* [in] */ LONG lFlags,
                 /* [in] */ __RPC__in BSTR bstrItemName,
                 /* [in] */ __RPC__in BSTR bstrFullItemName,
-                /* [annotation][out] */ 
+                /* [annotation][out] */
                 _Outptr_result_maybenull_ _At_(*ppDestination, _When_(return == S_OK, _Post_notnull_))  IStream **ppDestination) = 0;
-            
+
         };
 
 
@@ -17763,7 +17763,7 @@ C:\Program Files (x86)\Windows Kits\8.1\Include>%grep% -I -r -n _Inout_updates_ 
 ./um/Wsdbase.idl:423:        [out, annotation("_Outptr_")] IUnknown** ppContext);
 ./um/Wsdbase.idl:434:cpp_quote("    _Outptr_ IWSDHttpAddress** ppAddress);")
 ./um/Wsdbase.idl:453:        [out, annotation("_Outptr_")] LPCWSTR* ppszPath); // Note: Do not deallocate ppszAddress
-./um/Wsdbase.idl:475:        [in, out, annotation("_Outptr_")] PCCERT_CONTEXT* ppCertContext); // Should be freed using CertFreeCertificateContext 
+./um/Wsdbase.idl:475:        [in, out, annotation("_Outptr_")] PCCERT_CONTEXT* ppCertContext); // Should be freed using CertFreeCertificateContext
 ./um/Wsdclient.h:131:    _Outptr_ IWSDDeviceProxy** ppDeviceProxy);
 ./um/Wsdclient.h:138:    _Outptr_ IWSDDeviceProxy** ppDeviceProxy);
 ./um/Wsdclient.h:147:    _Outptr_ IWSDDeviceProxy** ppDeviceProxy);
@@ -17931,7 +17931,7 @@ C:\Program Files (x86)\Windows Kits\8.1\Include>%grep% -I -r -n _Inout_updates_ 
 ./um/Wsddisco.idl:140:        [out, annotation("_Outptr_")] WSD_NAME_LIST** ppTypesList); // Note: Do not deallocate ppTypesList
 ./um/Wsddisco.idl:143:        [out, annotation("_Outptr_")] WSD_URI_LIST** ppScopesList); // Note: Do not deallocate ppScopesList
 ./um/Wsddisco.idl:146:        [out, annotation("_Outptr_")] WSD_URI_LIST** ppXAddrsList); // Note: Do not deallocate ppXAddrsList
-./um/Wsddisco.idl:152:        [out, annotation("_Outptr_")] WSDXML_ELEMENT** ppHeaderAny, // Note: Do not deallocate ppHeaderAny 
+./um/Wsddisco.idl:152:        [out, annotation("_Outptr_")] WSDXML_ELEMENT** ppHeaderAny, // Note: Do not deallocate ppHeaderAny
 ./um/Wsddisco.idl:153:        [out, annotation("_Outptr_")] WSDXML_ELEMENT** ppBodyAny); // Note: Do not deallocate ppBodyAny
 ./um/Wsddisco.idl:156:        [out, annotation("_Outptr_")] LPCWSTR* ppszTag); // Note: Do not deallocate ppszTag
 ./um/Wsddisco.idl:159:        [out, annotation("_Outptr_")] LPCWSTR* ppszRemoteTransportAddress); // Note: Do not deallocate ppszRemoteTransportAddress
@@ -18129,12 +18129,12 @@ C:\Program Files (x86)\Windows Kits\8.1\Include>%grep% -I -r -n _Inout_updates_ 
 ./um/xmllite.h:709:            _COM_Outptr_  void **ppvObject);
 ./um/xmllite.h:943:            _COM_Outptr_  void **ppvObject);
 ./um/xmllite.idl:32:cpp_quote("    _Outptr_ void ** ppvObject,")
-./um/xmllite.idl:267:        [annotation("_Outptr_result_buffer_maybenull_(*pcwchQualifiedName+1)")] LPCWSTR * ppwszQualifiedName, 
-./um/xmllite.idl:270:        [annotation("_Outptr_result_buffer_maybenull_(*pcwchNamespaceUri+1)")] LPCWSTR * ppwszNamespaceUri, 
-./um/xmllite.idl:273:        [annotation("_Outptr_result_buffer_maybenull_(*pcwchLocalName+1)")] LPCWSTR * ppwszLocalName, 
-./um/xmllite.idl:276:        [annotation("_Outptr_result_buffer_maybenull_(*pcwchPrefix+1)")] LPCWSTR * ppwszPrefix, 
-./um/xmllite.idl:279:        [annotation("_Outptr_result_buffer_maybenull_(*pcwchValue+1)")] LPCWSTR * ppwszValue, 
-./um/xmllite.idl:286:        [annotation("_Outptr_result_buffer_maybenull_(*pcwchBaseUri+1)")] LPCWSTR * ppwszBaseUri, 
+./um/xmllite.idl:267:        [annotation("_Outptr_result_buffer_maybenull_(*pcwchQualifiedName+1)")] LPCWSTR * ppwszQualifiedName,
+./um/xmllite.idl:270:        [annotation("_Outptr_result_buffer_maybenull_(*pcwchNamespaceUri+1)")] LPCWSTR * ppwszNamespaceUri,
+./um/xmllite.idl:273:        [annotation("_Outptr_result_buffer_maybenull_(*pcwchLocalName+1)")] LPCWSTR * ppwszLocalName,
+./um/xmllite.idl:276:        [annotation("_Outptr_result_buffer_maybenull_(*pcwchPrefix+1)")] LPCWSTR * ppwszPrefix,
+./um/xmllite.idl:279:        [annotation("_Outptr_result_buffer_maybenull_(*pcwchValue+1)")] LPCWSTR * ppwszValue,
+./um/xmllite.idl:286:        [annotation("_Outptr_result_buffer_maybenull_(*pcwchBaseUri+1)")] LPCWSTR * ppwszBaseUri,
 ./um/xpsdigitalsignature.h:261:            _COM_Outptr_  void **ppvObject);
 ./um/xpsdigitalsignature.h:460:            _COM_Outptr_  void **ppvObject);
 ./um/xpsdigitalsignature.h:592:            _COM_Outptr_  void **ppvObject);
@@ -22188,8 +22188,8 @@ C:\Program Files (x86)\Windows Kits\8.1\Include>%grep% -I -r -n _Inout_updates_ 
 ./winrt/wrl/implements.h:1721:        _Outptr_result_buffer_maybenull_(*iidCount) _Result_nullonfailure_ IID **iids)
 ./winrt/wrl/implements.h:1822:    STDMETHOD(QueryInterface)(REFIID riid, _Outptr_result_nullonfailure_ void **ppvObject)
 ./winrt/wrl/implements.h:1857:        _Outptr_result_buffer_maybenull_(*iidCount) _Result_nullonfailure_ IID **iids)
-./winrt/wrl/implements.h:1885:    STDMETHOD(GetWeakReference)(_Outptr_ IWeakReference **weakReference)    
-./winrt/wrl/implements.h:2001:    STDMETHOD(Resolve)(REFIID riid, _Outptr_result_maybenull_ _Result_nullonfailure_ IInspectable **ppvObject)    
+./winrt/wrl/implements.h:1885:    STDMETHOD(GetWeakReference)(_Outptr_ IWeakReference **weakReference)
+./winrt/wrl/implements.h:2001:    STDMETHOD(Resolve)(REFIID riid, _Outptr_result_maybenull_ _Result_nullonfailure_ IInspectable **ppvObject)
 ./winrt/wrl/implements.h:2276:HRESULT MakeAndInitialize(_Outptr_result_nullonfailure_ I** ppvObject)
 ./winrt/wrl/implements.h:2329:HRESULT MakeAndInitialize(_Outptr_result_nullonfailure_ I** ppvObject, TArg1 &&arg1)
 ./winrt/wrl/implements.h:2335:HRESULT MakeAndInitialize(_Outptr_result_nullonfailure_ I** ppvObject, TArg1 &&arg1, TArg2 &&arg2)
@@ -25438,7 +25438,7 @@ C:\Program Files (x86)\Windows Kits\8.1\Include>
 ./km/storport.h:10264:    _Outptr_ PSTOR_SCATTER_GATHER_LIST* SgList
 ./km/usbbusif.h:458:    _Outptr_result_bytebuffer_maybenull_(*FunctionDescriptorBufferLength) PUSBC_FUNCTION_DESCRIPTOR *FunctionDescriptorBuffer,
 ./km/usbdlib.h:378:    _Outptr_result_bytebuffer_(sizeof(URB)) PURB        *Urb
-./km/usbdlib.h:387:    _Outptr_result_bytebuffer_(sizeof(struct _URB_ISOCH_TRANSFER) 
+./km/usbdlib.h:387:    _Outptr_result_bytebuffer_(sizeof(struct _URB_ISOCH_TRANSFER)
 ./km/wdm.h:21081:    _Outptr_ PCALLBACK_OBJECT *CallbackObject,
 ./km/wdm.h:21902:                            _Outptr_opt_ PCUNICODE_STRING    *ObjectName
 ./km/wdm.h:21922:    _Outptr_opt_ PCUNICODE_STRING *ObjectName,
@@ -25469,7 +25469,7 @@ C:\Program Files (x86)\Windows Kits\8.1\Include>
 ./km/wmilib.h:63:    _Outptr_result_maybenull_ PDEVICE_OBJECT *Pdo
 ./km/wsk.h:234:    _Outptr_result_maybenull_ PVOID *AcceptSocketContext,
 ./km/wsk.h:235:    _Outptr_result_maybenull_ CONST WSK_CLIENT_CONNECTION_DISPATCH **AcceptSocketDispatch
-./km/wsk.h:642:    _Outptr_ PADDRINFOEXW *Result, 
+./km/wsk.h:642:    _Outptr_ PADDRINFOEXW *Result,
 ./shared/apiset.h:203:    _Outptr_ PCAPI_SET_NAMESPACE_ARRAY *Schema,
 ./shared/apiset.h:204:    _Outptr_ PVOID *Context
 ./shared/bcrypt.h:1289:        _When_(_Old_(*ppBuffer) == NULL, _Outptr_result_bytebuffer_all_(*pcbBuffer))
@@ -25636,7 +25636,7 @@ C:\Program Files (x86)\Windows Kits\8.1\Include>
 ./shared/no_sal2.h:969:#ifdef _Outptr_opt_result_nullonfailure_
 ./shared/no_sal2.h:970:#undef _Outptr_opt_result_nullonfailure_
 ./shared/no_sal2.h:972:#define _Outptr_opt_result_nullonfailure_
-./shared/rpcasync.h:349:    _Outptr_result_bytebuffer_(*BlobSize) PVOID *ErrorBlob, 
+./shared/rpcasync.h:349:    _Outptr_result_bytebuffer_(*BlobSize) PVOID *ErrorBlob,
 ./shared/rpcdce.h:436:    _Outptr_ RPC_CSTR __RPC_FAR * StringBinding
 ./shared/rpcdce.h:445:    _Outptr_ RPC_WSTR __RPC_FAR * StringBinding
 ./shared/rpcdce.h:461:    _Outptr_ RPC_CSTR __RPC_FAR * StringBinding
@@ -25658,8 +25658,8 @@ C:\Program Files (x86)\Windows Kits\8.1\Include>
 ./shared/rpcdce.h:573:    _Outptr_opt_ RPC_CSTR __RPC_FAR * NetworkAddr,
 ./shared/rpcdce.h:574:    _Outptr_opt_ RPC_CSTR __RPC_FAR * Endpoint,
 ./shared/rpcdce.h:575:    _Outptr_opt_ RPC_CSTR __RPC_FAR * NetworkOptions
-./shared/rpcdce.h:704:    _Outptr_ RPC_PROTSEQ_VECTORA __RPC_FAR * __RPC_FAR * ProtseqVector    
-./shared/rpcdce.h:712:    _Outptr_ RPC_PROTSEQ_VECTORW __RPC_FAR * __RPC_FAR * ProtseqVector    
+./shared/rpcdce.h:704:    _Outptr_ RPC_PROTSEQ_VECTORA __RPC_FAR * __RPC_FAR * ProtseqVector
+./shared/rpcdce.h:712:    _Outptr_ RPC_PROTSEQ_VECTORW __RPC_FAR * __RPC_FAR * ProtseqVector
 ./shared/rpcdce.h:727:    _Outptr_ RPC_PROTSEQ_VECTOR __RPC_FAR * __RPC_FAR * ProtseqVector
 ./shared/rpcdce.h:802:    _Outptr_ RPC_BINDING_VECTOR __RPC_FAR * __RPC_FAR * BindingVector
 ./shared/rpcdce.h:813:    _Outptr_ RPC_MGR_EPV __RPC_FAR * __RPC_FAR * MgrEpv
@@ -26187,8 +26187,8 @@ C:\Program Files (x86)\Windows Kits\8.1\Include>
 ./um/amvideo.h:176:    STDMETHOD(QueryInterface)(THIS_ REFIID riid, _Outptr_ LPVOID *ppvObj) PURE;
 ./um/amvideo.h:197:    STDMETHOD(GetCaption)(THIS_ _Outptr_ BSTR *pstrCaption) PURE;
 ./um/animationcoordinator.h:134:            _COM_Outptr_  void **ppvObject);
-./um/appmgmt.h:210:    _Outptr_ 
-./um/appmgmt.h:214:    _Outptr_ 
+./um/appmgmt.h:210:    _Outptr_
+./um/appmgmt.h:214:    _Outptr_
 ./um/Asptlb.h:248:            _COM_Outptr_  void **ppvObject);
 ./um/Asptlb.h:404:            _COM_Outptr_  void **ppvObject);
 ./um/Asptlb.h:583:            _COM_Outptr_  void **ppvObject);
@@ -27027,9 +27027,9 @@ C:\Program Files (x86)\Windows Kits\8.1\Include>
 ./um/cryptxml.h:1367:    _Outptr_     HCRYPTXML           *phCryptXml
 ./um/cryptxml.h:1417:    _Outptr_result_maybenull_ const CRYPT_XML_OBJECT **ppObject
 ./um/cryptxml.h:1475:    _Outptr_     HCRYPTXML            *phReference
-./um/cryptxml.h:1737:    _Outptr_     const CRYPT_XML_DOC_CTXT **ppStruct	
-./um/cryptxml.h:1752:    _Outptr_     const CRYPT_XML_SIGNATURE **ppStruct	
-./um/cryptxml.h:1766:    _Outptr_     const CRYPT_XML_REFERENCE **ppStruct	
+./um/cryptxml.h:1737:    _Outptr_     const CRYPT_XML_DOC_CTXT **ppStruct
+./um/cryptxml.h:1752:    _Outptr_     const CRYPT_XML_SIGNATURE **ppStruct
+./um/cryptxml.h:1766:    _Outptr_     const CRYPT_XML_REFERENCE **ppStruct
 ./um/cryptxml.h:1899:    _Outptr_     CRYPT_XML_ALGORITHM_INFO        **ppAlgInfo
 ./um/cryptxml.h:2291:    _Outptr_     CRYPT_XML_ALGORITHM_INFO        **ppAlgInfo
 ./um/cscobj.h:903:            _COM_Outptr_  void **ppvObject);
@@ -27113,212 +27113,212 @@ C:\Program Files (x86)\Windows Kits\8.1\Include>
 ./um/ctfutb.h:2069:            _COM_Outptr_  void **ppvObject);
 ./um/ctfutb.h:2223:            _COM_Outptr_  void **ppvObject);
 ./um/ctxtcall.h:118:            _COM_Outptr_  void **ppvObject);
-./um/d2d1.h:1244:        _Outptr_ ID2D1Factory **factory 
-./um/d2d1.h:1471:        _Outptr_ ID2D1Bitmap **bitmap 
-./um/d2d1.h:1534:        _Outptr_ ID2D1GradientStopCollection **gradientStopCollection 
-./um/d2d1.h:1587:        _Outptr_ ID2D1GradientStopCollection **gradientStopCollection 
-./um/d2d1.h:2452:        _Outptr_ ID2D1Geometry **sourceGeometry 
-./um/d2d1.h:2598:        _Outptr_ ID2D1GeometrySink **geometrySink 
-./um/d2d1.h:2635:        _Outptr_ ID2D1TessellationSink **tessellationSink 
-./um/d2d1.h:2696:        _Outptr_result_maybenull_ IDWriteRenderingParams **textRenderingParams 
-./um/d2d1.h:2729:        _Outptr_ ID2D1Bitmap **bitmap 
-./um/d2d1.h:2739:        _Outptr_ ID2D1Bitmap **bitmap 
-./um/d2d1.h:2753:        _Outptr_ ID2D1Bitmap **bitmap 
-./um/d2d1.h:2765:        _Outptr_ ID2D1BitmapBrush **bitmapBrush 
-./um/d2d1.h:2771:        _Outptr_ ID2D1SolidColorBrush **solidColorBrush 
-./um/d2d1.h:2792:        _Outptr_ ID2D1GradientStopCollection **gradientStopCollection 
-./um/d2d1.h:2799:        _Outptr_ ID2D1LinearGradientBrush **linearGradientBrush 
-./um/d2d1.h:2806:        _Outptr_ ID2D1RadialGradientBrush **radialGradientBrush 
-./um/d2d1.h:2847:        _Outptr_ ID2D1BitmapRenderTarget **bitmapRenderTarget 
-./um/d2d1.h:2866:        _Outptr_ ID2D1Layer **layer 
-./um/d2d1.h:2874:        _Outptr_ ID2D1Mesh **mesh 
-./um/d2d1.h:3046:        _Outptr_result_maybenull_ IDWriteRenderingParams **textRenderingParams 
-./um/d2d1.h:3212:        _Outptr_ ID2D1Bitmap **bitmap 
-./um/d2d1.h:3223:        _Outptr_ ID2D1Bitmap **bitmap 
-./um/d2d1.h:3238:        _Outptr_ ID2D1Bitmap **bitmap 
-./um/d2d1.h:3252:        _Outptr_ ID2D1Bitmap **bitmap 
-./um/d2d1.h:3267:        _Outptr_ ID2D1BitmapBrush **bitmapBrush 
-./um/d2d1.h:3283:        _Outptr_ ID2D1BitmapBrush **bitmapBrush 
-./um/d2d1.h:3300:        _Outptr_ ID2D1BitmapBrush **bitmapBrush 
-./um/d2d1.h:3310:        _Outptr_ ID2D1SolidColorBrush **solidColorBrush 
-./um/d2d1.h:3321:        _Outptr_ ID2D1SolidColorBrush **solidColorBrush 
-./um/d2d1.h:3332:        _Outptr_ ID2D1GradientStopCollection **gradientStopCollection 
-./um/d2d1.h:3343:        _Outptr_ ID2D1LinearGradientBrush **linearGradientBrush 
-./um/d2d1.h:3355:        _Outptr_ ID2D1LinearGradientBrush **linearGradientBrush 
-./um/d2d1.h:3366:        _Outptr_ ID2D1RadialGradientBrush **radialGradientBrush 
-./um/d2d1.h:3378:        _Outptr_ ID2D1RadialGradientBrush **radialGradientBrush 
-./um/d2d1.h:3387:        _Outptr_ ID2D1BitmapRenderTarget **bitmapRenderTarget 
-./um/d2d1.h:3397:        _Outptr_ ID2D1BitmapRenderTarget **bitmapRenderTarget 
-./um/d2d1.h:3408:        _Outptr_ ID2D1BitmapRenderTarget **bitmapRenderTarget 
-./um/d2d1.h:3420:        _Outptr_ ID2D1BitmapRenderTarget **bitmapRenderTarget 
-./um/d2d1.h:3433:        _Outptr_ ID2D1BitmapRenderTarget **bitmapRenderTarget 
-./um/d2d1.h:3443:        _Outptr_ ID2D1Layer **layer 
-./um/d2d1.h:3452:        _Outptr_ ID2D1Layer **layer 
-./um/d2d1.h:3643:        _Outptr_ ID2D1Bitmap **bitmap 
-./um/d2d1.h:3772:        _Outptr_ ID2D1RectangleGeometry **rectangleGeometry 
-./um/d2d1.h:3777:        _Outptr_ ID2D1RoundedRectangleGeometry **roundedRectangleGeometry 
-./um/d2d1.h:3782:        _Outptr_ ID2D1EllipseGeometry **ellipseGeometry 
-./um/d2d1.h:3793:        _Outptr_ ID2D1GeometryGroup **geometryGroup 
-./um/d2d1.h:3799:        _Outptr_ ID2D1TransformedGeometry **transformedGeometry 
-./um/d2d1.h:3808:        _Outptr_ ID2D1PathGeometry **pathGeometry 
-./um/d2d1.h:3820:        _Outptr_ ID2D1StrokeStyle **strokeStyle 
-./um/d2d1.h:3831:        _Outptr_ ID2D1DrawingStateBlock **drawingStateBlock 
-./um/d2d1.h:3841:        _Outptr_ ID2D1RenderTarget **renderTarget 
-./um/d2d1.h:3851:        _Outptr_ ID2D1HwndRenderTarget **hwndRenderTarget 
-./um/d2d1.h:3862:        _Outptr_ ID2D1RenderTarget **renderTarget 
-./um/d2d1.h:3871:        _Outptr_ ID2D1DCRenderTarget **dcRenderTarget 
-./um/d2d1.h:3878:        _Outptr_ ID2D1RectangleGeometry **rectangleGeometry 
-./um/d2d1.h:3888:        _Outptr_ ID2D1RoundedRectangleGeometry **roundedRectangleGeometry 
-./um/d2d1.h:3898:        _Outptr_ ID2D1EllipseGeometry **ellipseGeometry 
-./um/d2d1.h:3909:        _Outptr_ ID2D1TransformedGeometry **transformedGeometry 
-./um/d2d1.h:3921:        _Outptr_ ID2D1StrokeStyle **strokeStyle 
-./um/d2d1.h:3931:        _Outptr_ ID2D1DrawingStateBlock **drawingStateBlock 
-./um/d2d1.h:3940:        _Outptr_ ID2D1DrawingStateBlock **drawingStateBlock 
-./um/d2d1.h:3951:        _Outptr_ ID2D1RenderTarget **renderTarget 
-./um/d2d1.h:3962:        _Outptr_ ID2D1HwndRenderTarget **hwndRenderTarget 
-./um/d2d1.h:3973:        _Outptr_ ID2D1RenderTarget **renderTarget 
-./um/d2d1.h:4053:        _Outptr_ ID2D1Factory **factory 
-./um/d2d1.h:4346:        _Outptr_ ID2D1Bitmap **bitmap 
-./um/d2d1.h:4486:        _Outptr_ ID2D1GradientStopCollection **gradientStopCollection 
-./um/d2d1.h:4581:        _Outptr_ ID2D1GradientStopCollection **gradientStopCollection 
-./um/d2d1.h:5225:        _Outptr_ ID2D1Geometry **sourceGeometry 
-./um/d2d1.h:5515:        _Outptr_ ID2D1GeometrySink **geometrySink 
-./um/d2d1.h:5613:        _Outptr_ ID2D1TessellationSink **tessellationSink 
-./um/d2d1.h:5697:        _Outptr_result_maybenull_ IDWriteRenderingParams **textRenderingParams 
-./um/d2d1.h:5745:        _Outptr_ ID2D1Bitmap **bitmap 
-./um/d2d1.h:5752:        _Outptr_ ID2D1Bitmap **bitmap 
-./um/d2d1.h:5760:        _Outptr_ ID2D1Bitmap **bitmap 
-./um/d2d1.h:5768:        _Outptr_ ID2D1BitmapBrush **bitmapBrush 
-./um/d2d1.h:5775:        _Outptr_ ID2D1SolidColorBrush **solidColorBrush 
-./um/d2d1.h:5784:        _Outptr_ ID2D1GradientStopCollection **gradientStopCollection 
-./um/d2d1.h:5792:        _Outptr_ ID2D1LinearGradientBrush **linearGradientBrush 
-./um/d2d1.h:5800:        _Outptr_ ID2D1RadialGradientBrush **radialGradientBrush 
-./um/d2d1.h:5809:        _Outptr_ ID2D1BitmapRenderTarget **bitmapRenderTarget 
-./um/d2d1.h:5815:        _Outptr_ ID2D1Layer **layer 
-./um/d2d1.h:5820:        _Outptr_ ID2D1Mesh **mesh 
-./um/d2d1.h:5975:        _Outptr_result_maybenull_ IDWriteRenderingParams **textRenderingParams 
-./um/d2d1.h:6262:        _Outptr_ ID2D1Bitmap **bitmap 
-./um/d2d1.h:6925:        _Outptr_ ID2D1RectangleGeometry **rectangleGeometry 
-./um/d2d1.h:6931:        _Outptr_ ID2D1RoundedRectangleGeometry **roundedRectangleGeometry 
-./um/d2d1.h:6937:        _Outptr_ ID2D1EllipseGeometry **ellipseGeometry 
-./um/d2d1.h:6945:        _Outptr_ ID2D1GeometryGroup **geometryGroup 
-./um/d2d1.h:6952:        _Outptr_ ID2D1TransformedGeometry **transformedGeometry 
-./um/d2d1.h:6957:        _Outptr_ ID2D1PathGeometry **pathGeometry 
-./um/d2d1.h:6965:        _Outptr_ ID2D1StrokeStyle **strokeStyle 
-./um/d2d1.h:6972:        _Outptr_ ID2D1DrawingStateBlock **drawingStateBlock 
-./um/d2d1.h:6979:        _Outptr_ ID2D1RenderTarget **renderTarget 
-./um/d2d1.h:6986:        _Outptr_ ID2D1HwndRenderTarget **hwndRenderTarget 
-./um/d2d1.h:6993:        _Outptr_ ID2D1RenderTarget **renderTarget 
-./um/d2d1.h:6999:        _Outptr_ ID2D1DCRenderTarget **dcRenderTarget 
+./um/d2d1.h:1244:        _Outptr_ ID2D1Factory **factory
+./um/d2d1.h:1471:        _Outptr_ ID2D1Bitmap **bitmap
+./um/d2d1.h:1534:        _Outptr_ ID2D1GradientStopCollection **gradientStopCollection
+./um/d2d1.h:1587:        _Outptr_ ID2D1GradientStopCollection **gradientStopCollection
+./um/d2d1.h:2452:        _Outptr_ ID2D1Geometry **sourceGeometry
+./um/d2d1.h:2598:        _Outptr_ ID2D1GeometrySink **geometrySink
+./um/d2d1.h:2635:        _Outptr_ ID2D1TessellationSink **tessellationSink
+./um/d2d1.h:2696:        _Outptr_result_maybenull_ IDWriteRenderingParams **textRenderingParams
+./um/d2d1.h:2729:        _Outptr_ ID2D1Bitmap **bitmap
+./um/d2d1.h:2739:        _Outptr_ ID2D1Bitmap **bitmap
+./um/d2d1.h:2753:        _Outptr_ ID2D1Bitmap **bitmap
+./um/d2d1.h:2765:        _Outptr_ ID2D1BitmapBrush **bitmapBrush
+./um/d2d1.h:2771:        _Outptr_ ID2D1SolidColorBrush **solidColorBrush
+./um/d2d1.h:2792:        _Outptr_ ID2D1GradientStopCollection **gradientStopCollection
+./um/d2d1.h:2799:        _Outptr_ ID2D1LinearGradientBrush **linearGradientBrush
+./um/d2d1.h:2806:        _Outptr_ ID2D1RadialGradientBrush **radialGradientBrush
+./um/d2d1.h:2847:        _Outptr_ ID2D1BitmapRenderTarget **bitmapRenderTarget
+./um/d2d1.h:2866:        _Outptr_ ID2D1Layer **layer
+./um/d2d1.h:2874:        _Outptr_ ID2D1Mesh **mesh
+./um/d2d1.h:3046:        _Outptr_result_maybenull_ IDWriteRenderingParams **textRenderingParams
+./um/d2d1.h:3212:        _Outptr_ ID2D1Bitmap **bitmap
+./um/d2d1.h:3223:        _Outptr_ ID2D1Bitmap **bitmap
+./um/d2d1.h:3238:        _Outptr_ ID2D1Bitmap **bitmap
+./um/d2d1.h:3252:        _Outptr_ ID2D1Bitmap **bitmap
+./um/d2d1.h:3267:        _Outptr_ ID2D1BitmapBrush **bitmapBrush
+./um/d2d1.h:3283:        _Outptr_ ID2D1BitmapBrush **bitmapBrush
+./um/d2d1.h:3300:        _Outptr_ ID2D1BitmapBrush **bitmapBrush
+./um/d2d1.h:3310:        _Outptr_ ID2D1SolidColorBrush **solidColorBrush
+./um/d2d1.h:3321:        _Outptr_ ID2D1SolidColorBrush **solidColorBrush
+./um/d2d1.h:3332:        _Outptr_ ID2D1GradientStopCollection **gradientStopCollection
+./um/d2d1.h:3343:        _Outptr_ ID2D1LinearGradientBrush **linearGradientBrush
+./um/d2d1.h:3355:        _Outptr_ ID2D1LinearGradientBrush **linearGradientBrush
+./um/d2d1.h:3366:        _Outptr_ ID2D1RadialGradientBrush **radialGradientBrush
+./um/d2d1.h:3378:        _Outptr_ ID2D1RadialGradientBrush **radialGradientBrush
+./um/d2d1.h:3387:        _Outptr_ ID2D1BitmapRenderTarget **bitmapRenderTarget
+./um/d2d1.h:3397:        _Outptr_ ID2D1BitmapRenderTarget **bitmapRenderTarget
+./um/d2d1.h:3408:        _Outptr_ ID2D1BitmapRenderTarget **bitmapRenderTarget
+./um/d2d1.h:3420:        _Outptr_ ID2D1BitmapRenderTarget **bitmapRenderTarget
+./um/d2d1.h:3433:        _Outptr_ ID2D1BitmapRenderTarget **bitmapRenderTarget
+./um/d2d1.h:3443:        _Outptr_ ID2D1Layer **layer
+./um/d2d1.h:3452:        _Outptr_ ID2D1Layer **layer
+./um/d2d1.h:3643:        _Outptr_ ID2D1Bitmap **bitmap
+./um/d2d1.h:3772:        _Outptr_ ID2D1RectangleGeometry **rectangleGeometry
+./um/d2d1.h:3777:        _Outptr_ ID2D1RoundedRectangleGeometry **roundedRectangleGeometry
+./um/d2d1.h:3782:        _Outptr_ ID2D1EllipseGeometry **ellipseGeometry
+./um/d2d1.h:3793:        _Outptr_ ID2D1GeometryGroup **geometryGroup
+./um/d2d1.h:3799:        _Outptr_ ID2D1TransformedGeometry **transformedGeometry
+./um/d2d1.h:3808:        _Outptr_ ID2D1PathGeometry **pathGeometry
+./um/d2d1.h:3820:        _Outptr_ ID2D1StrokeStyle **strokeStyle
+./um/d2d1.h:3831:        _Outptr_ ID2D1DrawingStateBlock **drawingStateBlock
+./um/d2d1.h:3841:        _Outptr_ ID2D1RenderTarget **renderTarget
+./um/d2d1.h:3851:        _Outptr_ ID2D1HwndRenderTarget **hwndRenderTarget
+./um/d2d1.h:3862:        _Outptr_ ID2D1RenderTarget **renderTarget
+./um/d2d1.h:3871:        _Outptr_ ID2D1DCRenderTarget **dcRenderTarget
+./um/d2d1.h:3878:        _Outptr_ ID2D1RectangleGeometry **rectangleGeometry
+./um/d2d1.h:3888:        _Outptr_ ID2D1RoundedRectangleGeometry **roundedRectangleGeometry
+./um/d2d1.h:3898:        _Outptr_ ID2D1EllipseGeometry **ellipseGeometry
+./um/d2d1.h:3909:        _Outptr_ ID2D1TransformedGeometry **transformedGeometry
+./um/d2d1.h:3921:        _Outptr_ ID2D1StrokeStyle **strokeStyle
+./um/d2d1.h:3931:        _Outptr_ ID2D1DrawingStateBlock **drawingStateBlock
+./um/d2d1.h:3940:        _Outptr_ ID2D1DrawingStateBlock **drawingStateBlock
+./um/d2d1.h:3951:        _Outptr_ ID2D1RenderTarget **renderTarget
+./um/d2d1.h:3962:        _Outptr_ ID2D1HwndRenderTarget **hwndRenderTarget
+./um/d2d1.h:3973:        _Outptr_ ID2D1RenderTarget **renderTarget
+./um/d2d1.h:4053:        _Outptr_ ID2D1Factory **factory
+./um/d2d1.h:4346:        _Outptr_ ID2D1Bitmap **bitmap
+./um/d2d1.h:4486:        _Outptr_ ID2D1GradientStopCollection **gradientStopCollection
+./um/d2d1.h:4581:        _Outptr_ ID2D1GradientStopCollection **gradientStopCollection
+./um/d2d1.h:5225:        _Outptr_ ID2D1Geometry **sourceGeometry
+./um/d2d1.h:5515:        _Outptr_ ID2D1GeometrySink **geometrySink
+./um/d2d1.h:5613:        _Outptr_ ID2D1TessellationSink **tessellationSink
+./um/d2d1.h:5697:        _Outptr_result_maybenull_ IDWriteRenderingParams **textRenderingParams
+./um/d2d1.h:5745:        _Outptr_ ID2D1Bitmap **bitmap
+./um/d2d1.h:5752:        _Outptr_ ID2D1Bitmap **bitmap
+./um/d2d1.h:5760:        _Outptr_ ID2D1Bitmap **bitmap
+./um/d2d1.h:5768:        _Outptr_ ID2D1BitmapBrush **bitmapBrush
+./um/d2d1.h:5775:        _Outptr_ ID2D1SolidColorBrush **solidColorBrush
+./um/d2d1.h:5784:        _Outptr_ ID2D1GradientStopCollection **gradientStopCollection
+./um/d2d1.h:5792:        _Outptr_ ID2D1LinearGradientBrush **linearGradientBrush
+./um/d2d1.h:5800:        _Outptr_ ID2D1RadialGradientBrush **radialGradientBrush
+./um/d2d1.h:5809:        _Outptr_ ID2D1BitmapRenderTarget **bitmapRenderTarget
+./um/d2d1.h:5815:        _Outptr_ ID2D1Layer **layer
+./um/d2d1.h:5820:        _Outptr_ ID2D1Mesh **mesh
+./um/d2d1.h:5975:        _Outptr_result_maybenull_ IDWriteRenderingParams **textRenderingParams
+./um/d2d1.h:6262:        _Outptr_ ID2D1Bitmap **bitmap
+./um/d2d1.h:6925:        _Outptr_ ID2D1RectangleGeometry **rectangleGeometry
+./um/d2d1.h:6931:        _Outptr_ ID2D1RoundedRectangleGeometry **roundedRectangleGeometry
+./um/d2d1.h:6937:        _Outptr_ ID2D1EllipseGeometry **ellipseGeometry
+./um/d2d1.h:6945:        _Outptr_ ID2D1GeometryGroup **geometryGroup
+./um/d2d1.h:6952:        _Outptr_ ID2D1TransformedGeometry **transformedGeometry
+./um/d2d1.h:6957:        _Outptr_ ID2D1PathGeometry **pathGeometry
+./um/d2d1.h:6965:        _Outptr_ ID2D1StrokeStyle **strokeStyle
+./um/d2d1.h:6972:        _Outptr_ ID2D1DrawingStateBlock **drawingStateBlock
+./um/d2d1.h:6979:        _Outptr_ ID2D1RenderTarget **renderTarget
+./um/d2d1.h:6986:        _Outptr_ ID2D1HwndRenderTarget **hwndRenderTarget
+./um/d2d1.h:6993:        _Outptr_ ID2D1RenderTarget **renderTarget
+./um/d2d1.h:6999:        _Outptr_ ID2D1DCRenderTarget **dcRenderTarget
 ./um/d2d1effectauthor.h:534:        _Outptr_result_bytebuffer_(bufferSize) BYTE **data,
-./um/d2d1effectauthor.h:1171:        _Outptr_ ID2D1Effect **effect 
-./um/d2d1effectauthor.h:1186:        _Outptr_ ID2D1TransformNode **transformNode 
-./um/d2d1effectauthor.h:1192:        _Outptr_ ID2D1BlendTransform **transform 
-./um/d2d1effectauthor.h:1198:        _Outptr_ ID2D1BorderTransform **transform 
-./um/d2d1effectauthor.h:1203:        _Outptr_ ID2D1OffsetTransform **transform 
-./um/d2d1effectauthor.h:1208:        _Outptr_ ID2D1BoundsAdjustmentTransform **transform 
-./um/d2d1effectauthor.h:1239:        _Outptr_ ID2D1ResourceTexture **resourceTexture 
-./um/d2d1effectauthor.h:1244:        _Outptr_ ID2D1ResourceTexture **resourceTexture 
-./um/d2d1effectauthor.h:1251:        _Outptr_ ID2D1VertexBuffer **buffer 
-./um/d2d1effectauthor.h:1256:        _Outptr_ ID2D1VertexBuffer **buffer 
-./um/d2d1effectauthor.h:1270:        _Outptr_ ID2D1ColorContext **colorContext 
-./um/d2d1effectauthor.h:1275:        _Outptr_ ID2D1ColorContext **colorContext 
-./um/d2d1effectauthor.h:1280:        _Outptr_ ID2D1ColorContext **colorContext 
+./um/d2d1effectauthor.h:1171:        _Outptr_ ID2D1Effect **effect
+./um/d2d1effectauthor.h:1186:        _Outptr_ ID2D1TransformNode **transformNode
+./um/d2d1effectauthor.h:1192:        _Outptr_ ID2D1BlendTransform **transform
+./um/d2d1effectauthor.h:1198:        _Outptr_ ID2D1BorderTransform **transform
+./um/d2d1effectauthor.h:1203:        _Outptr_ ID2D1OffsetTransform **transform
+./um/d2d1effectauthor.h:1208:        _Outptr_ ID2D1BoundsAdjustmentTransform **transform
+./um/d2d1effectauthor.h:1239:        _Outptr_ ID2D1ResourceTexture **resourceTexture
+./um/d2d1effectauthor.h:1244:        _Outptr_ ID2D1ResourceTexture **resourceTexture
+./um/d2d1effectauthor.h:1251:        _Outptr_ ID2D1VertexBuffer **buffer
+./um/d2d1effectauthor.h:1256:        _Outptr_ ID2D1VertexBuffer **buffer
+./um/d2d1effectauthor.h:1270:        _Outptr_ ID2D1ColorContext **colorContext
+./um/d2d1effectauthor.h:1275:        _Outptr_ ID2D1ColorContext **colorContext
+./um/d2d1effectauthor.h:1280:        _Outptr_ ID2D1ColorContext **colorContext
 ./um/d2d1effectauthor.h:1337:        _Outptr_result_bytebuffer_(bufferSize) BYTE **data,
-./um/d2d1effectauthor.h:2289:        _Outptr_ ID2D1Effect **effect 
-./um/d2d1effectauthor.h:2302:        _Outptr_ ID2D1TransformNode **transformNode 
-./um/d2d1effectauthor.h:2309:        _Outptr_ ID2D1BlendTransform **transform 
-./um/d2d1effectauthor.h:2316:        _Outptr_ ID2D1BorderTransform **transform 
-./um/d2d1effectauthor.h:2322:        _Outptr_ ID2D1OffsetTransform **transform 
-./um/d2d1effectauthor.h:2328:        _Outptr_ ID2D1BoundsAdjustmentTransform **transform 
-./um/d2d1effectauthor.h:2364:        _Outptr_ ID2D1ResourceTexture **resourceTexture 
-./um/d2d1effectauthor.h:2370:        _Outptr_ ID2D1ResourceTexture **resourceTexture 
-./um/d2d1effectauthor.h:2378:        _Outptr_ ID2D1VertexBuffer **buffer 
-./um/d2d1effectauthor.h:2384:        _Outptr_ ID2D1VertexBuffer **buffer 
-./um/d2d1effectauthor.h:2392:        _Outptr_ ID2D1ColorContext **colorContext 
-./um/d2d1effectauthor.h:2398:        _Outptr_ ID2D1ColorContext **colorContext 
-./um/d2d1effectauthor.h:2404:        _Outptr_ ID2D1ColorContext **colorContext 
+./um/d2d1effectauthor.h:2289:        _Outptr_ ID2D1Effect **effect
+./um/d2d1effectauthor.h:2302:        _Outptr_ ID2D1TransformNode **transformNode
+./um/d2d1effectauthor.h:2309:        _Outptr_ ID2D1BlendTransform **transform
+./um/d2d1effectauthor.h:2316:        _Outptr_ ID2D1BorderTransform **transform
+./um/d2d1effectauthor.h:2322:        _Outptr_ ID2D1OffsetTransform **transform
+./um/d2d1effectauthor.h:2328:        _Outptr_ ID2D1BoundsAdjustmentTransform **transform
+./um/d2d1effectauthor.h:2364:        _Outptr_ ID2D1ResourceTexture **resourceTexture
+./um/d2d1effectauthor.h:2370:        _Outptr_ ID2D1ResourceTexture **resourceTexture
+./um/d2d1effectauthor.h:2378:        _Outptr_ ID2D1VertexBuffer **buffer
+./um/d2d1effectauthor.h:2384:        _Outptr_ ID2D1VertexBuffer **buffer
+./um/d2d1effectauthor.h:2392:        _Outptr_ ID2D1ColorContext **colorContext
+./um/d2d1effectauthor.h:2398:        _Outptr_ ID2D1ColorContext **colorContext
+./um/d2d1effectauthor.h:2404:        _Outptr_ ID2D1ColorContext **colorContext
 ./um/d2d1_1.h:49:    _Outptr_ IUnknown **effectImpl
-./um/d2d1_1.h:1105:        _Outptr_ ID2D1Image **image 
-./um/d2d1_1.h:1335:        _Outptr_opt_ ID2D1Properties **subProperties 
+./um/d2d1_1.h:1105:        _Outptr_ ID2D1Image **image
+./um/d2d1_1.h:1335:        _Outptr_opt_ ID2D1Properties **subProperties
 ./um/d2d1_1.h:1506:        _Outptr_opt_ ID2D1Properties **subProperties
-./um/d2d1_1.h:1555:        _Outptr_opt_ ID2D1Image **input 
-./um/d2d1_1.h:1571:        _Outptr_ ID2D1Image **outputImage 
-./um/d2d1_1.h:1612:        _Outptr_result_maybenull_ ID2D1ColorContext **colorContext 
-./um/d2d1_1.h:1628:        _Outptr_result_maybenull_ IDXGISurface **dxgiSurface 
-./um/d2d1_1.h:1809:        _Outptr_ ID2D1Bitmap1 **bitmap 
-./um/d2d1_1.h:1821:        _Outptr_ ID2D1Bitmap1 **bitmap 
-./um/d2d1_1.h:1837:        _Outptr_ ID2D1ColorContext **colorContext 
-./um/d2d1_1.h:1842:        _Outptr_ ID2D1ColorContext **colorContext 
-./um/d2d1_1.h:1847:        _Outptr_ ID2D1ColorContext **colorContext 
-./um/d2d1_1.h:1857:        _Outptr_ ID2D1Bitmap1 **bitmap 
-./um/d2d1_1.h:1868:        _Outptr_ ID2D1Effect **effect 
-./um/d2d1_1.h:1907:        _Outptr_ ID2D1GradientStopCollection1 **gradientStopCollection1 
-./um/d2d1_1.h:1921:        _Outptr_ ID2D1ImageBrush **imageBrush 
-./um/d2d1_1.h:1928:        _Outptr_ ID2D1BitmapBrush1 **bitmapBrush 
-./um/d2d1_1.h:1938:        _Outptr_ ID2D1CommandList **commandList 
-./um/d2d1_1.h:1994:        _Outptr_ ID2D1Device **device 
-./um/d2d1_1.h:2012:        _Outptr_result_maybenull_ ID2D1Image **image 
-./um/d2d1_1.h:2186:        _Outptr_ ID2D1Bitmap1 **bitmap 
-./um/d2d1_1.h:2201:        _Outptr_ ID2D1Bitmap1 **bitmap 
-./um/d2d1_1.h:2215:        _Outptr_ ID2D1Bitmap1 **bitmap 
-./um/d2d1_1.h:2226:        _Outptr_ ID2D1Bitmap1 **bitmap 
-./um/d2d1_1.h:2238:        _Outptr_ ID2D1ImageBrush **imageBrush 
-./um/d2d1_1.h:2249:        _Outptr_ ID2D1ImageBrush **imageBrush 
-./um/d2d1_1.h:2259:        _Outptr_ ID2D1BitmapBrush1 **bitmapBrush 
-./um/d2d1_1.h:2270:        _Outptr_ ID2D1BitmapBrush1 **bitmapBrush 
-./um/d2d1_1.h:2282:        _Outptr_ ID2D1BitmapBrush1 **bitmapBrush 
-./um/d2d1_1.h:2502:        _Outptr_ ID2D1DeviceContext **deviceContext 
-./um/d2d1_1.h:2513:        _Outptr_ ID2D1PrintControl **printControl 
-./um/d2d1_1.h:2546:        _Outptr_ ID2D1PrintControl **printControl 
-./um/d2d1_1.h:2570:        _Outptr_ ID2D1Device **d2dDevice 
-./um/d2d1_1.h:2582:        _Outptr_ ID2D1StrokeStyle1 **strokeStyle 
-./um/d2d1_1.h:2592:        _Outptr_ ID2D1PathGeometry1 **pathGeometry 
-./um/d2d1_1.h:2605:        _Outptr_ ID2D1DrawingStateBlock1 **drawingStateBlock 
-./um/d2d1_1.h:2616:        _Outptr_ ID2D1GdiMetafile **metafile 
-./um/d2d1_1.h:2683:        _Outptr_ ID2D1Properties **properties 
-./um/d2d1_1.h:2692:        _Outptr_ ID2D1StrokeStyle1 **strokeStyle 
-./um/d2d1_1.h:2702:        _Outptr_ ID2D1DrawingStateBlock1 **drawingStateBlock 
-./um/d2d1_1.h:2711:        _Outptr_ ID2D1DrawingStateBlock1 **drawingStateBlock 
-./um/d2d1_1.h:3232:        _Outptr_ ID2D1Image **image 
-./um/d2d1_1.h:3616:        _Outptr_opt_ ID2D1Properties **subProperties 
-./um/d2d1_1.h:3691:        _Outptr_opt_ ID2D1Image **input 
-./um/d2d1_1.h:3700:        _Outptr_ ID2D1Image **outputImage 
-./um/d2d1_1.h:3777:        _Outptr_result_maybenull_ ID2D1ColorContext **colorContext 
-./um/d2d1_1.h:3786:        _Outptr_result_maybenull_ IDXGISurface **dxgiSurface 
-./um/d2d1_1.h:4043:        _Outptr_ ID2D1Bitmap1 **bitmap 
-./um/d2d1_1.h:4050:        _Outptr_ ID2D1Bitmap1 **bitmap 
-./um/d2d1_1.h:4058:        _Outptr_ ID2D1ColorContext **colorContext 
-./um/d2d1_1.h:4064:        _Outptr_ ID2D1ColorContext **colorContext 
-./um/d2d1_1.h:4070:        _Outptr_ ID2D1ColorContext **colorContext 
-./um/d2d1_1.h:4077:        _Outptr_ ID2D1Bitmap1 **bitmap 
-./um/d2d1_1.h:4083:        _Outptr_ ID2D1Effect **effect 
-./um/d2d1_1.h:4095:        _Outptr_ ID2D1GradientStopCollection1 **gradientStopCollection1 
-./um/d2d1_1.h:4103:        _Outptr_ ID2D1ImageBrush **imageBrush 
-./um/d2d1_1.h:4111:        _Outptr_ ID2D1BitmapBrush1 **bitmapBrush 
-./um/d2d1_1.h:4116:        _Outptr_ ID2D1CommandList **commandList 
-./um/d2d1_1.h:4151:        _Outptr_ ID2D1Device **device 
-./um/d2d1_1.h:4161:        _Outptr_result_maybenull_ ID2D1Image **image 
-./um/d2d1_1.h:4539:        _Outptr_ ID2D1DeviceContext **deviceContext 
-./um/d2d1_1.h:4547:        _Outptr_ ID2D1PrintControl **printControl 
-./um/d2d1_1.h:4609:        _Outptr_ ID2D1Device **d2dDevice 
-./um/d2d1_1.h:4617:        _Outptr_ ID2D1StrokeStyle1 **strokeStyle 
-./um/d2d1_1.h:4622:        _Outptr_ ID2D1PathGeometry1 **pathGeometry 
-./um/d2d1_1.h:4629:        _Outptr_ ID2D1DrawingStateBlock1 **drawingStateBlock 
-./um/d2d1_1.h:4635:        _Outptr_ ID2D1GdiMetafile **metafile 
-./um/d2d1_1.h:4672:        _Outptr_ ID2D1Properties **properties 
+./um/d2d1_1.h:1555:        _Outptr_opt_ ID2D1Image **input
+./um/d2d1_1.h:1571:        _Outptr_ ID2D1Image **outputImage
+./um/d2d1_1.h:1612:        _Outptr_result_maybenull_ ID2D1ColorContext **colorContext
+./um/d2d1_1.h:1628:        _Outptr_result_maybenull_ IDXGISurface **dxgiSurface
+./um/d2d1_1.h:1809:        _Outptr_ ID2D1Bitmap1 **bitmap
+./um/d2d1_1.h:1821:        _Outptr_ ID2D1Bitmap1 **bitmap
+./um/d2d1_1.h:1837:        _Outptr_ ID2D1ColorContext **colorContext
+./um/d2d1_1.h:1842:        _Outptr_ ID2D1ColorContext **colorContext
+./um/d2d1_1.h:1847:        _Outptr_ ID2D1ColorContext **colorContext
+./um/d2d1_1.h:1857:        _Outptr_ ID2D1Bitmap1 **bitmap
+./um/d2d1_1.h:1868:        _Outptr_ ID2D1Effect **effect
+./um/d2d1_1.h:1907:        _Outptr_ ID2D1GradientStopCollection1 **gradientStopCollection1
+./um/d2d1_1.h:1921:        _Outptr_ ID2D1ImageBrush **imageBrush
+./um/d2d1_1.h:1928:        _Outptr_ ID2D1BitmapBrush1 **bitmapBrush
+./um/d2d1_1.h:1938:        _Outptr_ ID2D1CommandList **commandList
+./um/d2d1_1.h:1994:        _Outptr_ ID2D1Device **device
+./um/d2d1_1.h:2012:        _Outptr_result_maybenull_ ID2D1Image **image
+./um/d2d1_1.h:2186:        _Outptr_ ID2D1Bitmap1 **bitmap
+./um/d2d1_1.h:2201:        _Outptr_ ID2D1Bitmap1 **bitmap
+./um/d2d1_1.h:2215:        _Outptr_ ID2D1Bitmap1 **bitmap
+./um/d2d1_1.h:2226:        _Outptr_ ID2D1Bitmap1 **bitmap
+./um/d2d1_1.h:2238:        _Outptr_ ID2D1ImageBrush **imageBrush
+./um/d2d1_1.h:2249:        _Outptr_ ID2D1ImageBrush **imageBrush
+./um/d2d1_1.h:2259:        _Outptr_ ID2D1BitmapBrush1 **bitmapBrush
+./um/d2d1_1.h:2270:        _Outptr_ ID2D1BitmapBrush1 **bitmapBrush
+./um/d2d1_1.h:2282:        _Outptr_ ID2D1BitmapBrush1 **bitmapBrush
+./um/d2d1_1.h:2502:        _Outptr_ ID2D1DeviceContext **deviceContext
+./um/d2d1_1.h:2513:        _Outptr_ ID2D1PrintControl **printControl
+./um/d2d1_1.h:2546:        _Outptr_ ID2D1PrintControl **printControl
+./um/d2d1_1.h:2570:        _Outptr_ ID2D1Device **d2dDevice
+./um/d2d1_1.h:2582:        _Outptr_ ID2D1StrokeStyle1 **strokeStyle
+./um/d2d1_1.h:2592:        _Outptr_ ID2D1PathGeometry1 **pathGeometry
+./um/d2d1_1.h:2605:        _Outptr_ ID2D1DrawingStateBlock1 **drawingStateBlock
+./um/d2d1_1.h:2616:        _Outptr_ ID2D1GdiMetafile **metafile
+./um/d2d1_1.h:2683:        _Outptr_ ID2D1Properties **properties
+./um/d2d1_1.h:2692:        _Outptr_ ID2D1StrokeStyle1 **strokeStyle
+./um/d2d1_1.h:2702:        _Outptr_ ID2D1DrawingStateBlock1 **drawingStateBlock
+./um/d2d1_1.h:2711:        _Outptr_ ID2D1DrawingStateBlock1 **drawingStateBlock
+./um/d2d1_1.h:3232:        _Outptr_ ID2D1Image **image
+./um/d2d1_1.h:3616:        _Outptr_opt_ ID2D1Properties **subProperties
+./um/d2d1_1.h:3691:        _Outptr_opt_ ID2D1Image **input
+./um/d2d1_1.h:3700:        _Outptr_ ID2D1Image **outputImage
+./um/d2d1_1.h:3777:        _Outptr_result_maybenull_ ID2D1ColorContext **colorContext
+./um/d2d1_1.h:3786:        _Outptr_result_maybenull_ IDXGISurface **dxgiSurface
+./um/d2d1_1.h:4043:        _Outptr_ ID2D1Bitmap1 **bitmap
+./um/d2d1_1.h:4050:        _Outptr_ ID2D1Bitmap1 **bitmap
+./um/d2d1_1.h:4058:        _Outptr_ ID2D1ColorContext **colorContext
+./um/d2d1_1.h:4064:        _Outptr_ ID2D1ColorContext **colorContext
+./um/d2d1_1.h:4070:        _Outptr_ ID2D1ColorContext **colorContext
+./um/d2d1_1.h:4077:        _Outptr_ ID2D1Bitmap1 **bitmap
+./um/d2d1_1.h:4083:        _Outptr_ ID2D1Effect **effect
+./um/d2d1_1.h:4095:        _Outptr_ ID2D1GradientStopCollection1 **gradientStopCollection1
+./um/d2d1_1.h:4103:        _Outptr_ ID2D1ImageBrush **imageBrush
+./um/d2d1_1.h:4111:        _Outptr_ ID2D1BitmapBrush1 **bitmapBrush
+./um/d2d1_1.h:4116:        _Outptr_ ID2D1CommandList **commandList
+./um/d2d1_1.h:4151:        _Outptr_ ID2D1Device **device
+./um/d2d1_1.h:4161:        _Outptr_result_maybenull_ ID2D1Image **image
+./um/d2d1_1.h:4539:        _Outptr_ ID2D1DeviceContext **deviceContext
+./um/d2d1_1.h:4547:        _Outptr_ ID2D1PrintControl **printControl
+./um/d2d1_1.h:4609:        _Outptr_ ID2D1Device **d2dDevice
+./um/d2d1_1.h:4617:        _Outptr_ ID2D1StrokeStyle1 **strokeStyle
+./um/d2d1_1.h:4622:        _Outptr_ ID2D1PathGeometry1 **pathGeometry
+./um/d2d1_1.h:4629:        _Outptr_ ID2D1DrawingStateBlock1 **drawingStateBlock
+./um/d2d1_1.h:4635:        _Outptr_ ID2D1GdiMetafile **metafile
+./um/d2d1_1.h:4672:        _Outptr_ ID2D1Properties **properties
 ./um/d2d1_1.h:4812:        _Outptr_ ID2D1Device **d2dDevice
 ./um/d2d1_1.h:4819:        _Outptr_ ID2D1DeviceContext **d2dDeviceContext
 ./um/d2d1_1.h:4861:    _Outptr_ ID2D1Device **d2dDevice
 ./um/d2d1_1.h:4876:    _Outptr_ ID2D1DeviceContext **d2dDeviceContext
-./um/d2d1_2.h:82:        _Outptr_ ID2D1GeometryRealization **geometryRealization 
-./um/d2d1_2.h:90:        _Outptr_ ID2D1GeometryRealization **geometryRealization 
-./um/d2d1_2.h:131:        _Outptr_ ID2D1DeviceContext1 **deviceContext1 
-./um/d2d1_2.h:154:        _Outptr_ ID2D1Device1 **d2dDevice1 
-./um/d2d1_2.h:235:        _Outptr_ ID2D1GeometryRealization **geometryRealization 
-./um/d2d1_2.h:244:        _Outptr_ ID2D1GeometryRealization **geometryRealization 
-./um/d2d1_2.h:541:        _Outptr_ ID2D1DeviceContext1 **deviceContext1 
-./um/d2d1_2.h:595:        _Outptr_ ID2D1Device1 **d2dDevice1 
+./um/d2d1_2.h:82:        _Outptr_ ID2D1GeometryRealization **geometryRealization
+./um/d2d1_2.h:90:        _Outptr_ ID2D1GeometryRealization **geometryRealization
+./um/d2d1_2.h:131:        _Outptr_ ID2D1DeviceContext1 **deviceContext1
+./um/d2d1_2.h:154:        _Outptr_ ID2D1Device1 **d2dDevice1
+./um/d2d1_2.h:235:        _Outptr_ ID2D1GeometryRealization **geometryRealization
+./um/d2d1_2.h:244:        _Outptr_ ID2D1GeometryRealization **geometryRealization
+./um/d2d1_2.h:541:        _Outptr_ ID2D1DeviceContext1 **deviceContext1
+./um/d2d1_2.h:595:        _Outptr_ ID2D1Device1 **d2dDevice1
 ./um/d3d10.h:871:            _COM_Outptr_  void **ppvObject);
 ./um/d3d10.h:1048:            _COM_Outptr_  void **ppvObject);
 ./um/d3d10.h:1236:            _COM_Outptr_  void **ppvObject);
@@ -28008,7 +28008,7 @@ C:\Program Files (x86)\Windows Kits\8.1\Include>
 ./um/evr.h:1762:            _COM_Outptr_  void **ppvObject);
 ./um/evr.h:1847:    _Outptr_result_maybenull_ void ** ppVideoPresenter
 ./um/evr.h:1853:    _Outptr_ void ** ppv
-./um/evr.h:1859:    _Outptr_ void ** ppvVideoMixer, 
+./um/evr.h:1859:    _Outptr_ void ** ppvVideoMixer,
 ./um/evr.h:1861:    _Outptr_ void ** ppvVideoPresenter
 ./um/evr.h:1865:    _Outptr_result_maybenull_ void ** ppVideoRenderer
 ./um/evr.h:1873:    _Outptr_ void** ppSampleAllocator
@@ -28463,15 +28463,15 @@ C:\Program Files (x86)\Windows Kits\8.1\Include>
 ./um/gpmgmt.h:10005:            _COM_Outptr_  void **ppvObject);
 ./um/gpmgmt.h:10299:            _COM_Outptr_  void **ppvObject);
 ./um/handleapi.h:62:    _Outptr_ LPHANDLE lpTargetHandle,
-./um/HLink.h:299:             _Outptr_ LPWSTR *ppwzReference);                                          
-./um/HLink.h:317:             _Outptr_ LPWSTR *ppwzShortcutFile,                                        
-./um/HLink.h:326:             _Outptr_ LPWSTR *ppwzShortcutFile,                                        
-./um/HLink.h:335:             _Outptr_ LPWSTR *ppwzShortcutFile,                                        
-./um/HLink.h:349:             _Outptr_ LPWSTR *ppwzLocation);                                           
-./um/HLink.h:353:             _Outptr_ LPWSTR *ppwzTarget,                                              
-./um/HLink.h:354:             _Outptr_ LPWSTR *ppwzLocation);                                           
-./um/HLink.h:363:             _Outptr_ LPWSTR *ppwzValue);                                              
-./um/HLink.h:377:             _Outptr_ LPWSTR *ppwzTranslatedURL);                                      
+./um/HLink.h:299:             _Outptr_ LPWSTR *ppwzReference);
+./um/HLink.h:317:             _Outptr_ LPWSTR *ppwzShortcutFile,
+./um/HLink.h:326:             _Outptr_ LPWSTR *ppwzShortcutFile,
+./um/HLink.h:335:             _Outptr_ LPWSTR *ppwzShortcutFile,
+./um/HLink.h:349:             _Outptr_ LPWSTR *ppwzLocation);
+./um/HLink.h:353:             _Outptr_ LPWSTR *ppwzTarget,
+./um/HLink.h:354:             _Outptr_ LPWSTR *ppwzLocation);
+./um/HLink.h:363:             _Outptr_ LPWSTR *ppwzValue);
+./um/HLink.h:377:             _Outptr_ LPWSTR *ppwzTranslatedURL);
 ./um/HLink.h:467:            _Outptr_opt_result_maybenull_  IMoniker **ppimkTarget,
 ./um/HLink.h:469:            _Outptr_opt_result_maybenull_  LPWSTR *ppwzLocation) = 0;
 ./um/HLink.h:479:            _Outptr_opt_  LPWSTR *ppwzTarget,
@@ -28517,8 +28517,8 @@ C:\Program Files (x86)\Windows Kits\8.1\Include>
 ./um/httpserv.h:652:        _Outptr_
 ./um/httpserv.h:693:        _Outptr_result_bytebuffer_to_(*pTokenSize, *pTokenSize)
 ./um/httpserv.h:1012:        _Outptr_opt_result_bytebuffer_(*pcchReason)
-./um/httpserv.h:1016:        _Outptr_opt_ 
-./um/httpserv.h:1019:        _Outptr_opt_ 
+./um/httpserv.h:1016:        _Outptr_opt_
+./um/httpserv.h:1019:        _Outptr_opt_
 ./um/httpserv.h:1332:        _Outptr_ CHttpModule **          ppModuleInfo,
 ./um/httpserv.h:1333:        _Outptr_ IHttpEventProvider **   ppRequestOutput
 ./um/httpserv.h:1362:        _Outptr_result_buffer_(*pcchValueLength)
@@ -28662,7 +28662,7 @@ C:\Program Files (x86)\Windows Kits\8.1\Include>
 ./um/IEDial.h:232:            _COM_Outptr_  void **ppvObject);
 ./um/IEDial.h:360:            _COM_Outptr_  void **ppvObject);
 ./um/IEPMapi.h:93:    _Outptr_ LPWSTR   *lppwstrDestinationFilePath,
-./um/IEPMapi.h:150:    _Outptr_ LPWSTR   *lppwstrPath                
+./um/IEPMapi.h:150:    _Outptr_ LPWSTR   *lppwstrPath
 ./um/iewebdriver.h:139:            _COM_Outptr_  void **ppvObject);
 ./um/iewebdriver.h:287:            _COM_Outptr_  void **ppvObject);
 ./um/iextag.h:375:            _COM_Outptr_  void **ppvObject);
@@ -28894,7 +28894,7 @@ C:\Program Files (x86)\Windows Kits\8.1\Include>
 ./um/LMJoin.h:253:    _Outptr_opt_result_maybenull_z_ LPWSTR *ppPackageTextData
 ./um/LMJoin.h:308:    _Outptr_ LPWSTR             *lpNameBuffer,
 ./um/LMJoin.h:324:    _Outptr_result_buffer_(*OUCount) LPWSTR **OUs
-./um/LMJoin.h:385:    _Outptr_result_buffer_(*EntryCount) LPWSTR **ComputerNames     
+./um/LMJoin.h:385:    _Outptr_result_buffer_(*EntryCount) LPWSTR **ComputerNames
 ./um/LMRemUtl.h:65:    _Outptr_result_bytebuffer_(sizeof(TIME_OF_DAY_INFO)) LPBYTE *BufferPtr
 ./um/LMServer.h:55:    _Outptr_result_buffer_(_Inexpressible_(entriesread)) OUT LPBYTE    *bufptr,
 ./um/LMServer.h:68:    _Outptr_result_buffer_(_Inexpressible_(*EntriesRead))
@@ -29055,7 +29055,7 @@ C:\Program Files (x86)\Windows Kits\8.1\Include>
 ./um/mfapi.h:1280:    _Outptr_opt_result_maybenull_                    IMFAttributes**             ppAttributes
 ./um/mfapi.h:1355:    _Outptr_    LPVOID*         ppvObject
 ./um/mfapi.h:2301:    _Outptr_ IMFMediaType**  ppMFType
-./um/mfapi.h:2776:    _Outptr_ IMFMediaBuffer** ppBuffer 
+./um/mfapi.h:2776:    _Outptr_ IMFMediaBuffer** ppBuffer
 ./um/mfapi.h:2991:    _Outptr_ PWSTR *ppsz
 ./um/mfcaptureengine.h:246:            _COM_Outptr_  void **ppvObject);
 ./um/mfcaptureengine.h:328:            _COM_Outptr_  void **ppvObject);
@@ -29135,17 +29135,17 @@ C:\Program Files (x86)\Windows Kits\8.1\Include>
 ./um/mfidl.h:5861:            _COM_Outptr_  void **ppvObject);
 ./um/mfidl.h:5991:            _COM_Outptr_  void **ppvObject);
 ./um/mfidl.h:6059:    _Outptr_ IMFMediaSink** ppSink
-./um/mfidl.h:6063:    _Outptr_ IMFActivate ** ppActivate 
-./um/mfidl.h:6078:    _Outptr_ IMFActivate ** ppActivate 
-./um/mfidl.h:6086:    _Outptr_ IMFMediaSink** ppIMediaSink 
-./um/mfidl.h:6093:    _Outptr_ IMFMediaSink** ppIMediaSink 
-./um/mfidl.h:6098:    _Outptr_ IMFMediaSink** ppMediaSink 
-./um/mfidl.h:6106:     _Outptr_ IMFMediaSink** ppMediaSink 
-./um/mfidl.h:6112:     _Outptr_ IMFMediaSink** ppMediaSink 
-./um/mfidl.h:6119:    _Outptr_ IMFMediaSink** ppMuxSink 
-./um/mfidl.h:6126:    _Outptr_ IMFMediaSink** ppIMediaSink 
-./um/mfidl.h:6135:    _Outptr_ IMFMediaSink** ppIMediaSink 
-./um/mfidl.h:6143:     _Outptr_ IMFMediaSink** ppMediaSink 
+./um/mfidl.h:6063:    _Outptr_ IMFActivate ** ppActivate
+./um/mfidl.h:6078:    _Outptr_ IMFActivate ** ppActivate
+./um/mfidl.h:6086:    _Outptr_ IMFMediaSink** ppIMediaSink
+./um/mfidl.h:6093:    _Outptr_ IMFMediaSink** ppIMediaSink
+./um/mfidl.h:6098:    _Outptr_ IMFMediaSink** ppMediaSink
+./um/mfidl.h:6106:     _Outptr_ IMFMediaSink** ppMediaSink
+./um/mfidl.h:6112:     _Outptr_ IMFMediaSink** ppMediaSink
+./um/mfidl.h:6119:    _Outptr_ IMFMediaSink** ppMuxSink
+./um/mfidl.h:6126:    _Outptr_ IMFMediaSink** ppIMediaSink
+./um/mfidl.h:6135:    _Outptr_ IMFMediaSink** ppIMediaSink
+./um/mfidl.h:6143:     _Outptr_ IMFMediaSink** ppMediaSink
 ./um/mfidl.h:6169:            _Outptr_  IMFTopology **ppOutputTopo,
 ./um/mfidl.h:6185:            _COM_Outptr_  void **ppvObject);
 ./um/mfidl.h:6197:            _Outptr_  IMFTopology **ppOutputTopo,
@@ -29274,7 +29274,7 @@ C:\Program Files (x86)\Windows Kits\8.1\Include>
 ./um/mfidl.h:15028:    _Outptr_ IMFTopology** ppTranscodeTopo
 ./um/mfidl.h:15050: _Outptr_ IMFCollection** ppAvailableTypes );
 ./um/mfidl.h:15108:            _COM_Outptr_  void **ppvObject);
-./um/mfidl.h:15186: _Outptr_ IMFActivate** ppActivate ); 
+./um/mfidl.h:15186: _Outptr_ IMFActivate** ppActivate );
 ./um/mfidl.h:15223:            _COM_Outptr_  void **ppvObject);
 ./um/mfidl.h:15325:            _COM_Outptr_  void **ppvObject);
 ./um/mfidl.h:15426:            _COM_Outptr_  void **ppvObject);
@@ -29501,7 +29501,7 @@ C:\Program Files (x86)\Windows Kits\8.1\Include>
 ./um/mfmediaengine.h:4910:            _COM_Outptr_  IMFMediaSourceExtension **ppMSE);
 ./um/mfmediaengine.idl:333:        [out, annotation("_Outptr_")] IMFMediaError** ppError
 ./um/mfmediaengine.idl:362:        [out, annotation("_Outptr_")] IMFMediaTimeRange** ppBuffered
-./um/mfmediaengine.idl:404:        [out, annotation("_Outptr_")] IMFMediaTimeRange** ppPlayed 
+./um/mfmediaengine.idl:404:        [out, annotation("_Outptr_")] IMFMediaTimeRange** ppPlayed
 ./um/mfmediaengine.idl:408:        [out, annotation("_Outptr_")] IMFMediaTimeRange** ppSeekable
 ./um/mfmediaengine.idl:709:        [out, annotation("_Outptr_")] IUnknown** ppIUnknownCancelCookie,// cancel cookie to be used if we abort the operation early
 ./um/mfmediaengine.idl:720:        [out, annotation("_Outptr_")] IUnknown** ppObject     // pointer to created object
@@ -29604,9 +29604,9 @@ C:\Program Files (x86)\Windows Kits\8.1\Include>
 ./um/mfsharingengine.h:1147:            _Outptr_  IInspectable **ppSource) = 0;
 ./um/mfsharingengine.h:1162:            _COM_Outptr_  void **ppvObject);
 ./um/mfsharingengine.h:1177:            _Outptr_  IInspectable **ppSource);
-./um/mfsharingengine.idl:69:        [out, annotation("_Outptr_")] IUnknown** ppEngine   // implements either IMFMediaEngineEx, IMFMediaSharingEngine, 
+./um/mfsharingengine.idl:69:        [out, annotation("_Outptr_")] IUnknown** ppEngine   // implements either IMFMediaEngineEx, IMFMediaSharingEngine,
 ./um/mfsharingengine.idl:132:        [out, annotation("_Outptr_")] IMFMediaSharingEngine** ppEngine
-./um/mfsharingengine.idl:183:        [out, annotation("_Outptr_")] IMFImageSharingEngine** ppEngine 
+./um/mfsharingengine.idl:183:        [out, annotation("_Outptr_")] IMFImageSharingEngine** ppEngine
 ./um/mfsharingengine.idl:269:        [out, annotation("_Outptr_")] IInspectable** ppSource               // implements Windows.Media.PlayTo.PlayToSource
 ./um/mftransform.h:340:            _COM_Outptr_  void **ppvObject);
 ./um/MgmtAPI.h:125:    _Outptr_opt_ LPSTR   *string         // OID string representation
@@ -29624,12 +29624,12 @@ C:\Program Files (x86)\Windows Kits\8.1\Include>
 ./um/mi.h:161:# define _Outptr_opt_result_z_
 ./um/mi.h:164:#if !defined(_Outptr_opt_result_maybenull_z_)
 ./um/mi.h:165:# define _Outptr_opt_result_maybenull_z_
-./um/mi.h:1715:        _Outptr_result_maybenull_z_ const MI_Char** queryLang, 
+./um/mi.h:1715:        _Outptr_result_maybenull_z_ const MI_Char** queryLang,
 ./um/mi.h:1716:        _Outptr_result_maybenull_z_ const MI_Char** queryExpr);
-./um/mi.h:1767:        _Outptr_result_maybenull_z_ const MI_Char** queryLang, 
+./um/mi.h:1767:        _Outptr_result_maybenull_z_ const MI_Char** queryLang,
 ./um/mi.h:1768:        _Outptr_result_maybenull_z_ const MI_Char** queryExpr)
 ./um/mi.h:1808:        _Outptr_result_z_ const MI_Char** name);
-./um/mi.h:1821:        _Outptr_ MI_PropertySet** newPropertySet);    
+./um/mi.h:1821:        _Outptr_ MI_PropertySet** newPropertySet);
 ./um/mi.h:1924:    _Outptr_result_z_ const MI_Char** name)
 ./um/mi.h:2017:    _Outptr_ MI_PropertySet** newPropertySet)
 ./um/mi.h:2381:    _Outptr_ void** self,
@@ -29993,7 +29993,7 @@ C:\Program Files (x86)\Windows Kits\8.1\Include>
 ./um/Mprapi.h:1933:    _Outptr_result_bytebuffer_((*lpdwEntriesRead)*(dwLevel==0?
 ./um/Mprapi.h:1948:    _Outptr_result_bytebuffer_((*lpdwEntriesRead)*sizeof(RAS_PORT_0)) LPBYTE *  lplpbBuffer,
 ./um/Mprapi.h:2399:    _Outptr_result_bytebuffer_((*lpdwEntriesRead)*sizeof(MPR_INTERFACE_0)) LPBYTE *  lplpbBuffer,
-./um/Mprapi.h:2727:    _Outptr_opt_ _Inout_ LPWSTR*      lplpwsDLLPath 
+./um/Mprapi.h:2727:    _Outptr_opt_ _Inout_ LPWSTR*      lplpwsDLLPath
 ./um/Mprapi.h:2734:    _Outptr_result_bytebuffer_maybenull_((*lpdwEntriesRead)*sizeof(MPR_TRANSPORT_0)) LPBYTE*  lplpBuffer,
 ./um/Mprapi.h:2783:    _Outptr_result_bytebuffer_maybenull_((*lpdwEntriesRead)*sizeof( MPR_INTERFACE_0)) LPBYTE*  lplpBuffer,
 ./um/Mprapi.h:2821:    _Outptr_opt_result_bytebuffer_(*lpdwInterfaceInfoSize)   LPBYTE*         ppInterfaceInfo,
@@ -31650,7 +31650,7 @@ C:\Program Files (x86)\Windows Kits\8.1\Include>
 ./um/NetCon.h:2469:            _COM_Outptr_  void **ppvObject);
 ./um/NetCon.h:2625:            _COM_Outptr_  void **ppvObject);
 ./um/netfw.h:493:    _Outptr_ IEnumVARIANT ** newEnum
-./um/netfw.h:505:    _Outptr_result_buffer_(*pdwNumPublicAppCs) PINET_FIREWALL_APP_CONTAINER *ppPublicAppCs 
+./um/netfw.h:505:    _Outptr_result_buffer_(*pdwNumPublicAppCs) PINET_FIREWALL_APP_CONTAINER *ppPublicAppCs
 ./um/netfw.h:510:    _Outptr_result_buffer_(*pdwNumPublicAppCs) PSID_AND_ATTRIBUTES *appContainerSids
 ./um/netfw.h:591:            _COM_Outptr_  void **ppvObject);
 ./um/netfw.h:827:            _COM_Outptr_  void **ppvObject);
@@ -31838,15 +31838,15 @@ C:\Program Files (x86)\Windows Kits\8.1\Include>
 ./um/objbase.h:361:_Check_return_ WINOLEAPI  CoGetObject(_In_ LPCWSTR pszName, _In_opt_ BIND_OPTS *pBindOptions, _In_ REFIID riid, _Outptr_ void **ppv);
 ./um/objbase.h:363:                _Out_ ULONG FAR * pchEaten, _Outptr_ LPMONIKER FAR * ppmk);
 ./um/objbase.h:364:_Check_return_ WINOLEAPI  MonikerRelativePathTo(_In_ LPMONIKER pmkSrc, _In_ LPMONIKER pmkDest, _Outptr_ LPMONIKER
-./um/objbase.h:367:                _Outptr_ LPMONIKER FAR* ppmkCommon);  
-./um/objbase.h:368:_Check_return_ WINOLEAPI  CreateBindCtx(_In_ DWORD reserved, _Outptr_ LPBC FAR* ppbc);   
-./um/objbase.h:370:    _Outptr_ LPMONIKER FAR* ppmkComposite);  
-./um/objbase.h:373:_Check_return_ WINOLEAPI  CreateClassMoniker(_In_ REFCLSID rclsid, _Outptr_ LPMONIKER FAR* ppmk);   
-./um/objbase.h:375:_Check_return_ WINOLEAPI  CreateFileMoniker(_In_ LPCOLESTR lpszPathName, _Outptr_ LPMONIKER FAR* ppmk);  
-./um/objbase.h:378:                          _Outptr_ LPMONIKER FAR* ppmk);   
-./um/objbase.h:379:_Check_return_ WINOLEAPI  CreateAntiMoniker(_Outptr_ LPMONIKER FAR* ppmk);    
-./um/objbase.h:380:_Check_return_ WINOLEAPI  CreatePointerMoniker(_In_opt_ LPUNKNOWN punk, _Outptr_ LPMONIKER FAR* ppmk);  
-./um/objbase.h:381:_Check_return_ WINOLEAPI  CreateObjrefMoniker(_In_opt_ LPUNKNOWN punk, _Outptr_ LPMONIKER FAR * ppmk);   
+./um/objbase.h:367:                _Outptr_ LPMONIKER FAR* ppmkCommon);
+./um/objbase.h:368:_Check_return_ WINOLEAPI  CreateBindCtx(_In_ DWORD reserved, _Outptr_ LPBC FAR* ppbc);
+./um/objbase.h:370:    _Outptr_ LPMONIKER FAR* ppmkComposite);
+./um/objbase.h:373:_Check_return_ WINOLEAPI  CreateClassMoniker(_In_ REFCLSID rclsid, _Outptr_ LPMONIKER FAR* ppmk);
+./um/objbase.h:375:_Check_return_ WINOLEAPI  CreateFileMoniker(_In_ LPCOLESTR lpszPathName, _Outptr_ LPMONIKER FAR* ppmk);
+./um/objbase.h:378:                          _Outptr_ LPMONIKER FAR* ppmk);
+./um/objbase.h:379:_Check_return_ WINOLEAPI  CreateAntiMoniker(_Outptr_ LPMONIKER FAR* ppmk);
+./um/objbase.h:380:_Check_return_ WINOLEAPI  CreatePointerMoniker(_In_opt_ LPUNKNOWN punk, _Outptr_ LPMONIKER FAR* ppmk);
+./um/objbase.h:381:_Check_return_ WINOLEAPI  CreateObjrefMoniker(_In_opt_ LPUNKNOWN punk, _Outptr_ LPMONIKER FAR * ppmk);
 ./um/objbase.h:389:_Check_return_ WINOLEAPI  GetRunningObjectTable( _In_ DWORD reserved, _Outptr_ LPRUNNINGOBJECTTABLE FAR* pprot);
 ./um/objbase.h:406:                                   _Outptr_ IBindStatusCallback ** ppIbsc);
 ./um/ObjectArray.h:113:            _COM_Outptr_  void **ppvObject);
@@ -32217,7 +32217,7 @@ C:\Program Files (x86)\Windows Kits\8.1\Include>
 ./um/Ole2.h:279:                                        _Outptr_ LPOLESTR FAR* pszUserType);
 ./um/Ole2.h:285:                              _Outptr_ LPENUMFORMATETC FAR* ppenum);
 ./um/Ole2.h:287:WINOLEAPI OleRegEnumVerbs (IN REFCLSID clsid, _Outptr_ LPENUMOLEVERB FAR* ppenum);
-./um/Ole2.h:329:                                    _Outptr_ LPLOCKBYTES FAR* pplkbyt);  
+./um/Ole2.h:329:                                    _Outptr_ LPLOCKBYTES FAR* pplkbyt);
 ./um/oleacc.h:188:STDAPI          ObjectFromLresult(_In_ LRESULT lResult, _In_ REFIID riid, _In_ WPARAM wParam, _Outptr_ void** ppvObject);
 ./um/oleacc.h:190:STDAPI          AccessibleObjectFromWindow(_In_ HWND hwnd, _In_ DWORD dwId, _In_ REFIID riid, _Outptr_ void **ppvObject);
 ./um/oleacc.h:191:STDAPI          AccessibleObjectFromEvent(_In_ HWND hwnd, _In_ DWORD dwId, _In_ DWORD dwChildId, _Outptr_ IAccessible** ppacc, _Out_ VARIANT* pvarChild);
@@ -32632,8 +32632,8 @@ C:\Program Files (x86)\Windows Kits\8.1\Include>
 ./um/opmapi.h:424:            _Outptr_result_bytebuffer_(*pulCertificateLength)  BYTE **ppbCertificate,
 ./um/opmapi.h:465:            _COM_Outptr_  void **ppvObject);
 ./um/opmapi.h:478:            _Outptr_result_bytebuffer_(*pulCertificateLength)  BYTE **ppbCertificate,
-./um/opmapi.h:588:    _Outptr_result_buffer_(*pulNumVideoOutputs) IOPMVideoOutput*** pppOPMVideoOutputArray       
-./um/opmapi.h:595:    _Outptr_result_buffer_(*pulNumVideoOutputs) IOPMVideoOutput*** pppOPMVideoOutputArray       
+./um/opmapi.h:588:    _Outptr_result_buffer_(*pulNumVideoOutputs) IOPMVideoOutput*** pppOPMVideoOutputArray
+./um/opmapi.h:595:    _Outptr_result_buffer_(*pulNumVideoOutputs) IOPMVideoOutput*** pppOPMVideoOutputArray
 ./um/opmapi.idl:504:        [out] [annotation("_Outptr_result_bytebuffer_(*pulCertificateLength)")] BYTE** ppbCertificate,
 ./um/opmapi.idl:577:cpp_quote( "    _Outptr_result_buffer_(*pulNumVideoOutputs) IOPMVideoOutput*** pppOPMVideoOutputArray       " )
 ./um/opmapi.idl:586:cpp_quote( "    _Outptr_result_buffer_(*pulNumVideoOutputs) IOPMVideoOutput*** pppOPMVideoOutputArray       " )
@@ -33383,9 +33383,9 @@ C:\Program Files (x86)\Windows Kits\8.1\Include>
 ./um/sapi.idl:1978:                [annotation("_Outptr_")] [out] SPPHRASE** ppCoMemPhrase);
 ./um/sapi.idl:1980:                [annotation("_Outptr_")] [out] SPSERIALIZEDPHRASE** ppCoMemPhrase);
 ./um/sapi.idl:1985:                [annotation ("_Outptr_")] [out] LPWSTR* ppszCoMemText,
-./um/sapi.idl:2027:                [annotation ("_Outptr_")] [out] LPWSTR* ppszCoMemXMLResult, 
+./um/sapi.idl:2027:                [annotation ("_Outptr_")] [out] LPWSTR* ppszCoMemXMLResult,
 ./um/sapi.idl:2034:                [annotation("_Outptr_")] [out] ISpStreamFormat** ppStream);
-./um/sapi.idl:2145:                [annotation ("_Outptr_")] [out] LPWSTR* ppszCoMemXMLResult, 
+./um/sapi.idl:2145:                [annotation ("_Outptr_")] [out] LPWSTR* ppszCoMemXMLResult,
 ./um/sapi.idl:2318:                [annotation("_Outptr_")] [out] ISpRecoContext** ppRecoCtxt);
 ./um/sapi.idl:2373:                [annotation ("_Outptr_opt_")] [out, optional] LPWSTR* ppszCoMemErrorText);
 ./um/sapi.idl:2667:                [annotation("_Outptr_"), out, string] LPWSTR* ppCoMemValue );
@@ -33815,9 +33815,9 @@ C:\Program Files (x86)\Windows Kits\8.1\Include>
 ./um/sapiddk.idl:816:                [annotation("_Outptr_")] [out] void** ppvEngineGrammarContext);
 ./um/sapiddk.idl:890:                [annotation("_Outptr_")] [out] LPWSTR* ppCoMemValue );
 ./um/sapiddk.idl:927:                [annotation("_Outptr_")] [out] void** ppvCoMemResponse,
-./um/sapiddk.idl:1041:                [annotation("_Outptr_result_buffer_maybenull_(*pulOutFrameSize)")] [out] void** ppCoMemOutFrame, 
-./um/sapiddk.idl:1059:                [annotation("_Outptr_result_bytebuffer_(*pulOutFrameSize)")] [out] void** ppCoMemOutFrame, 
-./um/sapiddk.idl:1064:                [annotation("_Outptr_result_bytebuffer_(*pulOutFrameSize)")] [out] void** ppCoMemOutFrame, 
+./um/sapiddk.idl:1041:                [annotation("_Outptr_result_buffer_maybenull_(*pulOutFrameSize)")] [out] void** ppCoMemOutFrame,
+./um/sapiddk.idl:1059:                [annotation("_Outptr_result_bytebuffer_(*pulOutFrameSize)")] [out] void** ppCoMemOutFrame,
+./um/sapiddk.idl:1064:                [annotation("_Outptr_result_bytebuffer_(*pulOutFrameSize)")] [out] void** ppCoMemOutFrame,
 ./um/sapiddk51.h:300:            _COM_Outptr_  void **ppvObject);
 ./um/sapiddk51.h:416:            _COM_Outptr_  void **ppvObject);
 ./um/sapiddk51.h:613:            _COM_Outptr_  void **ppvObject);
@@ -34065,7 +34065,7 @@ C:\Program Files (x86)\Windows Kits\8.1\Include>
 ./um/ServProv.Idl:63:cpp_quote("            HRESULT STDMETHODCALLTYPE QueryService(_In_ REFGUID guidService, _Outptr_ Q** pp)")
 ./um/ServProv.Idl:74:cpp_quote("        /* [iid_is][out] */ _Outptr_ IUnknown __RPC_FAR *__RPC_FAR *ppvObject);")
 ./um/ServProv.Idl:87:        [out, annotation("_Outptr_")] void ** ppvObject);
-./um/sesprp.idl:35:		[out, size_is(,*pcPropertySets), annotation("_Outptr_result_buffer_maybenull_(*pcPropertySets)")] 
+./um/sesprp.idl:35:		[out, size_is(,*pcPropertySets), annotation("_Outptr_result_buffer_maybenull_(*pcPropertySets)")]
 ./um/SetupAPI.h:2738:    _Outptr_result_buffer_(*Count) PCSTR **List,
 ./um/SetupAPI.h:2747:    _Outptr_result_buffer_(*Count) PCWSTR **List,
 ./um/shappmgr.h:216:            _COM_Outptr_  void **ppvObject);
@@ -34678,8 +34678,8 @@ C:\Program Files (x86)\Windows Kits\8.1\Include>
 ./um/slpublic.h:1471:    _Outptr_result_buffer_(*pnReturnIds) SLID**             ppReturnIds
 ./um/slpublic.h:1596:    _Outptr_result_bytebuffer_(*pcbLicenseFile) PBYTE*      ppbLicenseFile
 ./um/slpublic.h:1746:    _Outptr_result_bytebuffer_(*pcbValue) PBYTE*            ppbValue
-./um/slpublic.h:1894:    _Outptr_result_bytebuffer_(*pcbTicketBlob) VOID**       ppTicketBlob,  
-./um/slpublic.h:2011:    _Outptr_                    PWSTR*                      ppwszValue 
+./um/slpublic.h:1894:    _Outptr_result_bytebuffer_(*pcbTicketBlob) VOID**       ppTicketBlob,
+./um/slpublic.h:2011:    _Outptr_                    PWSTR*                      ppwszValue
 ./um/slpublic.h:2139:    _Outptr_result_bytebuffer_(*pcbValue) PBYTE*            ppbValue
 ./um/slpublic.h:2240:    _Outptr_result_bytebuffer_(*pcbValue) PBYTE*            ppbValue
 ./um/slpublic.h:2318:    _Outptr_result_bytebuffer_(*pcbValue) BYTE**            ppbValue
@@ -34928,7 +34928,7 @@ C:\Program Files (x86)\Windows Kits\8.1\Include>
 ./um/StructuredQueryCondition.h:529:            _Outptr_opt_result_maybenull_  LPWSTR *ppszPropertyName,
 ./um/StructuredQueryCondition.h:691:    _Outptr_opt_result_maybenull_  LPWSTR *ppsz,
 ./um/StructuredQueryCondition.h:706:    _Outptr_opt_result_maybenull_  LPWSTR *ppszPropertyName,
-./um/structuredquerycondition.idl:53:                    [out, unique, annotation("_Outptr_opt_result_maybenull_")] LPWSTR* ppsz, 
+./um/structuredquerycondition.idl:53:                    [out, unique, annotation("_Outptr_opt_result_maybenull_")] LPWSTR* ppsz,
 ./um/structuredquerycondition.idl:83:    HRESULT GetComparisonInfo([out, unique, annotation("_Outptr_opt_result_maybenull_")] LPWSTR *ppszPropertyName,
 ./um/subscriptionservices.h:202:            _COM_Outptr_  void **ppvObject);
 ./um/subscriptionservices.h:309:            _COM_Outptr_  void **ppvObject);
@@ -35648,7 +35648,7 @@ C:\Program Files (x86)\Windows Kits\8.1\Include>
 ./um/UIAutomationCore.h:6261:            _COM_Outptr_  void **ppvObject);
 ./um/UIAutomationCore.h:6360:            _COM_Outptr_  void **ppvObject);
 ./um/UIAutomationCore.h:6465:            _COM_Outptr_  void **ppvObject);
-./um/UIAutomationCoreApi.h:769:    _Outptr_ IAccessible ** ppAccessible, 
+./um/UIAutomationCoreApi.h:769:    _Outptr_ IAccessible ** ppAccessible,
 ./um/UIAutomationCoreApi.h:785:    _Outptr_ IRawElementProviderSimple ** ppProvider);
 ./um/UIRibbon.h:369:            _COM_Outptr_  void **ppvObject);
 ./um/UIRibbon.h:464:            _COM_Outptr_  void **ppvObject);
@@ -35726,17 +35726,17 @@ C:\Program Files (x86)\Windows Kits\8.1\Include>
 ./um/UrlHist.h:333:            _COM_Outptr_  void **ppvObject);
 ./um/UrlHist.h:468:            _COM_Outptr_  void **ppvObject);
 ./um/UrlHist.h:612:            _COM_Outptr_  void **ppvObject);
-./um/urlmon.h:515:STDAPI CreateURLMoniker(_In_opt_ LPMONIKER pMkCtx, _In_ LPCWSTR szURL, _Outptr_ LPMONIKER FAR * ppmk);             
-./um/urlmon.h:516:STDAPI CreateURLMonikerEx(_In_opt_ LPMONIKER pMkCtx, _In_ LPCWSTR szURL, _Outptr_ LPMONIKER FAR * ppmk, DWORD dwFlags);             
-./um/urlmon.h:519:                                _In_opt_ IEnumFORMATETC *pEFetc, _Outptr_ IBindCtx **ppBC);                   
-./um/urlmon.h:521:STDAPI CreateURLMonikerEx2(_In_opt_ LPMONIKER pMkCtx, _In_ IUri* pUri, _Outptr_ LPMONIKER FAR * ppmk, DWORD dwFlags);             
-./um/urlmon.h:524:                            _Outptr_ IBindCtx **ppBC, DWORD reserved);                                                     
-./um/urlmon.h:526:                                _Outptr_ LPMONIKER *ppmk);                                           
-./um/urlmon.h:528:                                _Outptr_ IBindStatusCallback**  ppBSCBPrev, DWORD dwReserved);       
+./um/urlmon.h:515:STDAPI CreateURLMoniker(_In_opt_ LPMONIKER pMkCtx, _In_ LPCWSTR szURL, _Outptr_ LPMONIKER FAR * ppmk);
+./um/urlmon.h:516:STDAPI CreateURLMonikerEx(_In_opt_ LPMONIKER pMkCtx, _In_ LPCWSTR szURL, _Outptr_ LPMONIKER FAR * ppmk, DWORD dwFlags);
+./um/urlmon.h:519:                                _In_opt_ IEnumFORMATETC *pEFetc, _Outptr_ IBindCtx **ppBC);
+./um/urlmon.h:521:STDAPI CreateURLMonikerEx2(_In_opt_ LPMONIKER pMkCtx, _In_ IUri* pUri, _Outptr_ LPMONIKER FAR * ppmk, DWORD dwFlags);
+./um/urlmon.h:524:                            _Outptr_ IBindCtx **ppBC, DWORD reserved);
+./um/urlmon.h:526:                                _Outptr_ LPMONIKER *ppmk);
+./um/urlmon.h:528:                                _Outptr_ IBindStatusCallback**  ppBSCBPrev, DWORD dwReserved);
 ./um/urlmon.h:536:            _Reserved_ LPVOID pvReserved, REFIID riid, _Outptr_ LPVOID * ppv);
-./um/urlmon.h:542:            _Outptr_ LPSTR * ppszComponentID);                                                      
-./um/urlmon.h:558:STDAPI CreateFormatEnumerator( _In_ _In_range_(>, 0) UINT cfmtetc, _In_reads_(cfmtetc) FORMATETC* rgfmtetc, _Outptr_ IEnumFORMATETC** ppenumfmtetc); 
-./um/urlmon.h:572:    _Outptr_                     LPWSTR  *ppwzMimeOut,          // the suggested mime                                                         
+./um/urlmon.h:542:            _Outptr_ LPSTR * ppszComponentID);
+./um/urlmon.h:558:STDAPI CreateFormatEnumerator( _In_ _In_range_(>, 0) UINT cfmtetc, _In_reads_(cfmtetc) FORMATETC* rgfmtetc, _Outptr_ IEnumFORMATETC** ppenumfmtetc);
+./um/urlmon.h:572:    _Outptr_                     LPWSTR  *ppwzMimeOut,          // the suggested mime
 ./um/urlmon.h:801:            _COM_Outptr_  void **ppvObject);
 ./um/urlmon.h:945:            _COM_Outptr_  void **ppvObject);
 ./um/urlmon.h:1041:            _COM_Outptr_  void **ppvObject);
@@ -35788,8 +35788,8 @@ C:\Program Files (x86)\Windows Kits\8.1\Include>
 ./um/urlmon.h:4399:            _COM_Outptr_  void **ppvObject);
 ./um/urlmon.h:4503:            _COM_Outptr_  void **ppvObject);
 ./um/urlmon.h:4634:            _COM_Outptr_  void **ppvObject);
-./um/urlmon.h:4783:STDAPI URLOpenBlockingStreamA(_In_opt_ LPUNKNOWN, _In_ LPCSTR, _Outptr_ LPSTREAM*,DWORD, _In_opt_ LPBINDSTATUSCALLBACK);                      
-./um/urlmon.h:4784:STDAPI URLOpenBlockingStreamW(_In_opt_ LPUNKNOWN, _In_ LPCWSTR, _Outptr_ LPSTREAM*,DWORD, _In_opt_ LPBINDSTATUSCALLBACK);                     
+./um/urlmon.h:4783:STDAPI URLOpenBlockingStreamA(_In_opt_ LPUNKNOWN, _In_ LPCSTR, _Outptr_ LPSTREAM*,DWORD, _In_opt_ LPBINDSTATUSCALLBACK);
+./um/urlmon.h:4784:STDAPI URLOpenBlockingStreamW(_In_opt_ LPUNKNOWN, _In_ LPCWSTR, _Outptr_ LPSTREAM*,DWORD, _In_opt_ LPBINDSTATUSCALLBACK);
 ./um/urlmon.h:4854:            _COM_Outptr_  void **ppvObject);
 ./um/urlmon.h:4976:            _COM_Outptr_  void **ppvObject);
 ./um/urlmon.h:5084:            _COM_Outptr_  void **ppvObject);
@@ -35802,11 +35802,11 @@ C:\Program Files (x86)\Windows Kits\8.1\Include>
 ./um/urlmon.h:6181:            _COM_Outptr_  void **ppvObject);
 ./um/urlmon.h:6282:            _COM_Outptr_  void **ppvObject);
 ./um/urlmon.h:6465:            _COM_Outptr_  void **ppvObject);
-./um/urlmon.h:6643:    _Outptr_     IUri      **ppCombinedUri,  
-./um/urlmon.h:6650:    _Outptr_     IUri      **ppCombinedUri,  
-./um/urlmon.h:6675:    _Outptr_     IInternetSession  **ppIInternetSession, 
-./um/urlmon.h:6680:    _Outptr_     LPWSTR *ppwszSecUrl,    
-./um/urlmon.h:6698:    _Outptr_     IUri          **ppSecUri,   
+./um/urlmon.h:6643:    _Outptr_     IUri      **ppCombinedUri,
+./um/urlmon.h:6650:    _Outptr_     IUri      **ppCombinedUri,
+./um/urlmon.h:6675:    _Outptr_     IInternetSession  **ppIInternetSession,
+./um/urlmon.h:6680:    _Outptr_     LPWSTR *ppwszSecUrl,
+./um/urlmon.h:6698:    _Outptr_     IUri          **ppSecUri,
 ./um/urlmon.h:6826:STDAPI CoInternetCreateSecurityManager(_In_opt_ IServiceProvider *pSP, _Outptr_ IInternetSecurityManager **ppSM, DWORD dwReserved);
 ./um/urlmon.h:6828:STDAPI CoInternetCreateZoneManager(_In_opt_ IServiceProvider *pSP, _Outptr_ IInternetZoneManager **ppZM, DWORD dwReserved);
 ./um/urlmon.h:6891:            _COM_Outptr_  void **ppvObject);
@@ -36190,7 +36190,7 @@ C:\Program Files (x86)\Windows Kits\8.1\Include>
 ./um/WdsClientApi.h:278:    _Outptr_result_buffer_(*pdwNumValues) PTSTR **pppszValues,
 ./um/WdsClientApi.h:428:    _Outptr_ PWSTR *ppwszServerName,
 ./um/WdsClientApi.h:429:    _Outptr_result_buffer_(*pulCount) PWSTR **pppwszDriverPackages,
-./um/WdsClientApi.h:438:    _Outptr_ PWSTR *ppwszServerName,    
+./um/WdsClientApi.h:438:    _Outptr_ PWSTR *ppwszServerName,
 ./um/WdsClientApi.h:439:    _Outptr_result_buffer_(*pulCount) PWSTR **pppwszDriverPackages,
 ./um/WdsClientApi.h:447:    _Outptr_ PWSTR *ppwszDriverQuery
 ./um/wdspxe.h:482:    _Outptr_opt_result_bytebuffer_(*pbOptionLen) PVOID *ppOptionValue
@@ -36225,42 +36225,42 @@ C:\Program Files (x86)\Windows Kits\8.1\Include>
 ./um/WdsTptMgmt.h:5742:            _COM_Outptr_  void **ppvObject);
 ./um/WebEvnts.h:136:            _COM_Outptr_  void **ppvObject);
 ./um/WebEvnts.h:240:            _COM_Outptr_  void **ppvObject);
-./um/WebServices.h:2779:    _Outptr_ void** channelInstance, 
-./um/WebServices.h:2938:    _Outptr_ void** encoderContext, 
-./um/WebServices.h:3001:    _Outptr_ void** decoderContext, 
-./um/WebServices.h:3082:    _Outptr_ void** listenerInstance, 
-./um/WebServices.h:3184:    _Outptr_ void** channelInstance, 
-./um/WebServices.h:3232:    _Outptr_ const struct _CERT_CONTEXT** cert, 
-./um/WebServices.h:3433:    _Outptr_ void** channelState, 
-./um/WebServices.h:6995:    _Outptr_ WS_XML_BUFFER** buffer, 
-./um/WebServices.h:7028:    _Outptr_ WS_XML_READER** reader, 
-./um/WebServices.h:7080:    _Outptr_ const WS_XML_NODE** node, 
-./um/WebServices.h:7289:    _Outptr_ WS_XML_WRITER** writer, 
-./um/WebServices.h:7433:    _Outptr_ WS_XML_BUFFER** xmlBuffer, 
-./um/WebServices.h:7448:    _Outptr_result_bytebuffer_(*byteCount) void** bytes, 
-./um/WebServices.h:7465:    _Outptr_ WS_XML_BUFFER** xmlBuffer, 
-./um/WebServices.h:7611:    _Outptr_ const WS_XML_STRING** prefix, 
-./um/WebServices.h:7656:    _Outptr_result_buffer_(*trimmedCount) WCHAR** trimmedChars, 
-./um/WebServices.h:7690:    _Outptr_ const WS_XML_STRING** ns, 
-./um/WebServices.h:7720:    _Outptr_opt_result_buffer_(*valueCharCount) WCHAR** valueChars, 
-./um/WebServices.h:7758:    _Outptr_ WS_CHANNEL** channel, 
-./um/WebServices.h:8005:    _Outptr_result_maybenull_ WS_XML_DICTIONARY** dictionary, 
+./um/WebServices.h:2779:    _Outptr_ void** channelInstance,
+./um/WebServices.h:2938:    _Outptr_ void** encoderContext,
+./um/WebServices.h:3001:    _Outptr_ void** decoderContext,
+./um/WebServices.h:3082:    _Outptr_ void** listenerInstance,
+./um/WebServices.h:3184:    _Outptr_ void** channelInstance,
+./um/WebServices.h:3232:    _Outptr_ const struct _CERT_CONTEXT** cert,
+./um/WebServices.h:3433:    _Outptr_ void** channelState,
+./um/WebServices.h:6995:    _Outptr_ WS_XML_BUFFER** buffer,
+./um/WebServices.h:7028:    _Outptr_ WS_XML_READER** reader,
+./um/WebServices.h:7080:    _Outptr_ const WS_XML_NODE** node,
+./um/WebServices.h:7289:    _Outptr_ WS_XML_WRITER** writer,
+./um/WebServices.h:7433:    _Outptr_ WS_XML_BUFFER** xmlBuffer,
+./um/WebServices.h:7448:    _Outptr_result_bytebuffer_(*byteCount) void** bytes,
+./um/WebServices.h:7465:    _Outptr_ WS_XML_BUFFER** xmlBuffer,
+./um/WebServices.h:7611:    _Outptr_ const WS_XML_STRING** prefix,
+./um/WebServices.h:7656:    _Outptr_result_buffer_(*trimmedCount) WCHAR** trimmedChars,
+./um/WebServices.h:7690:    _Outptr_ const WS_XML_STRING** ns,
+./um/WebServices.h:7720:    _Outptr_opt_result_buffer_(*valueCharCount) WCHAR** valueChars,
+./um/WebServices.h:7758:    _Outptr_ WS_CHANNEL** channel,
+./um/WebServices.h:8005:    _Outptr_result_maybenull_ WS_XML_DICTIONARY** dictionary,
 ./um/WebServices.h:8032:    _Outptr_ WS_ERROR** error);
-./um/WebServices.h:8167:    _Outptr_ WS_HEAP** heap, 
-./um/WebServices.h:8176:    _Outptr_result_bytebuffer_(size) void** ptr, 
-./um/WebServices.h:8221:    _Outptr_ WS_LISTENER** listener, 
-./um/WebServices.h:8314:    _Outptr_ WS_CHANNEL** channel, 
-./um/WebServices.h:8329:    _Outptr_ WS_MESSAGE** message, 
-./um/WebServices.h:8341:    _Outptr_ WS_MESSAGE** message, 
-./um/WebServices.h:8662:    _Outptr_ WS_SECURITY_TOKEN** token, 
-./um/WebServices.h:8694:    _Outptr_ WS_SECURITY_TOKEN** token, 
-./um/WebServices.h:8859:    _Outptr_ WS_SERVICE_HOST** serviceHost, 
-./um/WebServices.h:8945:    _Outptr_ WS_SERVICE_PROXY** serviceProxy, 
-./um/WebServices.h:9065:    _Outptr_ WS_URL** outUrl, 
-./um/WebServices.h:9119:    _Outptr_ WS_METADATA** metadata, 
-./um/WebServices.h:9169:    _Outptr_result_maybenull_ WS_ENDPOINT_ADDRESS** address, 
-./um/WebServices.h:9235:    _Outptr_ WS_SERVICE_PROXY** serviceProxy, 
-./um/WebServices.h:9258:    _Outptr_ WS_SERVICE_ENDPOINT** serviceEndpoint, 
+./um/WebServices.h:8167:    _Outptr_ WS_HEAP** heap,
+./um/WebServices.h:8176:    _Outptr_result_bytebuffer_(size) void** ptr,
+./um/WebServices.h:8221:    _Outptr_ WS_LISTENER** listener,
+./um/WebServices.h:8314:    _Outptr_ WS_CHANNEL** channel,
+./um/WebServices.h:8329:    _Outptr_ WS_MESSAGE** message,
+./um/WebServices.h:8341:    _Outptr_ WS_MESSAGE** message,
+./um/WebServices.h:8662:    _Outptr_ WS_SECURITY_TOKEN** token,
+./um/WebServices.h:8694:    _Outptr_ WS_SECURITY_TOKEN** token,
+./um/WebServices.h:8859:    _Outptr_ WS_SERVICE_HOST** serviceHost,
+./um/WebServices.h:8945:    _Outptr_ WS_SERVICE_PROXY** serviceProxy,
+./um/WebServices.h:9065:    _Outptr_ WS_URL** outUrl,
+./um/WebServices.h:9119:    _Outptr_ WS_METADATA** metadata,
+./um/WebServices.h:9169:    _Outptr_result_maybenull_ WS_ENDPOINT_ADDRESS** address,
+./um/WebServices.h:9235:    _Outptr_ WS_SERVICE_PROXY** serviceProxy,
+./um/WebServices.h:9258:    _Outptr_ WS_SERVICE_ENDPOINT** serviceEndpoint,
 ./um/WiaDevD.h:54:    STDMETHOD(QueryInterface) (THIS_ REFIID riid, _COM_Outptr_ LPVOID* ppvObj) PURE;
 ./um/WiaDevD.h:89:    STDMETHOD(QueryInterface) (THIS_ REFIID riid, _COM_Outptr_ LPVOID* ppvObj) PURE;
 ./um/wiamdef.h:95:   _Outptr_opt_result_bytebuffer_(cbDevSpecContext) BYTE **ppDevSpecContext, _Outptr_ IWiaDrvItem **ppIWiaDrvItem);
@@ -37030,7 +37030,7 @@ C:\Program Files (x86)\Windows Kits\8.1\Include>
 ./um/Wsdbase.idl:423:        [out, annotation("_Outptr_")] IUnknown** ppContext);
 ./um/Wsdbase.idl:434:cpp_quote("    _Outptr_ IWSDHttpAddress** ppAddress);")
 ./um/Wsdbase.idl:453:        [out, annotation("_Outptr_")] LPCWSTR* ppszPath); // Note: Do not deallocate ppszAddress
-./um/Wsdbase.idl:475:        [in, out, annotation("_Outptr_")] PCCERT_CONTEXT* ppCertContext); // Should be freed using CertFreeCertificateContext 
+./um/Wsdbase.idl:475:        [in, out, annotation("_Outptr_")] PCCERT_CONTEXT* ppCertContext); // Should be freed using CertFreeCertificateContext
 ./um/Wsdclient.h:131:    _Outptr_ IWSDDeviceProxy** ppDeviceProxy);
 ./um/Wsdclient.h:138:    _Outptr_ IWSDDeviceProxy** ppDeviceProxy);
 ./um/Wsdclient.h:147:    _Outptr_ IWSDDeviceProxy** ppDeviceProxy);
@@ -37198,7 +37198,7 @@ C:\Program Files (x86)\Windows Kits\8.1\Include>
 ./um/Wsddisco.idl:140:        [out, annotation("_Outptr_")] WSD_NAME_LIST** ppTypesList); // Note: Do not deallocate ppTypesList
 ./um/Wsddisco.idl:143:        [out, annotation("_Outptr_")] WSD_URI_LIST** ppScopesList); // Note: Do not deallocate ppScopesList
 ./um/Wsddisco.idl:146:        [out, annotation("_Outptr_")] WSD_URI_LIST** ppXAddrsList); // Note: Do not deallocate ppXAddrsList
-./um/Wsddisco.idl:152:        [out, annotation("_Outptr_")] WSDXML_ELEMENT** ppHeaderAny, // Note: Do not deallocate ppHeaderAny 
+./um/Wsddisco.idl:152:        [out, annotation("_Outptr_")] WSDXML_ELEMENT** ppHeaderAny, // Note: Do not deallocate ppHeaderAny
 ./um/Wsddisco.idl:153:        [out, annotation("_Outptr_")] WSDXML_ELEMENT** ppBodyAny); // Note: Do not deallocate ppBodyAny
 ./um/Wsddisco.idl:156:        [out, annotation("_Outptr_")] LPCWSTR* ppszTag); // Note: Do not deallocate ppszTag
 ./um/Wsddisco.idl:159:        [out, annotation("_Outptr_")] LPCWSTR* ppszRemoteTransportAddress); // Note: Do not deallocate ppszRemoteTransportAddress
@@ -37396,12 +37396,12 @@ C:\Program Files (x86)\Windows Kits\8.1\Include>
 ./um/xmllite.h:709:            _COM_Outptr_  void **ppvObject);
 ./um/xmllite.h:943:            _COM_Outptr_  void **ppvObject);
 ./um/xmllite.idl:32:cpp_quote("    _Outptr_ void ** ppvObject,")
-./um/xmllite.idl:267:        [annotation("_Outptr_result_buffer_maybenull_(*pcwchQualifiedName+1)")] LPCWSTR * ppwszQualifiedName, 
-./um/xmllite.idl:270:        [annotation("_Outptr_result_buffer_maybenull_(*pcwchNamespaceUri+1)")] LPCWSTR * ppwszNamespaceUri, 
-./um/xmllite.idl:273:        [annotation("_Outptr_result_buffer_maybenull_(*pcwchLocalName+1)")] LPCWSTR * ppwszLocalName, 
-./um/xmllite.idl:276:        [annotation("_Outptr_result_buffer_maybenull_(*pcwchPrefix+1)")] LPCWSTR * ppwszPrefix, 
-./um/xmllite.idl:279:        [annotation("_Outptr_result_buffer_maybenull_(*pcwchValue+1)")] LPCWSTR * ppwszValue, 
-./um/xmllite.idl:286:        [annotation("_Outptr_result_buffer_maybenull_(*pcwchBaseUri+1)")] LPCWSTR * ppwszBaseUri, 
+./um/xmllite.idl:267:        [annotation("_Outptr_result_buffer_maybenull_(*pcwchQualifiedName+1)")] LPCWSTR * ppwszQualifiedName,
+./um/xmllite.idl:270:        [annotation("_Outptr_result_buffer_maybenull_(*pcwchNamespaceUri+1)")] LPCWSTR * ppwszNamespaceUri,
+./um/xmllite.idl:273:        [annotation("_Outptr_result_buffer_maybenull_(*pcwchLocalName+1)")] LPCWSTR * ppwszLocalName,
+./um/xmllite.idl:276:        [annotation("_Outptr_result_buffer_maybenull_(*pcwchPrefix+1)")] LPCWSTR * ppwszPrefix,
+./um/xmllite.idl:279:        [annotation("_Outptr_result_buffer_maybenull_(*pcwchValue+1)")] LPCWSTR * ppwszValue,
+./um/xmllite.idl:286:        [annotation("_Outptr_result_buffer_maybenull_(*pcwchBaseUri+1)")] LPCWSTR * ppwszBaseUri,
 ./um/xpsdigitalsignature.h:261:            _COM_Outptr_  void **ppvObject);
 ./um/xpsdigitalsignature.h:460:            _COM_Outptr_  void **ppvObject);
 ./um/xpsdigitalsignature.h:592:            _COM_Outptr_  void **ppvObject);
@@ -41455,8 +41455,8 @@ C:\Program Files (x86)\Windows Kits\8.1\Include>
 ./winrt/wrl/implements.h:1721:        _Outptr_result_buffer_maybenull_(*iidCount) _Result_nullonfailure_ IID **iids)
 ./winrt/wrl/implements.h:1822:    STDMETHOD(QueryInterface)(REFIID riid, _Outptr_result_nullonfailure_ void **ppvObject)
 ./winrt/wrl/implements.h:1857:        _Outptr_result_buffer_maybenull_(*iidCount) _Result_nullonfailure_ IID **iids)
-./winrt/wrl/implements.h:1885:    STDMETHOD(GetWeakReference)(_Outptr_ IWeakReference **weakReference)    
-./winrt/wrl/implements.h:2001:    STDMETHOD(Resolve)(REFIID riid, _Outptr_result_maybenull_ _Result_nullonfailure_ IInspectable **ppvObject)    
+./winrt/wrl/implements.h:1885:    STDMETHOD(GetWeakReference)(_Outptr_ IWeakReference **weakReference)
+./winrt/wrl/implements.h:2001:    STDMETHOD(Resolve)(REFIID riid, _Outptr_result_maybenull_ _Result_nullonfailure_ IInspectable **ppvObject)
 ./winrt/wrl/implements.h:2276:HRESULT MakeAndInitialize(_Outptr_result_nullonfailure_ I** ppvObject)
 ./winrt/wrl/implements.h:2329:HRESULT MakeAndInitialize(_Outptr_result_nullonfailure_ I** ppvObject, TArg1 &&arg1)
 ./winrt/wrl/implements.h:2335:HRESULT MakeAndInitialize(_Outptr_result_nullonfailure_ I** ppvObject, TArg1 &&arg1, TArg2 &&arg2)
@@ -44582,9 +44582,9 @@ C:\Program Files (x86)\Windows Kits\8.1\Include>%grep% -C -rnI _At_ .|%grep% "_W
 ./km/wdm.h:28900:_When_(ControlCode==EVENT_ACTIVITY_CTRL_CREATE_SET_ID, _IRQL_requires_max_(APC_LEVEL) _At_(ActivityId, _Out_))
 ./km/wdm.h-29590-_When_((DeviceProperty & __string_type),
 ./km/wdm.h-29594-_When_((DeviceProperty & __multiString_type),
-./km/wdm.h-29643-    _Out_ _When_(return==0, 
+./km/wdm.h-29643-    _Out_ _When_(return==0,
 ./km/wdm.h-29684-        _When_(return==0, __drv_allocatesMem(Mem)))
-./km/wdm.h-29701-    _When_(return==0, 
+./km/wdm.h-29701-    _When_(return==0,
 ./km/wdm.h-29751-        _When_(return==0, __drv_allocatesMem(Mem)))
 ./km/wdmsec.h-399-	    _When_((((_In_function_class_(DRIVER_INITIALIZE)) ||(_In_function_class_(DRIVER_DISPATCH)))),
 ./shared/bcrypt.h:1288:        _When_(_Old_(*ppBuffer) != NULL, _At_(*ppBuffer, _Out_writes_bytes_to_(*pcbBuffer, *pcbBuffer)))
@@ -44692,9 +44692,9 @@ C:\Program Files (x86)\Windows Kits\8.1\Include>%grep% -C -rnI _At_ .|%grep% "_W
 ./um/wia_lh.h:3029:            _Outptr_result_maybenull_ _At_(*ppDestination, _When_(return == S_OK, _Post_notnull_))  IStream **ppDestination);
 ./um/winddi.h:4140:_When_(cjSize != 0, _At_(return, _Out_writes_bytes_(cjSize)))
 ./um/winddi.h-4593-_When_(pBuffer != NULL && cjBufferSize != 0 && return == 1,
-./um/winddi.h-4596-_On_failure_(_Post_satisfies_(return == 0))          
+./um/winddi.h-4596-_On_failure_(_Post_satisfies_(return == 0))
 ./um/winddi.h-4633-_When_(pBuffer != NULL && cjBufferSize != 0 && return == 1,
-./um/winddi.h-4636-_On_failure_(_Post_satisfies_(return == 0))          
+./um/winddi.h-4636-_On_failure_(_Post_satisfies_(return == 0))
 ./um/winhttp.h-1169-    _When_((dwOption != WINHTTP_OPTION_USERNAME &&
 ./um/WinNls.h:2483:_When_((dwMapFlags & (LCMAP_SORTKEY | LCMAP_BYTEREV | LCMAP_HASH | LCMAP_SORTHANDLE)) != 0, _At_((LPBYTE) lpDestStr, _Out_writes_bytes_opt_(cchDest)))
 ./um/WinNls.h:2485:_When_((dwMapFlags & (LCMAP_SORTKEY | LCMAP_BYTEREV)) != 0, _At_((LPBYTE) lpDestStr, _Out_writes_bytes_opt_(cchDest)))
