@@ -6,12 +6,10 @@
 #include <intrin.h>
 #include <Windows.h>
 #pragma warning( pop )
-
 _Ret_range_( 2, 20 )
 const DWORD return_some_number( _In_ _In_range_( 1, 10 ) const DWORD in ) {
 	return ( in * 2 );
 	}
-
 /*_Success_( return != 0 )*/ /*_Always_( _When_( Mask > 0, _Ret_range_( 1, UCHAR_MAX ) ) )*/ /*_On_failure_( _At_( Index, _Post_invalid_ ) )*/
 _Pre_satisfies_( Mask > 0 )
 UCHAR my_bit_scan_reverse( _Out_ DWORD* const Index, _In_ const DWORD Mask ) {
@@ -23,9 +21,7 @@ UCHAR my_bit_scan_reverse( _Out_ DWORD* const Index, _In_ const DWORD Mask ) {
 	__asm mov [ecx], eax
 	return 1;
 	}
-
 #pragma intrinsic(_BitScanReverse)
-
 int main( ) {
 	const ULONG mask = 12;
 		{
@@ -50,7 +46,6 @@ int main( ) {
 		const UCHAR is_non_zero = my_bit_scan_reverse( &index, alt_mask );
 		printf( "char is_non_zero: %c, unsigned long value of is_non_zero: %lu, index: %lu\r\n", is_non_zero, static_cast< unsigned long >( is_non_zero ), index );
 		}
-		
 		{
 		ULONG index = 0;
 		const ULONG alt_mask = return_some_number( 7 );
@@ -59,7 +54,4 @@ int main( ) {
 		//analyze doesn't complain
 		printf( "char is_non_zero: %c, unsigned long value of is_non_zero: %lu, index: %lu\r\n", is_non_zero, static_cast< unsigned long >( is_non_zero ), index );
 		}
-
-
-
 	}

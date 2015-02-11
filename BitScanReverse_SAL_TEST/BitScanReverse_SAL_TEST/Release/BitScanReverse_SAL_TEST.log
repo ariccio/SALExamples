@@ -1,4 +1,4 @@
-﻿Build started 2/3/2015 6:43:25 PM.
+﻿Build started 2/4/2015 9:16:16 PM.
 Environment at start of build:
 ALLUSERSPROFILE = C:\ProgramData
 AMPLXE_LANG = en
@@ -14,9 +14,8 @@ diff = C:\wbin\diff.exe
 dot = "C:\Python33\Lib\site-packages\graphviz\dot.py"
 DXSDK_DIR = C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\
 EMET_CE = I:-1;S:0;F:0;E:0;V:Nov  9 2014 15:48:33
-EMET_Settings = Nov  9 2014 @ 15:50:02; PID: 0x10e4/4324; ReportingSettings:7; ExploitAction:1; DEP:1; SEHOP:1; NullPage:1; HeapSpray:1; EAF:1; EAF+:1; MandatoryASLR:1; BottomUpASLR:1; StackPivot:1; Caller:1; LoadLib:1; MemProt:1; DeepHooks:1; BannedFunctions:1; AntiDetours:1; SimExecFlow:1=2/15; ASR:0; nHk:54; 
+EMET_Settings = Nov  9 2014 @ 15:50:02; PID: 0x12ec/4844; ReportingSettings:7; ExploitAction:1; DEP:1; SEHOP:1; NullPage:1; HeapSpray:1; EAF:1; EAF+:1; MandatoryASLR:1; BottomUpASLR:1; StackPivot:1; Caller:1; LoadLib:1; MemProt:1; DeepHooks:1; BannedFunctions:1; AntiDetours:1; SimExecFlow:1=2/15; ASR:0; nHk:54; 
 FP_NO_HOST_CHECK = NO
-FugueRepository = C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 12.0\TEAM TOOLS\STATIC ANALYSIS TOOLS\FxCop\Repository
 grep = C:\wbin\grep.exe
 head = C:\wbin\head.exe
 HOMEDRIVE = C:
@@ -97,8 +96,8 @@ zcat = C:\wbin\zcat.exe
 _NT_DEBUGGER_EXTENSION_PATH = "C:\Users\Alexander Riccio\WinDBGExtensions"
 _NT_SYMBOL_PATH = srv*C:\SymCache*http://msdl.microsoft.com/download/symbols
 
-18:43:25.679     1>Project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" on node 2 (Clean target(s)).
-18:43:25.679     1>Initial Properties:
+21:16:16.145     1>Project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" on node 2 (Build target(s)).
+21:16:16.145     1>Initial Properties:
                    _AfterCompileWinFXInternalDependsOn = 
                            PrepareResourcesForSatelliteAssemblies;
                            MergeLocalizationDirectives;
@@ -667,8 +666,7 @@ _NT_SYMBOL_PATH = srv*C:\SymCache*http://msdl.microsoft.com/download/symbols
                    EmbeddedWin32Manifest = 
                    EmbedManifest = true
                    EmbedManifestBy = MT
-                   EMET_CE = I:-1;S:0;F:0;E:0;V:Nov  9 2014 15:48:33
-                   EMET_Settings = Nov  9 2014 @ 15:50:02; PID: 0x10e4/4324; ReportingSettings:7; ExploitAction:1; DEP:1; SEHOP:1; NullPage:1; HeapSpray:1; EAF:1; EAF+:1; MandatoryASLR:1; BottomUpASLR:1; StackPivot:1; Caller:1; LoadLib:1; MemProt:1; DeepHooks:1; BannedFunctions:1; AntiDetours:1; SimExecFlow:1=2/15; ASR:0; nHk:54; 
+                   EMET_Settings = Nov  9 2014 @ 15:50:02; PID: 0x12ec/4844; ReportingSettings:7; ExploitAction:1; DEP:1; SEHOP:1; NullPage:1; HeapSpray:1; EAF:1; EAF+:1; MandatoryASLR:1; BottomUpASLR:1; StackPivot:1; Caller:1; LoadLib:1; MemProt:1; DeepHooks:1; BannedFunctions:1; AntiDetours:1; SimExecFlow:1=2/15; ASR:0; nHk:54; 
                    EnableManagedIncrementalBuild = false
                    EntityDeployDependsOn = 
                    EntityDeployIntermediateResourcePath = Release\edmxResourcesToEmbed\
@@ -849,7 +847,7 @@ _NT_SYMBOL_PATH = srv*C:\SymCache*http://msdl.microsoft.com/download/symbols
                    MSBuildProjectFullPath = C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj
                    MSBuildProjectName = BitScanReverse_SAL_TEST
                    MSBuildRuntimeVersion = 4.0.30319
-                   MSBuildStartupDirectory = C:\Program Files (x86)\Microsoft Visual Studio 12.0\Common7\IDE
+                   MSBuildStartupDirectory = C:\WINDOWS\system32
                    MSBuildToolsPath = C:\Program Files (x86)\MSBuild\12.0\bin
                    MSBuildToolsPath32 = C:\Program Files (x86)\MSBuild\12.0\bin\
                    MSBuildToolsRoot = C:\Program Files (x86)\MSBuild\
@@ -1222,8 +1220,8 @@ _NT_SYMBOL_PATH = srv*C:\SymCache*http://msdl.microsoft.com/download/symbols
                    YieldDuringToolExecution = true
                    zcat = C:\wbin\zcat.exe
 
-18:43:25.679     1>Building with tools version "12.0".
-18:43:25.679     1>Target "_CheckForInvalidConfigurationAndPlatform: (TargetId:2)" in file "C:\Program Files (x86)\MSBuild\12.0\bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (entry point):
+21:16:16.145     1>Building with tools version "12.0".
+21:16:16.146     1>Target "_CheckForInvalidConfigurationAndPlatform: (TargetId:2)" in file "C:\Program Files (x86)\MSBuild\12.0\bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (entry point):
                    Task "Error" skipped, due to false condition; ( '$(_InvalidConfigurationError)' == 'true' ) was evaluated as ( '' == 'true' ).
                    Task "Warning" skipped, due to false condition; ( '$(_InvalidConfigurationWarning)' == 'true' ) was evaluated as ( '' == 'true' ).
                    Using "Message" task from assembly "Microsoft.Build.Tasks.v12.0, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
@@ -1240,166 +1238,1238 @@ _NT_SYMBOL_PATH = srv*C:\SymCache*http://msdl.microsoft.com/download/symbols
                    Task "Error" skipped, due to false condition; ('$(OutDir)' != '' and !HasTrailingSlash('$(OutDir)')) was evaluated as ('C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\Release\' != '' and !HasTrailingSlash('C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\Release\')).
                    Task "Error" skipped, due to false condition; ('$(BaseIntermediateOutputPath)' != '' and !HasTrailingSlash('$(BaseIntermediateOutputPath)')) was evaluated as ('obj\' != '' and !HasTrailingSlash('obj\')).
                    Task "Error" skipped, due to false condition; ('$(IntermediateOutputPath)' != '' and !HasTrailingSlash('$(IntermediateOutputPath)')) was evaluated as ('Release\' != '' and !HasTrailingSlash('Release\')).
-18:43:25.682     1>Done building target "_CheckForInvalidConfigurationAndPlatform" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:2)
-18:43:25.682     1>Target "_PrepareForClean: (TargetId:3)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.BuildSteps.Targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "Clean" depends on it):
-                   Using "Delete" task from assembly "Microsoft.Build.Tasks.v12.0, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
-                   Task "Delete" (TaskId:4)
-                     Task Parameter:Files=Release\BitScanR.5459017C.tlog\BitScanReverse_SAL_TEST.lastbuildstate (TaskId:4)
-                     Deleting file "Release\BitScanR.5459017C.tlog\BitScanReverse_SAL_TEST.lastbuildstate". (TaskId:4)
-                   Done executing task "Delete". (TaskId:4)
-18:43:25.684     1>Done building target "_PrepareForClean" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:3)
-18:43:25.684     1>Target "BeforeClean: (TargetId:4)" in file "C:\Program Files (x86)\MSBuild\12.0\bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "Clean" depends on it):
-18:43:25.684     1>Done building target "BeforeClean" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:4)
-                   Target "UnmanagedUnregistration" skipped, due to false condition; ((('$(_AssemblyTimestampBeforeCompile)' != '$(_AssemblyTimestampAfterCompile)' or '$(RegisterForComInterop)' != 'true' or '$(OutputType)' != 'library') or
-                                       ('$(_AssemblyTimestampBeforeCompile)' == '')) and
-                                      Exists('@(_UnmanagedRegistrationCache)')) was evaluated as ((('' != '' or '' != 'true' or 'exe' != 'library') or
-                                       ('' == '')) and
-                                      Exists('obj\BitScanReverse_SAL_TEST.vcxproj.UnmanagedRegistration.cache')).
-18:43:25.684     1>Target "CoreClean: (TargetId:5)" in file "C:\Program Files (x86)\MSBuild\12.0\bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "Clean" depends on it):
-                   Task "Delete" (TaskId:5)
-                     Task Parameter:
-                         Files=
-                             Release\\TempCA\BitScanReverse_SAL_TEST.pdb
-                             Release\\TempCA\BitScanReverse_SAL_TEST.exe (TaskId:5)
-                     Task Parameter:TreatErrorsAsWarnings=True (TaskId:5)
-                     File "Release\\TempCA\BitScanReverse_SAL_TEST.pdb" doesn't exist. Skipping. (TaskId:5)
-                     File "Release\\TempCA\BitScanReverse_SAL_TEST.exe" doesn't exist. Skipping. (TaskId:5)
-                   Done executing task "Delete". (TaskId:5)
-                   Using "ReadLinesFromFile" task from assembly "Microsoft.Build.Tasks.v12.0, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
-                   Task "ReadLinesFromFile" (TaskId:6)
-                     Task Parameter:File=Release\BitScanReverse_SAL_TEST.vcxproj.FileListAbsolute.txt (TaskId:6)
-                   Done executing task "ReadLinesFromFile". (TaskId:6)
-                   Using "FindUnderPath" task from assembly "Microsoft.Build.Tasks.v12.0, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
-                   Task "FindUnderPath" (TaskId:7)
-                     Task Parameter:Path=C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\Release\ (TaskId:7)
-                     Comparison path is "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\Release\". (TaskId:7)
-                   Done executing task "FindUnderPath". (TaskId:7)
-                   Task "FindUnderPath" (TaskId:8)
-                     Task Parameter:Path=Release\ (TaskId:8)
-                     Comparison path is "Release\". (TaskId:8)
-                   Done executing task "FindUnderPath". (TaskId:8)
-                   Task "Delete" (TaskId:9)
-                     Task Parameter:TreatErrorsAsWarnings=True (TaskId:9)
-                   Done executing task "Delete". (TaskId:9)
-                   Using "RemoveDuplicates" task from assembly "Microsoft.Build.Tasks.v12.0, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
-                   Task "RemoveDuplicates" (TaskId:10)
-                   Done executing task "RemoveDuplicates". (TaskId:10)
-                   Using "MakeDir" task from assembly "Microsoft.Build.Tasks.v12.0, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
-                   Task "MakeDir" (TaskId:11)
-                     Task Parameter:Directories=Release\ (TaskId:11)
-                   Done executing task "MakeDir". (TaskId:11)
-                   Using "WriteLinesToFile" task from assembly "Microsoft.Build.Tasks.v12.0, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
-                   Task "WriteLinesToFile" (TaskId:12)
-                     Task Parameter:File=Release\BitScanReverse_SAL_TEST.vcxproj.FileListAbsolute.txt (TaskId:12)
-                     Task Parameter:Overwrite=True (TaskId:12)
-                   Done executing task "WriteLinesToFile". (TaskId:12)
-18:43:25.686     1>Done building target "CoreClean" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:5)
-18:43:25.686     1>Target "AssignProjectConfiguration: (TargetId:6)" in file "C:\Program Files (x86)\MSBuild\12.0\bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "CleanReferencedProjects" depends on it):
+21:16:16.183     1>Done building target "_CheckForInvalidConfigurationAndPlatform" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:2)
+21:16:16.183     1>Target "_PrepareForBuild: (TargetId:3)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.BuildSteps.Targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "Build" depends on it):
+                   Task "CreateItem" skipped, due to false condition; ('%(CustomBuild.IncludeFileToTool)'!='') was evaluated as (''!='').
+21:16:16.184     1>Done building target "_PrepareForBuild" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:3)
+21:16:16.184     1>Target "_PrepareForReferenceResolution: (TargetId:4)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "ResolveReferences" depends on it):
+                   Task "Message" skipped, due to false condition; ('$(_REFERENCE_DEBUG)'=='true') was evaluated as (''=='true').
+21:16:16.184     1>Done building target "_PrepareForReferenceResolution" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:4)
+                   Target "ComputeCrtSDKReference" skipped, due to false condition; ('@(ClCompile)'!='' and '$(WindowsAppContainer)'=='true' and '$(UseCrtSDKReference)' != 'false') was evaluated as ('BitScanReverse_SAL_TEST.cpp'!='' and 'false'=='true' and '' != 'false').
+21:16:16.184     1>Target "BeforeResolveReferences: (TargetId:5)" in file "C:\Program Files (x86)\MSBuild\12.0\bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "ResolveReferences" depends on it):
+21:16:16.184     1>Done building target "BeforeResolveReferences" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:5)
+21:16:16.184     1>Target "AssignProjectConfiguration: (TargetId:6)" in file "C:\Program Files (x86)\MSBuild\12.0\bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "ResolveReferences" depends on it):
                    Using "AssignProjectConfiguration" task from assembly "Microsoft.Build.Tasks.v12.0, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
-                   Task "AssignProjectConfiguration" (TaskId:13)
-                     Task Parameter:CurrentProject=C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj (TaskId:13)
-                     Task Parameter:CurrentProjectConfiguration=Release (TaskId:13)
-                     Task Parameter:CurrentProjectPlatform=Win32 (TaskId:13)
-                     Task Parameter:OutputType=exe (TaskId:13)
-                     Task Parameter:ResolveConfigurationPlatformUsingMappings=False (TaskId:13)
+                   Task "AssignProjectConfiguration" (TaskId:4)
+                     Task Parameter:CurrentProject=C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj (TaskId:4)
+                     Task Parameter:CurrentProjectConfiguration=Release (TaskId:4)
+                     Task Parameter:CurrentProjectPlatform=Win32 (TaskId:4)
+                     Task Parameter:OutputType=exe (TaskId:4)
+                     Task Parameter:ResolveConfigurationPlatformUsingMappings=False (TaskId:4)
                      Task Parameter:SolutionConfigurationContents=<SolutionConfiguration>
                      <ProjectConfiguration Project="{5459017c-c5c3-427b-9ed4-a5066d7b5158}" AbsolutePath="C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj">Release|Win32</ProjectConfiguration>
-                     </SolutionConfiguration> (TaskId:13)
-                     Task Parameter:OnlyReferenceAndBuildProjectsEnabledInSolutionConfiguration=True (TaskId:13)
-                     Task Parameter:ShouldUnsetParentConfigurationAndPlatform=True (TaskId:13)
-                   Done executing task "AssignProjectConfiguration". (TaskId:13)
-18:43:25.687     1>Done building target "AssignProjectConfiguration" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:6)
-18:43:25.687     1>Target "_SplitProjectReferencesByFileExistence: (TargetId:7)" in file "C:\Program Files (x86)\MSBuild\12.0\bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "CleanReferencedProjects" depends on it):
+                     </SolutionConfiguration> (TaskId:4)
+                     Task Parameter:OnlyReferenceAndBuildProjectsEnabledInSolutionConfiguration=True (TaskId:4)
+                     Task Parameter:ShouldUnsetParentConfigurationAndPlatform=True (TaskId:4)
+                   Done executing task "AssignProjectConfiguration". (TaskId:4)
+21:16:16.186     1>Done building target "AssignProjectConfiguration" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:6)
+                   Target "AssignProjectConfiguration" skipped. Previously built successfully.
+21:16:16.186     1>Target "_SplitProjectReferencesByFileExistence: (TargetId:7)" in file "C:\Program Files (x86)\MSBuild\12.0\bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "ResolveProjectReferences" depends on it):
                    Task "ResolveNonMSBuildProjectOutput" skipped, due to false condition; ('$(BuildingInsideVisualStudio)'=='true' and '@(ProjectReferenceWithConfiguration)'!='') was evaluated as ('true'=='true' and ''!='').
-18:43:25.687     1>Done building target "_SplitProjectReferencesByFileExistence" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:7)
-18:43:25.687     1>Target "CleanReferencedProjects: (TargetId:8)" in file "C:\Program Files (x86)\MSBuild\12.0\bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "Clean" depends on it):
-                   Task "MSBuild" skipped, due to false condition; ('$(BuildingInsideVisualStudio)' != 'true' and '$(BuildProjectReferences)' == 'true' and '@(_MSBuildProjectReferenceExistent)' != '') was evaluated as ('true' != 'true' and 'true' == 'true' and '' != '').
-18:43:25.687     1>Done building target "CleanReferencedProjects" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:8)
-18:43:25.687     1>Target "CleanPublishFolder: (TargetId:9)" in file "C:\Program Files (x86)\MSBuild\12.0\bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "Clean" depends on it):
-                   Task "RemoveDir" skipped, due to false condition; ('$(PublishDir)'=='$(OutputPath)app.publish\' and Exists('$(PublishDir)')) was evaluated as ('C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\Release\app.publish\'=='C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\Release\app.publish\' and Exists('C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\Release\app.publish\')).
-18:43:25.687     1>Done building target "CleanPublishFolder" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:9)
-18:43:25.687     1>Target "AfterClean: (TargetId:10)" in file "C:\Program Files (x86)\MSBuild\12.0\bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "Clean" depends on it):
-18:43:25.687     1>Done building target "AfterClean" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:10)
-                   Target "EntityClean" skipped, due to false condition; ('@(EntityDeploy)' != '') was evaluated as ('' != '').
-18:43:25.687     1>Target "BeforeCppClean: (TargetId:11)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppClean.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "CppClean" depends on it):
-18:43:25.687     1>Done building target "BeforeCppClean" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:11)
-18:43:25.687     1>Target "CoreCppClean: (TargetId:12)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppClean.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "CppClean" depends on it):
-                   Task "MakeDir" (TaskId:14)
-                     Task Parameter:Directories=Release\ (TaskId:14)
-                   Done executing task "MakeDir". (TaskId:14)
-                   Using "CppClean" task from assembly "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.Build.CppTasks.Common.dll".
-                   Task "CppClean" (TaskId:15)
-                     Task Parameter:FoldersToClean=Release\;Release\BitScanR.5459017C.tlog\ (TaskId:15)
-                     Task Parameter:FilesExcludedFromClean=BitScanReverse_SAL_TEST.Build.CppClean.log (TaskId:15)
-                     Task Parameter:DoDelete=True (TaskId:15)
-                     Task Parameter:FilePatternsToDeleteOnClean=*.cdf;*.cache;*.obj;*.ilk;*.resources;*.tlb;*.tli;*.tlh;*.tmp;*.rsp;*.pgc;*.pgd;*.meta;*.tlog;*.manifest;*.res;*.pch;*.exp;*.idb;*.rep;*.xdc;*.pdb;*_manifest.rc;*.bsc;*.sbr;*.xml;*.metagen;*.bi;C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\Release\BitScanReverse_SAL_TEST.exe.manifest;C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\Release\BitScanReverse_SAL_TEST.tlb;C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\Release\BitScanReverse_SAL_TEST.pdb;C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\Release\BitScanReverse_SAL_TEST.exe;C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\Release\BitScanReverse_SAL_TEST.bsc;C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\Release\BitScanReverse_SAL_TEST.ilk;C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\Release\BitScanReverse_SAL_TEST.exe.intermediate.manifest;C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\Release\BitScanReverse_SAL_TEST.exe.CodeAnalysisLog.xml;C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\Release\BitScanReverse_SAL_TEST.exe.lastcodeanalysissucceeded (TaskId:15)
-                   Done executing task "CppClean". (TaskId:15)
-                   Task "WriteLinesToFile" (TaskId:16)
-                     Task Parameter:File=Release\BitScanReverse_SAL_TEST.Build.CppClean.log (TaskId:16)
+21:16:16.186     1>Done building target "_SplitProjectReferencesByFileExistence" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:7)
+                   Target "_RemoveNameMetadataFromProjectReferenceItems" skipped, due to false condition; ('@(ProjectReference)'!='') was evaluated as (''!='').
+21:16:16.186     1>Target "ResolveProjectReferences: (TargetId:8)" in file "C:\Program Files (x86)\MSBuild\12.0\bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "ResolveReferences" depends on it):
+                   Task "MSBuild" skipped, due to false condition; ('%(_MSBuildProjectReferenceExistent.BuildReference)' == 'true' and '@(ProjectReferenceWithConfiguration)' != '' and ('$(BuildingInsideVisualStudio)' == 'true' or '$(BuildProjectReferences)' != 'true') and '$(VisualStudioVersion)' != '10.0' and '@(_MSBuildProjectReferenceExistent)' != '') was evaluated as ('' == 'true' and '' != '' and ('true' == 'true' or 'true' != 'true') and '12.0' != '10.0' and '' != '').
+                   Task "MSBuild" skipped, due to false condition; ('%(_MSBuildProjectReferenceExistent.BuildReference)' == 'true' and '@(ProjectReferenceWithConfiguration)' != '' and ('$(BuildingInsideVisualStudio)' == 'true' or '$(BuildProjectReferences)' != 'true') and '$(VisualStudioVersion)' == '10.0' and '@(_MSBuildProjectReferenceExistent)' != '') was evaluated as ('' == 'true' and '' != '' and ('true' == 'true' or 'true' != 'true') and '12.0' == '10.0' and '' != '').
+                   Task "MSBuild" skipped, due to false condition; ('%(_MSBuildProjectReferenceExistent.BuildReference)' == 'true' and '@(ProjectReferenceWithConfiguration)' != '' and '$(BuildingInsideVisualStudio)' != 'true' and '$(BuildProjectReferences)' == 'true' and '@(_MSBuildProjectReferenceExistent)' != '') was evaluated as ('' == 'true' and '' != '' and 'true' != 'true' and 'true' == 'true' and '' != '').
+                   Task "MSBuild" skipped, due to false condition; ('%(_MSBuildProjectReferenceExistent.BuildReference)' == 'true' and '@(ProjectReferenceWithConfiguration)' != '' and '$(BuildingProject)' == 'true' and '@(_MSBuildProjectReferenceExistent)' != '') was evaluated as ('' == 'true' and '' != '' and 'true' == 'true' and '' != '').
+                   Task "Warning" skipped, due to false condition; ('@(ProjectReferenceWithConfiguration)' != '' and '@(_MSBuildProjectReferenceNonexistent)' != '') was evaluated as ('' != '' and '' != '').
+21:16:16.187     1>Done building target "ResolveProjectReferences" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:8)
+                   Target "FindInvalidProjectReferences" skipped, due to false condition; ('$(FindInvalidProjectReferences)' == 'true') was evaluated as ('' == 'true').
+                   Target "ResolveNativeReferences" skipped, due to false condition; ('@(NativeReference)'!='') was evaluated as (''!='').
+                   Target "_PrepareForReferenceResolution" skipped. Previously built successfully.
+21:16:16.187     1>Target "GetFrameworkPaths: (TargetId:9)" in file "C:\Program Files (x86)\MSBuild\12.0\bin\Microsoft.NetFramework.CurrentVersion.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "ResolveAssemblyReferences" depends on it):
+21:16:16.187     1>Done building target "GetFrameworkPaths" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:9)
+                   Target "GetWinFXPath" skipped, due to false condition; (('@(Page)' != '' or '@(ApplicationDefinition)' != '' or '@(Resource)' != '') and ('$(GetWinFXNativePath)' != '' or '$(GetWinFXWoWPath)' != '' )) was evaluated as (('' != '' or '' != '' or '' != '') and ('' != '' or '' != '' )).
+21:16:16.187     1>Target "GetReferenceAssemblyPaths: (TargetId:10)" in file "C:\Program Files (x86)\MSBuild\12.0\bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "ResolveAssemblyReferences" depends on it):
+                   Task "GetReferenceAssemblyPaths" skipped, due to false condition; ('$(TargetFrameworkMoniker)' != '' and ('$(_TargetFrameworkDirectories)' == '' or '$(_FullFrameworkReferenceAssemblyPaths)' == '')) was evaluated as ('' != '' and ('C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0' == '' or 'C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0' == '')).
+21:16:16.187     1>Done building target "GetReferenceAssemblyPaths" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:10)
+21:16:16.187     1>Target "SetBuildDefaultEnvironmentVariables: (TargetId:11)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.Cpp.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "PrepareForBuild" depends on it):
+                   Using "SetEnv" task from assembly "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.Build.CppTasks.Common.dll".
+                   Task "SetEnv" (TaskId:5)
+                     Task Parameter:Name=PATH (TaskId:5)
+                     Task Parameter:Value=C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin;C:\Program Files (x86)\Windows Kits\8.1\bin\x86;;C:\Program Files (x86)\Microsoft SDKs\Windows\v8.1A\bin\NETFX 4.5.1 Tools;C:\Program Files (x86)\Microsoft Visual Studio 12.0\Common7\Tools\bin;C:\Program Files (x86)\Microsoft Visual Studio 12.0\Common7\tools;C:\Program Files (x86)\Microsoft Visual Studio 12.0\Common7\ide;C:\Program Files (x86)\HTML Help Workshop;;C:\Program Files (x86)\MSBuild\12.0\bin\;C:\WINDOWS\Microsoft.NET\Framework\v4.0.30319\;C:\WINDOWS\SysWow64;;C:\Program Files (x86)\Microsoft Visual Studio 12.0\Common7\IDE\CommonExtensions\Microsoft\TeamFoundation\Team Explorer\NativeBinaries/x86;C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Intel\Shared Libraries\redist\intel64\compiler;C:\Program Files (x86)\Common Files\Intel\Shared Libraries\redist\ia32\compiler;C:\Python34\;C:\Python34\Scripts;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Python33\;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Common Files\Acronis\SnapAPI\;C:\Program Files (x86)\PharosSystems\Core;C:\Program Files (x86)\Windows Kits\8.1\Windows Performance Toolkit\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;C:\gtk\bin;C:\HashiCorp\Vagrant\bin;C:\Program Files\Microsoft\Web Platform Installer\;C:\Program Files (x86)\Universal Extractor;C:\Program Files (x86)\Universal Extractor\bin;C:\Program Files (x86)\Microsoft SDKs\TypeScript\1.0\;C:\Program Files\SlikSvn\bin;C:\Program Files\Microsoft SQL Server\120\Tools\Binn\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Python33\;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Ruby200-x64\bin;%JAVA_HOME%\bin;C:\Python33\Scripts;C:\Program Files (x86)\Nmap; C:\Windows\System32\wbin\;C:\Program Files (x86)\Nmap; (TaskId:5)
+                     Task Parameter:Prefix=False (TaskId:5)
+                     PATH=C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin;C:\Program Files (x86)\Windows Kits\8.1\bin\x86;;C:\Program Files (x86)\Microsoft SDKs\Windows\v8.1A\bin\NETFX 4.5.1 Tools;C:\Program Files (x86)\Microsoft Visual Studio 12.0\Common7\Tools\bin;C:\Program Files (x86)\Microsoft Visual Studio 12.0\Common7\tools;C:\Program Files (x86)\Microsoft Visual Studio 12.0\Common7\ide;C:\Program Files (x86)\HTML Help Workshop;;C:\Program Files (x86)\MSBuild\12.0\bin\;C:\WINDOWS\Microsoft.NET\Framework\v4.0.30319\;C:\WINDOWS\SysWow64;;C:\Program Files (x86)\Microsoft Visual Studio 12.0\Common7\IDE\CommonExtensions\Microsoft\TeamFoundation\Team Explorer\NativeBinaries/x86;C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Intel\Shared Libraries\redist\intel64\compiler;C:\Program Files (x86)\Common Files\Intel\Shared Libraries\redist\ia32\compiler;C:\Python34\;C:\Python34\Scripts;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Python33\;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Common Files\Acronis\SnapAPI\;C:\Program Files (x86)\PharosSystems\Core;C:\Program Files (x86)\Windows Kits\8.1\Windows Performance Toolkit\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;C:\gtk\bin;C:\HashiCorp\Vagrant\bin;C:\Program Files\Microsoft\Web Platform Installer\;C:\Program Files (x86)\Universal Extractor;C:\Program Files (x86)\Universal Extractor\bin;C:\Program Files (x86)\Microsoft SDKs\TypeScript\1.0\;C:\Program Files\SlikSvn\bin;C:\Program Files\Microsoft SQL Server\120\Tools\Binn\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Python33\;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Ruby200-x64\bin;%JAVA_HOME%\bin;C:\Python33\Scripts;C:\Program Files (x86)\Nmap; C:\Windows\System32\wbin\;C:\Program Files (x86)\Nmap; (TaskId:5)
+                   Done executing task "SetEnv". (TaskId:5)
+                   Task "SetEnv" (TaskId:6)
+                     Task Parameter:Name=LIB (TaskId:6)
+                     Task Parameter:Value=C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\lib;C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\atlmfc\lib;C:\Program Files (x86)\Windows Kits\8.1\lib\winv6.3\um\x86;; (TaskId:6)
+                     Task Parameter:Prefix=False (TaskId:6)
+                     LIB=C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\lib;C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\atlmfc\lib;C:\Program Files (x86)\Windows Kits\8.1\lib\winv6.3\um\x86;; (TaskId:6)
+                   Done executing task "SetEnv". (TaskId:6)
+                   Task "SetEnv" (TaskId:7)
+                     Task Parameter:Name=LIBPATH (TaskId:7)
+                     Task Parameter:Value=C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\atlmfc\lib;C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\lib; (TaskId:7)
+                     Task Parameter:Prefix=False (TaskId:7)
+                     LIBPATH=C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\atlmfc\lib;C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\lib; (TaskId:7)
+                   Done executing task "SetEnv". (TaskId:7)
+                   Task "SetEnv" (TaskId:8)
+                     Task Parameter:Name=INCLUDE (TaskId:8)
+                     Task Parameter:Value=C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include;C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\atlmfc\include;C:\Program Files (x86)\Windows Kits\8.1\Include\um;C:\Program Files (x86)\Windows Kits\8.1\Include\shared;C:\Program Files (x86)\Windows Kits\8.1\Include\winrt;; (TaskId:8)
+                     Task Parameter:Prefix=False (TaskId:8)
+                     INCLUDE=C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include;C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\atlmfc\include;C:\Program Files (x86)\Windows Kits\8.1\Include\um;C:\Program Files (x86)\Windows Kits\8.1\Include\shared;C:\Program Files (x86)\Windows Kits\8.1\Include\winrt;; (TaskId:8)
+                   Done executing task "SetEnv". (TaskId:8)
+21:16:16.215     1>Done building target "SetBuildDefaultEnvironmentVariables" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:11)
+                   Target "SetUserMacroEnvironmentVariables" skipped, due to false condition; ('@(BuildMacro)' != '') was evaluated as ('' != '').
+21:16:16.215     1>Target "GetResolvedWinMD: (TargetId:12)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "PrepareForBuild" depends on it):
+21:16:16.216     1>Done building target "GetResolvedWinMD" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:12)
+21:16:16.216     1>Target "PlatformPrepareForBuild: (TargetId:13)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.Cpp.Platform.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "PrepareForBuild" depends on it):
+                   Task "VCMessage" skipped, due to false condition; ('$(_Error64bitToolsNotInstalled)' == 'true') was evaluated as ('' == 'true').
+                   Task "VCMessage" skipped, due to false condition; ('$(ConfigurationPlatformExists)' != 'true') was evaluated as ('true' != 'true').
+                   Task "VCMessage" skipped, due to false condition; ('$(ToolsetTargetsFound)' != 'true') was evaluated as ('true' != 'true').
+21:16:16.216     1>Done building target "PlatformPrepareForBuild" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:13)
+                   Target "GetFrameworkPaths" skipped. Previously built successfully.
+                   Target "GetReferenceAssemblyPaths" skipped. Previously built successfully.
+                   Target "AssignLinkMetadata" skipped, due to false condition; ( '$(SynthesizeLinkMetadata)' == 'true' ) was evaluated as ( '' == 'true' ).
+21:16:16.216     1>Target "SetCABuildNativeEnvironmentVariables: (TargetId:14)" in file "C:\Program Files (x86)\MSBuild\Microsoft\VisualStudio\v12.0\CodeAnalysis\Microsoft.CodeAnalysis.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "PrepareForBuild" depends on it):
+                   Initializing task factory "CodeTaskFactory" from assembly "C:\Program Files (x86)\MSBuild\12.0\bin\Microsoft.Build.Tasks.v12.0.dll".
+                   Using "SetEnvironmentVariable" task from the task factory "Code Task Factory".
+                   Task "SetEnvironmentVariable" (TaskId:9)
+                     Task Parameter:EnvValue=C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\atlmfc\include;C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include;C:\Program Files (x86)\Windows Kits\8.1\Include\um;C:\Program Files (x86)\Windows Kits\8.1\Include\shared;C:\Program Files (x86)\Windows Kits\8.1\Include\winrt;; (TaskId:9)
+                     Task Parameter:EnvKey=CAExcludePath (TaskId:9)
+                   Done executing task "SetEnvironmentVariable". (TaskId:9)
+21:16:16.489     1>Done building target "SetCABuildNativeEnvironmentVariables" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:14)
+21:16:16.489     1>Target "PrepareForBuild: (TargetId:15)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "ResolveAssemblyReferences" depends on it):
+                   Task "VCMessage" skipped, due to false condition; ('$(DesignTimeBuild)' != 'true' and '$(ConfigurationPlatformExists)' != 'true') was evaluated as ('' != 'true' and 'true' != 'true').
+                   Using "MakeDir" task from assembly "Microsoft.Build.Tasks.v12.0, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
+                   Task "MakeDir" (TaskId:10)
+                     Task Parameter:Directories=Release\ (TaskId:10)
+                   Done executing task "MakeDir". (TaskId:10)
+                   Task "VCMessage" skipped, due to false condition; ('$(DesignTimeBuild)'!='true' and '$(WindowsAppContainer)'=='true' and '$(ConfigurationType)'!='Application' and '$(ConfigurationType)'!='DynamicLibrary' and '$(ConfigurationType)'!='StaticLibrary') was evaluated as (''!='true' and 'false'=='true' and 'Application'!='Application' and 'Application'!='DynamicLibrary' and 'Application'!='StaticLibrary').
+                   Task "VCMessage" skipped, due to false condition; ('$(DesignTimeBuild)'!='true' and '$(VCInstallDir)'=='' and '$(UseEnv)' != 'true' and ('$(TargetFrameworkVersion)'=='v3.5' or '$(TargetFrameworkVersion)'=='v3.0' or '$(TargetFrameworkVersion)'=='v2.0' )) was evaluated as (''!='true' and 'C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\'=='' and '' != 'true' and ('v4.0'=='v3.5' or 'v4.0'=='v3.0' or 'v4.0'=='v2.0' )).
+                   Task "VCMessage" skipped, due to false condition; ('$(DesignTimeBuild)'!='true' and '$(VCInstallDir)'=='' and '$(UseEnv)' != 'true' and '$(PlatformToolset)'=='v90') was evaluated as (''!='true' and 'C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\'=='' and '' != 'true' and 'v120'=='v90').
+                   Task "VCMessage" skipped, due to false condition; ('$(VCInstallDir)'=='' and '$(UseEnv)' != 'true') was evaluated as ('C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\'=='' and '' != 'true').
+                   Task "VCMessage" skipped, due to false condition; ('$(WindowsSDKDir)'=='' and '$(UseEnv)' != 'true') was evaluated as ('C:\Program Files (x86)\Windows Kits\8.1\'=='' and '' != 'true').
+                   Task "VCMessage" skipped, due to false condition; ('$(IntDirTrailingSlashWarning)'=='true') was evaluated as (''=='true').
+                   Task "VCMessage" skipped, due to false condition; ('$(OutDirTrailingSlashWarning)'=='true') was evaluated as (''=='true').
+                   Task "VCMessage" skipped, due to false condition; ('%(CompatibilityIssues.Identity)' != '' and '$(DesignTimeBuild)'!='true') was evaluated as ('' != '' and ''!='true').
+                   Task "VCMessage" skipped, due to false condition; ('$(_MBCS_Using)' == 'true' and '$(_MBCS_Installed)' != 'true' and '$(DesignTimeBuild)' != 'true') was evaluated as ('' == 'true' and '' != 'true' and '' != 'true').
+                   Task "VCMessage" skipped, due to false condition; ('$(IgnoreWarnIntDirSharingDetected)' != 'true' and '$(IntDirSharingDetected)' == 'true') was evaluated as ('' != 'true' and '' == 'true').
+                   Task "VCMessage" skipped, due to false condition; ('$(IgnoreWarnIntDirInTempDetected)' != 'true' and ('$(_IntDirFullpath.StartsWith($(Tmp), true, null))' == 'true' or '$(_IntDirFullpath.StartsWith($(Temp), true, null))' == 'true' or '$(_OutDirFullpath.StartsWith($(Tmp), true, null))' == 'true' or '$(_OutDirFullpath.StartsWith($(Temp), true, null))' == 'true')) was evaluated as ('' != 'true' and ('False' == 'true' or 'False' == 'true' or 'False' == 'true' or 'False' == 'true')).
+                   Task "MakeDir" (TaskId:11)
+                     Task Parameter:
+                         Directories=
+                             Release\
+                             C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\Release\
+                             Release\BitScanR.5459017C.tlog\ (TaskId:11)
+                   Done executing task "MakeDir". (TaskId:11)
+21:16:16.493     1>Done building target "PrepareForBuild" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:15)
+                   Target "_PrepareForReferenceResolution" skipped. Previously built successfully.
+                   Target "ComputeCrtSDKReference" skipped, due to false condition; ('@(ClCompile)'!='' and '$(WindowsAppContainer)'=='true' and '$(UseCrtSDKReference)' != 'false') was evaluated as ('BitScanReverse_SAL_TEST.cpp'!='' and 'false'=='true' and '' != 'false').
+21:16:16.493     1>Target "GetInstalledSDKLocations: (TargetId:16)" in file "C:\Program Files (x86)\MSBuild\12.0\bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "ResolveSDKReferences" depends on it):
+                   Task "GetInstalledSDKLocations" skipped, due to false condition; ('@(SDKReference)' != '') was evaluated as ('' != '').
+21:16:16.493     1>Done building target "GetInstalledSDKLocations" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:16)
+21:16:16.493     1>Target "ResolveSDKReferences: (TargetId:17)" in file "C:\Program Files (x86)\MSBuild\12.0\bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "ResolveAssemblyReferences" depends on it):
+                   Task "ResolveSDKReference" skipped, due to false condition; ('@(SDKReference)'!='') was evaluated as (''!='').
+21:16:16.493     1>Done building target "ResolveSDKReferences" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:17)
+                   Target "ResolveSDKReferences" skipped. Previously built successfully.
+21:16:16.493     1>Target "ExpandSDKReferences: (TargetId:18)" in file "C:\Program Files (x86)\MSBuild\12.0\bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "ResolveAssemblyReferences" depends on it):
+                   Task "GetSDKReferenceFiles" skipped, due to false condition; ('@(ResolvedSDKReference)'!='') was evaluated as (''!='').
+21:16:16.493     1>Done building target "ExpandSDKReferences" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:18)
+21:16:16.493     1>Target "ResolveAssemblyReferences: (TargetId:19)" in file "C:\Program Files (x86)\MSBuild\12.0\bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "ResolveReferences" depends on it):
+                   Task "ResolveAssemblyReference" skipped, due to false condition; ('@(Reference)'!='' or '@(_ResolvedProjectReferencePaths)'!='' or '@(_ExplicitReference)' != '') was evaluated as (''!='' or ''!='' or '' != '').
+21:16:16.493     1>Done building target "ResolveAssemblyReferences" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:19)
+                   Target "GenerateBindingRedirects" skipped, due to false condition; ('$(AutoGenerateBindingRedirects)' == 'true' and '$(GenerateBindingRedirectsOutputType)' == 'true') was evaluated as ('' == 'true' and 'true' == 'true').
+                   Target "GenerateBindingRedirectsUpdateAppConfig" skipped, due to false condition; ('$(AutoGenerateBindingRedirects)' == 'true' and '$(GenerateBindingRedirectsOutputType)' == 'true' and Exists('$(_GenerateBindingRedirectsIntermediateAppConfig)')) was evaluated as ('' == 'true' and 'true' == 'true' and Exists('Release\BitScanReverse_SAL_TEST.vcxproj.BitScanReverse_SAL_TEST.exe.config')).
+                   Target "ResolveComReferences" skipped, due to false condition; ('@(COMReference)'!='' or '@(COMFileReference)'!='') was evaluated as (''!='' or ''!='').
+21:16:16.493     1>Target "AfterResolveReferences: (TargetId:20)" in file "C:\Program Files (x86)\MSBuild\12.0\bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "ResolveReferences" depends on it):
+21:16:16.493     1>Done building target "AfterResolveReferences" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:20)
+                   Target "ImplicitlyExpandDesignTimeFacades" skipped, due to false condition; ('$(ImplicitlyExpandDesignTimeFacades)' == 'true') was evaluated as ('' == 'true').
+                   Target "ResolveTestReferences" skipped, due to false condition; ('@(Shadow)'!='') was evaluated as (''!='').
+21:16:16.493     1>Target "ResolveReferences: (TargetId:21)" in file "C:\Program Files (x86)\MSBuild\12.0\bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "Build" depends on it):
+21:16:16.493     1>Done building target "ResolveReferences" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:21)
+                   Target "PrepareForBuild" skipped. Previously built successfully.
+                   Target "PrepareForBuild" skipped. Previously built successfully.
+21:16:16.493     1>Target "InitializeBuildStatus: (TargetId:22)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "Build" depends on it):
+                   Using "ReadLinesFromFile" task from assembly "Microsoft.Build.Tasks.v12.0, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
+                   Task "ReadLinesFromFile" (TaskId:12)
+                     Task Parameter:File=Release\BitScanR.5459017C.tlog\BitScanReverse_SAL_TEST.lastbuildstate (TaskId:12)
+                   Done executing task "ReadLinesFromFile". (TaskId:12)
+                   Using "WriteLinesToFile" task from assembly "Microsoft.Build.Tasks.v12.0, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
+                   Task "WriteLinesToFile" (TaskId:13)
+                     Task Parameter:Overwrite=True (TaskId:13)
+                     Task Parameter:File=Release\BitScanR.5459017C.tlog\BitScanReverse_SAL_TEST.lastbuildstate (TaskId:13)
                      Task Parameter:
                          Lines=
-                             c:\users\alexander riccio\documents\github\salexaamples\salexamples\bitscanreverse_sal_test\bitscanreverse_sal_test\release\vc120.pdb
-                             c:\users\alexander riccio\documents\github\salexaamples\salexamples\bitscanreverse_sal_test\bitscanreverse_sal_test\release\bitscanreverse_sal_test.nativecodeanalysis.xml
-                             c:\users\alexander riccio\documents\github\salexaamples\salexamples\bitscanreverse_sal_test\bitscanreverse_sal_test\release\bitscanreverse_sal_test.obj
-                             c:\users\alexander riccio\documents\github\salexaamples\salexamples\bitscanreverse_sal_test\release\bitscanreverse_sal_test.exe
-                             c:\users\alexander riccio\documents\github\salexaamples\salexamples\bitscanreverse_sal_test\bitscanreverse_sal_test\release\bitscanreverse_sal_test.asm
-                             c:\users\alexander riccio\documents\github\salexaamples\salexamples\bitscanreverse_sal_test\release\bitscanreverse_sal_test.pdb
-                             c:\users\alexander riccio\documents\github\salexaamples\salexamples\bitscanreverse_sal_test\bitscanreverse_sal_test\release\nativecodeanalysis.read.1.tlog
-                             c:\users\alexander riccio\documents\github\salexaamples\salexamples\bitscanreverse_sal_test\bitscanreverse_sal_test\release\vc.nativecodeanalysis.all.xml
-                             c:\users\alexander riccio\documents\github\salexaamples\salexamples\bitscanreverse_sal_test\release\bitscanreverse_sal_test.exe.lastcodeanalysissucceeded
-                             c:\users\alexander riccio\documents\github\salexaamples\salexamples\bitscanreverse_sal_test\bitscanreverse_sal_test\release\bitscanr.5459017c.tlog\cl.command.1.tlog
-                             c:\users\alexander riccio\documents\github\salexaamples\salexamples\bitscanreverse_sal_test\bitscanreverse_sal_test\release\bitscanr.5459017c.tlog\cl.read.1.tlog
-                             c:\users\alexander riccio\documents\github\salexaamples\salexamples\bitscanreverse_sal_test\bitscanreverse_sal_test\release\bitscanr.5459017c.tlog\cl.write.1.tlog
-                             c:\users\alexander riccio\documents\github\salexaamples\salexamples\bitscanreverse_sal_test\bitscanreverse_sal_test\release\bitscanr.5459017c.tlog\link.command.1.tlog
-                             c:\users\alexander riccio\documents\github\salexaamples\salexamples\bitscanreverse_sal_test\bitscanreverse_sal_test\release\bitscanr.5459017c.tlog\link.read.1.tlog
-                             c:\users\alexander riccio\documents\github\salexaamples\salexamples\bitscanreverse_sal_test\bitscanreverse_sal_test\release\bitscanr.5459017c.tlog\link.write.1.tlog (TaskId:16)
-                     Task Parameter:Overwrite=True (TaskId:16)
-                   Done executing task "WriteLinesToFile". (TaskId:16)
-18:43:25.708     1>Done building target "CoreCppClean" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:12)
-18:43:25.708     1>Target "AfterCppClean: (TargetId:13)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppClean.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "CppClean" depends on it):
-18:43:25.708     1>Done building target "AfterCppClean" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:13)
-18:43:25.708     1>Target "PGInstrumentedClean: (TargetId:14)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppClean.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "CppClean" depends on it):
+                             #TargetFrameworkVersion=v4.0:PlatformToolSet=v120:EnableManagedIncrementalBuild=false:VCToolArchitecture=Native32Bit
+                             Release|Win32|C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\| (TaskId:13)
+                   Done executing task "WriteLinesToFile". (TaskId:13)
+                   Using "Touch" task from assembly "Microsoft.Build.Tasks.v12.0, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
+                   Task "Touch" (TaskId:14)
+                     Task Parameter:AlwaysCreate=True (TaskId:14)
+                     Task Parameter:Files=Release\BitScanR.5459017C.tlog\unsuccessfulbuild (TaskId:14)
+                     Creating "Release\BitScanR.5459017C.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified. (TaskId:14)
+                   Done executing task "Touch". (TaskId:14)
+21:16:16.499     1>Done building target "InitializeBuildStatus" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:22)
+                   Target "AssignProjectConfiguration" skipped. Previously built successfully.
+                   Target "_SplitProjectReferencesByFileExistence" skipped. Previously built successfully.
+21:16:16.499     1>Target "BuildGenerateSourcesTraverse: (TargetId:23)" in file "C:\Program Files (x86)\MSBuild\12.0\bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "BuildGenerateSources" depends on it):
+                   Task "MSBuild" skipped, due to false condition; ('$(BuildPassReferences)' == 'true' and '@(ProjectReferenceWithConfiguration)' != '' and '@(_MSBuildProjectReferenceExistent)' != '' and '%(_MSBuildProjectReferenceExistent.BuildReference)' == 'true') was evaluated as ('' == 'true' and '' != '' and '' != '' and '' == 'true').
+21:16:16.499     1>Done building target "BuildGenerateSourcesTraverse" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:23)
+                   Target "PrepareForBuild" skipped. Previously built successfully.
+                   Target "ResolveReferences" skipped. Previously built successfully.
+21:16:16.499     1>Target "BeforeBuildGenerateSources: (TargetId:24)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.BuildSteps.Targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "_BuildGenerateSourcesAction" depends on it):
+21:16:16.499     1>Done building target "BeforeBuildGenerateSources" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:24)
+21:16:16.499     1>Target "PreBuildEvent: (TargetId:25)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppCommon.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "_BuildGenerateSourcesAction" depends on it):
+                   Task "Message" skipped, due to false condition; ('%(PreBuildEvent.Message)' != '' and '%(PreBuildEvent.Command)' != '') was evaluated as ('' != '' and '' != '').
+                   Task "Exec" skipped, due to false condition; ('%(PreBuildEvent.Command)' != '') was evaluated as ('' != '').
+21:16:16.499     1>Done building target "PreBuildEvent" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:25)
+                   Target "CustomBuild" skipped, due to false condition; ('@(CustomBuild)' != '') was evaluated as ('' != '').
+                   Target "FxCompile" skipped, due to false condition; ('@(FxCompile)' != '') was evaluated as ('' != '').
+                   Target "Xsd" skipped, due to false condition; ('@(Xsd)' != '') was evaluated as ('' != '').
+21:16:16.499     1>Target "_Xsd: (TargetId:26)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "_BuildGenerateSourcesAction" depends on it):
+21:16:16.499     1>Done building target "_Xsd" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:26)
+21:16:16.500     1>Target "MakeDirsForMidl: (TargetId:27)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "_Midl" depends on it):
+                   Task "Makedir" (TaskId:15)
+                   Done executing task "Makedir". (TaskId:15)
+21:16:16.500     1>Done building target "MakeDirsForMidl" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:27)
+                   Target "Midl" skipped, due to false condition; ('@(Midl)' != '') was evaluated as ('' != '').
+                   Target "CustomBuild" skipped, due to false condition; ('@(CustomBuild)' != '') was evaluated as ('' != '').
+                   Target "FxCompile" skipped, due to false condition; ('@(FxCompile)' != '') was evaluated as ('' != '').
+21:16:16.500     1>Target "ComputeMIDLGeneratedCompileInputs: (TargetId:28)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "_Midl" depends on it):
+21:16:16.500     1>Done building target "ComputeMIDLGeneratedCompileInputs" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:28)
+21:16:16.500     1>Target "AfterMidl: (TargetId:29)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "_Midl" depends on it):
+21:16:16.500     1>Done building target "AfterMidl" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:29)
+21:16:16.500     1>Target "_Midl: (TargetId:30)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "_BuildGenerateSourcesAction" depends on it):
+21:16:16.500     1>Done building target "_Midl" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:30)
+21:16:16.500     1>Target "AfterBuildGenerateSources: (TargetId:31)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.BuildSteps.Targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "_BuildGenerateSourcesAction" depends on it):
+21:16:16.500     1>Done building target "AfterBuildGenerateSources" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:31)
+21:16:16.500     1>Target "AfterBuildGenerateSourcesEvent: (TargetId:32)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "_BuildGenerateSourcesAction" depends on it):
+21:16:16.500     1>Done building target "AfterBuildGenerateSourcesEvent" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:32)
+21:16:16.500     1>Target "_BuildGenerateSourcesAction: (TargetId:33)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "BuildGenerateSources" depends on it):
+21:16:16.500     1>Done building target "_BuildGenerateSourcesAction" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:33)
+21:16:16.500     1>Target "BuildGenerateSources: (TargetId:34)" in file "C:\Program Files (x86)\MSBuild\12.0\bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "Build" depends on it):
+21:16:16.500     1>Done building target "BuildGenerateSources" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:34)
+                   Target "AssignProjectConfiguration" skipped. Previously built successfully.
+                   Target "_SplitProjectReferencesByFileExistence" skipped. Previously built successfully.
+21:16:16.500     1>Target "BuildCompileTraverse: (TargetId:35)" in file "C:\Program Files (x86)\MSBuild\12.0\bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "BuildCompile" depends on it):
+                   Task "MSBuild" skipped, due to false condition; ('$(BuildPassReferences)' == 'true' and '@(ProjectReferenceWithConfiguration)' != '' and '@(_MSBuildProjectReferenceExistent)' != ''  and '%(_MSBuildProjectReferenceExistent.BuildReference)' == 'true') was evaluated as ('' == 'true' and '' != '' and '' != ''  and '' == 'true').
+21:16:16.500     1>Done building target "BuildCompileTraverse" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:35)
+                   Target "PrepareForBuild" skipped. Previously built successfully.
+                   Target "ResolveReferences" skipped. Previously built successfully.
+21:16:16.500     1>Target "BeforeClCompile: (TargetId:36)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "_ClCompile" depends on it):
+21:16:16.500     1>Done building target "BeforeClCompile" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:36)
+                   Target "ComputeMIDLGeneratedCompileInputs" skipped. Previously built successfully.
+21:16:16.500     1>Target "ComputeCLInputPDBName: (TargetId:37)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "_ClCompile" depends on it):
+21:16:16.500     1>Done building target "ComputeCLInputPDBName" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:37)
+                   Target "ResolveReferences" skipped. Previously built successfully.
+21:16:16.500     1>Target "ComputeReferenceCLInput: (TargetId:38)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "_ClCompile" depends on it):
+                   Task "WriteLinesToFile" skipped, due to false condition; (('@(_ReferenceCopyLocalPaths)'!='') and '$(DesignTimeBuild)' != 'true') was evaluated as ((''!='') and '' != 'true').
+                   Task "Message" skipped, due to false condition; ('$(_REFERENCE_DEBUG)'=='true') was evaluated as (''=='true').
+21:16:16.501     1>Done building target "ComputeReferenceCLInput" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:38)
+21:16:16.501     1>Target "WarnCompileDuplicatedFilename: (TargetId:39)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "_ClCompile" depends on it):
+                   Task "VCMessage" skipped, due to false condition; ('%(ClCompile.ExcludedFromBuild)' != 'true' and '%(Filename)%(Extension)' != '@(ClCompile->'%(Filename)%(Extension)')' and '%(ObjectFileName)' == '@(ClCompile->Metadata(ObjectFileName)->Distinct())') was evaluated as ('' != 'true' and 'BitScanReverse_SAL_TEST.cpp' != 'BitScanReverse_SAL_TEST.cpp' and 'Release\' == 'Release\').
+21:16:16.501     1>Done building target "WarnCompileDuplicatedFilename" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:39)
+21:16:16.501     1>Target "MakeDirsForCl: (TargetId:40)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "_ClCompile" depends on it):
+                   Task "MakeDir" (TaskId:16)
+                     Task Parameter:
+                         Directories=
+                             C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\Release
+                             C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\Release
+                             C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\Release
+                             C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\Release
+                             C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\Release
+                             C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\Release (TaskId:16)
+                   Done executing task "MakeDir". (TaskId:16)
+21:16:16.502     1>Done building target "MakeDirsForCl" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:40)
+                   Target "PrepareForBuild" skipped. Previously built successfully.
+                   Target "SetBuildDefaultEnvironmentVariables" skipped. Previously built successfully.
+                   Target "SetUserMacroEnvironmentVariables" skipped, due to false condition; ('@(BuildMacro)' != '') was evaluated as ('' != '').
+21:16:16.503     1>Target "_SelectedFiles: (TargetId:41)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "SelectClCompile" depends on it):
+21:16:16.503     1>Done building target "_SelectedFiles" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:41)
+                   Target "ComputeMIDLGeneratedCompileInputs" skipped. Previously built successfully.
+                   Target "ComputeCLInputPDBName" skipped. Previously built successfully.
+                   Target "ComputeReferenceCLInput" skipped. Previously built successfully.
+                   Target "WarnCompileDuplicatedFilename" skipped. Previously built successfully.
+                   Target "_SelectedFiles" skipped. Previously built successfully.
+21:16:16.503     1>Target "SelectCustomBuild: (TargetId:42)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "SelectClCompile" depends on it):
+21:16:16.503     1>Done building target "SelectCustomBuild" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:42)
+21:16:16.503     1>Target "SelectClCompile: (TargetId:43)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "ClCompile" depends on it):
+21:16:16.503     1>Done building target "SelectClCompile" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:43)
+                   Target "GenerateTargetFrameworkMonikerAttribute" skipped, due to false condition; ('$(GenerateTargetFrameworkAttribute)' == 'true') was evaluated as ('false' == 'true').
+                   Target "ManagedIncrementalBuildPreProcessDependencyGraph" skipped, due to false condition; ('@(ClCompile)' != '' and '$(EnableManagedIncrementalBuild)' == 'True') was evaluated as ('BitScanReverse_SAL_TEST.cpp' != '' and 'false' == 'True').
+                   Target "CheckIntelEnvironmentForVCLibsTBB" skipped, due to false condition; ('$(PlatformToolset)' == 'v120' AND '$(UseIntelTBB)' == 'true' AND '$(UseEnv)' != 'true') was evaluated as ('v120' == 'v120' AND 'false' == 'true' AND '' != 'true').
+21:16:16.503     1>Target "ClCompile: (TargetId:44)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppCommon.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "_ClCompile" depends on it):
+                   Using "Delete" task from assembly "Microsoft.Build.Tasks.v12.0, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
                    Task "Delete" (TaskId:17)
                    Done executing task "Delete". (TaskId:17)
-18:43:25.709     1>Done building target "PGInstrumentedClean" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:14)
-18:43:25.709     1>Target "CppClean: (TargetId:15)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppClean.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "Clean" depends on it):
-18:43:25.709     1>Done building target "CppClean" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:15)
-18:43:25.709     1>Target "Clean: (TargetId:16)" in file "C:\Program Files (x86)\MSBuild\12.0\bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (entry point):
-18:43:25.709     1>Done building target "Clean" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:16)
-18:43:25.709     1>Done Building Project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (Clean target(s)).
+                   Task "CL" skipped, due to false condition; ('%(ClCompile.PrecompiledHeader)' == 'Create' and '%(ClCompile.ExcludedFromBuild)'!='true' and '%(ClCompile.CompilerIteration)' == '') was evaluated as ('NotUsing' == 'Create' and ''!='true' and '' == '').
+                   Using "CL" task from assembly "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.Build.CppTasks.Common.dll".
+                   Task "CL" (TaskId:18)
+                     Task Parameter:BuildingInIde=True (TaskId:18)
+                     Task Parameter:
+                         Sources=
+                             BitScanReverse_SAL_TEST.cpp
+                                     AcceptableNonZeroExitCodes=
+                                     AdditionalOptions=  /analyze:quiet
+                                     AnalyzeFilesIndividually=false
+                                     AnalyzeIncludeFiles=false
+                                     AssemblerListingLocation=Release\
+                                     AssemblerOutput=AssemblyAndSourceCode
+                                     BasicRuntimeChecks=Default
+                                     BrowseInformation=false
+                                     BrowseInformationFile=Release\
+                                     BufferSecurityCheck=true
+                                     C99Support=false
+                                     CallingConvention=Cdecl
+                                     CheckDanglingPointers=None
+                                     CheckPointers=None
+                                     CheckUndimensionedArrays=false
+                                     CodeCoverageOperations=false
+                                     CompileAs=CompileAsCpp
+                                     Cpp0xSupport=false
+                                     DebugInformationFormat=ProgramDatabase
+                                     DiagnosticsFile=Release\BitScanReverse_SAL_TEST.diag
+                                     DisableCilkKeywords=false
+                                     DisableFunctionSplitting=false
+                                     DisableIntelLangExtensions=false
+                                     DisableLanguageExtensions=false
+                                     DisablePrecompiledHeaderMessages=false
+                                     EmitDiagnosticsToFile=false
+                                     EmitGAPDiagnosticsToFile=false
+                                     EmitOptimizationDiagnosticsToFile=false
+                                     EnableAnsiAliasing=false
+                                     EnableEnhancedInstructionSet=NotSet
+                                     EnableExpandedLineNumberInfo=false
+                                     EnableFiberSafeOptimizations=false
+                                     EnableGapAnalysis=Disable
+                                     EnableMatrixMultiplyLibraryCall=Default
+                                     EnablePREFast=true
+                                     ErrorReporting=Send
+                                     ExceptionHandling=Sync
+                                     ExpandAttributedSource=false
+                                     FavorSizeOrSpeed=Neither
+                                     FloatingPointExpressionEvaluation=Default
+                                     FloatingPointModel=
+                                     FlushDenormalResultsToZero=false
+                                     ForceConformanceInForLoopScope=true
+                                     ForcedIncludeFiles=
+                                     ForcedUsingFiles=
+                                     FunctionLevelLinking=true
+                                     GAPDiagnosticsFile=Release\BitScanReverse_SAL_TEST.gap
+                                     GenerateAlternateCodePaths=None
+                                     GenerateXMLDocumentationFiles=false
+                                     IgnoreStandardIncludePath=false
+                                     ImpLibCompiled=
+                                     InlineFunctionExpansion=Default
+                                     InterproceduralOptimization=NoIPO
+                                     IntrinsicFunctions=true
+                                     LevelOfStaticAnalysis=None
+                                     LibCompiled=
+                                     LinkCompiled=true
+                                     MinimalRebuild=false
+                                     MinimalRebuildFromTracking=true
+                                     ModeOfStaticAnalysis=None
+                                     MultiProcessorCompilation=true
+                                     ObjectFileName=Release\
+                                     OffloadConstructs=Mandatory
+                                     OmitDefaultLibName=false
+                                     OmitFramePointers=false
+                                     OpenMP=None
+                                     Optimization=MaxSpeed
+                                     OptimizationDiagnosticLevel=Disable
+                                     OptimizationDiagnosticPhase=All
+                                     OptimizationDiagnosticsFile=Release\BitScanReverse_SAL_TEST.rep
+                                     OptimizeForWindowsApplication=false
+                                     Parallelization=false
+                                     PrecompiledHeader=NotUsing
+                                     PrecompiledHeaderFile=
+                                     PrecompiledHeaderOutputFile=
+                                     PREfastAdditionalPlugins=C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\\bin\localespc.dll;
+                                     PREfastLogFile=Release\%(FileName).nativecodeanalysis.xml
+                                     PreprocessKeepComments=false
+                                     PreprocessorDefinitions=CODE_ANALYSIS;_UNICODE;UNICODE;
+                                     PreprocessSuppressLineNumbers=false
+                                     PreprocessToFile=false
+                                     ProfileGuidedOptimization=Disabled
+                                     ProgramDataBaseFileName=Release\vc120.pdb
+                                     RecognizeRestrictKeyword=false
+                                     RuntimeLibrary=MultiThreadedDll
+                                     SCResultsDirectory=My Inspector XE Results - BitScanReverse_SAL_TEST
+                                     SDLCheck=true
+                                     ShowIncludes=true
+                                     SmallerTypeCheck=false
+                                     StringPooling=true
+                                     StructMemberAlignment=Default
+                                     SuppressStartupBanner=true
+                                     TrackerLogDirectory=Release\BitScanR.5459017C.tlog\
+                                     TreatEnumerationsAsKnownRanges=false
+                                     TreatWarningAsError=false
+                                     TreatWChar_tAsBuiltInType=true
+                                     UndefineAllPreprocessorDefinitions=false
+                                     UnmaskFloatingPointExceptions=No
+                                     UseFullPaths=false
+                                     UseIntelOptimizedHeaders=false
+                                     UseMSVC=false
+                                     UseProcessorExtensions=None
+                                     VectorizerDiagnosticLevel=Default
+                                     WarningLevel=EnableAllWarnings
+                                     WholeProgramOptimization=true
+                                     WinRTNoStdLib=false
+                                     XMLDocumentationFileName=Release\ (TaskId:18)
+                     Task Parameter:AdditionalOptions=  /analyze:quiet (TaskId:18)
+                     Task Parameter:AssemblerListingLocation=Release\ (TaskId:18)
+                     Task Parameter:AssemblerOutput=AssemblyAndSourceCode (TaskId:18)
+                     Task Parameter:BasicRuntimeChecks=Default (TaskId:18)
+                     Task Parameter:BrowseInformation=False (TaskId:18)
+                     Task Parameter:BrowseInformationFile=Release\ (TaskId:18)
+                     Task Parameter:BufferSecurityCheck=true (TaskId:18)
+                     Task Parameter:CallingConvention=Cdecl (TaskId:18)
+                     Task Parameter:CompileAs=CompileAsCpp (TaskId:18)
+                     Task Parameter:DebugInformationFormat=ProgramDatabase (TaskId:18)
+                     Task Parameter:DisableLanguageExtensions=False (TaskId:18)
+                     Task Parameter:EnableEnhancedInstructionSet=NotSet (TaskId:18)
+                     Task Parameter:EnableFiberSafeOptimizations=False (TaskId:18)
+                     Task Parameter:EnablePREfast=True (TaskId:18)
+                     Task Parameter:ErrorReporting=Send (TaskId:18)
+                     Task Parameter:ExceptionHandling=Sync (TaskId:18)
+                     Task Parameter:
+                         ExcludedInputPaths=
+                             C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include
+                             C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\atlmfc\include
+                             C:\Program Files (x86)\Windows Kits\8.1\Include\um
+                             C:\Program Files (x86)\Windows Kits\8.1\Include\shared
+                             C:\Program Files (x86)\Windows Kits\8.1\Include\winrt
+                             C:\Program Files (x86)\MSBuild\12.0\bin\
+                             C:\WINDOWS\Microsoft.NET\Framework\v4.0.30319\
+                             C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\lib
+                             C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\atlmfc\lib (TaskId:18)
+                     Task Parameter:ExpandAttributedSource=False (TaskId:18)
+                     Task Parameter:FavorSizeOrSpeed=Neither (TaskId:18)
+                     Task Parameter:ForceConformanceInForLoopScope=True (TaskId:18)
+                     Task Parameter:FunctionLevelLinking=True (TaskId:18)
+                     Task Parameter:GenerateXMLDocumentationFiles=False (TaskId:18)
+                     Task Parameter:IgnoreStandardIncludePath=False (TaskId:18)
+                     Task Parameter:InlineFunctionExpansion=Default (TaskId:18)
+                     Task Parameter:IntrinsicFunctions=True (TaskId:18)
+                     Task Parameter:MinimalRebuild=False (TaskId:18)
+                     Task Parameter:MultiProcessorCompilation=True (TaskId:18)
+                     Task Parameter:ObjectFileName=Release\ (TaskId:18)
+                     Task Parameter:OmitDefaultLibName=False (TaskId:18)
+                     Task Parameter:OmitFramePointers=False (TaskId:18)
+                     Task Parameter:Optimization=MaxSpeed (TaskId:18)
+                     Task Parameter:PrecompiledHeader=NotUsing (TaskId:18)
+                     Task Parameter:PREfastAdditionalPlugins=C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\\bin\localespc.dll (TaskId:18)
+                     Task Parameter:PreprocessKeepComments=False (TaskId:18)
+                     Task Parameter:
+                         PreprocessorDefinitions=
+                             CODE_ANALYSIS
+                             _UNICODE
+                             UNICODE (TaskId:18)
+                     Task Parameter:PreprocessSuppressLineNumbers=False (TaskId:18)
+                     Task Parameter:PreprocessToFile=False (TaskId:18)
+                     Task Parameter:ProgramDataBaseFileName=Release\vc120.pdb (TaskId:18)
+                     Task Parameter:RuntimeLibrary=MultiThreadedDll (TaskId:18)
+                     Task Parameter:SDLCheck=True (TaskId:18)
+                     Task Parameter:ShowIncludes=True (TaskId:18)
+                     Task Parameter:SmallerTypeCheck=False (TaskId:18)
+                     Task Parameter:StringPooling=True (TaskId:18)
+                     Task Parameter:StructMemberAlignment=Default (TaskId:18)
+                     Task Parameter:SuppressStartupBanner=True (TaskId:18)
+                     Task Parameter:TreatWarningAsError=False (TaskId:18)
+                     Task Parameter:TreatWChar_tAsBuiltInType=True (TaskId:18)
+                     Task Parameter:UndefineAllPreprocessorDefinitions=False (TaskId:18)
+                     Task Parameter:UseFullPaths=False (TaskId:18)
+                     Task Parameter:WarningLevel=EnableAllWarnings (TaskId:18)
+                     Task Parameter:WholeProgramOptimization=True (TaskId:18)
+                     Task Parameter:WinRTNoStdLib=False (TaskId:18)
+                     Task Parameter:XMLDocumentationFileName=Release\ (TaskId:18)
+                     Task Parameter:TrackerLogDirectory=Release\BitScanR.5459017C.tlog\ (TaskId:18)
+                     Task Parameter:TrackFileAccess=True (TaskId:18)
+                     Task Parameter:MinimalRebuildFromTracking=True (TaskId:18)
+                     Task Parameter:ToolArchitecture=Native32Bit (TaskId:18)
+                     Task Parameter:DeleteOutputOnExecute=True (TaskId:18)
+                     Task Parameter:YieldDuringToolExecution=True (TaskId:18)
+                     Forcing recompile of all source files due to missing PDB "Release\vc120.pdb". (TaskId:18)
+                     Environment Variables passed to tool: (TaskId:18)
+                       VS_UNICODE_OUTPUT=1352 (TaskId:18)
+                     C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /nologo /Wall /WX- /sdl /MP /O2 /Oi /Oy- /GL /D CODE_ANALYSIS /D _UNICODE /D UNICODE /GF /Gm- /EHsc /MD /GS /Gy /Zc:wchar_t /Zc:forScope /FAs /Fa"Release\\" /Fo"Release\\" /Fd"Release\vc120.pdb" /Gd /TP /showIncludes /analyze /analyze:plugin"C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\\bin\localespc.dll" /errorReport:send   /analyze:quiet BitScanReverse_SAL_TEST.cpp (TaskId:18)
+                     Tracking command: (TaskId:18)
+                     C:\Program Files (x86)\MSBuild\12.0\bin\Tracker.exe /d "C:\Program Files (x86)\MSBuild\12.0\bin\FileTracker.dll" /i "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\Release\BitScanR.5459017C.tlog" /r "C:\USERS\ALEXANDER RICCIO\DOCUMENTS\GITHUB\SALEXAAMPLES\SALEXAMPLES\BITSCANREVERSE_SAL_TEST\BITSCANREVERSE_SAL_TEST\BITSCANREVERSE_SAL_TEST.CPP" /b MSBuildConsole_CancelEvent713f8ce9ace74614bd0e22b5dd1a9665  /c "C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe"  /c /Zi /nologo /Wall /WX- /sdl /MP /O2 /Oi /Oy- /GL /D CODE_ANALYSIS /D _UNICODE /D UNICODE /GF /Gm- /EHsc /MD /GS /Gy /Zc:wchar_t /Zc:forScope /FAs /Fa"Release\\" /Fo"Release\\" /Fd"Release\vc120.pdb" /Gd /TP /showIncludes /analyze /analyze:plugin"C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\\bin\localespc.dll" /errorReport:send   /analyze:quiet BitScanReverse_SAL_TEST.cpp (TaskId:18)
+                     BitScanReverse_SAL_TEST.cpp (TaskId:18)
+                     Note: including file: C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\cstdio (TaskId:18)
+                     Note: including file:  C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\yvals.h (TaskId:18)
+                     Note: including file:   C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xkeycheck.h (TaskId:18)
+                     Note: including file:   C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\crtdefs.h (TaskId:18)
+                     Note: including file:    C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\sal.h (TaskId:18)
+                     Note: including file:     C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\ConcurrencySal.h (TaskId:18)
+                     Note: including file:    C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\vadefs.h (TaskId:18)
+                     Note: including file:   C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\use_ansi.h (TaskId:18)
+                     Note: including file:  C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h (TaskId:18)
+                     Note: including file:   C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\crtdefs.h (TaskId:18)
+                     Note: including file:   C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\swprintf.inl (TaskId:18)
+                     Note: including file: C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\intrin.h (TaskId:18)
+                     Note: including file:  C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\crtdefs.h (TaskId:18)
+                     Note: including file:  C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\setjmp.h (TaskId:18)
+                     Note: including file:   C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\crtdefs.h (TaskId:18)
+                     Note: including file:  C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stddef.h (TaskId:18)
+                     Note: including file:   C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\crtdefs.h (TaskId:18)
+                     Note: including file:  C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\immintrin.h (TaskId:18)
+                     Note: including file:   C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\wmmintrin.h (TaskId:18)
+                     Note: including file:    C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\nmmintrin.h (TaskId:18)
+                     Note: including file:     C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\smmintrin.h (TaskId:18)
+                     Note: including file:      C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\tmmintrin.h (TaskId:18)
+                     Note: including file:       C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\pmmintrin.h (TaskId:18)
+                     Note: including file:        C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\emmintrin.h (TaskId:18)
+                     Note: including file:         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\xmmintrin.h (TaskId:18)
+                     Note: including file:          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\mmintrin.h (TaskId:18)
+                     Note: including file:           C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\crtdefs.h (TaskId:18)
+                     Note: including file:          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\malloc.h (TaskId:18)
+                     Note: including file:           C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\crtdefs.h (TaskId:18)
+                     Note: including file:  C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\ammintrin.h (TaskId:18)
+                     Note: including file:  C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\mm3dnow.h (TaskId:18)
+                     Note: including file:   C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\crtdefs.h (TaskId:18)
+                     Note: including file: C:\Program Files (x86)\Windows Kits\8.1\Include\um\Windows.h (TaskId:18)
+                     Note: including file:  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winapifamily.h (TaskId:18)
+                     Note: including file:  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\sdkddkver.h (TaskId:18)
+                     Note: including file:  C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\excpt.h (TaskId:18)
+                     Note: including file:   C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\crtdefs.h (TaskId:18)
+                     Note: including file:  C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdarg.h (TaskId:18)
+                     Note: including file:   C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\crtdefs.h (TaskId:18)
+                     Note: including file:  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\windef.h (TaskId:18)
+                     Note: including file:   C:\Program Files (x86)\Windows Kits\8.1\Include\shared\minwindef.h (TaskId:18)
+                     Note: including file:    C:\Program Files (x86)\Windows Kits\8.1\Include\shared\specstrings.h (TaskId:18)
+                     Note: including file:     C:\Program Files (x86)\Windows Kits\8.1\Include\shared\specstrings_strict.h (TaskId:18)
+                     Note: including file:      C:\Program Files (x86)\Windows Kits\8.1\Include\shared\specstrings_undef.h (TaskId:18)
+                     Note: including file:     C:\Program Files (x86)\Windows Kits\8.1\Include\shared\driverspecs.h (TaskId:18)
+                     Note: including file:      c:\program files (x86)\windows kits\8.1\include\shared\sdv_driverspecs.h (TaskId:18)
+                     Note: including file:    C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnt.h (TaskId:18)
+                     Note: including file:     C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\ctype.h (TaskId:18)
+                     Note: including file:      C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\crtdefs.h (TaskId:18)
+                     Note: including file:     C:\Program Files (x86)\Windows Kits\8.1\Include\shared\kernelspecs.h (TaskId:18)
+                     Note: including file:     C:\Program Files (x86)\Windows Kits\8.1\Include\shared\basetsd.h (TaskId:18)
+                     Note: including file:     C:\Program Files (x86)\Windows Kits\8.1\Include\shared\guiddef.h (TaskId:18)
+                     Note: including file:      C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h (TaskId:18)
+                     Note: including file:       C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\crtdefs.h (TaskId:18)
+                     Note: including file:     c:\program files (x86)\windows kits\8.1\include\shared\pshpack4.h (TaskId:18)
+                     Note: including file:     c:\program files (x86)\windows kits\8.1\include\shared\poppack.h (TaskId:18)
+                     Note: including file:     c:\program files (x86)\windows kits\8.1\include\shared\pshpack4.h (TaskId:18)
+                     Note: including file:     c:\program files (x86)\windows kits\8.1\include\shared\poppack.h (TaskId:18)
+                     Note: including file:     C:\Program Files (x86)\Windows Kits\8.1\Include\shared\pshpack4.h (TaskId:18)
+                     Note: including file:     C:\Program Files (x86)\Windows Kits\8.1\Include\shared\poppack.h (TaskId:18)
+                     Note: including file:     c:\program files (x86)\windows kits\8.1\include\shared\pshpack4.h (TaskId:18)
+                     Note: including file:     c:\program files (x86)\windows kits\8.1\include\shared\pshpack2.h (TaskId:18)
+                     Note: including file:     c:\program files (x86)\windows kits\8.1\include\shared\poppack.h (TaskId:18)
+                     Note: including file:     c:\program files (x86)\windows kits\8.1\include\shared\pshpack2.h (TaskId:18)
+                     Note: including file:     C:\Program Files (x86)\Windows Kits\8.1\Include\shared\pshpack2.h (TaskId:18)
+                     Note: including file:     C:\Program Files (x86)\Windows Kits\8.1\Include\shared\poppack.h (TaskId:18)
+                     Note: including file:     c:\program files (x86)\windows kits\8.1\include\shared\poppack.h (TaskId:18)
+                     Note: including file:     c:\program files (x86)\windows kits\8.1\include\shared\pshpack8.h (TaskId:18)
+                     Note: including file:     c:\program files (x86)\windows kits\8.1\include\shared\poppack.h (TaskId:18)
+                     Note: including file:     c:\program files (x86)\windows kits\8.1\include\shared\poppack.h (TaskId:18)
+                     Note: including file:     C:\Program Files (x86)\Windows Kits\8.1\Include\shared\apiset.h (TaskId:18)
+                     Note: including file:     C:\Program Files (x86)\Windows Kits\8.1\Include\shared\ktmtypes.h (TaskId:18)
+                     Note: including file:  C:\Program Files (x86)\Windows Kits\8.1\Include\um\winbase.h (TaskId:18)
+                     Note: including file:   C:\Program Files (x86)\Windows Kits\8.1\Include\shared\apisetcconv.h (TaskId:18)
+                     Note: including file:   C:\Program Files (x86)\Windows Kits\8.1\Include\um\minwinbase.h (TaskId:18)
+                     Note: including file:   C:\Program Files (x86)\Windows Kits\8.1\Include\um\processenv.h (TaskId:18)
+                     Note: including file:   C:\Program Files (x86)\Windows Kits\8.1\Include\um\fileapi.h (TaskId:18)
+                     Note: including file:   C:\Program Files (x86)\Windows Kits\8.1\Include\um\debugapi.h (TaskId:18)
+                     Note: including file:   C:\Program Files (x86)\Windows Kits\8.1\Include\um\utilapiset.h (TaskId:18)
+                     Note: including file:   C:\Program Files (x86)\Windows Kits\8.1\Include\um\handleapi.h (TaskId:18)
+                     Note: including file:   C:\Program Files (x86)\Windows Kits\8.1\Include\um\errhandlingapi.h (TaskId:18)
+                     Note: including file:   C:\Program Files (x86)\Windows Kits\8.1\Include\um\fibersapi.h (TaskId:18)
+                     Note: including file:   C:\Program Files (x86)\Windows Kits\8.1\Include\um\namedpipeapi.h (TaskId:18)
+                     Note: including file:   C:\Program Files (x86)\Windows Kits\8.1\Include\um\profileapi.h (TaskId:18)
+                     Note: including file:   C:\Program Files (x86)\Windows Kits\8.1\Include\um\heapapi.h (TaskId:18)
+                     Note: including file:   C:\Program Files (x86)\Windows Kits\8.1\Include\um\ioapiset.h (TaskId:18)
+                     Note: including file:   C:\Program Files (x86)\Windows Kits\8.1\Include\um\synchapi.h (TaskId:18)
+                     Note: including file:   C:\Program Files (x86)\Windows Kits\8.1\Include\um\interlockedapi.h (TaskId:18)
+                     Note: including file:   C:\Program Files (x86)\Windows Kits\8.1\Include\um\processthreadsapi.h (TaskId:18)
+                     Note: including file:   C:\Program Files (x86)\Windows Kits\8.1\Include\um\sysinfoapi.h (TaskId:18)
+                     Note: including file:   C:\Program Files (x86)\Windows Kits\8.1\Include\um\memoryapi.h (TaskId:18)
+                     Note: including file:   C:\Program Files (x86)\Windows Kits\8.1\Include\um\threadpoollegacyapiset.h (TaskId:18)
+                     Note: including file:   C:\Program Files (x86)\Windows Kits\8.1\Include\um\threadpoolapiset.h (TaskId:18)
+                     Note: including file:   C:\Program Files (x86)\Windows Kits\8.1\Include\um\bemapiset.h (TaskId:18)
+                     Note: including file:   C:\Program Files (x86)\Windows Kits\8.1\Include\um\jobapi.h (TaskId:18)
+                     Note: including file:   C:\Program Files (x86)\Windows Kits\8.1\Include\um\wow64apiset.h (TaskId:18)
+                     Note: including file:   C:\Program Files (x86)\Windows Kits\8.1\Include\um\libloaderapi.h (TaskId:18)
+                     Note: including file:   C:\Program Files (x86)\Windows Kits\8.1\Include\um\securitybaseapi.h (TaskId:18)
+                     Note: including file:   C:\Program Files (x86)\Windows Kits\8.1\Include\um\namespaceapi.h (TaskId:18)
+                     Note: including file:   C:\Program Files (x86)\Windows Kits\8.1\Include\um\systemtopologyapi.h (TaskId:18)
+                     Note: including file:   C:\Program Files (x86)\Windows Kits\8.1\Include\um\processtopologyapi.h (TaskId:18)
+                     Note: including file:   C:\Program Files (x86)\Windows Kits\8.1\Include\um\securityappcontainer.h (TaskId:18)
+                     Note: including file:   C:\Program Files (x86)\Windows Kits\8.1\Include\um\realtimeapiset.h (TaskId:18)
+                     Note: including file:   C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winerror.h (TaskId:18)
+                     Note: including file:   C:\Program Files (x86)\Windows Kits\8.1\Include\um\timezoneapi.h (TaskId:18)
+                     Note: including file:  C:\Program Files (x86)\Windows Kits\8.1\Include\um\wingdi.h (TaskId:18)
+                     Note: including file:   C:\Program Files (x86)\Windows Kits\8.1\Include\shared\pshpack1.h (TaskId:18)
+                     Note: including file:   C:\Program Files (x86)\Windows Kits\8.1\Include\shared\poppack.h (TaskId:18)
+                     Note: including file:   C:\Program Files (x86)\Windows Kits\8.1\Include\shared\pshpack2.h (TaskId:18)
+                     Note: including file:   C:\Program Files (x86)\Windows Kits\8.1\Include\shared\poppack.h (TaskId:18)
+                     Note: including file:   C:\Program Files (x86)\Windows Kits\8.1\Include\shared\pshpack2.h (TaskId:18)
+                     Note: including file:   C:\Program Files (x86)\Windows Kits\8.1\Include\shared\poppack.h (TaskId:18)
+                     Note: including file:   C:\Program Files (x86)\Windows Kits\8.1\Include\shared\pshpack4.h (TaskId:18)
+                     Note: including file:   C:\Program Files (x86)\Windows Kits\8.1\Include\shared\poppack.h (TaskId:18)
+                     Note: including file:   C:\Program Files (x86)\Windows Kits\8.1\Include\shared\pshpack4.h (TaskId:18)
+                     Note: including file:   C:\Program Files (x86)\Windows Kits\8.1\Include\shared\poppack.h (TaskId:18)
+                     Note: including file:  C:\Program Files (x86)\Windows Kits\8.1\Include\um\winuser.h (TaskId:18)
+                     Note: including file:   C:\Program Files (x86)\Windows Kits\8.1\Include\shared\pshpack2.h (TaskId:18)
+                     Note: including file:   C:\Program Files (x86)\Windows Kits\8.1\Include\shared\poppack.h (TaskId:18)
+                     Note: including file:   C:\Program Files (x86)\Windows Kits\8.1\Include\shared\tvout.h (TaskId:18)
+                     Note: including file:  C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnls.h (TaskId:18)
+                     Note: including file:   C:\Program Files (x86)\Windows Kits\8.1\Include\um\datetimeapi.h (TaskId:18)
+                     Note: including file:   C:\Program Files (x86)\Windows Kits\8.1\Include\um\stringapiset.h (TaskId:18)
+                     Note: including file:    C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnls.h (TaskId:18)
+                     Note: including file:  C:\Program Files (x86)\Windows Kits\8.1\Include\um\wincon.h (TaskId:18)
+                     Note: including file:   C:\Program Files (x86)\Windows Kits\8.1\Include\um\consoleapi.h (TaskId:18)
+                     Note: including file:  C:\Program Files (x86)\Windows Kits\8.1\Include\um\winver.h (TaskId:18)
+                     Note: including file:   C:\Program Files (x86)\Windows Kits\8.1\Include\um\verrsrc.h (TaskId:18)
+                     Note: including file:  C:\Program Files (x86)\Windows Kits\8.1\Include\um\winreg.h (TaskId:18)
+                     Note: including file:   C:\Program Files (x86)\Windows Kits\8.1\Include\um\reason.h (TaskId:18)
+                     Note: including file:  C:\Program Files (x86)\Windows Kits\8.1\Include\um\winnetwk.h (TaskId:18)
+                     Note: including file:   C:\Program Files (x86)\Windows Kits\8.1\Include\shared\wnnc.h (TaskId:18)
+                     Note: including file:  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\cderr.h (TaskId:18)
+                     Note: including file:  C:\Program Files (x86)\Windows Kits\8.1\Include\um\dde.h (TaskId:18)
+                     Note: including file:  C:\Program Files (x86)\Windows Kits\8.1\Include\um\ddeml.h (TaskId:18)
+                     Note: including file:  C:\Program Files (x86)\Windows Kits\8.1\Include\um\dlgs.h (TaskId:18)
+                     Note: including file:  C:\Program Files (x86)\Windows Kits\8.1\Include\um\lzexpand.h (TaskId:18)
+                     Note: including file:  C:\Program Files (x86)\Windows Kits\8.1\Include\um\mmsystem.h (TaskId:18)
+                     Note: including file:   C:\Program Files (x86)\Windows Kits\8.1\Include\um\mmsyscom.h (TaskId:18)
+                     Note: including file:    C:\Program Files (x86)\Windows Kits\8.1\Include\shared\pshpack1.h (TaskId:18)
+                     Note: including file:    C:\Program Files (x86)\Windows Kits\8.1\Include\shared\poppack.h (TaskId:18)
+                     Note: including file:   C:\Program Files (x86)\Windows Kits\8.1\Include\shared\pshpack1.h (TaskId:18)
+                     Note: including file:   C:\Program Files (x86)\Windows Kits\8.1\Include\um\mciapi.h (TaskId:18)
+                     Note: including file:    C:\Program Files (x86)\Windows Kits\8.1\Include\um\mmsyscom.h (TaskId:18)
+                     Note: including file:   C:\Program Files (x86)\Windows Kits\8.1\Include\um\mmiscapi.h (TaskId:18)
+                     Note: including file:    C:\Program Files (x86)\Windows Kits\8.1\Include\um\mmsyscom.h (TaskId:18)
+                     Note: including file:   C:\Program Files (x86)\Windows Kits\8.1\Include\um\mmiscapi2.h (TaskId:18)
+                     Note: including file:    C:\Program Files (x86)\Windows Kits\8.1\Include\um\mmsyscom.h (TaskId:18)
+                     Note: including file:   C:\Program Files (x86)\Windows Kits\8.1\Include\um\playsoundapi.h (TaskId:18)
+                     Note: including file:    C:\Program Files (x86)\Windows Kits\8.1\Include\um\mmsyscom.h (TaskId:18)
+                     Note: including file:   C:\Program Files (x86)\Windows Kits\8.1\Include\um\mmeapi.h (TaskId:18)
+                     Note: including file:    C:\Program Files (x86)\Windows Kits\8.1\Include\um\mmsyscom.h (TaskId:18)
+                     Note: including file:   C:\Program Files (x86)\Windows Kits\8.1\Include\um\timeapi.h (TaskId:18)
+                     Note: including file:    C:\Program Files (x86)\Windows Kits\8.1\Include\um\mmsyscom.h (TaskId:18)
+                     Note: including file:   C:\Program Files (x86)\Windows Kits\8.1\Include\um\joystickapi.h (TaskId:18)
+                     Note: including file:    C:\Program Files (x86)\Windows Kits\8.1\Include\um\mmsyscom.h (TaskId:18)
+                     Note: including file:   C:\Program Files (x86)\Windows Kits\8.1\Include\shared\poppack.h (TaskId:18)
+                     Note: including file:  C:\Program Files (x86)\Windows Kits\8.1\Include\um\nb30.h (TaskId:18)
+                     Note: including file:  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\rpc.h (TaskId:18)
+                     Note: including file:   C:\Program Files (x86)\Windows Kits\8.1\Include\shared\rpcdce.h (TaskId:18)
+                     Note: including file:    C:\Program Files (x86)\Windows Kits\8.1\Include\shared\rpcdcep.h (TaskId:18)
+                     Note: including file:   C:\Program Files (x86)\Windows Kits\8.1\Include\um\rpcnsi.h (TaskId:18)
+                     Note: including file:   C:\Program Files (x86)\Windows Kits\8.1\Include\shared\rpcnterr.h (TaskId:18)
+                     Note: including file:   C:\Program Files (x86)\Windows Kits\8.1\Include\shared\rpcasync.h (TaskId:18)
+                     Note: including file:  C:\Program Files (x86)\Windows Kits\8.1\Include\um\shellapi.h (TaskId:18)
+                     Note: including file:   C:\Program Files (x86)\Windows Kits\8.1\Include\shared\pshpack1.h (TaskId:18)
+                     Note: including file:   C:\Program Files (x86)\Windows Kits\8.1\Include\shared\poppack.h (TaskId:18)
+                     Note: including file:  C:\Program Files (x86)\Windows Kits\8.1\Include\um\winperf.h (TaskId:18)
+                     Note: including file:   C:\Program Files (x86)\Windows Kits\8.1\Include\shared\pshpack8.h (TaskId:18)
+                     Note: including file:   C:\Program Files (x86)\Windows Kits\8.1\Include\shared\poppack.h (TaskId:18)
+                     Note: including file:  C:\Program Files (x86)\Windows Kits\8.1\Include\um\winsock.h (TaskId:18)
+                     Note: including file:   C:\Program Files (x86)\Windows Kits\8.1\Include\shared\inaddr.h (TaskId:18)
+                     Note: including file:  C:\Program Files (x86)\Windows Kits\8.1\Include\um\wincrypt.h (TaskId:18)
+                     Note: including file:   C:\Program Files (x86)\Windows Kits\8.1\Include\shared\bcrypt.h (TaskId:18)
+                     Note: including file:   C:\Program Files (x86)\Windows Kits\8.1\Include\um\ncrypt.h (TaskId:18)
+                     Note: including file:   C:\Program Files (x86)\Windows Kits\8.1\Include\um\dpapi.h (TaskId:18)
+                     Note: including file:  C:\Program Files (x86)\Windows Kits\8.1\Include\um\winefs.h (TaskId:18)
+                     Note: including file:  C:\Program Files (x86)\Windows Kits\8.1\Include\um\winscard.h (TaskId:18)
+                     Note: including file:   C:\Program Files (x86)\Windows Kits\8.1\Include\shared\wtypes.h (TaskId:18)
+                     Note: including file:    c:\program files (x86)\windows kits\8.1\include\shared\rpcndr.h (TaskId:18)
+                     Note: including file:     C:\Program Files (x86)\Windows Kits\8.1\Include\shared\pshpack8.h (TaskId:18)
+                     Note: including file:     C:\Program Files (x86)\Windows Kits\8.1\Include\um\rpcnsip.h (TaskId:18)
+                     Note: including file:     C:\Program Files (x86)\Windows Kits\8.1\Include\shared\rpcsal.h (TaskId:18)
+                     Note: including file:     C:\Program Files (x86)\Windows Kits\8.1\Include\shared\poppack.h (TaskId:18)
+                     Note: including file:    c:\program files (x86)\windows kits\8.1\include\shared\wtypesbase.h (TaskId:18)
+                     Note: including file:     c:\program files (x86)\windows kits\8.1\include\shared\guiddef.h (TaskId:18)
+                     Note: including file:   C:\Program Files (x86)\Windows Kits\8.1\Include\um\winioctl.h (TaskId:18)
+                     Note: including file:    C:\Program Files (x86)\Windows Kits\8.1\Include\shared\pshpack1.h (TaskId:18)
+                     Note: including file:    C:\Program Files (x86)\Windows Kits\8.1\Include\shared\poppack.h (TaskId:18)
+                     Note: including file:    C:\Program Files (x86)\Windows Kits\8.1\Include\shared\pshpack1.h (TaskId:18)
+                     Note: including file:    C:\Program Files (x86)\Windows Kits\8.1\Include\shared\poppack.h (TaskId:18)
+                     Note: including file:    C:\Program Files (x86)\Windows Kits\8.1\Include\shared\pshpack1.h (TaskId:18)
+                     Note: including file:    C:\Program Files (x86)\Windows Kits\8.1\Include\shared\poppack.h (TaskId:18)
+                     Note: including file:    C:\Program Files (x86)\Windows Kits\8.1\Include\shared\pshpack1.h (TaskId:18)
+                     Note: including file:    C:\Program Files (x86)\Windows Kits\8.1\Include\shared\poppack.h (TaskId:18)
+                     Note: including file:    C:\Program Files (x86)\Windows Kits\8.1\Include\shared\pshpack1.h (TaskId:18)
+                     Note: including file:    C:\Program Files (x86)\Windows Kits\8.1\Include\shared\poppack.h (TaskId:18)
+                     Note: including file:    C:\Program Files (x86)\Windows Kits\8.1\Include\shared\pshpack1.h (TaskId:18)
+                     Note: including file:    C:\Program Files (x86)\Windows Kits\8.1\Include\shared\poppack.h (TaskId:18)
+                     Note: including file:    C:\Program Files (x86)\Windows Kits\8.1\Include\shared\pshpack1.h (TaskId:18)
+                     Note: including file:    C:\Program Files (x86)\Windows Kits\8.1\Include\shared\poppack.h (TaskId:18)
+                     Note: including file:   C:\Program Files (x86)\Windows Kits\8.1\Include\shared\winsmcrd.h (TaskId:18)
+                     Note: including file:  C:\Program Files (x86)\Windows Kits\8.1\Include\um\winspool.h (TaskId:18)
+                     Note: including file:   C:\Program Files (x86)\Windows Kits\8.1\Include\um\prsht.h (TaskId:18)
+                     Note: including file:    C:\Program Files (x86)\Windows Kits\8.1\Include\shared\pshpack4.h (TaskId:18)
+                     Note: including file:    C:\Program Files (x86)\Windows Kits\8.1\Include\shared\poppack.h (TaskId:18)
+                     Note: including file:  C:\Program Files (x86)\Windows Kits\8.1\Include\um\ole2.h (TaskId:18)
+                     Note: including file:   C:\Program Files (x86)\Windows Kits\8.1\Include\shared\pshpack8.h (TaskId:18)
+                     Note: including file:   C:\Program Files (x86)\Windows Kits\8.1\Include\um\objbase.h (TaskId:18)
+                     Note: including file:    C:\Program Files (x86)\Windows Kits\8.1\Include\shared\pshpack8.h (TaskId:18)
+                     Note: including file:    C:\Program Files (x86)\Windows Kits\8.1\Include\um\combaseapi.h (TaskId:18)
+                     Note: including file:     C:\Program Files (x86)\Windows Kits\8.1\Include\shared\pshpack8.h (TaskId:18)
+                     Note: including file:     C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdlib.h (TaskId:18)
+                     Note: including file:      C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\crtdefs.h (TaskId:18)
+                     Note: including file:      C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\limits.h (TaskId:18)
+                     Note: including file:       C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\crtdefs.h (TaskId:18)
+                     Note: including file:     C:\Program Files (x86)\Windows Kits\8.1\Include\um\unknwnbase.h (TaskId:18)
+                     Note: including file:     C:\Program Files (x86)\Windows Kits\8.1\Include\um\objidlbase.h (TaskId:18)
+                     Note: including file:     C:\Program Files (x86)\Windows Kits\8.1\Include\shared\guiddef.h (TaskId:18)
+                     Note: including file:     C:\Program Files (x86)\Windows Kits\8.1\Include\um\cguid.h (TaskId:18)
+                     Note: including file:     C:\Program Files (x86)\Windows Kits\8.1\Include\shared\poppack.h (TaskId:18)
+                     Note: including file:    C:\Program Files (x86)\Windows Kits\8.1\Include\um\objidl.h (TaskId:18)
+                     Note: including file:     c:\program files (x86)\windows kits\8.1\include\um\unknwn.h (TaskId:18)
+                     Note: including file:    C:\Program Files (x86)\Windows Kits\8.1\Include\um\urlmon.h (TaskId:18)
+                     Note: including file:     c:\program files (x86)\windows kits\8.1\include\um\oleidl.h (TaskId:18)
+                     Note: including file:     c:\program files (x86)\windows kits\8.1\include\um\servprov.h (TaskId:18)
+                     Note: including file:     c:\program files (x86)\windows kits\8.1\include\um\msxml.h (TaskId:18)
+                     Note: including file:      c:\program files (x86)\windows kits\8.1\include\um\oaidl.h (TaskId:18)
+                     Note: including file:    C:\Program Files (x86)\Windows Kits\8.1\Include\um\propidl.h (TaskId:18)
+                     Note: including file:    C:\Program Files (x86)\Windows Kits\8.1\Include\shared\poppack.h (TaskId:18)
+                     Note: including file:   C:\Program Files (x86)\Windows Kits\8.1\Include\um\oleauto.h (TaskId:18)
+                     Note: including file:    C:\Program Files (x86)\Windows Kits\8.1\Include\shared\pshpack8.h (TaskId:18)
+                     Note: including file:    C:\Program Files (x86)\Windows Kits\8.1\Include\shared\poppack.h (TaskId:18)
+                     Note: including file:   C:\Program Files (x86)\Windows Kits\8.1\Include\shared\poppack.h (TaskId:18)
+                     Note: including file:  C:\Program Files (x86)\Windows Kits\8.1\Include\um\commdlg.h (TaskId:18)
+                     Note: including file:   C:\Program Files (x86)\Windows Kits\8.1\Include\um\prsht.h (TaskId:18)
+                     Note: including file:   C:\Program Files (x86)\Windows Kits\8.1\Include\shared\pshpack1.h (TaskId:18)
+                     Note: including file:   C:\Program Files (x86)\Windows Kits\8.1\Include\shared\poppack.h (TaskId:18)
+                     Note: including file:  C:\Program Files (x86)\Windows Kits\8.1\Include\shared\stralign.h (TaskId:18)
+                     Note: including file:  C:\Program Files (x86)\Windows Kits\8.1\Include\um\winsvc.h (TaskId:18)
+                     Note: including file:  C:\Program Files (x86)\Windows Kits\8.1\Include\um\mcx.h (TaskId:18)
+                     Note: including file:  C:\Program Files (x86)\Windows Kits\8.1\Include\um\imm.h (TaskId:18)
+                     Note: including file:   C:\Program Files (x86)\Windows Kits\8.1\Include\um\ime_cmodes.h (TaskId:18)
+                   Done executing task "CL". (TaskId:18)
+21:16:19.126     1>Done building target "ClCompile" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:44)
+                   Target "ManagedIncrementalBuildPostProcessDependencyGraph" skipped, due to false condition; ('@(ClCompile)' != '' and '$(EnableManagedIncrementalBuild)' == 'True') was evaluated as ('BitScanReverse_SAL_TEST.cpp' != '' and 'false' == 'True').
+21:16:19.126     1>Target "AfterClCompile: (TargetId:45)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "_ClCompile" depends on it):
+21:16:19.126     1>Done building target "AfterClCompile" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:45)
+21:16:19.126     1>Target "_ClCompile: (TargetId:46)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "_BuildCompileAction" depends on it):
+21:16:19.126     1>Done building target "_ClCompile" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:46)
+                   Target "_ResGen" skipped, due to false condition; ('@(EmbeddedResource)'!='') was evaluated as (''!='').
+21:16:19.126     1>Target "BeforeResourceCompile: (TargetId:47)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "_ResourceCompile" depends on it):
+21:16:19.126     1>Done building target "BeforeResourceCompile" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:47)
+21:16:19.126     1>Target "MakeDirsForResourceCompile: (TargetId:48)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "_ResourceCompile" depends on it):
+                   Task "MakeDir" (TaskId:19)
+                   Done executing task "MakeDir". (TaskId:19)
+21:16:19.126     1>Done building target "MakeDirsForResourceCompile" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:48)
+                   Target "ResourceCompile" skipped, due to false condition; ('@(ResourceCompile)' != '') was evaluated as ('' != '').
+21:16:19.126     1>Target "AfterResourceCompile: (TargetId:49)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "_ResourceCompile" depends on it):
+21:16:19.126     1>Done building target "AfterResourceCompile" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:49)
+21:16:19.126     1>Target "_ResourceCompile: (TargetId:50)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "_BuildCompileAction" depends on it):
+21:16:19.126     1>Done building target "_ResourceCompile" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:50)
+                   Target "_ImpLib" skipped, due to false condition; ('$(ImpLibCompiled)' == 'true') was evaluated as ('' == 'true').
+                   Target "_Lib" skipped, due to false condition; ('$(LibCompiled)' == 'true') was evaluated as ('' == 'true').
+21:16:19.126     1>Target "AfterBuildCompileEvent: (TargetId:51)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "_BuildCompileAction" depends on it):
+21:16:19.126     1>Done building target "AfterBuildCompileEvent" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:51)
+21:16:19.126     1>Target "_BuildCompileAction: (TargetId:52)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "BuildCompile" depends on it):
+21:16:19.126     1>Done building target "_BuildCompileAction" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:52)
+21:16:19.126     1>Target "BuildCompile: (TargetId:53)" in file "C:\Program Files (x86)\MSBuild\12.0\bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "Build" depends on it):
+21:16:19.126     1>Done building target "BuildCompile" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:53)
+                   Target "AssignProjectConfiguration" skipped. Previously built successfully.
+                   Target "_SplitProjectReferencesByFileExistence" skipped. Previously built successfully.
+21:16:19.126     1>Target "BuildLinkTraverse: (TargetId:54)" in file "C:\Program Files (x86)\MSBuild\12.0\bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "BuildLink" depends on it):
+                   Task "MSBuild" skipped, due to false condition; ('$(BuildPassReferences)' == 'true' and '@(ProjectReferenceWithConfiguration)' != '' and '@(_MSBuildProjectReferenceExistent)' != ''  and '%(_MSBuildProjectReferenceExistent.BuildReference)' == 'true') was evaluated as ('' == 'true' and '' != '' and '' != ''  and '' == 'true').
+21:16:19.126     1>Done building target "BuildLinkTraverse" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:54)
+                   Target "PrepareForBuild" skipped. Previously built successfully.
+                   Target "ResolveReferences" skipped. Previously built successfully.
+21:16:19.127     1>Target "ComputeLegacyManifestEmbedding: (TargetId:55)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "_BuildLinkAction" depends on it):
+                   Task "VCMessage" skipped, due to false condition; ('$(RevertManifestEmbedding)' == 'true' and '$(_LegacyManifestEmbeddingDebug)' == 'true') was evaluated as ('' == 'true' and '' == 'true').
+21:16:19.127     1>Done building target "ComputeLegacyManifestEmbedding" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:55)
+21:16:19.127     1>Target "BeforeLink: (TargetId:56)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "_Link" depends on it):
+21:16:19.127     1>Done building target "BeforeLink" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:56)
+21:16:19.127     1>Target "ComputeRCOutputs: (TargetId:57)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "ComputeRCGeneratedLinkInputs" depends on it):
+21:16:19.127     1>Done building target "ComputeRCOutputs" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:57)
+21:16:19.127     1>Target "ComputeRCGeneratedLinkInputs: (TargetId:58)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "_Link" depends on it):
+21:16:19.127     1>Done building target "ComputeRCGeneratedLinkInputs" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:58)
+21:16:19.127     1>Target "ComputeManifestGeneratedLinkerInputs: (TargetId:59)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "_Link" depends on it):
+21:16:19.127     1>Done building target "ComputeManifestGeneratedLinkerInputs" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:59)
+21:16:19.127     1>Target "ComputeCustomBuildOutput: (TargetId:60)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "_Link" depends on it):
+                   Task "CreateItem" skipped, due to false condition; ('%(CustomBuildDirsToMake.OutputFileToTool)'!='') was evaluated as (''!='').
+                   Task "MakeDir" (TaskId:20)
+                   Done executing task "MakeDir". (TaskId:20)
+21:16:19.128     1>Done building target "ComputeCustomBuildOutput" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:60)
+                   Target "ComputeMIDLGeneratedCompileInputs" skipped. Previously built successfully.
+                   Target "ComputeCLInputPDBName" skipped. Previously built successfully.
+                   Target "ComputeReferenceCLInput" skipped. Previously built successfully.
+                   Target "WarnCompileDuplicatedFilename" skipped. Previously built successfully.
+21:16:19.128     1>Target "ComputeCLOutputs: (TargetId:61)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "ComputeCLGeneratedLinkInputs" depends on it):
+21:16:19.128     1>Done building target "ComputeCLOutputs" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:61)
+21:16:19.128     1>Target "ComputeCLGeneratedLinkInputs: (TargetId:62)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "_Link" depends on it):
+21:16:19.128     1>Done building target "ComputeCLGeneratedLinkInputs" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:62)
+21:16:19.128     1>Target "ComputeLinkInputsFromProject: (TargetId:63)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "_Link" depends on it):
+21:16:19.129     1>Done building target "ComputeLinkInputsFromProject" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:63)
+                   Target "ComputeReferenceLinkInputs" skipped, due to false condition; (@(ProjectReference) != '') was evaluated as ( != '').
+21:16:19.129     1>Target "ComputeManifestInputsTargets: (TargetId:64)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "_Link" depends on it):
+21:16:19.129     1>Done building target "ComputeManifestInputsTargets" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:64)
+                   Target "ManifestResourceCompile" skipped, due to false condition; ('$(EmbedManifestBy)' == 'LINK' and '@(Manifest)' != '') was evaluated as ('MT' == 'LINK' and '' != '').
+                   Target "AssignWinFXEmbeddedResource" skipped, due to false condition; ('@(WinFXEmbeddedResource)' != '') was evaluated as ('' != '').
+21:16:19.129     1>Target "AssignTargetPaths: (TargetId:65)" in file "C:\Program Files (x86)\MSBuild\12.0\bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "PrepareResourceNames" depends on it):
+                   Using "AssignTargetPath" task from assembly "Microsoft.Build.Tasks.v12.0, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
+                   Task "AssignTargetPath" (TaskId:21)
+                     Task Parameter:RootFolder=C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST (TaskId:21)
+                   Done executing task "AssignTargetPath". (TaskId:21)
+                   Task "AssignTargetPath" (TaskId:22)
+                     Task Parameter:RootFolder=C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST (TaskId:22)
+                   Done executing task "AssignTargetPath". (TaskId:22)
+                   Task "AssignTargetPath" (TaskId:23)
+                     Task Parameter:RootFolder=C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST (TaskId:23)
+                   Done executing task "AssignTargetPath". (TaskId:23)
+                   Task "AssignTargetPath" (TaskId:24)
+                     Task Parameter:RootFolder=C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST (TaskId:24)
+                   Done executing task "AssignTargetPath". (TaskId:24)
+                   Task "AssignTargetPath" skipped, due to false condition; ('@(_DeploymentBaseManifestWithTargetPath)'=='' and '%(None.Extension)'=='.manifest') was evaluated as (''=='' and ''=='.manifest').
+21:16:19.130     1>Done building target "AssignTargetPaths" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:65)
+                   Target "AssignTargetPaths" skipped. Previously built successfully.
+21:16:19.130     1>Target "SplitResourcesByCulture: (TargetId:66)" in file "C:\Program Files (x86)\MSBuild\12.0\bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "PrepareResourceNames" depends on it):
+                   Task "Warning" skipped, due to false condition; ('@(ResxWithNoCulture)'!='') was evaluated as (''!='').
+                   Task "Warning" skipped, due to false condition; ('@(ResxWithCulture)'!='') was evaluated as (''!='').
+                   Task "Warning" skipped, due to false condition; ('@(NonResxWithCulture)'!='') was evaluated as (''!='').
+                   Task "Warning" skipped, due to false condition; ('@(NonResxWithNoCulture)'!='') was evaluated as (''!='').
+                   Using "AssignCulture" task from assembly "Microsoft.Build.Tasks.v12.0, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
+                   Task "AssignCulture" (TaskId:25)
+                   Done executing task "AssignCulture". (TaskId:25)
+21:16:19.131     1>Done building target "SplitResourcesByCulture" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:66)
+                   Target "CreateManifestResourceNames" skipped, due to false condition; ('@(EmbeddedResource)' != '') was evaluated as ('' != '').
+21:16:19.131     1>Target "CreateCustomManifestResourceNames: (TargetId:67)" in file "C:\Program Files (x86)\MSBuild\12.0\bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "PrepareResourceNames" depends on it):
+21:16:19.131     1>Done building target "CreateCustomManifestResourceNames" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:67)
+21:16:19.131     1>Target "PrepareResourceNames: (TargetId:68)" in file "C:\Program Files (x86)\MSBuild\12.0\bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "_Link" depends on it):
+21:16:19.131     1>Done building target "PrepareResourceNames" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:68)
+21:16:19.131     1>Target "MakeDirsForLink: (TargetId:69)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "_Link" depends on it):
+                   Task "MakeDir" (TaskId:26)
+                     Task Parameter:
+                         Directories=
+                             C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\Release
+                             C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\Release
+                             C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\Release
+                             C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\Release\ (TaskId:26)
+                   Done executing task "MakeDir". (TaskId:26)
+21:16:19.132     1>Done building target "MakeDirsForLink" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:69)
+21:16:19.132     1>Target "DoLinkOutputFilesMatch: (TargetId:70)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "_Link" depends on it):
+                   Task "VCMessage" skipped, due to false condition; ('@(_OutputFileFromLink)' == '') was evaluated as ('C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\Release\BitScanReverse_SAL_TEST.exe' == '').
+                   Task "VCMessage" skipped, due to false condition; ('@(_OutputFileFromLink)' != '' and '%(_OutputFileFromLink.FullPath)' != '$([System.IO.Path]::GetFullPath($(TargetPath)))') was evaluated as ('C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\Release\BitScanReverse_SAL_TEST.exe' != '' and 'C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\Release\BitScanReverse_SAL_TEST.exe' != 'C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\Release\BitScanReverse_SAL_TEST.exe').
+                   Task "VCMessage" skipped, due to false condition; ('@(_OutputFileFromLink)' != '' and '%(_OutputFileFromLink.Extension)' != '' and '%(_OutputFileFromLink.Extension)' != '$(TargetExt)') was evaluated as ('C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\Release\BitScanReverse_SAL_TEST.exe' != '' and '.exe' != '' and '.exe' != '.exe').
+                   Task "VCMessage" skipped, due to false condition; ('@(_OutputFileFromLink)' != '' and '%(_OutputFileFromLink.Filename)' != '' and '%(_OutputFileFromLink.Filename)' != '$(TargetName)') was evaluated as ('C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\Release\BitScanReverse_SAL_TEST.exe' != '' and 'BitScanReverse_SAL_TEST' != '' and 'BitScanReverse_SAL_TEST' != 'BitScanReverse_SAL_TEST').
+                   Task "VCMessage" skipped, due to false condition; ('%(Link.MinimumRequiredVersion)' != '' and ('%(Link.Subsystem)' == '' or '%(Link.Subsystem)' == 'NotSet')) was evaluated as ('' != '' and ('NotSet' == '' or 'NotSet' == 'NotSet')).
+21:16:19.133     1>Done building target "DoLinkOutputFilesMatch" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:70)
+21:16:19.133     1>Target "PreLinkEvent: (TargetId:71)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppCommon.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "_Link" depends on it):
+                   Task "Message" skipped, due to false condition; ('%(PreLinkEvent.Message)' != '' and '%(PreLinkEvent.Command)' != '') was evaluated as ('' != '' and '' != '').
+                   Task "Exec" skipped, due to false condition; ('%(PreLinkEvent.Command)' != '') was evaluated as ('' != '').
+21:16:19.133     1>Done building target "PreLinkEvent" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:71)
+21:16:19.133     1>Target "ComputeLinkSwitches: (TargetId:72)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppCommon.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "Link" depends on it):
+21:16:19.133     1>Done building target "ComputeLinkSwitches" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:72)
+21:16:19.133     1>Target "Link: (TargetId:73)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppCommon.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "_Link" depends on it):
+                   Using "Link" task from assembly "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.Build.CppTasks.Common.dll".
+                   Task "Link" (TaskId:27)
+                     Task Parameter:BuildingInIde=True (TaskId:27)
+                     Task Parameter:
+                         Sources=
+                             Release\BitScanReverse_SAL_TEST.obj
+                                     AcceptableNonZeroExitCodes=
+                                     AdditionalDependencies=kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;
+                                     AllowIsolation=true
+                                     CLRImageType=Default
+                                     DataExecutionPrevention=true
+                                     DelaySign=
+                                     Driver=NotSet
+                                     EnableCOMDATFolding=true
+                                     EnableUAC=true
+                                     GenerateDebugInformation=true
+                                     GenerateMapFile=false
+                                     IgnoreAllDefaultLibraries=false
+                                     IgnoreEmbeddedIDL=false
+                                     ImageHasSafeExceptionHandlers=true
+                                     ImportLibrary=C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\Release\BitScanReverse_SAL_TEST.lib
+                                     InterproceduralOptimization=true
+                                     KeyFile=
+                                     LinkErrorReporting=PromptImmediately
+                                     LinkTimeCodeGeneration=UseLinkTimeCodeGeneration
+                                     ManifestEmbed=true
+                                     ManifestFile=
+                                     ManifestInput=;;
+                                     MapExports=false
+                                     MinimalRebuildFromTracking=true
+                                     NoEntryPoint=false
+                                     OptimizeReferences=true
+                                     OutputFile=C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\Release\BitScanReverse_SAL_TEST.exe
+                                     PerUserRedirection=false
+                                     Profile=false
+                                     ProfileGuidedDatabase=
+                                     ProgramDatabaseFile=C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\Release\BitScanReverse_SAL_TEST.pdb
+                                     RandomizedBaseAddress=true
+                                     RegisterOutput=false
+                                     SetChecksum=false
+                                     ShowProgress=NotSet
+                                     SubSystem=NotSet
+                                     SupportNobindOfDelayLoadedDLL=false
+                                     SupportUnloadOfDelayLoadedDLL=false
+                                     SuppressStartupBanner=true
+                                     SwapRunFromCD=false
+                                     SwapRunFromNET=false
+                                     TargetMachine=MachineX86
+                                     TrackerLogDirectory=Release\BitScanR.5459017C.tlog\
+                                     TurnOffAssemblyGeneration=false
+                                     TypeLibraryResourceID=1
+                                     UACExecutionLevel=AsInvoker
+                                     UACUIAccess=false
+                                     WindowsMetadataFile=
+                                     WindowsMetadataKeyContainer=
+                                     WindowsMetadataLinkDelaySign=
+                                     WindowsMetadataLinkKeyFile=
+                                     WindowsMetadataSignHash=
+                                     WPOAssemblyOutput=NoListing (TaskId:27)
+                     Task Parameter:
+                         AdditionalDependencies=
+                             kernel32.lib
+                             user32.lib
+                             gdi32.lib
+                             winspool.lib
+                             comdlg32.lib
+                             advapi32.lib
+                             shell32.lib
+                             ole32.lib
+                             oleaut32.lib
+                             uuid.lib
+                             odbc32.lib
+                             odbccp32.lib (TaskId:27)
+                     Task Parameter:AllowIsolation=True (TaskId:27)
+                     Task Parameter:CLRImageType=Default (TaskId:27)
+                     Task Parameter:DataExecutionPrevention=True (TaskId:27)
+                     Task Parameter:Driver=NotSet (TaskId:27)
+                     Task Parameter:EnableCOMDATFolding=True (TaskId:27)
+                     Task Parameter:EnableUAC=True (TaskId:27)
+                     Task Parameter:LinkErrorReporting=PromptImmediately (TaskId:27)
+                     Task Parameter:GenerateDebugInformation=True (TaskId:27)
+                     Task Parameter:GenerateManifest=True (TaskId:27)
+                     Task Parameter:GenerateMapFile=False (TaskId:27)
+                     Task Parameter:IgnoreAllDefaultLibraries=False (TaskId:27)
+                     Task Parameter:IgnoreEmbeddedIDL=False (TaskId:27)
+                     Task Parameter:ImageHasSafeExceptionHandlers=True (TaskId:27)
+                     Task Parameter:ImportLibrary=C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\Release\BitScanReverse_SAL_TEST.lib (TaskId:27)
+                     Task Parameter:LinkIncremental=False (TaskId:27)
+                     Task Parameter:LinkTimeCodeGeneration=UseLinkTimeCodeGeneration (TaskId:27)
+                     Task Parameter:ManifestEmbed=True (TaskId:27)
+                     Task Parameter:MapExports=False (TaskId:27)
+                     Task Parameter:OptimizeReferences=True (TaskId:27)
+                     Task Parameter:OutputFile=C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\Release\BitScanReverse_SAL_TEST.exe (TaskId:27)
+                     Task Parameter:Profile=False (TaskId:27)
+                     Task Parameter:ProgramDatabaseFile=C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\Release\BitScanReverse_SAL_TEST.pdb (TaskId:27)
+                     Task Parameter:RandomizedBaseAddress=True (TaskId:27)
+                     Task Parameter:NoEntryPoint=False (TaskId:27)
+                     Task Parameter:SetChecksum=False (TaskId:27)
+                     Task Parameter:ShowProgress=NotSet (TaskId:27)
+                     Task Parameter:SubSystem=NotSet (TaskId:27)
+                     Task Parameter:SupportUnloadOfDelayLoadedDLL=False (TaskId:27)
+                     Task Parameter:SupportNobindOfDelayLoadedDLL=False (TaskId:27)
+                     Task Parameter:SuppressStartupBanner=True (TaskId:27)
+                     Task Parameter:SwapRunFromCD=False (TaskId:27)
+                     Task Parameter:SwapRunFromNET=False (TaskId:27)
+                     Task Parameter:TargetMachine=MachineX86 (TaskId:27)
+                     Task Parameter:TurnOffAssemblyGeneration=False (TaskId:27)
+                     Task Parameter:TypeLibraryResourceID=1 (TaskId:27)
+                     Task Parameter:UACExecutionLevel=AsInvoker (TaskId:27)
+                     Task Parameter:UACUIAccess=False (TaskId:27)
+                     Task Parameter:TrackerLogDirectory=Release\BitScanR.5459017C.tlog\ (TaskId:27)
+                     Task Parameter:TrackFileAccess=True (TaskId:27)
+                     Task Parameter:MinimalRebuildFromTracking=True (TaskId:27)
+                     Task Parameter:ToolArchitecture=Native32Bit (TaskId:27)
+                     Task Parameter:YieldDuringToolExecution=True (TaskId:27)
+                     Environment Variables passed to tool: (TaskId:27)
+                       VS_UNICODE_OUTPUT=1556 (TaskId:27)
+                     C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\Release\BitScanReverse_SAL_TEST.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\Release\BitScanReverse_SAL_TEST.pdb" /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\Release\BitScanReverse_SAL_TEST.lib" /MACHINE:X86 /SAFESEH Release\BitScanReverse_SAL_TEST.obj (TaskId:27)
+                     Tracking command: (TaskId:27)
+                     C:\Program Files (x86)\MSBuild\12.0\bin\Tracker.exe /a /d "C:\Program Files (x86)\MSBuild\12.0\bin\FileTracker.dll" /i "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\Release\BitScanR.5459017C.tlog" /r "C:\USERS\ALEXANDER RICCIO\DOCUMENTS\GITHUB\SALEXAAMPLES\SALEXAMPLES\BITSCANREVERSE_SAL_TEST\BITSCANREVERSE_SAL_TEST\RELEASE\BITSCANREVERSE_SAL_TEST.OBJ" /b MSBuildConsole_CancelEvent11df09c2eac34b3db6882b4c0255e5d2  /c "C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe"  /ERRORREPORT:PROMPT /OUT:"C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\Release\BitScanReverse_SAL_TEST.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\Release\BitScanReverse_SAL_TEST.pdb" /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\Release\BitScanReverse_SAL_TEST.lib" /MACHINE:X86 /SAFESEH Release\BitScanReverse_SAL_TEST.obj (TaskId:27)
+                     Generating code (TaskId:27)
+21:16:19.651     1>c:\users\alexander riccio\documents\github\salexaamples\salexamples\bitscanreverse_sal_test\bitscanreverse_sal_test\bitscanreverse_sal_test.cpp(38): warning C4711: function 'unsigned char __cdecl my_bit_scan_reverse(unsigned long * const,unsigned long)' selected for automatic inline expansion
+21:16:19.651     1>c:\users\alexander riccio\documents\github\salexaamples\salexamples\bitscanreverse_sal_test\bitscanreverse_sal_test\bitscanreverse_sal_test.cpp(46): warning C4711: function 'unsigned char __cdecl my_bit_scan_reverse(unsigned long * const,unsigned long)' selected for automatic inline expansion
+21:16:19.651     1>c:\users\alexander riccio\documents\github\salexaamples\salexamples\bitscanreverse_sal_test\bitscanreverse_sal_test\bitscanreverse_sal_test.cpp(51): warning C4711: function 'unsigned long const __cdecl return_some_number(unsigned long)' selected for automatic inline expansion
+21:16:19.651     1>c:\users\alexander riccio\documents\github\salexaamples\salexamples\bitscanreverse_sal_test\bitscanreverse_sal_test\bitscanreverse_sal_test.cpp(52): warning C4711: function 'unsigned char __cdecl my_bit_scan_reverse(unsigned long * const,unsigned long)' selected for automatic inline expansion
+                     Finished generating code (TaskId:27)
+                   Done executing task "Link". (TaskId:27)
+                   Task "Message" (TaskId:28)
+                     Task Parameter:Text=BitScanReverse_SAL_TEST.vcxproj -> C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\Release\BitScanReverse_SAL_TEST.exe (TaskId:28)
+                     Task Parameter:Importance=High (TaskId:28)
+                     BitScanReverse_SAL_TEST.vcxproj -> C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\Release\BitScanReverse_SAL_TEST.exe (TaskId:28)
+                   Done executing task "Message". (TaskId:28)
+21:16:19.956     1>Done building target "Link" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:73)
+                   Target "MetaGenInputsOutputs" skipped, due to false condition; ('$(EnableManagedIncrementalBuild)' == 'True') was evaluated as ('false' == 'True').
+                   Target "ComputeMetaGenInputs" skipped, due to false condition; ('$(CLRSupport)'!='' and '$(CLRSupport)'!='false') was evaluated as ('false'!='' and 'false'!='false').
+                   Target "MetaGen" skipped, due to false condition; ('@(MetaGen)' != '') was evaluated as ('' != '').
+21:16:19.956     1>Target "ComputeLinkImportLibraryOutputsForClean: (TargetId:74)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "_Link" depends on it):
+                   Task "WriteLinesToFile" skipped, due to false condition; ('@(_LinkSecondaryOutput)' != '') was evaluated as ('' != '').
+21:16:19.956     1>Done building target "ComputeLinkImportLibraryOutputsForClean" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:74)
+21:16:19.956     1>Target "AfterLink: (TargetId:75)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "_Link" depends on it):
+21:16:19.956     1>Done building target "AfterLink" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:75)
+21:16:19.956     1>Target "_Link: (TargetId:76)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "_BuildLinkAction" depends on it):
+21:16:19.956     1>Done building target "_Link" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:76)
+21:16:19.956     1>Target "_ALink: (TargetId:77)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "_BuildLinkAction" depends on it):
+21:16:19.956     1>Done building target "_ALink" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:77)
+                   Target "ComputeLegacyManifestEmbedding" skipped. Previously built successfully.
+21:16:19.956     1>Target "_Manifest: (TargetId:78)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "_BuildLinkAction" depends on it):
+                   Task "CallTarget" skipped, due to false condition; ('$(LegacyManifestEmbedding)' == 'true') was evaluated as ('' == 'true').
+21:16:19.956     1>Done building target "_Manifest" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:78)
+21:16:19.956     1>Target "RegisterOutput: (TargetId:79)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppCommon.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "_BuildLinkAction" depends on it):
+                   Task "Exec" skipped, due to false condition; ('$(ConfigurationType)'=='DynamicLibrary' and '%(Link.RegisterOutput)'=='true' and '%(Link.PerUserRedirection)'!='true') was evaluated as ('Application'=='DynamicLibrary' and 'false'=='true' and 'false'!='true').
+                   Task "Exec" skipped, due to false condition; ('$(ConfigurationType)'=='DynamicLibrary' and '%(Link.RegisterOutput)'=='true' and '%(Link.PerUserRedirection)'=='true') was evaluated as ('Application'=='DynamicLibrary' and 'false'=='true' and 'false'=='true').
+                   Task "Exec" skipped, due to false condition; ('$(ConfigurationType)'=='Application' and '%(Link.RegisterOutput)'=='true' and '%(Link.PerUserRedirection)'!='true') was evaluated as ('Application'=='Application' and 'false'=='true' and 'false'!='true').
+                   Task "Exec" skipped, due to false condition; ('$(ConfigurationType)'=='Application' and '%(Link.RegisterOutput)'=='true' and '%(Link.PerUserRedirection)'=='true') was evaluated as ('Application'=='Application' and 'false'=='true' and 'false'=='true').
+                   Task "VCMessage" skipped, due to false condition; ('$(_RegisterOutputExitCode)' != '' and '$(_RegisterOutputExitCode)' != '0') was evaluated as ('' != '' and '' != '0').
+21:16:19.957     1>Done building target "RegisterOutput" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:79)
+                   Target "PrepareForBuild" skipped. Previously built successfully.
+                   Target "ResolveReferences" skipped. Previously built successfully.
+21:16:19.957     1>Target "ResolvedXDCMake: (TargetId:80)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "_XdcMake" depends on it):
+                   Task "MSBuild" skipped, due to false condition; ('%(_MSBuildProjectReferenceExistent.Extension)' == '.vcxproj' and '@(ProjectReferenceWithConfiguration)' != '' and '@(_MSBuildProjectReferenceExistent)' != '' and '$(_ClCompileGenerateXMLDocumentationFiles)' == 'true') was evaluated as ('' == '.vcxproj' and '' != '' and '' != '' and '' == 'true').
+21:16:19.957     1>Done building target "ResolvedXDCMake" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:80)
+21:16:19.957     1>Target "ComputeCLCompileGeneratedXDCFiles: (TargetId:81)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "_XdcMake" depends on it):
+21:16:19.957     1>Done building target "ComputeCLCompileGeneratedXDCFiles" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:81)
+21:16:19.957     1>Target "MakeDirsForXdcMake: (TargetId:82)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "_XdcMake" depends on it):
+                   Task "MakeDir" (TaskId:29)
+                   Done executing task "MakeDir". (TaskId:29)
+21:16:19.957     1>Done building target "MakeDirsForXdcMake" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:82)
+                   Target "XdcMake" skipped, due to false condition; ('@(XdcMake)' != '') was evaluated as ('' != '').
+21:16:19.958     1>Target "_XdcMake: (TargetId:83)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "_BuildLinkAction" depends on it):
+21:16:19.958     1>Done building target "_XdcMake" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:83)
+21:16:19.958     1>Target "ComputeCLCompileGeneratedSbrFiles: (TargetId:84)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "_BscMake" depends on it):
+21:16:19.958     1>Done building target "ComputeCLCompileGeneratedSbrFiles" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:84)
+21:16:19.958     1>Target "MakeDirsForBscMake: (TargetId:85)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "_BscMake" depends on it):
+                   Task "MakeDir" (TaskId:30)
+                   Done executing task "MakeDir". (TaskId:30)
+21:16:19.958     1>Done building target "MakeDirsForBscMake" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:85)
+                   Target "BscMake" skipped, due to false condition; ('@(BscMake)' != '') was evaluated as ('' != '').
+                   Target "CustomBuildStep" skipped, due to false condition; ('@(CustomBuildStep)' != '' and '$(SelectedFiles)'=='') was evaluated as ('' != '' and ''=='').
+21:16:19.958     1>Target "_BscMake: (TargetId:86)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "_BuildLinkAction" depends on it):
+21:16:19.958     1>Done building target "_BscMake" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:86)
+                   Target "ClCompile" skipped. Previously built successfully.
+                   Target "GenerateTargetFrameworkMonikerAttribute" skipped, due to false condition; ('$(GenerateTargetFrameworkAttribute)' == 'true') was evaluated as ('false' == 'true').
+                   Target "ManagedIncrementalBuildPreProcessDependencyGraph" skipped, due to false condition; ('@(ClCompile)' != '' and '$(EnableManagedIncrementalBuild)' == 'True') was evaluated as ('BitScanReverse_SAL_TEST.cpp' != '' and 'false' == 'True').
+                   Target "CheckIntelEnvironmentForVCLibsTBB" skipped, due to false condition; ('$(PlatformToolset)' == 'v120' AND '$(UseIntelTBB)' == 'true' AND '$(UseEnv)' != 'true') was evaluated as ('v120' == 'v120' AND 'false' == 'true' AND '' != 'true').
+                   Target "ManagedIncrementalBuildPostProcessDependencyGraph" skipped, due to false condition; ('@(ClCompile)' != '' and '$(EnableManagedIncrementalBuild)' == 'True') was evaluated as ('BitScanReverse_SAL_TEST.cpp' != '' and 'false' == 'True').
+21:16:19.958     1>Target "RunMergeNativeCodeAnalysis: (TargetId:87)" in file "C:\Program Files (x86)\MSBuild\Microsoft\VisualStudio\v12.0\CodeAnalysis\Microsoft.CodeAnalysis.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "_BuildLinkAction" depends on it):
+                   Building target "RunMergeNativeCodeAnalysis" completely.
+                   Output file "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\Release\BitScanReverse_SAL_TEST.exe.lastcodeanalysissucceeded" does not exist.
+                   Using "MergeNativeCodeAnalysis" task from assembly "C:\Program Files (x86)\MSBuild\Microsoft\VisualStudio\v12.0\CodeAnalysis\.\FxCopTask.dll".
+                   Task "MergeNativeCodeAnalysis" (TaskId:31)
+                     Task Parameter:InputNativeResultFiles=Release\BitScanReverse_SAL_TEST.nativecodeanalysis.xml (TaskId:31)
+                     Task Parameter:OutputCodeAnalysisFile=Release\vc.nativecodeanalysis.all.xml (TaskId:31)
+                   Done executing task "MergeNativeCodeAnalysis". (TaskId:31)
+21:16:19.974     1>Done building target "RunMergeNativeCodeAnalysis" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:87)
+                   Target "ClCompile" skipped. Previously built successfully.
+                   Target "GenerateTargetFrameworkMonikerAttribute" skipped, due to false condition; ('$(GenerateTargetFrameworkAttribute)' == 'true') was evaluated as ('false' == 'true').
+                   Target "ManagedIncrementalBuildPreProcessDependencyGraph" skipped, due to false condition; ('@(ClCompile)' != '' and '$(EnableManagedIncrementalBuild)' == 'True') was evaluated as ('BitScanReverse_SAL_TEST.cpp' != '' and 'false' == 'True').
+                   Target "CheckIntelEnvironmentForVCLibsTBB" skipped, due to false condition; ('$(PlatformToolset)' == 'v120' AND '$(UseIntelTBB)' == 'true' AND '$(UseEnv)' != 'true') was evaluated as ('v120' == 'v120' AND 'false' == 'true' AND '' != 'true').
+                   Target "ManagedIncrementalBuildPostProcessDependencyGraph" skipped, due to false condition; ('@(ClCompile)' != '' and '$(EnableManagedIncrementalBuild)' == 'True') was evaluated as ('BitScanReverse_SAL_TEST.cpp' != '' and 'false' == 'True').
+                   Target "RunMergeNativeCodeAnalysis" skipped. Previously built successfully.
+21:16:19.974     1>Target "RunNativeCodeAnalysis: (TargetId:88)" in file "C:\Program Files (x86)\MSBuild\Microsoft\VisualStudio\v12.0\CodeAnalysis\Microsoft.CodeAnalysis.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "_BuildLinkAction" depends on it):
+                   Building target "RunNativeCodeAnalysis" completely.
+                   Output file "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\Release\BitScanReverse_SAL_TEST.exe.lastcodeanalysissucceeded" does not exist.
+                   Using "NativeCodeAnalysis" task from assembly "C:\Program Files (x86)\MSBuild\Microsoft\VisualStudio\v12.0\CodeAnalysis\.\FxCopTask.dll".
+                   Task "NativeCodeAnalysis" (TaskId:32)
+                     Task Parameter:NativeCodeAnalysisLogFiles=Release\vc.nativecodeanalysis.all.xml (TaskId:32)
+                     Task Parameter:MSBuildProjectDirectory=C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST (TaskId:32)
+                     Task Parameter:RuleSet=AllRules.ruleset (TaskId:32)
+                     Task Parameter:RuleSetDirectories=C:\Program Files (x86)\Microsoft Visual Studio 12.0\Team Tools\Static Analysis Tools\\Rule Sets (TaskId:32)
+                     Task Parameter:StaticAnalysisDirectory=C:\Program Files (x86)\Microsoft Visual Studio 12.0\Team Tools\Static Analysis Tools\ (TaskId:32)
+                     Task Parameter:TLogFile=Release\NativeCodeAnalysis.read.1.tlog (TaskId:32)
+                     Task Parameter:TreatWarningsAsErrors=False (TaskId:32)
+                     Task Parameter:CodeAnalysisSucceededFile=C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\Release\BitScanReverse_SAL_TEST.exe.lastcodeanalysissucceeded (TaskId:32)
+21:16:20.127     1>c:\users\alexander riccio\documents\github\salexaamples\salexamples\bitscanreverse_sal_test\bitscanreverse_sal_test\bitscanreverse_sal_test.cpp(46): warning C28020: The expression '_Param_(2)>0' is not true at this call.
+21:16:20.127     1>c:\users\alexander riccio\documents\github\salexaamples\salexamples\bitscanreverse_sal_test\bitscanreverse_sal_test\bitscanreverse_sal_test.cpp(32): warning C6102: Using 'index' from failed function call at line '29'.
+                   Done executing task "NativeCodeAnalysis". (TaskId:32)
+21:16:20.131     1>Done building target "RunNativeCodeAnalysis" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:88)
+21:16:20.131     1>Target "_GenerateSatelliteAssemblyInputs: (TargetId:89)" in file "C:\Program Files (x86)\MSBuild\12.0\bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "CreateSatelliteAssemblies" depends on it):
+                   Task "Warning" skipped, due to false condition; ('@(ManifestResourceWithCulture)'!='' and '%(ManifestResourceWithCulture.EmittedForCompatibilityOnly)'=='') was evaluated as (''!='' and ''=='').
+                   Task "Warning" skipped, due to false condition; ('@(ManifestNonResxWithCultureOnDisk)'!='' and '%(ManifestNonResxWithCultureOnDisk.EmittedForCompatibilityOnly)'=='') was evaluated as (''!='' and ''=='').
+21:16:20.131     1>Done building target "_GenerateSatelliteAssemblyInputs" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:89)
+                   Target "ComputeIntermediateSatelliteAssemblies" skipped, due to false condition; (@(ReferenceSatellitePaths->'%(DestinationSubDirectory)') != '') was evaluated as ( != '').
+                   Target "GenerateSatelliteAssemblies" skipped, due to false condition; ('@(_SatelliteAssemblyResourceInputs)' != '') was evaluated as ('' != '').
+21:16:20.131     1>Target "CreateSatelliteAssemblies: (TargetId:90)" in file "C:\Program Files (x86)\MSBuild\12.0\bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "_BuildLinkAction" depends on it):
+21:16:20.131     1>Done building target "CreateSatelliteAssemblies" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:90)
+21:16:20.131     1>Target "_Appverifier: (TargetId:91)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "_BuildLinkAction" depends on it):
+21:16:20.131     1>Done building target "_Appverifier" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:91)
+21:16:20.131     1>Target "_Deploy: (TargetId:92)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "_BuildLinkAction" depends on it):
+21:16:20.131     1>Done building target "_Deploy" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:92)
+                   Target "ComputeIntermediateSatelliteAssemblies" skipped, due to false condition; (@(ReferenceSatellitePaths->'%(DestinationSubDirectory)') != '') was evaluated as ( != '').
+                   Target "_CopyFilesMarkedCopyLocal" skipped, due to false condition; ('@(ReferenceCopyLocalPaths)' != '') was evaluated as ('' != '').
+                   Target "AssignTargetPaths" skipped. Previously built successfully.
+                   Target "_SplitProjectReferencesByFileExistence" skipped. Previously built successfully.
+21:16:20.131     1>Target "GetCopyToOutputDirectoryXamlAppDefs: (TargetId:93)" in file "C:\WINDOWS\Microsoft.NET\Framework\v4.0.30319\Microsoft.Xaml.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "GetCopyToOutputDirectoryItems" depends on it):
+                   Task "AssignTargetPath" (TaskId:33)
+                     Task Parameter:RootFolder=C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST (TaskId:33)
+                   Done executing task "AssignTargetPath". (TaskId:33)
+21:16:20.132     1>Done building target "GetCopyToOutputDirectoryXamlAppDefs" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:93)
+21:16:20.132     1>Target "GetCopyToOutputDirectoryItems: (TargetId:94)" in file "C:\Program Files (x86)\MSBuild\12.0\bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "_CopySourceItemsToOutputDirectory" depends on it):
+                   Task "MSBuild" skipped, due to false condition; ('@(_MSBuildProjectReferenceExistent)' != '' and '$(_GetChildProjectCopyToOutputDirectoryItems)' == 'true' and '%(_MSBuildProjectReferenceExistent.Private)' != 'false' and '$(UseCommonOutputDirectory)' != 'true') was evaluated as ('' != '' and 'true' == 'true' and '' != 'false' and 'false' != 'true').
+                   Task "AssignTargetPath" (TaskId:34)
+                     Task Parameter:RootFolder=C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST (TaskId:34)
+                   Done executing task "AssignTargetPath". (TaskId:34)
+21:16:20.132     1>Done building target "GetCopyToOutputDirectoryItems" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:94)
+                   Target "_CopyOutOfDateSourceItemsToOutputDirectory" skipped, due to false condition; ( '@(_SourceItemsToCopyToOutputDirectory)' != '' ) was evaluated as ( '' != '' ).
+                   Target "_CopyOutOfDateSourceItemsToOutputDirectoryAlways" skipped, due to false condition; ( '@(_SourceItemsToCopyToOutputDirectoryAlways)' != '' ) was evaluated as ( '' != '' ).
+21:16:20.132     1>Target "_CopySourceItemsToOutputDirectory: (TargetId:95)" in file "C:\Program Files (x86)\MSBuild\12.0\bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "CopyFilesToOutputDirectory" depends on it):
+21:16:20.132     1>Done building target "_CopySourceItemsToOutputDirectory" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:95)
+                   Target "_CopyAppConfigFile" skipped, due to false condition; ( '@(AppConfigWithTargetPath)' != '' ) was evaluated as ( '' != '' ).
+                   Target "_CopyManifestFiles" skipped, due to false condition; ( '$(_DeploymentCopyApplicationManifest)'=='true' or '$(GenerateClickOnceManifests)'=='true' ) was evaluated as ( ''=='true' or ''=='true' ).
+21:16:20.132     1>Target "_CheckForCompileOutputs: (TargetId:96)" in file "C:\Program Files (x86)\MSBuild\12.0\bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "CopyFilesToOutputDirectory" depends on it):
+21:16:20.132     1>Done building target "_CheckForCompileOutputs" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:96)
+                   Target "_SGenCheckForOutputs" skipped, due to false condition; ('$(_SGenGenerateSerializationAssembliesConfig)' == 'On' or ('@(WebReferenceUrl)'!='' and '$(_SGenGenerateSerializationAssembliesConfig)' == 'Auto')) was evaluated as ('Auto' == 'On' or (''!='' and 'Auto' == 'Auto')).
+21:16:20.132     1>Target "CopyFilesToOutputDirectory: (TargetId:97)" in file "C:\Program Files (x86)\MSBuild\12.0\bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "PrepareForRun" depends on it):
+                   Task "Copy" skipped, due to false condition; ('$(CopyBuildOutputToOutputDirectory)' == 'true' and '$(SkipCopyBuildProduct)' != 'true') was evaluated as ('true' == 'true' and 'true' != 'true').
+                   Task "Message" skipped, due to false condition; ('$(CopyBuildOutputToOutputDirectory)' == 'true' and '$(SkipCopyBuildProduct)'!='true') was evaluated as ('true' == 'true' and 'true'!='true').
+                   Task "Copy" skipped, due to false condition; ('@(AddModules)' != '') was evaluated as ('' != '').
+                   Task "Copy" skipped, due to false condition; ('$(_SGenDllCreated)'=='true') was evaluated as ('false'=='true').
+                   Task "Copy" skipped, due to false condition; ('$(_DebugSymbolsProduced)'=='true' and '$(SkipCopyingSymbolsToOutputDirectory)' != 'true' and '$(CopyOutputSymbolsToOutputDirectory)'=='true') was evaluated as ('false'=='true' and '' != 'true' and 'true'=='true').
+                   Task "Copy" skipped, due to false condition; ('$(_DocumentationFileProduced)'=='true') was evaluated as ('false'=='true').
+                   Task "Copy" skipped, due to false condition; ('@(IntermediateSatelliteAssembliesWithTargetPath)' != '') was evaluated as ('' != '').
+                   Task "Copy" skipped, due to false condition; ('@(ReferenceComWrappersToCopyLocal)' != '' or '@(ResolvedIsolatedComModules)' != '' or '@(_DeploymentLooseManifestFile)' != '' or '@(NativeReferenceFile)' != '' ) was evaluated as ('' != '' or '' != '' or '' != '' or '' != '' ).
+                   Task "Copy" skipped, due to false condition; ('$(SkipCopyWinMDArtifact)' != 'true' and '@(WinMDExpArtifacts)' != '') was evaluated as ('' != 'true' and '' != '').
+                   Task "Message" skipped, due to false condition; ('$(SkipCopyWinMDArtifact)' != 'true' and '$(_WindowsMetadataOutputPath)' != '') was evaluated as ('' != 'true' and '' != '').
+21:16:20.133     1>Done building target "CopyFilesToOutputDirectory" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:97)
+21:16:20.133     1>Target "PrepareForRun: (TargetId:98)" in file "C:\Program Files (x86)\MSBuild\12.0\bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "_BuildLinkAction" depends on it):
+21:16:20.133     1>Done building target "PrepareForRun" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:98)
+                   Target "CustomBuildStep" skipped, due to false condition; ('@(CustomBuildStep)' != '' and '$(SelectedFiles)'=='') was evaluated as ('' != '' and ''=='').
+21:16:20.133     1>Target "PostBuildEvent: (TargetId:99)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppCommon.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "_BuildLinkAction" depends on it):
+                   Task "Message" skipped, due to false condition; ('%(PostBuildEvent.Message)' != '' and '%(PostBuildEvent.Command)' != '') was evaluated as ('' != '' and '' != '').
+                   Task "Exec" skipped, due to false condition; ('%(PostBuildEvent.Command)' != '') was evaluated as ('' != '').
+21:16:20.133     1>Done building target "PostBuildEvent" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:99)
+21:16:20.133     1>Target "_BuildLinkAction: (TargetId:100)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "BuildLink" depends on it):
+21:16:20.133     1>Done building target "_BuildLinkAction" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:100)
+21:16:20.133     1>Target "BuildLink: (TargetId:101)" in file "C:\Program Files (x86)\MSBuild\12.0\bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "Build" depends on it):
+21:16:20.133     1>Done building target "BuildLink" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:101)
+                   Target "CreateTfsBuildInfoResource" skipped, due to false condition; ( $(AddBuildInfoToAssembly)==true ) was evaluated as ( false==true ).
+21:16:20.133     1>Target "AfterBuild: (TargetId:102)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.BuildSteps.Targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "Build" depends on it):
+21:16:20.133     1>Done building target "AfterBuild" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:102)
+21:16:20.133     1>Target "FinalizeBuildStatus: (TargetId:103)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (target "Build" depends on it):
+                   Task "Delete" (TaskId:35)
+                     Task Parameter:Files=Release\BitScanR.5459017C.tlog\unsuccessfulbuild (TaskId:35)
+                     Deleting file "Release\BitScanR.5459017C.tlog\unsuccessfulbuild". (TaskId:35)
+                   Done executing task "Delete". (TaskId:35)
+                   Task "Touch" (TaskId:36)
+                     Task Parameter:Files=Release\BitScanR.5459017C.tlog\BitScanReverse_SAL_TEST.lastbuildstate (TaskId:36)
+                     Touching "Release\BitScanR.5459017C.tlog\BitScanReverse_SAL_TEST.lastbuildstate". (TaskId:36)
+                   Done executing task "Touch". (TaskId:36)
+21:16:20.135     1>Done building target "FinalizeBuildStatus" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:103)
+21:16:20.135     1>Target "Build: (TargetId:104)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.BuildSteps.Targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (entry point):
+21:16:20.135     1>Done building target "Build" in project "BitScanReverse_SAL_TEST.vcxproj".: (TargetId:104)
+21:16:20.135     1>Done Building Project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj" (Build target(s)).
 
 Project Performance Summary:
-       30 ms  C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj   1 calls
-                 30 ms  Clean                                      1 calls
+     3991 ms  C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST\BitScanReverse_SAL_TEST.vcxproj   1 calls
+               3991 ms  Build                                      1 calls
 
 Target Performance Summary:
-        0 ms  AfterClean                                 1 calls
-        0 ms  BeforeClean                                1 calls
-        0 ms  AfterCppClean                              1 calls
-        0 ms  Clean                                      1 calls
-        0 ms  BeforeCppClean                             1 calls
+        0 ms  AfterBuild                                 1 calls
+        0 ms  ComputeManifestGeneratedLinkerInputs       1 calls
+        0 ms  ResolveReferences                          1 calls
+        0 ms  SelectClCompile                            1 calls
+        0 ms  _CheckForCompileOutputs                    1 calls
+        0 ms  _Manifest                                  1 calls
+        0 ms  _SelectedFiles                             1 calls
+        0 ms  PostBuildEvent                             1 calls
+        0 ms  _Midl                                      1 calls
+        0 ms  SelectCustomBuild                          1 calls
+        0 ms  _ClCompile                                 1 calls
+        0 ms  GetReferenceAssemblyPaths                  1 calls
+        0 ms  CreateCustomManifestResourceNames          1 calls
+        0 ms  ResolveAssemblyReferences                  1 calls
+        0 ms  BeforeLink                                 1 calls
+        0 ms  ComputeCLInputPDBName                      1 calls
+        0 ms  AfterBuildCompileEvent                     1 calls
+        0 ms  GetCopyToOutputDirectoryItems              1 calls
+        0 ms  _BuildLinkAction                           1 calls
+        0 ms  BeforeResourceCompile                      1 calls
+        0 ms  ComputeCLCompileGeneratedXDCFiles          1 calls
+        0 ms  AfterMidl                                  1 calls
+        0 ms  AfterBuildGenerateSources                  1 calls
+        0 ms  ExpandSDKReferences                        1 calls
+        0 ms  BuildGenerateSources                       1 calls
+        0 ms  _CopySourceItemsToOutputDirectory          1 calls
+        0 ms  ComputeLinkImportLibraryOutputsForClean    1 calls
+        0 ms  GetFrameworkPaths                          1 calls
+        0 ms  AfterResourceCompile                       1 calls
+        0 ms  _Xsd                                       1 calls
+        0 ms  MakeDirsForBscMake                         1 calls
+        0 ms  ComputeLinkSwitches                        1 calls
+        0 ms  _GenerateSatelliteAssemblyInputs           1 calls
+        0 ms  MakeDirsForResourceCompile                 1 calls
+        0 ms  _ResourceCompile                           1 calls
+        0 ms  Build                                      1 calls
+        0 ms  _Link                                      1 calls
+        0 ms  BuildLinkTraverse                          1 calls
+        0 ms  ComputeManifestInputsTargets               1 calls
+        0 ms  WarnCompileDuplicatedFilename              1 calls
+        0 ms  ComputeRCOutputs                           1 calls
+        0 ms  _XdcMake                                   1 calls
+        0 ms  CreateSatelliteAssemblies                  1 calls
+        0 ms  BuildCompileTraverse                       1 calls
+        0 ms  PreLinkEvent                               1 calls
+        0 ms  ComputeMIDLGeneratedCompileInputs          1 calls
+        0 ms  _PrepareForReferenceResolution             1 calls
+        0 ms  PrepareResourceNames                       1 calls
+        0 ms  ResolveSDKReferences                       1 calls
+        0 ms  AfterBuildGenerateSourcesEvent             1 calls
+        0 ms  BeforeClCompile                            1 calls
+        0 ms  ComputeCLOutputs                           1 calls
+        0 ms  AfterResolveReferences                     1 calls
+        0 ms  _Appverifier                               1 calls
+        0 ms  BeforeResolveReferences                    1 calls
+        0 ms  ComputeCLCompileGeneratedSbrFiles          1 calls
+        0 ms  BuildLink                                  1 calls
+        0 ms  PrepareForRun                              1 calls
+        0 ms  PreBuildEvent                              1 calls
+        0 ms  MakeDirsForMidl                            1 calls
+        0 ms  _BscMake                                   1 calls
+        0 ms  _Deploy                                    1 calls
+        0 ms  _ALink                                     1 calls
+        0 ms  AfterLink                                  1 calls
+        0 ms  ComputeRCGeneratedLinkInputs               1 calls
+        0 ms  ComputeLegacyManifestEmbedding             1 calls
+        0 ms  BeforeBuildGenerateSources                 1 calls
+        0 ms  AfterClCompile                             1 calls
+        0 ms  ResolvedXDCMake                            1 calls
+        0 ms  PlatformPrepareForBuild                    1 calls
+        0 ms  BuildGenerateSourcesTraverse               1 calls
         0 ms  _SplitProjectReferencesByFileExistence     1 calls
-        0 ms  CleanReferencedProjects                    1 calls
-        0 ms  CleanPublishFolder                         1 calls
-        0 ms  CppClean                                   1 calls
-        1 ms  PGInstrumentedClean                        1 calls
-        1 ms  AssignProjectConfiguration                 1 calls
-        2 ms  CoreClean                                  1 calls
-        2 ms  _PrepareForClean                           1 calls
-        3 ms  _CheckForInvalidConfigurationAndPlatform   1 calls
-       21 ms  CoreCppClean                               1 calls
+        0 ms  MakeDirsForXdcMake                         1 calls
+        0 ms  _BuildCompileAction                        1 calls
+        0 ms  ComputeCLGeneratedLinkInputs               1 calls
+        0 ms  BuildCompile                               1 calls
+        0 ms  GetInstalledSDKLocations                   1 calls
+        0 ms  _BuildGenerateSourcesAction                1 calls
+        1 ms  CopyFilesToOutputDirectory                 1 calls
+        1 ms  _PrepareForBuild                           1 calls
+        1 ms  DoLinkOutputFilesMatch                     1 calls
+        1 ms  ComputeCustomBuildOutput                   1 calls
+        1 ms  GetResolvedWinMD                           1 calls
+        1 ms  ResolveProjectReferences                   1 calls
+        1 ms  AssignTargetPaths                          1 calls
+        1 ms  ComputeLinkInputsFromProject               1 calls
+        1 ms  MakeDirsForCl                              1 calls
+        1 ms  ComputeReferenceCLInput                    1 calls
+        1 ms  SplitResourcesByCulture                    1 calls
+        1 ms  MakeDirsForLink                            1 calls
+        1 ms  GetCopyToOutputDirectoryXamlAppDefs        1 calls
+        1 ms  RegisterOutput                             1 calls
+        2 ms  FinalizeBuildStatus                        1 calls
+        2 ms  AssignProjectConfiguration                 1 calls
+        4 ms  PrepareForBuild                            1 calls
+        6 ms  InitializeBuildStatus                      1 calls
+       16 ms  RunMergeNativeCodeAnalysis                 1 calls
+       28 ms  SetBuildDefaultEnvironmentVariables        1 calls
+       37 ms  _CheckForInvalidConfigurationAndPlatform   1 calls
+      157 ms  RunNativeCodeAnalysis                      1 calls
+      273 ms  SetCABuildNativeEnvironmentVariables       1 calls
+      824 ms  Link                                       1 calls
+     2623 ms  ClCompile                                  1 calls
 
 Task Performance Summary:
-        0 ms  Message                                    2 calls
-        0 ms  FindUnderPath                              2 calls
-        0 ms  RemoveDuplicates                           1 calls
-        1 ms  MakeDir                                    2 calls
-        1 ms  Delete                                     4 calls
-        1 ms  ReadLinesFromFile                          1 calls
+        0 ms  AssignTargetPath                           6 calls
+        0 ms  ReadLinesFromFile                          1 calls
+        1 ms  SetEnv                                     4 calls
+        1 ms  Message                                    3 calls
+        1 ms  SetEnvironmentVariable                     1 calls
+        1 ms  Delete                                     2 calls
+        1 ms  AssignCulture                              1 calls
         1 ms  AssignProjectConfiguration                 1 calls
-        3 ms  WriteLinesToFile                           2 calls
-       18 ms  CppClean                                   1 calls
+        3 ms  Touch                                      2 calls
+        3 ms  MakeDir                                    9 calls
+        3 ms  WriteLinesToFile                           1 calls
+       12 ms  MergeNativeCodeAnalysis                    1 calls
+      157 ms  NativeCodeAnalysis                         1 calls
+      823 ms  Link                                       1 calls
+     2621 ms  CL                                         1 calls
 
 Build succeeded.
 
-Time Elapsed 00:00:00.02
+Time Elapsed 00:00:04.01
