@@ -1,4 +1,4 @@
-﻿Build started 2/10/2015 7:06:37 PM.
+﻿Build started 2/10/2015 7:28:35 PM.
 Environment at start of build:
 ALLUSERSPROFILE = C:\ProgramData
 AMPLXE_LANG = en
@@ -97,8 +97,8 @@ zcat = C:\wbin\zcat.exe
 _NT_DEBUGGER_EXTENSION_PATH = "C:\Users\Alexander Riccio\WinDBGExtensions"
 _NT_SYMBOL_PATH = SRV*C:\SymCache*http://msdl.microsoft.com/download/symbols;SRV*C:\SymCache*https://chromium-browser-symsrv.commondatastorage.googleapis.com
 
-19:06:37.362     1>Project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" on node 2 (Build target(s)).
-19:06:37.362     1>Initial Properties:
+19:28:35.614     1>Project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" on node 2 (Build target(s)).
+19:28:35.614     1>Initial Properties:
                    _AfterCompileWinFXInternalDependsOn = 
                            PrepareResourcesForSatelliteAssemblies;
                            MergeLocalizationDirectives;
@@ -1225,8 +1225,8 @@ _NT_SYMBOL_PATH = SRV*C:\SymCache*http://msdl.microsoft.com/download/symbols;SRV
                    YieldDuringToolExecution = true
                    zcat = C:\wbin\zcat.exe
 
-19:06:37.362     1>Building with tools version "12.0".
-19:06:37.362     1>Target "_CheckForInvalidConfigurationAndPlatform: (TargetId:2)" in file "C:\Program Files (x86)\MSBuild\12.0\bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (entry point):
+19:28:35.614     1>Building with tools version "12.0".
+19:28:35.615     1>Target "_CheckForInvalidConfigurationAndPlatform: (TargetId:2)" in file "C:\Program Files (x86)\MSBuild\12.0\bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (entry point):
                    Task "Error" skipped, due to false condition; ( '$(_InvalidConfigurationError)' == 'true' ) was evaluated as ( '' == 'true' ).
                    Task "Warning" skipped, due to false condition; ( '$(_InvalidConfigurationWarning)' == 'true' ) was evaluated as ( '' == 'true' ).
                    Using "Message" task from assembly "Microsoft.Build.Tasks.v12.0, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
@@ -1243,17 +1243,17 @@ _NT_SYMBOL_PATH = SRV*C:\SymCache*http://msdl.microsoft.com/download/symbols;SRV
                    Task "Error" skipped, due to false condition; ('$(OutDir)' != '' and !HasTrailingSlash('$(OutDir)')) was evaluated as ('C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\Debug\' != '' and !HasTrailingSlash('C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\Debug\')).
                    Task "Error" skipped, due to false condition; ('$(BaseIntermediateOutputPath)' != '' and !HasTrailingSlash('$(BaseIntermediateOutputPath)')) was evaluated as ('obj\' != '' and !HasTrailingSlash('obj\')).
                    Task "Error" skipped, due to false condition; ('$(IntermediateOutputPath)' != '' and !HasTrailingSlash('$(IntermediateOutputPath)')) was evaluated as ('Debug\' != '' and !HasTrailingSlash('Debug\')).
-19:06:37.365     1>Done building target "_CheckForInvalidConfigurationAndPlatform" in project "SAL_handle_test.vcxproj".: (TargetId:2)
-19:06:37.365     1>Target "_PrepareForBuild: (TargetId:3)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.BuildSteps.Targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "Build" depends on it):
+19:28:35.648     1>Done building target "_CheckForInvalidConfigurationAndPlatform" in project "SAL_handle_test.vcxproj".: (TargetId:2)
+19:28:35.648     1>Target "_PrepareForBuild: (TargetId:3)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.BuildSteps.Targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "Build" depends on it):
                    Task "CreateItem" skipped, due to false condition; ('%(CustomBuild.IncludeFileToTool)'!='') was evaluated as (''!='').
-19:06:37.366     1>Done building target "_PrepareForBuild" in project "SAL_handle_test.vcxproj".: (TargetId:3)
-19:06:37.366     1>Target "_PrepareForReferenceResolution: (TargetId:4)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "ResolveReferences" depends on it):
+19:28:35.649     1>Done building target "_PrepareForBuild" in project "SAL_handle_test.vcxproj".: (TargetId:3)
+19:28:35.649     1>Target "_PrepareForReferenceResolution: (TargetId:4)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "ResolveReferences" depends on it):
                    Task "Message" skipped, due to false condition; ('$(_REFERENCE_DEBUG)'=='true') was evaluated as (''=='true').
-19:06:37.366     1>Done building target "_PrepareForReferenceResolution" in project "SAL_handle_test.vcxproj".: (TargetId:4)
+19:28:35.649     1>Done building target "_PrepareForReferenceResolution" in project "SAL_handle_test.vcxproj".: (TargetId:4)
                    Target "ComputeCrtSDKReference" skipped, due to false condition; ('@(ClCompile)'!='' and '$(WindowsAppContainer)'=='true' and '$(UseCrtSDKReference)' != 'false') was evaluated as ('SAL_handle_test.cpp'!='' and 'false'=='true' and '' != 'false').
-19:06:37.366     1>Target "BeforeResolveReferences: (TargetId:5)" in file "C:\Program Files (x86)\MSBuild\12.0\bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "ResolveReferences" depends on it):
-19:06:37.366     1>Done building target "BeforeResolveReferences" in project "SAL_handle_test.vcxproj".: (TargetId:5)
-19:06:37.366     1>Target "AssignProjectConfiguration: (TargetId:6)" in file "C:\Program Files (x86)\MSBuild\12.0\bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "ResolveReferences" depends on it):
+19:28:35.649     1>Target "BeforeResolveReferences: (TargetId:5)" in file "C:\Program Files (x86)\MSBuild\12.0\bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "ResolveReferences" depends on it):
+19:28:35.649     1>Done building target "BeforeResolveReferences" in project "SAL_handle_test.vcxproj".: (TargetId:5)
+19:28:35.649     1>Target "AssignProjectConfiguration: (TargetId:6)" in file "C:\Program Files (x86)\MSBuild\12.0\bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "ResolveReferences" depends on it):
                    Using "AssignProjectConfiguration" task from assembly "Microsoft.Build.Tasks.v12.0, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
                    Task "AssignProjectConfiguration" (TaskId:4)
                      Task Parameter:CurrentProject=C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj (TaskId:4)
@@ -1267,29 +1267,29 @@ _NT_SYMBOL_PATH = SRV*C:\SymCache*http://msdl.microsoft.com/download/symbols;SRV
                      Task Parameter:OnlyReferenceAndBuildProjectsEnabledInSolutionConfiguration=True (TaskId:4)
                      Task Parameter:ShouldUnsetParentConfigurationAndPlatform=True (TaskId:4)
                    Done executing task "AssignProjectConfiguration". (TaskId:4)
-19:06:37.367     1>Done building target "AssignProjectConfiguration" in project "SAL_handle_test.vcxproj".: (TargetId:6)
+19:28:35.651     1>Done building target "AssignProjectConfiguration" in project "SAL_handle_test.vcxproj".: (TargetId:6)
                    Target "AssignProjectConfiguration" skipped. Previously built successfully.
-19:06:37.367     1>Target "_SplitProjectReferencesByFileExistence: (TargetId:7)" in file "C:\Program Files (x86)\MSBuild\12.0\bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "ResolveProjectReferences" depends on it):
+19:28:35.651     1>Target "_SplitProjectReferencesByFileExistence: (TargetId:7)" in file "C:\Program Files (x86)\MSBuild\12.0\bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "ResolveProjectReferences" depends on it):
                    Task "ResolveNonMSBuildProjectOutput" skipped, due to false condition; ('$(BuildingInsideVisualStudio)'=='true' and '@(ProjectReferenceWithConfiguration)'!='') was evaluated as ('true'=='true' and ''!='').
-19:06:37.367     1>Done building target "_SplitProjectReferencesByFileExistence" in project "SAL_handle_test.vcxproj".: (TargetId:7)
+19:28:35.651     1>Done building target "_SplitProjectReferencesByFileExistence" in project "SAL_handle_test.vcxproj".: (TargetId:7)
                    Target "_RemoveNameMetadataFromProjectReferenceItems" skipped, due to false condition; ('@(ProjectReference)'!='') was evaluated as (''!='').
-19:06:37.367     1>Target "ResolveProjectReferences: (TargetId:8)" in file "C:\Program Files (x86)\MSBuild\12.0\bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "ResolveReferences" depends on it):
+19:28:35.651     1>Target "ResolveProjectReferences: (TargetId:8)" in file "C:\Program Files (x86)\MSBuild\12.0\bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "ResolveReferences" depends on it):
                    Task "MSBuild" skipped, due to false condition; ('%(_MSBuildProjectReferenceExistent.BuildReference)' == 'true' and '@(ProjectReferenceWithConfiguration)' != '' and ('$(BuildingInsideVisualStudio)' == 'true' or '$(BuildProjectReferences)' != 'true') and '$(VisualStudioVersion)' != '10.0' and '@(_MSBuildProjectReferenceExistent)' != '') was evaluated as ('' == 'true' and '' != '' and ('true' == 'true' or 'true' != 'true') and '12.0' != '10.0' and '' != '').
                    Task "MSBuild" skipped, due to false condition; ('%(_MSBuildProjectReferenceExistent.BuildReference)' == 'true' and '@(ProjectReferenceWithConfiguration)' != '' and ('$(BuildingInsideVisualStudio)' == 'true' or '$(BuildProjectReferences)' != 'true') and '$(VisualStudioVersion)' == '10.0' and '@(_MSBuildProjectReferenceExistent)' != '') was evaluated as ('' == 'true' and '' != '' and ('true' == 'true' or 'true' != 'true') and '12.0' == '10.0' and '' != '').
                    Task "MSBuild" skipped, due to false condition; ('%(_MSBuildProjectReferenceExistent.BuildReference)' == 'true' and '@(ProjectReferenceWithConfiguration)' != '' and '$(BuildingInsideVisualStudio)' != 'true' and '$(BuildProjectReferences)' == 'true' and '@(_MSBuildProjectReferenceExistent)' != '') was evaluated as ('' == 'true' and '' != '' and 'true' != 'true' and 'true' == 'true' and '' != '').
                    Task "MSBuild" skipped, due to false condition; ('%(_MSBuildProjectReferenceExistent.BuildReference)' == 'true' and '@(ProjectReferenceWithConfiguration)' != '' and '$(BuildingProject)' == 'true' and '@(_MSBuildProjectReferenceExistent)' != '') was evaluated as ('' == 'true' and '' != '' and 'true' == 'true' and '' != '').
                    Task "Warning" skipped, due to false condition; ('@(ProjectReferenceWithConfiguration)' != '' and '@(_MSBuildProjectReferenceNonexistent)' != '') was evaluated as ('' != '' and '' != '').
-19:06:37.368     1>Done building target "ResolveProjectReferences" in project "SAL_handle_test.vcxproj".: (TargetId:8)
+19:28:35.652     1>Done building target "ResolveProjectReferences" in project "SAL_handle_test.vcxproj".: (TargetId:8)
                    Target "FindInvalidProjectReferences" skipped, due to false condition; ('$(FindInvalidProjectReferences)' == 'true') was evaluated as ('' == 'true').
                    Target "ResolveNativeReferences" skipped, due to false condition; ('@(NativeReference)'!='') was evaluated as (''!='').
                    Target "_PrepareForReferenceResolution" skipped. Previously built successfully.
-19:06:37.368     1>Target "GetFrameworkPaths: (TargetId:9)" in file "C:\Program Files (x86)\MSBuild\12.0\bin\Microsoft.NetFramework.CurrentVersion.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "ResolveAssemblyReferences" depends on it):
-19:06:37.368     1>Done building target "GetFrameworkPaths" in project "SAL_handle_test.vcxproj".: (TargetId:9)
+19:28:35.652     1>Target "GetFrameworkPaths: (TargetId:9)" in file "C:\Program Files (x86)\MSBuild\12.0\bin\Microsoft.NetFramework.CurrentVersion.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "ResolveAssemblyReferences" depends on it):
+19:28:35.653     1>Done building target "GetFrameworkPaths" in project "SAL_handle_test.vcxproj".: (TargetId:9)
                    Target "GetWinFXPath" skipped, due to false condition; (('@(Page)' != '' or '@(ApplicationDefinition)' != '' or '@(Resource)' != '') and ('$(GetWinFXNativePath)' != '' or '$(GetWinFXWoWPath)' != '' )) was evaluated as (('' != '' or '' != '' or '' != '') and ('' != '' or '' != '' )).
-19:06:37.368     1>Target "GetReferenceAssemblyPaths: (TargetId:10)" in file "C:\Program Files (x86)\MSBuild\12.0\bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "ResolveAssemblyReferences" depends on it):
+19:28:35.653     1>Target "GetReferenceAssemblyPaths: (TargetId:10)" in file "C:\Program Files (x86)\MSBuild\12.0\bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "ResolveAssemblyReferences" depends on it):
                    Task "GetReferenceAssemblyPaths" skipped, due to false condition; ('$(TargetFrameworkMoniker)' != '' and ('$(_TargetFrameworkDirectories)' == '' or '$(_FullFrameworkReferenceAssemblyPaths)' == '')) was evaluated as ('' != '' and ('C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0' == '' or 'C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0' == '')).
-19:06:37.369     1>Done building target "GetReferenceAssemblyPaths" in project "SAL_handle_test.vcxproj".: (TargetId:10)
-19:06:37.369     1>Target "SetBuildDefaultEnvironmentVariables: (TargetId:11)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.Cpp.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "PrepareForBuild" depends on it):
+19:28:35.653     1>Done building target "GetReferenceAssemblyPaths" in project "SAL_handle_test.vcxproj".: (TargetId:10)
+19:28:35.654     1>Target "SetBuildDefaultEnvironmentVariables: (TargetId:11)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.Cpp.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "PrepareForBuild" depends on it):
                    Using "SetEnv" task from assembly "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.Build.CppTasks.Common.dll".
                    Task "SetEnv" (TaskId:5)
                      Task Parameter:Name=PATH (TaskId:5)
@@ -1315,27 +1315,27 @@ _NT_SYMBOL_PATH = SRV*C:\SymCache*http://msdl.microsoft.com/download/symbols;SRV
                      Task Parameter:Prefix=False (TaskId:8)
                      INCLUDE=C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include;C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\atlmfc\include;C:\Program Files (x86)\Windows Kits\8.1\Include\um;C:\Program Files (x86)\Windows Kits\8.1\Include\shared;C:\Program Files (x86)\Windows Kits\8.1\Include\winrt;; (TaskId:8)
                    Done executing task "SetEnv". (TaskId:8)
-19:06:37.376     1>Done building target "SetBuildDefaultEnvironmentVariables" in project "SAL_handle_test.vcxproj".: (TargetId:11)
+19:28:35.662     1>Done building target "SetBuildDefaultEnvironmentVariables" in project "SAL_handle_test.vcxproj".: (TargetId:11)
                    Target "SetUserMacroEnvironmentVariables" skipped, due to false condition; ('@(BuildMacro)' != '') was evaluated as ('' != '').
-19:06:37.376     1>Target "GetResolvedWinMD: (TargetId:12)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "PrepareForBuild" depends on it):
-19:06:37.376     1>Done building target "GetResolvedWinMD" in project "SAL_handle_test.vcxproj".: (TargetId:12)
-19:06:37.376     1>Target "PlatformPrepareForBuild: (TargetId:13)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.Cpp.Platform.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "PrepareForBuild" depends on it):
+19:28:35.662     1>Target "GetResolvedWinMD: (TargetId:12)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "PrepareForBuild" depends on it):
+19:28:35.662     1>Done building target "GetResolvedWinMD" in project "SAL_handle_test.vcxproj".: (TargetId:12)
+19:28:35.662     1>Target "PlatformPrepareForBuild: (TargetId:13)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.Cpp.Platform.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "PrepareForBuild" depends on it):
                    Task "VCMessage" skipped, due to false condition; ('$(_Error64bitToolsNotInstalled)' == 'true') was evaluated as ('' == 'true').
                    Task "VCMessage" skipped, due to false condition; ('$(ConfigurationPlatformExists)' != 'true') was evaluated as ('true' != 'true').
                    Task "VCMessage" skipped, due to false condition; ('$(ToolsetTargetsFound)' != 'true') was evaluated as ('true' != 'true').
-19:06:37.376     1>Done building target "PlatformPrepareForBuild" in project "SAL_handle_test.vcxproj".: (TargetId:13)
+19:28:35.663     1>Done building target "PlatformPrepareForBuild" in project "SAL_handle_test.vcxproj".: (TargetId:13)
                    Target "GetFrameworkPaths" skipped. Previously built successfully.
                    Target "GetReferenceAssemblyPaths" skipped. Previously built successfully.
                    Target "AssignLinkMetadata" skipped, due to false condition; ( '$(SynthesizeLinkMetadata)' == 'true' ) was evaluated as ( '' == 'true' ).
-19:06:37.376     1>Target "SetCABuildNativeEnvironmentVariables: (TargetId:14)" in file "C:\Program Files (x86)\MSBuild\Microsoft\VisualStudio\v12.0\CodeAnalysis\Microsoft.CodeAnalysis.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "PrepareForBuild" depends on it):
+19:28:35.663     1>Target "SetCABuildNativeEnvironmentVariables: (TargetId:14)" in file "C:\Program Files (x86)\MSBuild\Microsoft\VisualStudio\v12.0\CodeAnalysis\Microsoft.CodeAnalysis.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "PrepareForBuild" depends on it):
                    Initializing task factory "CodeTaskFactory" from assembly "C:\Program Files (x86)\MSBuild\12.0\bin\Microsoft.Build.Tasks.v12.0.dll".
                    Using "SetEnvironmentVariable" task from the task factory "Code Task Factory".
                    Task "SetEnvironmentVariable" (TaskId:9)
                      Task Parameter:EnvValue=C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\atlmfc\include;C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include;C:\Program Files (x86)\Windows Kits\8.1\Include\um;C:\Program Files (x86)\Windows Kits\8.1\Include\shared;C:\Program Files (x86)\Windows Kits\8.1\Include\winrt;; (TaskId:9)
                      Task Parameter:EnvKey=CAExcludePath (TaskId:9)
                    Done executing task "SetEnvironmentVariable". (TaskId:9)
-19:06:37.380     1>Done building target "SetCABuildNativeEnvironmentVariables" in project "SAL_handle_test.vcxproj".: (TargetId:14)
-19:06:37.380     1>Target "PrepareForBuild: (TargetId:15)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "ResolveAssemblyReferences" depends on it):
+19:28:35.811     1>Done building target "SetCABuildNativeEnvironmentVariables" in project "SAL_handle_test.vcxproj".: (TargetId:14)
+19:28:35.811     1>Target "PrepareForBuild: (TargetId:15)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "ResolveAssemblyReferences" depends on it):
                    Task "VCMessage" skipped, due to false condition; ('$(DesignTimeBuild)' != 'true' and '$(ConfigurationPlatformExists)' != 'true') was evaluated as ('' != 'true' and 'true' != 'true').
                    Using "MakeDir" task from assembly "Microsoft.Build.Tasks.v12.0, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
                    Task "MakeDir" (TaskId:10)
@@ -1359,34 +1359,34 @@ _NT_SYMBOL_PATH = SRV*C:\SymCache*http://msdl.microsoft.com/download/symbols;SRV
                              C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\Debug\
                              Debug\SAL_handle_test.tlog\ (TaskId:11)
                    Done executing task "MakeDir". (TaskId:11)
-19:06:37.383     1>Done building target "PrepareForBuild" in project "SAL_handle_test.vcxproj".: (TargetId:15)
+19:28:35.815     1>Done building target "PrepareForBuild" in project "SAL_handle_test.vcxproj".: (TargetId:15)
                    Target "_PrepareForReferenceResolution" skipped. Previously built successfully.
                    Target "ComputeCrtSDKReference" skipped, due to false condition; ('@(ClCompile)'!='' and '$(WindowsAppContainer)'=='true' and '$(UseCrtSDKReference)' != 'false') was evaluated as ('SAL_handle_test.cpp'!='' and 'false'=='true' and '' != 'false').
-19:06:37.383     1>Target "GetInstalledSDKLocations: (TargetId:16)" in file "C:\Program Files (x86)\MSBuild\12.0\bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "ResolveSDKReferences" depends on it):
+19:28:35.815     1>Target "GetInstalledSDKLocations: (TargetId:16)" in file "C:\Program Files (x86)\MSBuild\12.0\bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "ResolveSDKReferences" depends on it):
                    Task "GetInstalledSDKLocations" skipped, due to false condition; ('@(SDKReference)' != '') was evaluated as ('' != '').
-19:06:37.383     1>Done building target "GetInstalledSDKLocations" in project "SAL_handle_test.vcxproj".: (TargetId:16)
-19:06:37.383     1>Target "ResolveSDKReferences: (TargetId:17)" in file "C:\Program Files (x86)\MSBuild\12.0\bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "ResolveAssemblyReferences" depends on it):
+19:28:35.815     1>Done building target "GetInstalledSDKLocations" in project "SAL_handle_test.vcxproj".: (TargetId:16)
+19:28:35.815     1>Target "ResolveSDKReferences: (TargetId:17)" in file "C:\Program Files (x86)\MSBuild\12.0\bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "ResolveAssemblyReferences" depends on it):
                    Task "ResolveSDKReference" skipped, due to false condition; ('@(SDKReference)'!='') was evaluated as (''!='').
-19:06:37.384     1>Done building target "ResolveSDKReferences" in project "SAL_handle_test.vcxproj".: (TargetId:17)
+19:28:35.815     1>Done building target "ResolveSDKReferences" in project "SAL_handle_test.vcxproj".: (TargetId:17)
                    Target "ResolveSDKReferences" skipped. Previously built successfully.
-19:06:37.384     1>Target "ExpandSDKReferences: (TargetId:18)" in file "C:\Program Files (x86)\MSBuild\12.0\bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "ResolveAssemblyReferences" depends on it):
+19:28:35.815     1>Target "ExpandSDKReferences: (TargetId:18)" in file "C:\Program Files (x86)\MSBuild\12.0\bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "ResolveAssemblyReferences" depends on it):
                    Task "GetSDKReferenceFiles" skipped, due to false condition; ('@(ResolvedSDKReference)'!='') was evaluated as (''!='').
-19:06:37.384     1>Done building target "ExpandSDKReferences" in project "SAL_handle_test.vcxproj".: (TargetId:18)
-19:06:37.384     1>Target "ResolveAssemblyReferences: (TargetId:19)" in file "C:\Program Files (x86)\MSBuild\12.0\bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "ResolveReferences" depends on it):
+19:28:35.815     1>Done building target "ExpandSDKReferences" in project "SAL_handle_test.vcxproj".: (TargetId:18)
+19:28:35.815     1>Target "ResolveAssemblyReferences: (TargetId:19)" in file "C:\Program Files (x86)\MSBuild\12.0\bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "ResolveReferences" depends on it):
                    Task "ResolveAssemblyReference" skipped, due to false condition; ('@(Reference)'!='' or '@(_ResolvedProjectReferencePaths)'!='' or '@(_ExplicitReference)' != '') was evaluated as (''!='' or ''!='' or '' != '').
-19:06:37.384     1>Done building target "ResolveAssemblyReferences" in project "SAL_handle_test.vcxproj".: (TargetId:19)
+19:28:35.816     1>Done building target "ResolveAssemblyReferences" in project "SAL_handle_test.vcxproj".: (TargetId:19)
                    Target "GenerateBindingRedirects" skipped, due to false condition; ('$(AutoGenerateBindingRedirects)' == 'true' and '$(GenerateBindingRedirectsOutputType)' == 'true') was evaluated as ('' == 'true' and 'true' == 'true').
                    Target "GenerateBindingRedirectsUpdateAppConfig" skipped, due to false condition; ('$(AutoGenerateBindingRedirects)' == 'true' and '$(GenerateBindingRedirectsOutputType)' == 'true' and Exists('$(_GenerateBindingRedirectsIntermediateAppConfig)')) was evaluated as ('' == 'true' and 'true' == 'true' and Exists('Debug\SAL_handle_test.vcxproj.SAL_handle_test.exe.config')).
                    Target "ResolveComReferences" skipped, due to false condition; ('@(COMReference)'!='' or '@(COMFileReference)'!='') was evaluated as (''!='' or ''!='').
-19:06:37.384     1>Target "AfterResolveReferences: (TargetId:20)" in file "C:\Program Files (x86)\MSBuild\12.0\bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "ResolveReferences" depends on it):
-19:06:37.384     1>Done building target "AfterResolveReferences" in project "SAL_handle_test.vcxproj".: (TargetId:20)
+19:28:35.816     1>Target "AfterResolveReferences: (TargetId:20)" in file "C:\Program Files (x86)\MSBuild\12.0\bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "ResolveReferences" depends on it):
+19:28:35.816     1>Done building target "AfterResolveReferences" in project "SAL_handle_test.vcxproj".: (TargetId:20)
                    Target "ImplicitlyExpandDesignTimeFacades" skipped, due to false condition; ('$(ImplicitlyExpandDesignTimeFacades)' == 'true') was evaluated as ('' == 'true').
                    Target "ResolveTestReferences" skipped, due to false condition; ('@(Shadow)'!='') was evaluated as (''!='').
-19:06:37.384     1>Target "ResolveReferences: (TargetId:21)" in file "C:\Program Files (x86)\MSBuild\12.0\bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "Build" depends on it):
-19:06:37.384     1>Done building target "ResolveReferences" in project "SAL_handle_test.vcxproj".: (TargetId:21)
+19:28:35.816     1>Target "ResolveReferences: (TargetId:21)" in file "C:\Program Files (x86)\MSBuild\12.0\bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "Build" depends on it):
+19:28:35.816     1>Done building target "ResolveReferences" in project "SAL_handle_test.vcxproj".: (TargetId:21)
                    Target "PrepareForBuild" skipped. Previously built successfully.
                    Target "PrepareForBuild" skipped. Previously built successfully.
-19:06:37.384     1>Target "InitializeBuildStatus: (TargetId:22)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "Build" depends on it):
+19:28:35.816     1>Target "InitializeBuildStatus: (TargetId:22)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "Build" depends on it):
                    Using "ReadLinesFromFile" task from assembly "Microsoft.Build.Tasks.v12.0, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
                    Task "ReadLinesFromFile" (TaskId:12)
                      Task Parameter:File=Debug\SAL_handle_test.tlog\SAL_handle_test.lastbuildstate (TaskId:12)
@@ -1406,67 +1406,67 @@ _NT_SYMBOL_PATH = SRV*C:\SymCache*http://msdl.microsoft.com/download/symbols;SRV
                      Task Parameter:Files=Debug\SAL_handle_test.tlog\unsuccessfulbuild (TaskId:14)
                      Creating "Debug\SAL_handle_test.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified. (TaskId:14)
                    Done executing task "Touch". (TaskId:14)
-19:06:37.388     1>Done building target "InitializeBuildStatus" in project "SAL_handle_test.vcxproj".: (TargetId:22)
+19:28:35.822     1>Done building target "InitializeBuildStatus" in project "SAL_handle_test.vcxproj".: (TargetId:22)
                    Target "AssignProjectConfiguration" skipped. Previously built successfully.
                    Target "_SplitProjectReferencesByFileExistence" skipped. Previously built successfully.
-19:06:37.388     1>Target "BuildGenerateSourcesTraverse: (TargetId:23)" in file "C:\Program Files (x86)\MSBuild\12.0\bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "BuildGenerateSources" depends on it):
+19:28:35.823     1>Target "BuildGenerateSourcesTraverse: (TargetId:23)" in file "C:\Program Files (x86)\MSBuild\12.0\bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "BuildGenerateSources" depends on it):
                    Task "MSBuild" skipped, due to false condition; ('$(BuildPassReferences)' == 'true' and '@(ProjectReferenceWithConfiguration)' != '' and '@(_MSBuildProjectReferenceExistent)' != '' and '%(_MSBuildProjectReferenceExistent.BuildReference)' == 'true') was evaluated as ('' == 'true' and '' != '' and '' != '' and '' == 'true').
-19:06:37.388     1>Done building target "BuildGenerateSourcesTraverse" in project "SAL_handle_test.vcxproj".: (TargetId:23)
+19:28:35.823     1>Done building target "BuildGenerateSourcesTraverse" in project "SAL_handle_test.vcxproj".: (TargetId:23)
                    Target "PrepareForBuild" skipped. Previously built successfully.
                    Target "ResolveReferences" skipped. Previously built successfully.
-19:06:37.389     1>Target "BeforeBuildGenerateSources: (TargetId:24)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.BuildSteps.Targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_BuildGenerateSourcesAction" depends on it):
-19:06:37.389     1>Done building target "BeforeBuildGenerateSources" in project "SAL_handle_test.vcxproj".: (TargetId:24)
-19:06:37.389     1>Target "PreBuildEvent: (TargetId:25)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppCommon.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_BuildGenerateSourcesAction" depends on it):
+19:28:35.823     1>Target "BeforeBuildGenerateSources: (TargetId:24)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.BuildSteps.Targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_BuildGenerateSourcesAction" depends on it):
+19:28:35.823     1>Done building target "BeforeBuildGenerateSources" in project "SAL_handle_test.vcxproj".: (TargetId:24)
+19:28:35.823     1>Target "PreBuildEvent: (TargetId:25)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppCommon.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_BuildGenerateSourcesAction" depends on it):
                    Task "Message" skipped, due to false condition; ('%(PreBuildEvent.Message)' != '' and '%(PreBuildEvent.Command)' != '') was evaluated as ('' != '' and '' != '').
                    Task "Exec" skipped, due to false condition; ('%(PreBuildEvent.Command)' != '') was evaluated as ('' != '').
-19:06:37.389     1>Done building target "PreBuildEvent" in project "SAL_handle_test.vcxproj".: (TargetId:25)
+19:28:35.823     1>Done building target "PreBuildEvent" in project "SAL_handle_test.vcxproj".: (TargetId:25)
                    Target "CustomBuild" skipped, due to false condition; ('@(CustomBuild)' != '') was evaluated as ('' != '').
                    Target "FxCompile" skipped, due to false condition; ('@(FxCompile)' != '') was evaluated as ('' != '').
                    Target "Xsd" skipped, due to false condition; ('@(Xsd)' != '') was evaluated as ('' != '').
-19:06:37.389     1>Target "_Xsd: (TargetId:26)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_BuildGenerateSourcesAction" depends on it):
-19:06:37.389     1>Done building target "_Xsd" in project "SAL_handle_test.vcxproj".: (TargetId:26)
-19:06:37.389     1>Target "MakeDirsForMidl: (TargetId:27)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_Midl" depends on it):
+19:28:35.823     1>Target "_Xsd: (TargetId:26)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_BuildGenerateSourcesAction" depends on it):
+19:28:35.823     1>Done building target "_Xsd" in project "SAL_handle_test.vcxproj".: (TargetId:26)
+19:28:35.823     1>Target "MakeDirsForMidl: (TargetId:27)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_Midl" depends on it):
                    Task "Makedir" (TaskId:15)
                    Done executing task "Makedir". (TaskId:15)
-19:06:37.389     1>Done building target "MakeDirsForMidl" in project "SAL_handle_test.vcxproj".: (TargetId:27)
+19:28:35.823     1>Done building target "MakeDirsForMidl" in project "SAL_handle_test.vcxproj".: (TargetId:27)
                    Target "Midl" skipped, due to false condition; ('@(Midl)' != '') was evaluated as ('' != '').
                    Target "CustomBuild" skipped, due to false condition; ('@(CustomBuild)' != '') was evaluated as ('' != '').
                    Target "FxCompile" skipped, due to false condition; ('@(FxCompile)' != '') was evaluated as ('' != '').
-19:06:37.389     1>Target "ComputeMIDLGeneratedCompileInputs: (TargetId:28)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_Midl" depends on it):
-19:06:37.389     1>Done building target "ComputeMIDLGeneratedCompileInputs" in project "SAL_handle_test.vcxproj".: (TargetId:28)
-19:06:37.389     1>Target "AfterMidl: (TargetId:29)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_Midl" depends on it):
-19:06:37.389     1>Done building target "AfterMidl" in project "SAL_handle_test.vcxproj".: (TargetId:29)
-19:06:37.389     1>Target "_Midl: (TargetId:30)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_BuildGenerateSourcesAction" depends on it):
-19:06:37.389     1>Done building target "_Midl" in project "SAL_handle_test.vcxproj".: (TargetId:30)
-19:06:37.389     1>Target "AfterBuildGenerateSources: (TargetId:31)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.BuildSteps.Targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_BuildGenerateSourcesAction" depends on it):
-19:06:37.389     1>Done building target "AfterBuildGenerateSources" in project "SAL_handle_test.vcxproj".: (TargetId:31)
-19:06:37.389     1>Target "AfterBuildGenerateSourcesEvent: (TargetId:32)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_BuildGenerateSourcesAction" depends on it):
-19:06:37.389     1>Done building target "AfterBuildGenerateSourcesEvent" in project "SAL_handle_test.vcxproj".: (TargetId:32)
-19:06:37.389     1>Target "_BuildGenerateSourcesAction: (TargetId:33)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "BuildGenerateSources" depends on it):
-19:06:37.389     1>Done building target "_BuildGenerateSourcesAction" in project "SAL_handle_test.vcxproj".: (TargetId:33)
-19:06:37.389     1>Target "BuildGenerateSources: (TargetId:34)" in file "C:\Program Files (x86)\MSBuild\12.0\bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "Build" depends on it):
-19:06:37.389     1>Done building target "BuildGenerateSources" in project "SAL_handle_test.vcxproj".: (TargetId:34)
+19:28:35.823     1>Target "ComputeMIDLGeneratedCompileInputs: (TargetId:28)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_Midl" depends on it):
+19:28:35.824     1>Done building target "ComputeMIDLGeneratedCompileInputs" in project "SAL_handle_test.vcxproj".: (TargetId:28)
+19:28:35.824     1>Target "AfterMidl: (TargetId:29)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_Midl" depends on it):
+19:28:35.824     1>Done building target "AfterMidl" in project "SAL_handle_test.vcxproj".: (TargetId:29)
+19:28:35.824     1>Target "_Midl: (TargetId:30)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_BuildGenerateSourcesAction" depends on it):
+19:28:35.824     1>Done building target "_Midl" in project "SAL_handle_test.vcxproj".: (TargetId:30)
+19:28:35.824     1>Target "AfterBuildGenerateSources: (TargetId:31)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.BuildSteps.Targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_BuildGenerateSourcesAction" depends on it):
+19:28:35.824     1>Done building target "AfterBuildGenerateSources" in project "SAL_handle_test.vcxproj".: (TargetId:31)
+19:28:35.824     1>Target "AfterBuildGenerateSourcesEvent: (TargetId:32)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_BuildGenerateSourcesAction" depends on it):
+19:28:35.824     1>Done building target "AfterBuildGenerateSourcesEvent" in project "SAL_handle_test.vcxproj".: (TargetId:32)
+19:28:35.824     1>Target "_BuildGenerateSourcesAction: (TargetId:33)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "BuildGenerateSources" depends on it):
+19:28:35.824     1>Done building target "_BuildGenerateSourcesAction" in project "SAL_handle_test.vcxproj".: (TargetId:33)
+19:28:35.824     1>Target "BuildGenerateSources: (TargetId:34)" in file "C:\Program Files (x86)\MSBuild\12.0\bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "Build" depends on it):
+19:28:35.824     1>Done building target "BuildGenerateSources" in project "SAL_handle_test.vcxproj".: (TargetId:34)
                    Target "AssignProjectConfiguration" skipped. Previously built successfully.
                    Target "_SplitProjectReferencesByFileExistence" skipped. Previously built successfully.
-19:06:37.389     1>Target "BuildCompileTraverse: (TargetId:35)" in file "C:\Program Files (x86)\MSBuild\12.0\bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "BuildCompile" depends on it):
+19:28:35.824     1>Target "BuildCompileTraverse: (TargetId:35)" in file "C:\Program Files (x86)\MSBuild\12.0\bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "BuildCompile" depends on it):
                    Task "MSBuild" skipped, due to false condition; ('$(BuildPassReferences)' == 'true' and '@(ProjectReferenceWithConfiguration)' != '' and '@(_MSBuildProjectReferenceExistent)' != ''  and '%(_MSBuildProjectReferenceExistent.BuildReference)' == 'true') was evaluated as ('' == 'true' and '' != '' and '' != ''  and '' == 'true').
-19:06:37.389     1>Done building target "BuildCompileTraverse" in project "SAL_handle_test.vcxproj".: (TargetId:35)
+19:28:35.824     1>Done building target "BuildCompileTraverse" in project "SAL_handle_test.vcxproj".: (TargetId:35)
                    Target "PrepareForBuild" skipped. Previously built successfully.
                    Target "ResolveReferences" skipped. Previously built successfully.
-19:06:37.390     1>Target "BeforeClCompile: (TargetId:36)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_ClCompile" depends on it):
-19:06:37.390     1>Done building target "BeforeClCompile" in project "SAL_handle_test.vcxproj".: (TargetId:36)
+19:28:35.824     1>Target "BeforeClCompile: (TargetId:36)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_ClCompile" depends on it):
+19:28:35.824     1>Done building target "BeforeClCompile" in project "SAL_handle_test.vcxproj".: (TargetId:36)
                    Target "ComputeMIDLGeneratedCompileInputs" skipped. Previously built successfully.
-19:06:37.390     1>Target "ComputeCLInputPDBName: (TargetId:37)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_ClCompile" depends on it):
-19:06:37.390     1>Done building target "ComputeCLInputPDBName" in project "SAL_handle_test.vcxproj".: (TargetId:37)
+19:28:35.824     1>Target "ComputeCLInputPDBName: (TargetId:37)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_ClCompile" depends on it):
+19:28:35.824     1>Done building target "ComputeCLInputPDBName" in project "SAL_handle_test.vcxproj".: (TargetId:37)
                    Target "ResolveReferences" skipped. Previously built successfully.
-19:06:37.390     1>Target "ComputeReferenceCLInput: (TargetId:38)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_ClCompile" depends on it):
+19:28:35.824     1>Target "ComputeReferenceCLInput: (TargetId:38)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_ClCompile" depends on it):
                    Task "WriteLinesToFile" skipped, due to false condition; (('@(_ReferenceCopyLocalPaths)'!='') and '$(DesignTimeBuild)' != 'true') was evaluated as ((''!='') and '' != 'true').
                    Task "Message" skipped, due to false condition; ('$(_REFERENCE_DEBUG)'=='true') was evaluated as (''=='true').
-19:06:37.390     1>Done building target "ComputeReferenceCLInput" in project "SAL_handle_test.vcxproj".: (TargetId:38)
-19:06:37.390     1>Target "WarnCompileDuplicatedFilename: (TargetId:39)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_ClCompile" depends on it):
+19:28:35.824     1>Done building target "ComputeReferenceCLInput" in project "SAL_handle_test.vcxproj".: (TargetId:38)
+19:28:35.824     1>Target "WarnCompileDuplicatedFilename: (TargetId:39)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_ClCompile" depends on it):
                    Task "VCMessage" skipped, due to false condition; ('%(ClCompile.ExcludedFromBuild)' != 'true' and '%(Filename)%(Extension)' != '@(ClCompile->'%(Filename)%(Extension)')' and '%(ObjectFileName)' == '@(ClCompile->Metadata(ObjectFileName)->Distinct())') was evaluated as ('' != 'true' and 'SAL_handle_test.cpp' != 'SAL_handle_test.cpp' and 'Debug\' == 'Debug\').
-19:06:37.390     1>Done building target "WarnCompileDuplicatedFilename" in project "SAL_handle_test.vcxproj".: (TargetId:39)
-19:06:37.390     1>Target "MakeDirsForCl: (TargetId:40)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_ClCompile" depends on it):
+19:28:35.825     1>Done building target "WarnCompileDuplicatedFilename" in project "SAL_handle_test.vcxproj".: (TargetId:39)
+19:28:35.825     1>Target "MakeDirsForCl: (TargetId:40)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_ClCompile" depends on it):
                    Task "MakeDir" (TaskId:16)
                      Task Parameter:
                          Directories=
@@ -1477,25 +1477,25 @@ _NT_SYMBOL_PATH = SRV*C:\SymCache*http://msdl.microsoft.com/download/symbols;SRV
                              C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\Debug
                              C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\Debug (TaskId:16)
                    Done executing task "MakeDir". (TaskId:16)
-19:06:37.391     1>Done building target "MakeDirsForCl" in project "SAL_handle_test.vcxproj".: (TargetId:40)
+19:28:35.826     1>Done building target "MakeDirsForCl" in project "SAL_handle_test.vcxproj".: (TargetId:40)
                    Target "PrepareForBuild" skipped. Previously built successfully.
                    Target "SetBuildDefaultEnvironmentVariables" skipped. Previously built successfully.
                    Target "SetUserMacroEnvironmentVariables" skipped, due to false condition; ('@(BuildMacro)' != '') was evaluated as ('' != '').
-19:06:37.391     1>Target "_SelectedFiles: (TargetId:41)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "SelectClCompile" depends on it):
-19:06:37.391     1>Done building target "_SelectedFiles" in project "SAL_handle_test.vcxproj".: (TargetId:41)
+19:28:35.826     1>Target "_SelectedFiles: (TargetId:41)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "SelectClCompile" depends on it):
+19:28:35.827     1>Done building target "_SelectedFiles" in project "SAL_handle_test.vcxproj".: (TargetId:41)
                    Target "ComputeMIDLGeneratedCompileInputs" skipped. Previously built successfully.
                    Target "ComputeCLInputPDBName" skipped. Previously built successfully.
                    Target "ComputeReferenceCLInput" skipped. Previously built successfully.
                    Target "WarnCompileDuplicatedFilename" skipped. Previously built successfully.
                    Target "_SelectedFiles" skipped. Previously built successfully.
-19:06:37.391     1>Target "SelectCustomBuild: (TargetId:42)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "SelectClCompile" depends on it):
-19:06:37.391     1>Done building target "SelectCustomBuild" in project "SAL_handle_test.vcxproj".: (TargetId:42)
-19:06:37.391     1>Target "SelectClCompile: (TargetId:43)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "ClCompile" depends on it):
-19:06:37.391     1>Done building target "SelectClCompile" in project "SAL_handle_test.vcxproj".: (TargetId:43)
+19:28:35.827     1>Target "SelectCustomBuild: (TargetId:42)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "SelectClCompile" depends on it):
+19:28:35.827     1>Done building target "SelectCustomBuild" in project "SAL_handle_test.vcxproj".: (TargetId:42)
+19:28:35.827     1>Target "SelectClCompile: (TargetId:43)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "ClCompile" depends on it):
+19:28:35.827     1>Done building target "SelectClCompile" in project "SAL_handle_test.vcxproj".: (TargetId:43)
                    Target "GenerateTargetFrameworkMonikerAttribute" skipped, due to false condition; ('$(GenerateTargetFrameworkAttribute)' == 'true') was evaluated as ('false' == 'true').
                    Target "ManagedIncrementalBuildPreProcessDependencyGraph" skipped, due to false condition; ('@(ClCompile)' != '' and '$(EnableManagedIncrementalBuild)' == 'True') was evaluated as ('SAL_handle_test.cpp' != '' and 'false' == 'True').
                    Target "CheckIntelEnvironmentForVCLibsTBB" skipped, due to false condition; ('$(PlatformToolset)' == 'v120' AND '$(UseIntelTBB)' == 'true' AND '$(UseEnv)' != 'true') was evaluated as ('v120' == 'v120' AND 'false' == 'true' AND '' != 'true').
-19:06:37.391     1>Target "ClCompile: (TargetId:44)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppCommon.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_ClCompile" depends on it):
+19:28:35.827     1>Target "ClCompile: (TargetId:44)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppCommon.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_ClCompile" depends on it):
                    Task "Delete" skipped, due to false condition; ('%(ClCompile.DebugInformationFormat)' != '' and '%(ClCompile.DebugInformationFormat)' != 'OldStyle' and '%(ClCompile.ProgramDataBaseFileName)' != '' and !Exists(%(ClCompile.ProgramDataBaseFileName))) was evaluated as ('ProgramDatabase' != '' and 'ProgramDatabase' != 'OldStyle' and 'Debug\vc120.pdb' != '' and !Exists(Debug\vc120.pdb)).
                    Task "CL" skipped, due to false condition; ('%(ClCompile.PrecompiledHeader)' == 'Create' and '%(ClCompile.ExcludedFromBuild)'!='true' and '%(ClCompile.CompilerIteration)' == '') was evaluated as ('NotUsing' == 'Create' and ''!='true' and '' == '').
                    Using "CL" task from assembly "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.Build.CppTasks.Common.dll".
@@ -1689,88 +1689,87 @@ _NT_SYMBOL_PATH = SRV*C:\SymCache*http://msdl.microsoft.com/download/symbols;SRV
                      	Debug\SAL_handle_test.tlog\cl.read.1.tlog (TaskId:17)
                      Outputs for C:\USERS\ALEXANDER RICCIO\DOCUMENTS\GITHUB\SALEXAAMPLES\SALEXAMPLES\SAL_HANDLE_TEST\SAL_HANDLE_TEST\SAL_HANDLE_TEST.CPP: (TaskId:17)
                      	C:\USERS\ALEXANDER RICCIO\DOCUMENTS\GITHUB\SALEXAAMPLES\SALEXAMPLES\SAL_HANDLE_TEST\SAL_HANDLE_TEST\DEBUG\SAL_HANDLE_TEST.OBJ (TaskId:17)
-                     All outputs are up-to-date. (TaskId:17)
-                     Forcing rebuild of all source files due to a change in the command line since the last build. (TaskId:17)
+                     SAL_handle_test.cpp will be compiled as C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.cpp was modified at 2/10/2015 7:28:35 PM. (TaskId:17)
                      Outputs for C:\USERS\ALEXANDER RICCIO\DOCUMENTS\GITHUB\SALEXAAMPLES\SALEXAMPLES\SAL_HANDLE_TEST\SAL_HANDLE_TEST\SAL_HANDLE_TEST.CPP: (TaskId:17)
                      	C:\USERS\ALEXANDER RICCIO\DOCUMENTS\GITHUB\SALEXAAMPLES\SALEXAMPLES\SAL_HANDLE_TEST\SAL_HANDLE_TEST\DEBUG\SAL_HANDLE_TEST.OBJ (TaskId:17)
                      Write Tracking Logs: (TaskId:17)
                      	Debug\SAL_handle_test.tlog\cl.write.1.tlog (TaskId:17)
                      Environment Variables passed to tool: (TaskId:17)
-                       VS_UNICODE_OUTPUT=1484 (TaskId:17)
+                       VS_UNICODE_OUTPUT=1220 (TaskId:17)
                      C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /nologo /Wall /WX /sdl /MP /Od /Oy- /D CODE_ANALYSIS /D DEBUG /D _UNICODE /D UNICODE /D _UNICODE /D UNICODE /GF /Gm- /EHsc /RTC1 /MDd /GS /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze /analyze:plugin"C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\\bin\localespc.dll" /errorReport:prompt /Bt+  /analyze:quiet SAL_handle_test.cpp (TaskId:17)
                      Tracking command: (TaskId:17)
-                     C:\Program Files (x86)\MSBuild\12.0\bin\Tracker.exe /d "C:\Program Files (x86)\MSBuild\12.0\bin\FileTracker.dll" /i "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\Debug\SAL_handle_test.tlog" /r "C:\USERS\ALEXANDER RICCIO\DOCUMENTS\GITHUB\SALEXAAMPLES\SALEXAMPLES\SAL_HANDLE_TEST\SAL_HANDLE_TEST\SAL_HANDLE_TEST.CPP" /b MSBuildConsole_CancelEvent9212fa538e99430c9df4bc8e780c58a1  /c "C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe"  /c /Zi /nologo /Wall /WX /sdl /MP /Od /Oy- /D CODE_ANALYSIS /D DEBUG /D _UNICODE /D UNICODE /D _UNICODE /D UNICODE /GF /Gm- /EHsc /RTC1 /MDd /GS /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze /analyze:plugin"C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\\bin\localespc.dll" /errorReport:prompt /Bt+  /analyze:quiet SAL_handle_test.cpp (TaskId:17)
+                     C:\Program Files (x86)\MSBuild\12.0\bin\Tracker.exe /d "C:\Program Files (x86)\MSBuild\12.0\bin\FileTracker.dll" /i "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\Debug\SAL_handle_test.tlog" /r "C:\USERS\ALEXANDER RICCIO\DOCUMENTS\GITHUB\SALEXAAMPLES\SALEXAMPLES\SAL_HANDLE_TEST\SAL_HANDLE_TEST\SAL_HANDLE_TEST.CPP" /b MSBuildConsole_CancelEvent61f776385c7e4a0e9cfd3e5258af7e39  /c "C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe"  /c /Zi /nologo /Wall /WX /sdl /MP /Od /Oy- /D CODE_ANALYSIS /D DEBUG /D _UNICODE /D UNICODE /D _UNICODE /D UNICODE /GF /Gm- /EHsc /RTC1 /MDd /GS /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze /analyze:plugin"C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\\bin\localespc.dll" /errorReport:prompt /Bt+  /analyze:quiet SAL_handle_test.cpp (TaskId:17)
                      SAL_handle_test.cpp (TaskId:17)
-                     time(C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\c1xx.dll)=0.72418s < 836551776795 - 836554034647 > BB [C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.cpp] (TaskId:17)
-                     time(C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\c1xxast.dll)=7.43755s < 836554042924 - 836577231588 > BB [C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.cpp] (TaskId:17)
-                     time(C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\c2.dll)=0.03053s < 836577238235 - 836577333417 > BB [C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.cpp] (TaskId:17)
+                     time(C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\c1xx.dll)=0.69734s < 840662367021 - 840664541183 > BB [C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.cpp] (TaskId:17)
+                     time(C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\c1xxast.dll)=7.31692s < 840664549934 - 840687362499 > BB [C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.cpp] (TaskId:17)
+                     time(C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\c2.dll)=0.01791s < 840687367236 - 840687423078 > BB [C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.cpp] (TaskId:17)
                    Done executing task "CL". (TaskId:17)
-19:06:45.741     1>Done building target "ClCompile" in project "SAL_handle_test.vcxproj".: (TargetId:44)
+19:28:44.020     1>Done building target "ClCompile" in project "SAL_handle_test.vcxproj".: (TargetId:44)
                    Target "ManagedIncrementalBuildPostProcessDependencyGraph" skipped, due to false condition; ('@(ClCompile)' != '' and '$(EnableManagedIncrementalBuild)' == 'True') was evaluated as ('SAL_handle_test.cpp' != '' and 'false' == 'True').
-19:06:45.741     1>Target "AfterClCompile: (TargetId:45)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_ClCompile" depends on it):
-19:06:45.741     1>Done building target "AfterClCompile" in project "SAL_handle_test.vcxproj".: (TargetId:45)
-19:06:45.741     1>Target "_ClCompile: (TargetId:46)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_BuildCompileAction" depends on it):
-19:06:45.741     1>Done building target "_ClCompile" in project "SAL_handle_test.vcxproj".: (TargetId:46)
+19:28:44.020     1>Target "AfterClCompile: (TargetId:45)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_ClCompile" depends on it):
+19:28:44.020     1>Done building target "AfterClCompile" in project "SAL_handle_test.vcxproj".: (TargetId:45)
+19:28:44.020     1>Target "_ClCompile: (TargetId:46)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_BuildCompileAction" depends on it):
+19:28:44.020     1>Done building target "_ClCompile" in project "SAL_handle_test.vcxproj".: (TargetId:46)
                    Target "_ResGen" skipped, due to false condition; ('@(EmbeddedResource)'!='') was evaluated as (''!='').
-19:06:45.742     1>Target "BeforeResourceCompile: (TargetId:47)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_ResourceCompile" depends on it):
-19:06:45.742     1>Done building target "BeforeResourceCompile" in project "SAL_handle_test.vcxproj".: (TargetId:47)
-19:06:45.742     1>Target "MakeDirsForResourceCompile: (TargetId:48)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_ResourceCompile" depends on it):
+19:28:44.020     1>Target "BeforeResourceCompile: (TargetId:47)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_ResourceCompile" depends on it):
+19:28:44.020     1>Done building target "BeforeResourceCompile" in project "SAL_handle_test.vcxproj".: (TargetId:47)
+19:28:44.020     1>Target "MakeDirsForResourceCompile: (TargetId:48)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_ResourceCompile" depends on it):
                    Task "MakeDir" (TaskId:18)
                      Task Parameter:Directories=C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\Debug (TaskId:18)
                    Done executing task "MakeDir". (TaskId:18)
-19:06:45.742     1>Done building target "MakeDirsForResourceCompile" in project "SAL_handle_test.vcxproj".: (TargetId:48)
+19:28:44.020     1>Done building target "MakeDirsForResourceCompile" in project "SAL_handle_test.vcxproj".: (TargetId:48)
                    Target "ResourceCompile" skipped, due to false condition; ('@(ResourceCompile)' != '') was evaluated as ('' != '').
-19:06:45.742     1>Target "AfterResourceCompile: (TargetId:49)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_ResourceCompile" depends on it):
-19:06:45.742     1>Done building target "AfterResourceCompile" in project "SAL_handle_test.vcxproj".: (TargetId:49)
-19:06:45.742     1>Target "_ResourceCompile: (TargetId:50)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_BuildCompileAction" depends on it):
-19:06:45.742     1>Done building target "_ResourceCompile" in project "SAL_handle_test.vcxproj".: (TargetId:50)
+19:28:44.020     1>Target "AfterResourceCompile: (TargetId:49)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_ResourceCompile" depends on it):
+19:28:44.020     1>Done building target "AfterResourceCompile" in project "SAL_handle_test.vcxproj".: (TargetId:49)
+19:28:44.020     1>Target "_ResourceCompile: (TargetId:50)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_BuildCompileAction" depends on it):
+19:28:44.020     1>Done building target "_ResourceCompile" in project "SAL_handle_test.vcxproj".: (TargetId:50)
                    Target "_ImpLib" skipped, due to false condition; ('$(ImpLibCompiled)' == 'true') was evaluated as ('' == 'true').
                    Target "_Lib" skipped, due to false condition; ('$(LibCompiled)' == 'true') was evaluated as ('' == 'true').
-19:06:45.742     1>Target "AfterBuildCompileEvent: (TargetId:51)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_BuildCompileAction" depends on it):
-19:06:45.742     1>Done building target "AfterBuildCompileEvent" in project "SAL_handle_test.vcxproj".: (TargetId:51)
-19:06:45.742     1>Target "_BuildCompileAction: (TargetId:52)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "BuildCompile" depends on it):
-19:06:45.742     1>Done building target "_BuildCompileAction" in project "SAL_handle_test.vcxproj".: (TargetId:52)
-19:06:45.742     1>Target "BuildCompile: (TargetId:53)" in file "C:\Program Files (x86)\MSBuild\12.0\bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "Build" depends on it):
-19:06:45.742     1>Done building target "BuildCompile" in project "SAL_handle_test.vcxproj".: (TargetId:53)
+19:28:44.021     1>Target "AfterBuildCompileEvent: (TargetId:51)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_BuildCompileAction" depends on it):
+19:28:44.021     1>Done building target "AfterBuildCompileEvent" in project "SAL_handle_test.vcxproj".: (TargetId:51)
+19:28:44.021     1>Target "_BuildCompileAction: (TargetId:52)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "BuildCompile" depends on it):
+19:28:44.021     1>Done building target "_BuildCompileAction" in project "SAL_handle_test.vcxproj".: (TargetId:52)
+19:28:44.021     1>Target "BuildCompile: (TargetId:53)" in file "C:\Program Files (x86)\MSBuild\12.0\bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "Build" depends on it):
+19:28:44.021     1>Done building target "BuildCompile" in project "SAL_handle_test.vcxproj".: (TargetId:53)
                    Target "AssignProjectConfiguration" skipped. Previously built successfully.
                    Target "_SplitProjectReferencesByFileExistence" skipped. Previously built successfully.
-19:06:45.742     1>Target "BuildLinkTraverse: (TargetId:54)" in file "C:\Program Files (x86)\MSBuild\12.0\bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "BuildLink" depends on it):
+19:28:44.021     1>Target "BuildLinkTraverse: (TargetId:54)" in file "C:\Program Files (x86)\MSBuild\12.0\bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "BuildLink" depends on it):
                    Task "MSBuild" skipped, due to false condition; ('$(BuildPassReferences)' == 'true' and '@(ProjectReferenceWithConfiguration)' != '' and '@(_MSBuildProjectReferenceExistent)' != ''  and '%(_MSBuildProjectReferenceExistent.BuildReference)' == 'true') was evaluated as ('' == 'true' and '' != '' and '' != ''  and '' == 'true').
-19:06:45.742     1>Done building target "BuildLinkTraverse" in project "SAL_handle_test.vcxproj".: (TargetId:54)
+19:28:44.021     1>Done building target "BuildLinkTraverse" in project "SAL_handle_test.vcxproj".: (TargetId:54)
                    Target "PrepareForBuild" skipped. Previously built successfully.
                    Target "ResolveReferences" skipped. Previously built successfully.
-19:06:45.743     1>Target "ComputeLegacyManifestEmbedding: (TargetId:55)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_BuildLinkAction" depends on it):
+19:28:44.021     1>Target "ComputeLegacyManifestEmbedding: (TargetId:55)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_BuildLinkAction" depends on it):
                    Task "VCMessage" skipped, due to false condition; ('$(RevertManifestEmbedding)' == 'true' and '$(_LegacyManifestEmbeddingDebug)' == 'true') was evaluated as ('' == 'true' and '' == 'true').
-19:06:45.743     1>Done building target "ComputeLegacyManifestEmbedding" in project "SAL_handle_test.vcxproj".: (TargetId:55)
-19:06:45.743     1>Target "BeforeLink: (TargetId:56)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_Link" depends on it):
-19:06:45.743     1>Done building target "BeforeLink" in project "SAL_handle_test.vcxproj".: (TargetId:56)
-19:06:45.743     1>Target "ComputeRCOutputs: (TargetId:57)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "ComputeRCGeneratedLinkInputs" depends on it):
-19:06:45.743     1>Done building target "ComputeRCOutputs" in project "SAL_handle_test.vcxproj".: (TargetId:57)
-19:06:45.743     1>Target "ComputeRCGeneratedLinkInputs: (TargetId:58)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_Link" depends on it):
-19:06:45.743     1>Done building target "ComputeRCGeneratedLinkInputs" in project "SAL_handle_test.vcxproj".: (TargetId:58)
-19:06:45.743     1>Target "ComputeManifestGeneratedLinkerInputs: (TargetId:59)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_Link" depends on it):
-19:06:45.743     1>Done building target "ComputeManifestGeneratedLinkerInputs" in project "SAL_handle_test.vcxproj".: (TargetId:59)
-19:06:45.743     1>Target "ComputeCustomBuildOutput: (TargetId:60)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_Link" depends on it):
+19:28:44.021     1>Done building target "ComputeLegacyManifestEmbedding" in project "SAL_handle_test.vcxproj".: (TargetId:55)
+19:28:44.021     1>Target "BeforeLink: (TargetId:56)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_Link" depends on it):
+19:28:44.021     1>Done building target "BeforeLink" in project "SAL_handle_test.vcxproj".: (TargetId:56)
+19:28:44.022     1>Target "ComputeRCOutputs: (TargetId:57)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "ComputeRCGeneratedLinkInputs" depends on it):
+19:28:44.022     1>Done building target "ComputeRCOutputs" in project "SAL_handle_test.vcxproj".: (TargetId:57)
+19:28:44.022     1>Target "ComputeRCGeneratedLinkInputs: (TargetId:58)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_Link" depends on it):
+19:28:44.022     1>Done building target "ComputeRCGeneratedLinkInputs" in project "SAL_handle_test.vcxproj".: (TargetId:58)
+19:28:44.022     1>Target "ComputeManifestGeneratedLinkerInputs: (TargetId:59)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_Link" depends on it):
+19:28:44.022     1>Done building target "ComputeManifestGeneratedLinkerInputs" in project "SAL_handle_test.vcxproj".: (TargetId:59)
+19:28:44.022     1>Target "ComputeCustomBuildOutput: (TargetId:60)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_Link" depends on it):
                    Task "CreateItem" skipped, due to false condition; ('%(CustomBuildDirsToMake.OutputFileToTool)'!='') was evaluated as (''!='').
                    Task "MakeDir" (TaskId:19)
                    Done executing task "MakeDir". (TaskId:19)
-19:06:45.747     1>Done building target "ComputeCustomBuildOutput" in project "SAL_handle_test.vcxproj".: (TargetId:60)
+19:28:44.022     1>Done building target "ComputeCustomBuildOutput" in project "SAL_handle_test.vcxproj".: (TargetId:60)
                    Target "ComputeMIDLGeneratedCompileInputs" skipped. Previously built successfully.
                    Target "ComputeCLInputPDBName" skipped. Previously built successfully.
                    Target "ComputeReferenceCLInput" skipped. Previously built successfully.
                    Target "WarnCompileDuplicatedFilename" skipped. Previously built successfully.
-19:06:45.747     1>Target "ComputeCLOutputs: (TargetId:61)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "ComputeCLGeneratedLinkInputs" depends on it):
-19:06:45.747     1>Done building target "ComputeCLOutputs" in project "SAL_handle_test.vcxproj".: (TargetId:61)
-19:06:45.747     1>Target "ComputeCLGeneratedLinkInputs: (TargetId:62)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_Link" depends on it):
-19:06:45.747     1>Done building target "ComputeCLGeneratedLinkInputs" in project "SAL_handle_test.vcxproj".: (TargetId:62)
-19:06:45.747     1>Target "ComputeLinkInputsFromProject: (TargetId:63)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_Link" depends on it):
-19:06:45.747     1>Done building target "ComputeLinkInputsFromProject" in project "SAL_handle_test.vcxproj".: (TargetId:63)
+19:28:44.022     1>Target "ComputeCLOutputs: (TargetId:61)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "ComputeCLGeneratedLinkInputs" depends on it):
+19:28:44.023     1>Done building target "ComputeCLOutputs" in project "SAL_handle_test.vcxproj".: (TargetId:61)
+19:28:44.023     1>Target "ComputeCLGeneratedLinkInputs: (TargetId:62)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_Link" depends on it):
+19:28:44.023     1>Done building target "ComputeCLGeneratedLinkInputs" in project "SAL_handle_test.vcxproj".: (TargetId:62)
+19:28:44.023     1>Target "ComputeLinkInputsFromProject: (TargetId:63)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_Link" depends on it):
+19:28:44.023     1>Done building target "ComputeLinkInputsFromProject" in project "SAL_handle_test.vcxproj".: (TargetId:63)
                    Target "ComputeReferenceLinkInputs" skipped, due to false condition; (@(ProjectReference) != '') was evaluated as ( != '').
-19:06:45.747     1>Target "ComputeManifestInputsTargets: (TargetId:64)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_Link" depends on it):
-19:06:45.748     1>Done building target "ComputeManifestInputsTargets" in project "SAL_handle_test.vcxproj".: (TargetId:64)
+19:28:44.023     1>Target "ComputeManifestInputsTargets: (TargetId:64)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_Link" depends on it):
+19:28:44.023     1>Done building target "ComputeManifestInputsTargets" in project "SAL_handle_test.vcxproj".: (TargetId:64)
                    Target "ManifestResourceCompile" skipped, due to false condition; ('$(EmbedManifestBy)' == 'LINK' and '@(Manifest)' != '') was evaluated as ('LINK' == 'LINK' and '' != '').
                    Target "AssignWinFXEmbeddedResource" skipped, due to false condition; ('@(WinFXEmbeddedResource)' != '') was evaluated as ('' != '').
-19:06:45.748     1>Target "AssignTargetPaths: (TargetId:65)" in file "C:\Program Files (x86)\MSBuild\12.0\bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "PrepareResourceNames" depends on it):
+19:28:44.023     1>Target "AssignTargetPaths: (TargetId:65)" in file "C:\Program Files (x86)\MSBuild\12.0\bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "PrepareResourceNames" depends on it):
                    Using "AssignTargetPath" task from assembly "Microsoft.Build.Tasks.v12.0, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
                    Task "AssignTargetPath" (TaskId:20)
                      Task Parameter:RootFolder=C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test (TaskId:20)
@@ -1785,9 +1784,9 @@ _NT_SYMBOL_PATH = SRV*C:\SymCache*http://msdl.microsoft.com/download/symbols;SRV
                      Task Parameter:RootFolder=C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test (TaskId:23)
                    Done executing task "AssignTargetPath". (TaskId:23)
                    Task "AssignTargetPath" skipped, due to false condition; ('@(_DeploymentBaseManifestWithTargetPath)'=='' and '%(None.Extension)'=='.manifest') was evaluated as (''=='' and ''=='.manifest').
-19:06:45.748     1>Done building target "AssignTargetPaths" in project "SAL_handle_test.vcxproj".: (TargetId:65)
+19:28:44.025     1>Done building target "AssignTargetPaths" in project "SAL_handle_test.vcxproj".: (TargetId:65)
                    Target "AssignTargetPaths" skipped. Previously built successfully.
-19:06:45.748     1>Target "SplitResourcesByCulture: (TargetId:66)" in file "C:\Program Files (x86)\MSBuild\12.0\bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "PrepareResourceNames" depends on it):
+19:28:44.025     1>Target "SplitResourcesByCulture: (TargetId:66)" in file "C:\Program Files (x86)\MSBuild\12.0\bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "PrepareResourceNames" depends on it):
                    Task "Warning" skipped, due to false condition; ('@(ResxWithNoCulture)'!='') was evaluated as (''!='').
                    Task "Warning" skipped, due to false condition; ('@(ResxWithCulture)'!='') was evaluated as (''!='').
                    Task "Warning" skipped, due to false condition; ('@(NonResxWithCulture)'!='') was evaluated as (''!='').
@@ -1795,13 +1794,13 @@ _NT_SYMBOL_PATH = SRV*C:\SymCache*http://msdl.microsoft.com/download/symbols;SRV
                    Using "AssignCulture" task from assembly "Microsoft.Build.Tasks.v12.0, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
                    Task "AssignCulture" (TaskId:24)
                    Done executing task "AssignCulture". (TaskId:24)
-19:06:45.749     1>Done building target "SplitResourcesByCulture" in project "SAL_handle_test.vcxproj".: (TargetId:66)
+19:28:44.026     1>Done building target "SplitResourcesByCulture" in project "SAL_handle_test.vcxproj".: (TargetId:66)
                    Target "CreateManifestResourceNames" skipped, due to false condition; ('@(EmbeddedResource)' != '') was evaluated as ('' != '').
-19:06:45.749     1>Target "CreateCustomManifestResourceNames: (TargetId:67)" in file "C:\Program Files (x86)\MSBuild\12.0\bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "PrepareResourceNames" depends on it):
-19:06:45.749     1>Done building target "CreateCustomManifestResourceNames" in project "SAL_handle_test.vcxproj".: (TargetId:67)
-19:06:45.749     1>Target "PrepareResourceNames: (TargetId:68)" in file "C:\Program Files (x86)\MSBuild\12.0\bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_Link" depends on it):
-19:06:45.749     1>Done building target "PrepareResourceNames" in project "SAL_handle_test.vcxproj".: (TargetId:68)
-19:06:45.749     1>Target "MakeDirsForLink: (TargetId:69)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_Link" depends on it):
+19:28:44.026     1>Target "CreateCustomManifestResourceNames: (TargetId:67)" in file "C:\Program Files (x86)\MSBuild\12.0\bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "PrepareResourceNames" depends on it):
+19:28:44.026     1>Done building target "CreateCustomManifestResourceNames" in project "SAL_handle_test.vcxproj".: (TargetId:67)
+19:28:44.026     1>Target "PrepareResourceNames: (TargetId:68)" in file "C:\Program Files (x86)\MSBuild\12.0\bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_Link" depends on it):
+19:28:44.026     1>Done building target "PrepareResourceNames" in project "SAL_handle_test.vcxproj".: (TargetId:68)
+19:28:44.026     1>Target "MakeDirsForLink: (TargetId:69)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_Link" depends on it):
                    Task "MakeDir" (TaskId:25)
                      Task Parameter:
                          Directories=
@@ -1810,21 +1809,21 @@ _NT_SYMBOL_PATH = SRV*C:\SymCache*http://msdl.microsoft.com/download/symbols;SRV
                              C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\Debug
                              C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\Debug\ (TaskId:25)
                    Done executing task "MakeDir". (TaskId:25)
-19:06:45.750     1>Done building target "MakeDirsForLink" in project "SAL_handle_test.vcxproj".: (TargetId:69)
-19:06:45.750     1>Target "DoLinkOutputFilesMatch: (TargetId:70)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_Link" depends on it):
+19:28:44.027     1>Done building target "MakeDirsForLink" in project "SAL_handle_test.vcxproj".: (TargetId:69)
+19:28:44.027     1>Target "DoLinkOutputFilesMatch: (TargetId:70)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_Link" depends on it):
                    Task "VCMessage" skipped, due to false condition; ('@(_OutputFileFromLink)' == '') was evaluated as ('C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\Debug\SAL_handle_test.exe' == '').
                    Task "VCMessage" skipped, due to false condition; ('@(_OutputFileFromLink)' != '' and '%(_OutputFileFromLink.FullPath)' != '$([System.IO.Path]::GetFullPath($(TargetPath)))') was evaluated as ('C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\Debug\SAL_handle_test.exe' != '' and 'C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\Debug\SAL_handle_test.exe' != 'C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\Debug\SAL_handle_test.exe').
                    Task "VCMessage" skipped, due to false condition; ('@(_OutputFileFromLink)' != '' and '%(_OutputFileFromLink.Extension)' != '' and '%(_OutputFileFromLink.Extension)' != '$(TargetExt)') was evaluated as ('C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\Debug\SAL_handle_test.exe' != '' and '.exe' != '' and '.exe' != '.exe').
                    Task "VCMessage" skipped, due to false condition; ('@(_OutputFileFromLink)' != '' and '%(_OutputFileFromLink.Filename)' != '' and '%(_OutputFileFromLink.Filename)' != '$(TargetName)') was evaluated as ('C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\Debug\SAL_handle_test.exe' != '' and 'SAL_handle_test' != '' and 'SAL_handle_test' != 'SAL_handle_test').
                    Task "VCMessage" skipped, due to false condition; ('%(Link.MinimumRequiredVersion)' != '' and ('%(Link.Subsystem)' == '' or '%(Link.Subsystem)' == 'NotSet')) was evaluated as ('' != '' and ('NotSet' == '' or 'NotSet' == 'NotSet')).
-19:06:45.751     1>Done building target "DoLinkOutputFilesMatch" in project "SAL_handle_test.vcxproj".: (TargetId:70)
-19:06:45.751     1>Target "PreLinkEvent: (TargetId:71)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppCommon.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_Link" depends on it):
+19:28:44.027     1>Done building target "DoLinkOutputFilesMatch" in project "SAL_handle_test.vcxproj".: (TargetId:70)
+19:28:44.027     1>Target "PreLinkEvent: (TargetId:71)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppCommon.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_Link" depends on it):
                    Task "Message" skipped, due to false condition; ('%(PreLinkEvent.Message)' != '' and '%(PreLinkEvent.Command)' != '') was evaluated as ('' != '' and '' != '').
                    Task "Exec" skipped, due to false condition; ('%(PreLinkEvent.Command)' != '') was evaluated as ('' != '').
-19:06:45.751     1>Done building target "PreLinkEvent" in project "SAL_handle_test.vcxproj".: (TargetId:71)
-19:06:45.751     1>Target "ComputeLinkSwitches: (TargetId:72)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppCommon.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "Link" depends on it):
-19:06:45.751     1>Done building target "ComputeLinkSwitches" in project "SAL_handle_test.vcxproj".: (TargetId:72)
-19:06:45.751     1>Target "Link: (TargetId:73)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppCommon.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_Link" depends on it):
+19:28:44.027     1>Done building target "PreLinkEvent" in project "SAL_handle_test.vcxproj".: (TargetId:71)
+19:28:44.028     1>Target "ComputeLinkSwitches: (TargetId:72)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppCommon.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "Link" depends on it):
+19:28:44.028     1>Done building target "ComputeLinkSwitches" in project "SAL_handle_test.vcxproj".: (TargetId:72)
+19:28:44.028     1>Target "Link: (TargetId:73)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppCommon.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_Link" depends on it):
                    Using "Link" task from assembly "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.Build.CppTasks.Common.dll".
                    Task "Link" (TaskId:26)
                      Task Parameter:BuildingInIde=True (TaskId:26)
@@ -1965,71 +1964,71 @@ _NT_SYMBOL_PATH = SRV*C:\SymCache*http://msdl.microsoft.com/download/symbols;SRV
                      	C:\WINDOWS\SYSTEM32\TZRES.DLL (TaskId:26)
                      Source compilation required: input C:\USERS\ALEXANDER RICCIO\DOCUMENTS\GITHUB\SALEXAAMPLES\SALEXAMPLES\SAL_HANDLE_TEST\SAL_HANDLE_TEST\DEBUG\SAL_HANDLE_TEST.OBJ is newer than output C:\USERS\ALEXANDER RICCIO\DOCUMENTS\GITHUB\SALEXAAMPLES\SALEXAMPLES\SAL_HANDLE_TEST\DEBUG\SAL_HANDLE_TEST.EXE. (TaskId:26)
                      Environment Variables passed to tool: (TaskId:26)
-                       VS_UNICODE_OUTPUT=1540 (TaskId:26)
+                       VS_UNICODE_OUTPUT=1276 (TaskId:26)
                      C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\Debug\SAL_handle_test.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\Debug\SAL_handle_test.pdb" /OPT:REF /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\Debug\SAL_handle_test.lib" /MACHINE:X86 Debug\SAL_handle_test.obj (TaskId:26)
                      Tracking command: (TaskId:26)
-                     C:\Program Files (x86)\MSBuild\12.0\bin\Tracker.exe /a /d "C:\Program Files (x86)\MSBuild\12.0\bin\FileTracker.dll" /i "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\Debug\SAL_handle_test.tlog" /r "C:\USERS\ALEXANDER RICCIO\DOCUMENTS\GITHUB\SALEXAAMPLES\SALEXAMPLES\SAL_HANDLE_TEST\SAL_HANDLE_TEST\DEBUG\SAL_HANDLE_TEST.OBJ" /b MSBuildConsole_CancelEventa9986bf522e24deea87864160973719e  /c "C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe"  /ERRORREPORT:PROMPT /OUT:"C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\Debug\SAL_handle_test.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\Debug\SAL_handle_test.pdb" /OPT:REF /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\Debug\SAL_handle_test.lib" /MACHINE:X86 Debug\SAL_handle_test.obj (TaskId:26)
-19:06:45.807     1>LINK : warning LNK4075: ignoring '/INCREMENTAL' due to '/OPT:REF' specification
+                     C:\Program Files (x86)\MSBuild\12.0\bin\Tracker.exe /a /d "C:\Program Files (x86)\MSBuild\12.0\bin\FileTracker.dll" /i "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\Debug\SAL_handle_test.tlog" /r "C:\USERS\ALEXANDER RICCIO\DOCUMENTS\GITHUB\SALEXAAMPLES\SALEXAMPLES\SAL_HANDLE_TEST\SAL_HANDLE_TEST\DEBUG\SAL_HANDLE_TEST.OBJ" /b MSBuildConsole_CancelEventfcc78d8bdb8d4501afeb184e64d554eb  /c "C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe"  /ERRORREPORT:PROMPT /OUT:"C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\Debug\SAL_handle_test.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\Debug\SAL_handle_test.pdb" /OPT:REF /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\Debug\SAL_handle_test.lib" /MACHINE:X86 Debug\SAL_handle_test.obj (TaskId:26)
+19:28:44.099     1>LINK : warning LNK4075: ignoring '/INCREMENTAL' due to '/OPT:REF' specification
                    Done executing task "Link". (TaskId:26)
                    Task "Message" (TaskId:27)
                      Task Parameter:Text=SAL_handle_test.vcxproj -> C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\Debug\SAL_handle_test.exe (TaskId:27)
                      Task Parameter:Importance=High (TaskId:27)
                      SAL_handle_test.vcxproj -> C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\Debug\SAL_handle_test.exe (TaskId:27)
                    Done executing task "Message". (TaskId:27)
-19:06:46.031     1>Done building target "Link" in project "SAL_handle_test.vcxproj".: (TargetId:73)
+19:28:44.634     1>Done building target "Link" in project "SAL_handle_test.vcxproj".: (TargetId:73)
                    Target "MetaGenInputsOutputs" skipped, due to false condition; ('$(EnableManagedIncrementalBuild)' == 'True') was evaluated as ('false' == 'True').
                    Target "ComputeMetaGenInputs" skipped, due to false condition; ('$(CLRSupport)'!='' and '$(CLRSupport)'!='false') was evaluated as ('false'!='' and 'false'!='false').
                    Target "MetaGen" skipped, due to false condition; ('@(MetaGen)' != '') was evaluated as ('' != '').
-19:06:46.031     1>Target "ComputeLinkImportLibraryOutputsForClean: (TargetId:74)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_Link" depends on it):
+19:28:44.634     1>Target "ComputeLinkImportLibraryOutputsForClean: (TargetId:74)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_Link" depends on it):
                    Task "WriteLinesToFile" skipped, due to false condition; ('@(_LinkSecondaryOutput)' != '') was evaluated as ('' != '').
-19:06:46.031     1>Done building target "ComputeLinkImportLibraryOutputsForClean" in project "SAL_handle_test.vcxproj".: (TargetId:74)
-19:06:46.031     1>Target "AfterLink: (TargetId:75)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_Link" depends on it):
-19:06:46.031     1>Done building target "AfterLink" in project "SAL_handle_test.vcxproj".: (TargetId:75)
-19:06:46.031     1>Target "_Link: (TargetId:76)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_BuildLinkAction" depends on it):
-19:06:46.031     1>Done building target "_Link" in project "SAL_handle_test.vcxproj".: (TargetId:76)
-19:06:46.031     1>Target "_ALink: (TargetId:77)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_BuildLinkAction" depends on it):
-19:06:46.031     1>Done building target "_ALink" in project "SAL_handle_test.vcxproj".: (TargetId:77)
+19:28:44.635     1>Done building target "ComputeLinkImportLibraryOutputsForClean" in project "SAL_handle_test.vcxproj".: (TargetId:74)
+19:28:44.635     1>Target "AfterLink: (TargetId:75)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_Link" depends on it):
+19:28:44.635     1>Done building target "AfterLink" in project "SAL_handle_test.vcxproj".: (TargetId:75)
+19:28:44.635     1>Target "_Link: (TargetId:76)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_BuildLinkAction" depends on it):
+19:28:44.635     1>Done building target "_Link" in project "SAL_handle_test.vcxproj".: (TargetId:76)
+19:28:44.635     1>Target "_ALink: (TargetId:77)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_BuildLinkAction" depends on it):
+19:28:44.635     1>Done building target "_ALink" in project "SAL_handle_test.vcxproj".: (TargetId:77)
                    Target "ComputeLegacyManifestEmbedding" skipped. Previously built successfully.
-19:06:46.031     1>Target "_Manifest: (TargetId:78)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_BuildLinkAction" depends on it):
+19:28:44.635     1>Target "_Manifest: (TargetId:78)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_BuildLinkAction" depends on it):
                    Task "CallTarget" skipped, due to false condition; ('$(LegacyManifestEmbedding)' == 'true') was evaluated as ('' == 'true').
-19:06:46.031     1>Done building target "_Manifest" in project "SAL_handle_test.vcxproj".: (TargetId:78)
-19:06:46.031     1>Target "RegisterOutput: (TargetId:79)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppCommon.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_BuildLinkAction" depends on it):
+19:28:44.635     1>Done building target "_Manifest" in project "SAL_handle_test.vcxproj".: (TargetId:78)
+19:28:44.635     1>Target "RegisterOutput: (TargetId:79)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppCommon.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_BuildLinkAction" depends on it):
                    Task "Exec" skipped, due to false condition; ('$(ConfigurationType)'=='DynamicLibrary' and '%(Link.RegisterOutput)'=='true' and '%(Link.PerUserRedirection)'!='true') was evaluated as ('Application'=='DynamicLibrary' and 'false'=='true' and 'false'!='true').
                    Task "Exec" skipped, due to false condition; ('$(ConfigurationType)'=='DynamicLibrary' and '%(Link.RegisterOutput)'=='true' and '%(Link.PerUserRedirection)'=='true') was evaluated as ('Application'=='DynamicLibrary' and 'false'=='true' and 'false'=='true').
                    Task "Exec" skipped, due to false condition; ('$(ConfigurationType)'=='Application' and '%(Link.RegisterOutput)'=='true' and '%(Link.PerUserRedirection)'!='true') was evaluated as ('Application'=='Application' and 'false'=='true' and 'false'!='true').
                    Task "Exec" skipped, due to false condition; ('$(ConfigurationType)'=='Application' and '%(Link.RegisterOutput)'=='true' and '%(Link.PerUserRedirection)'=='true') was evaluated as ('Application'=='Application' and 'false'=='true' and 'false'=='true').
                    Task "VCMessage" skipped, due to false condition; ('$(_RegisterOutputExitCode)' != '' and '$(_RegisterOutputExitCode)' != '0') was evaluated as ('' != '' and '' != '0').
-19:06:46.032     1>Done building target "RegisterOutput" in project "SAL_handle_test.vcxproj".: (TargetId:79)
+19:28:44.635     1>Done building target "RegisterOutput" in project "SAL_handle_test.vcxproj".: (TargetId:79)
                    Target "PrepareForBuild" skipped. Previously built successfully.
                    Target "ResolveReferences" skipped. Previously built successfully.
-19:06:46.032     1>Target "ResolvedXDCMake: (TargetId:80)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_XdcMake" depends on it):
+19:28:44.635     1>Target "ResolvedXDCMake: (TargetId:80)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_XdcMake" depends on it):
                    Task "MSBuild" skipped, due to false condition; ('%(_MSBuildProjectReferenceExistent.Extension)' == '.vcxproj' and '@(ProjectReferenceWithConfiguration)' != '' and '@(_MSBuildProjectReferenceExistent)' != '' and '$(_ClCompileGenerateXMLDocumentationFiles)' == 'true') was evaluated as ('' == '.vcxproj' and '' != '' and '' != '' and '' == 'true').
-19:06:46.032     1>Done building target "ResolvedXDCMake" in project "SAL_handle_test.vcxproj".: (TargetId:80)
-19:06:46.032     1>Target "ComputeCLCompileGeneratedXDCFiles: (TargetId:81)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_XdcMake" depends on it):
-19:06:46.032     1>Done building target "ComputeCLCompileGeneratedXDCFiles" in project "SAL_handle_test.vcxproj".: (TargetId:81)
-19:06:46.032     1>Target "MakeDirsForXdcMake: (TargetId:82)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_XdcMake" depends on it):
+19:28:44.635     1>Done building target "ResolvedXDCMake" in project "SAL_handle_test.vcxproj".: (TargetId:80)
+19:28:44.636     1>Target "ComputeCLCompileGeneratedXDCFiles: (TargetId:81)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_XdcMake" depends on it):
+19:28:44.636     1>Done building target "ComputeCLCompileGeneratedXDCFiles" in project "SAL_handle_test.vcxproj".: (TargetId:81)
+19:28:44.636     1>Target "MakeDirsForXdcMake: (TargetId:82)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_XdcMake" depends on it):
                    Task "MakeDir" (TaskId:28)
                    Done executing task "MakeDir". (TaskId:28)
-19:06:46.032     1>Done building target "MakeDirsForXdcMake" in project "SAL_handle_test.vcxproj".: (TargetId:82)
+19:28:44.636     1>Done building target "MakeDirsForXdcMake" in project "SAL_handle_test.vcxproj".: (TargetId:82)
                    Target "XdcMake" skipped, due to false condition; ('@(XdcMake)' != '') was evaluated as ('' != '').
-19:06:46.032     1>Target "_XdcMake: (TargetId:83)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_BuildLinkAction" depends on it):
-19:06:46.032     1>Done building target "_XdcMake" in project "SAL_handle_test.vcxproj".: (TargetId:83)
-19:06:46.033     1>Target "ComputeCLCompileGeneratedSbrFiles: (TargetId:84)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_BscMake" depends on it):
-19:06:46.033     1>Done building target "ComputeCLCompileGeneratedSbrFiles" in project "SAL_handle_test.vcxproj".: (TargetId:84)
-19:06:46.033     1>Target "MakeDirsForBscMake: (TargetId:85)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_BscMake" depends on it):
+19:28:44.636     1>Target "_XdcMake: (TargetId:83)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_BuildLinkAction" depends on it):
+19:28:44.636     1>Done building target "_XdcMake" in project "SAL_handle_test.vcxproj".: (TargetId:83)
+19:28:44.636     1>Target "ComputeCLCompileGeneratedSbrFiles: (TargetId:84)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_BscMake" depends on it):
+19:28:44.636     1>Done building target "ComputeCLCompileGeneratedSbrFiles" in project "SAL_handle_test.vcxproj".: (TargetId:84)
+19:28:44.636     1>Target "MakeDirsForBscMake: (TargetId:85)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_BscMake" depends on it):
                    Task "MakeDir" (TaskId:29)
                    Done executing task "MakeDir". (TaskId:29)
-19:06:46.033     1>Done building target "MakeDirsForBscMake" in project "SAL_handle_test.vcxproj".: (TargetId:85)
+19:28:44.636     1>Done building target "MakeDirsForBscMake" in project "SAL_handle_test.vcxproj".: (TargetId:85)
                    Target "BscMake" skipped, due to false condition; ('@(BscMake)' != '') was evaluated as ('' != '').
                    Target "CustomBuildStep" skipped, due to false condition; ('@(CustomBuildStep)' != '' and '$(SelectedFiles)'=='') was evaluated as ('' != '' and ''=='').
-19:06:46.033     1>Target "_BscMake: (TargetId:86)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_BuildLinkAction" depends on it):
-19:06:46.033     1>Done building target "_BscMake" in project "SAL_handle_test.vcxproj".: (TargetId:86)
+19:28:44.636     1>Target "_BscMake: (TargetId:86)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_BuildLinkAction" depends on it):
+19:28:44.636     1>Done building target "_BscMake" in project "SAL_handle_test.vcxproj".: (TargetId:86)
                    Target "ClCompile" skipped. Previously built successfully.
                    Target "GenerateTargetFrameworkMonikerAttribute" skipped, due to false condition; ('$(GenerateTargetFrameworkAttribute)' == 'true') was evaluated as ('false' == 'true').
                    Target "ManagedIncrementalBuildPreProcessDependencyGraph" skipped, due to false condition; ('@(ClCompile)' != '' and '$(EnableManagedIncrementalBuild)' == 'True') was evaluated as ('SAL_handle_test.cpp' != '' and 'false' == 'True').
                    Target "CheckIntelEnvironmentForVCLibsTBB" skipped, due to false condition; ('$(PlatformToolset)' == 'v120' AND '$(UseIntelTBB)' == 'true' AND '$(UseEnv)' != 'true') was evaluated as ('v120' == 'v120' AND 'false' == 'true' AND '' != 'true').
                    Target "ManagedIncrementalBuildPostProcessDependencyGraph" skipped, due to false condition; ('@(ClCompile)' != '' and '$(EnableManagedIncrementalBuild)' == 'True') was evaluated as ('SAL_handle_test.cpp' != '' and 'false' == 'True').
-19:06:46.033     1>Target "RunMergeNativeCodeAnalysis: (TargetId:87)" in file "C:\Program Files (x86)\MSBuild\Microsoft\VisualStudio\v12.0\CodeAnalysis\Microsoft.CodeAnalysis.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_BuildLinkAction" depends on it):
+19:28:44.637     1>Target "RunMergeNativeCodeAnalysis: (TargetId:87)" in file "C:\Program Files (x86)\MSBuild\Microsoft\VisualStudio\v12.0\CodeAnalysis\Microsoft.CodeAnalysis.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_BuildLinkAction" depends on it):
                    Building target "RunMergeNativeCodeAnalysis" completely.
                    Input file "Debug\SAL_handle_test.nativecodeanalysis.xml" is newer than output file "Debug\vc.nativecodeanalysis.all.xml".
                    Using "MergeNativeCodeAnalysis" task from assembly "C:\Program Files (x86)\MSBuild\Microsoft\VisualStudio\v12.0\CodeAnalysis\.\FxCopTask.dll".
@@ -2037,14 +2036,14 @@ _NT_SYMBOL_PATH = SRV*C:\SymCache*http://msdl.microsoft.com/download/symbols;SRV
                      Task Parameter:InputNativeResultFiles=Debug\SAL_handle_test.nativecodeanalysis.xml (TaskId:30)
                      Task Parameter:OutputCodeAnalysisFile=Debug\vc.nativecodeanalysis.all.xml (TaskId:30)
                    Done executing task "MergeNativeCodeAnalysis". (TaskId:30)
-19:06:46.035     1>Done building target "RunMergeNativeCodeAnalysis" in project "SAL_handle_test.vcxproj".: (TargetId:87)
+19:28:44.652     1>Done building target "RunMergeNativeCodeAnalysis" in project "SAL_handle_test.vcxproj".: (TargetId:87)
                    Target "ClCompile" skipped. Previously built successfully.
                    Target "GenerateTargetFrameworkMonikerAttribute" skipped, due to false condition; ('$(GenerateTargetFrameworkAttribute)' == 'true') was evaluated as ('false' == 'true').
                    Target "ManagedIncrementalBuildPreProcessDependencyGraph" skipped, due to false condition; ('@(ClCompile)' != '' and '$(EnableManagedIncrementalBuild)' == 'True') was evaluated as ('SAL_handle_test.cpp' != '' and 'false' == 'True').
                    Target "CheckIntelEnvironmentForVCLibsTBB" skipped, due to false condition; ('$(PlatformToolset)' == 'v120' AND '$(UseIntelTBB)' == 'true' AND '$(UseEnv)' != 'true') was evaluated as ('v120' == 'v120' AND 'false' == 'true' AND '' != 'true').
                    Target "ManagedIncrementalBuildPostProcessDependencyGraph" skipped, due to false condition; ('@(ClCompile)' != '' and '$(EnableManagedIncrementalBuild)' == 'True') was evaluated as ('SAL_handle_test.cpp' != '' and 'false' == 'True').
                    Target "RunMergeNativeCodeAnalysis" skipped. Previously built successfully.
-19:06:46.036     1>Target "RunNativeCodeAnalysis: (TargetId:88)" in file "C:\Program Files (x86)\MSBuild\Microsoft\VisualStudio\v12.0\CodeAnalysis\Microsoft.CodeAnalysis.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_BuildLinkAction" depends on it):
+19:28:44.652     1>Target "RunNativeCodeAnalysis: (TargetId:88)" in file "C:\Program Files (x86)\MSBuild\Microsoft\VisualStudio\v12.0\CodeAnalysis\Microsoft.CodeAnalysis.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_BuildLinkAction" depends on it):
                    Building target "RunNativeCodeAnalysis" completely.
                    Input file "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\Debug\SAL_handle_test.exe" is newer than output file "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\Debug\SAL_handle_test.exe.lastcodeanalysissucceeded".
                    Using "NativeCodeAnalysis" task from assembly "C:\Program Files (x86)\MSBuild\Microsoft\VisualStudio\v12.0\CodeAnalysis\.\FxCopTask.dll".
@@ -2057,46 +2056,46 @@ _NT_SYMBOL_PATH = SRV*C:\SymCache*http://msdl.microsoft.com/download/symbols;SRV
                      Task Parameter:TLogFile=Debug\NativeCodeAnalysis.read.1.tlog (TaskId:31)
                      Task Parameter:TreatWarningsAsErrors=False (TaskId:31)
                      Task Parameter:CodeAnalysisSucceededFile=C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\Debug\SAL_handle_test.exe.lastcodeanalysissucceeded (TaskId:31)
-19:06:46.039     1>c:\users\alexander riccio\documents\github\salexaamples\salexamples\sal_handle_test\sal_handle_test\sal_handle_test.cpp(262): warning C6001: Using uninitialized memory '*fileHandle'.
+19:28:44.840     1>c:\users\alexander riccio\documents\github\salexaamples\salexamples\sal_handle_test\sal_handle_test\sal_handle_test.cpp(95): warning C6001: Using uninitialized memory '*fileHandle'.
                    Done executing task "NativeCodeAnalysis". (TaskId:31)
-19:06:46.041     1>Done building target "RunNativeCodeAnalysis" in project "SAL_handle_test.vcxproj".: (TargetId:88)
-19:06:46.041     1>Target "_GenerateSatelliteAssemblyInputs: (TargetId:89)" in file "C:\Program Files (x86)\MSBuild\12.0\bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "CreateSatelliteAssemblies" depends on it):
+19:28:44.845     1>Done building target "RunNativeCodeAnalysis" in project "SAL_handle_test.vcxproj".: (TargetId:88)
+19:28:44.845     1>Target "_GenerateSatelliteAssemblyInputs: (TargetId:89)" in file "C:\Program Files (x86)\MSBuild\12.0\bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "CreateSatelliteAssemblies" depends on it):
                    Task "Warning" skipped, due to false condition; ('@(ManifestResourceWithCulture)'!='' and '%(ManifestResourceWithCulture.EmittedForCompatibilityOnly)'=='') was evaluated as (''!='' and ''=='').
                    Task "Warning" skipped, due to false condition; ('@(ManifestNonResxWithCultureOnDisk)'!='' and '%(ManifestNonResxWithCultureOnDisk.EmittedForCompatibilityOnly)'=='') was evaluated as (''!='' and ''=='').
-19:06:46.041     1>Done building target "_GenerateSatelliteAssemblyInputs" in project "SAL_handle_test.vcxproj".: (TargetId:89)
+19:28:44.846     1>Done building target "_GenerateSatelliteAssemblyInputs" in project "SAL_handle_test.vcxproj".: (TargetId:89)
                    Target "ComputeIntermediateSatelliteAssemblies" skipped, due to false condition; (@(ReferenceSatellitePaths->'%(DestinationSubDirectory)') != '') was evaluated as ( != '').
                    Target "GenerateSatelliteAssemblies" skipped, due to false condition; ('@(_SatelliteAssemblyResourceInputs)' != '') was evaluated as ('' != '').
-19:06:46.041     1>Target "CreateSatelliteAssemblies: (TargetId:90)" in file "C:\Program Files (x86)\MSBuild\12.0\bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_BuildLinkAction" depends on it):
-19:06:46.041     1>Done building target "CreateSatelliteAssemblies" in project "SAL_handle_test.vcxproj".: (TargetId:90)
-19:06:46.041     1>Target "_Appverifier: (TargetId:91)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_BuildLinkAction" depends on it):
-19:06:46.041     1>Done building target "_Appverifier" in project "SAL_handle_test.vcxproj".: (TargetId:91)
-19:06:46.041     1>Target "_Deploy: (TargetId:92)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_BuildLinkAction" depends on it):
-19:06:46.041     1>Done building target "_Deploy" in project "SAL_handle_test.vcxproj".: (TargetId:92)
+19:28:44.846     1>Target "CreateSatelliteAssemblies: (TargetId:90)" in file "C:\Program Files (x86)\MSBuild\12.0\bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_BuildLinkAction" depends on it):
+19:28:44.846     1>Done building target "CreateSatelliteAssemblies" in project "SAL_handle_test.vcxproj".: (TargetId:90)
+19:28:44.846     1>Target "_Appverifier: (TargetId:91)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_BuildLinkAction" depends on it):
+19:28:44.846     1>Done building target "_Appverifier" in project "SAL_handle_test.vcxproj".: (TargetId:91)
+19:28:44.846     1>Target "_Deploy: (TargetId:92)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_BuildLinkAction" depends on it):
+19:28:44.846     1>Done building target "_Deploy" in project "SAL_handle_test.vcxproj".: (TargetId:92)
                    Target "ComputeIntermediateSatelliteAssemblies" skipped, due to false condition; (@(ReferenceSatellitePaths->'%(DestinationSubDirectory)') != '') was evaluated as ( != '').
                    Target "_CopyFilesMarkedCopyLocal" skipped, due to false condition; ('@(ReferenceCopyLocalPaths)' != '') was evaluated as ('' != '').
                    Target "AssignTargetPaths" skipped. Previously built successfully.
                    Target "_SplitProjectReferencesByFileExistence" skipped. Previously built successfully.
-19:06:46.041     1>Target "GetCopyToOutputDirectoryXamlAppDefs: (TargetId:93)" in file "C:\WINDOWS\Microsoft.NET\Framework\v4.0.30319\Microsoft.Xaml.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "GetCopyToOutputDirectoryItems" depends on it):
+19:28:44.846     1>Target "GetCopyToOutputDirectoryXamlAppDefs: (TargetId:93)" in file "C:\WINDOWS\Microsoft.NET\Framework\v4.0.30319\Microsoft.Xaml.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "GetCopyToOutputDirectoryItems" depends on it):
                    Task "AssignTargetPath" (TaskId:32)
                      Task Parameter:RootFolder=C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test (TaskId:32)
                    Done executing task "AssignTargetPath". (TaskId:32)
-19:06:46.041     1>Done building target "GetCopyToOutputDirectoryXamlAppDefs" in project "SAL_handle_test.vcxproj".: (TargetId:93)
-19:06:46.041     1>Target "GetCopyToOutputDirectoryItems: (TargetId:94)" in file "C:\Program Files (x86)\MSBuild\12.0\bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_CopySourceItemsToOutputDirectory" depends on it):
+19:28:44.846     1>Done building target "GetCopyToOutputDirectoryXamlAppDefs" in project "SAL_handle_test.vcxproj".: (TargetId:93)
+19:28:44.846     1>Target "GetCopyToOutputDirectoryItems: (TargetId:94)" in file "C:\Program Files (x86)\MSBuild\12.0\bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_CopySourceItemsToOutputDirectory" depends on it):
                    Task "MSBuild" skipped, due to false condition; ('@(_MSBuildProjectReferenceExistent)' != '' and '$(_GetChildProjectCopyToOutputDirectoryItems)' == 'true' and '%(_MSBuildProjectReferenceExistent.Private)' != 'false' and '$(UseCommonOutputDirectory)' != 'true') was evaluated as ('' != '' and 'true' == 'true' and '' != 'false' and 'false' != 'true').
                    Task "AssignTargetPath" (TaskId:33)
                      Task Parameter:RootFolder=C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test (TaskId:33)
                    Done executing task "AssignTargetPath". (TaskId:33)
-19:06:46.042     1>Done building target "GetCopyToOutputDirectoryItems" in project "SAL_handle_test.vcxproj".: (TargetId:94)
+19:28:44.847     1>Done building target "GetCopyToOutputDirectoryItems" in project "SAL_handle_test.vcxproj".: (TargetId:94)
                    Target "_CopyOutOfDateSourceItemsToOutputDirectory" skipped, due to false condition; ( '@(_SourceItemsToCopyToOutputDirectory)' != '' ) was evaluated as ( '' != '' ).
                    Target "_CopyOutOfDateSourceItemsToOutputDirectoryAlways" skipped, due to false condition; ( '@(_SourceItemsToCopyToOutputDirectoryAlways)' != '' ) was evaluated as ( '' != '' ).
-19:06:46.042     1>Target "_CopySourceItemsToOutputDirectory: (TargetId:95)" in file "C:\Program Files (x86)\MSBuild\12.0\bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "CopyFilesToOutputDirectory" depends on it):
-19:06:46.042     1>Done building target "_CopySourceItemsToOutputDirectory" in project "SAL_handle_test.vcxproj".: (TargetId:95)
+19:28:44.847     1>Target "_CopySourceItemsToOutputDirectory: (TargetId:95)" in file "C:\Program Files (x86)\MSBuild\12.0\bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "CopyFilesToOutputDirectory" depends on it):
+19:28:44.847     1>Done building target "_CopySourceItemsToOutputDirectory" in project "SAL_handle_test.vcxproj".: (TargetId:95)
                    Target "_CopyAppConfigFile" skipped, due to false condition; ( '@(AppConfigWithTargetPath)' != '' ) was evaluated as ( '' != '' ).
                    Target "_CopyManifestFiles" skipped, due to false condition; ( '$(_DeploymentCopyApplicationManifest)'=='true' or '$(GenerateClickOnceManifests)'=='true' ) was evaluated as ( ''=='true' or ''=='true' ).
-19:06:46.042     1>Target "_CheckForCompileOutputs: (TargetId:96)" in file "C:\Program Files (x86)\MSBuild\12.0\bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "CopyFilesToOutputDirectory" depends on it):
-19:06:46.042     1>Done building target "_CheckForCompileOutputs" in project "SAL_handle_test.vcxproj".: (TargetId:96)
+19:28:44.847     1>Target "_CheckForCompileOutputs: (TargetId:96)" in file "C:\Program Files (x86)\MSBuild\12.0\bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "CopyFilesToOutputDirectory" depends on it):
+19:28:44.847     1>Done building target "_CheckForCompileOutputs" in project "SAL_handle_test.vcxproj".: (TargetId:96)
                    Target "_SGenCheckForOutputs" skipped, due to false condition; ('$(_SGenGenerateSerializationAssembliesConfig)' == 'On' or ('@(WebReferenceUrl)'!='' and '$(_SGenGenerateSerializationAssembliesConfig)' == 'Auto')) was evaluated as ('Off' == 'On' or (''!='' and 'Off' == 'Auto')).
-19:06:46.042     1>Target "CopyFilesToOutputDirectory: (TargetId:97)" in file "C:\Program Files (x86)\MSBuild\12.0\bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "PrepareForRun" depends on it):
+19:28:44.847     1>Target "CopyFilesToOutputDirectory: (TargetId:97)" in file "C:\Program Files (x86)\MSBuild\12.0\bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "PrepareForRun" depends on it):
                    Task "Copy" skipped, due to false condition; ('$(CopyBuildOutputToOutputDirectory)' == 'true' and '$(SkipCopyBuildProduct)' != 'true') was evaluated as ('true' == 'true' and 'true' != 'true').
                    Task "Message" skipped, due to false condition; ('$(CopyBuildOutputToOutputDirectory)' == 'true' and '$(SkipCopyBuildProduct)'!='true') was evaluated as ('true' == 'true' and 'true'!='true').
                    Task "Copy" skipped, due to false condition; ('@(AddModules)' != '') was evaluated as ('' != '').
@@ -2107,22 +2106,22 @@ _NT_SYMBOL_PATH = SRV*C:\SymCache*http://msdl.microsoft.com/download/symbols;SRV
                    Task "Copy" skipped, due to false condition; ('@(ReferenceComWrappersToCopyLocal)' != '' or '@(ResolvedIsolatedComModules)' != '' or '@(_DeploymentLooseManifestFile)' != '' or '@(NativeReferenceFile)' != '' ) was evaluated as ('' != '' or '' != '' or '' != '' or '' != '' ).
                    Task "Copy" skipped, due to false condition; ('$(SkipCopyWinMDArtifact)' != 'true' and '@(WinMDExpArtifacts)' != '') was evaluated as ('' != 'true' and '' != '').
                    Task "Message" skipped, due to false condition; ('$(SkipCopyWinMDArtifact)' != 'true' and '$(_WindowsMetadataOutputPath)' != '') was evaluated as ('' != 'true' and '' != '').
-19:06:46.042     1>Done building target "CopyFilesToOutputDirectory" in project "SAL_handle_test.vcxproj".: (TargetId:97)
-19:06:46.042     1>Target "PrepareForRun: (TargetId:98)" in file "C:\Program Files (x86)\MSBuild\12.0\bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_BuildLinkAction" depends on it):
-19:06:46.042     1>Done building target "PrepareForRun" in project "SAL_handle_test.vcxproj".: (TargetId:98)
+19:28:44.848     1>Done building target "CopyFilesToOutputDirectory" in project "SAL_handle_test.vcxproj".: (TargetId:97)
+19:28:44.848     1>Target "PrepareForRun: (TargetId:98)" in file "C:\Program Files (x86)\MSBuild\12.0\bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_BuildLinkAction" depends on it):
+19:28:44.848     1>Done building target "PrepareForRun" in project "SAL_handle_test.vcxproj".: (TargetId:98)
                    Target "CustomBuildStep" skipped, due to false condition; ('@(CustomBuildStep)' != '' and '$(SelectedFiles)'=='') was evaluated as ('' != '' and ''=='').
-19:06:46.043     1>Target "PostBuildEvent: (TargetId:99)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppCommon.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_BuildLinkAction" depends on it):
+19:28:44.848     1>Target "PostBuildEvent: (TargetId:99)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppCommon.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "_BuildLinkAction" depends on it):
                    Task "Message" skipped, due to false condition; ('%(PostBuildEvent.Message)' != '' and '%(PostBuildEvent.Command)' != '') was evaluated as ('' != '' and '' != '').
                    Task "Exec" skipped, due to false condition; ('%(PostBuildEvent.Command)' != '') was evaluated as ('' != '').
-19:06:46.043     1>Done building target "PostBuildEvent" in project "SAL_handle_test.vcxproj".: (TargetId:99)
-19:06:46.043     1>Target "_BuildLinkAction: (TargetId:100)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "BuildLink" depends on it):
-19:06:46.043     1>Done building target "_BuildLinkAction" in project "SAL_handle_test.vcxproj".: (TargetId:100)
-19:06:46.043     1>Target "BuildLink: (TargetId:101)" in file "C:\Program Files (x86)\MSBuild\12.0\bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "Build" depends on it):
-19:06:46.043     1>Done building target "BuildLink" in project "SAL_handle_test.vcxproj".: (TargetId:101)
+19:28:44.848     1>Done building target "PostBuildEvent" in project "SAL_handle_test.vcxproj".: (TargetId:99)
+19:28:44.848     1>Target "_BuildLinkAction: (TargetId:100)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "BuildLink" depends on it):
+19:28:44.848     1>Done building target "_BuildLinkAction" in project "SAL_handle_test.vcxproj".: (TargetId:100)
+19:28:44.848     1>Target "BuildLink: (TargetId:101)" in file "C:\Program Files (x86)\MSBuild\12.0\bin\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "Build" depends on it):
+19:28:44.848     1>Done building target "BuildLink" in project "SAL_handle_test.vcxproj".: (TargetId:101)
                    Target "CreateTfsBuildInfoResource" skipped, due to false condition; ( $(AddBuildInfoToAssembly)==true ) was evaluated as ( false==true ).
-19:06:46.043     1>Target "AfterBuild: (TargetId:102)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.BuildSteps.Targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "Build" depends on it):
-19:06:46.043     1>Done building target "AfterBuild" in project "SAL_handle_test.vcxproj".: (TargetId:102)
-19:06:46.043     1>Target "FinalizeBuildStatus: (TargetId:103)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "Build" depends on it):
+19:28:44.848     1>Target "AfterBuild: (TargetId:102)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.BuildSteps.Targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "Build" depends on it):
+19:28:44.848     1>Done building target "AfterBuild" in project "SAL_handle_test.vcxproj".: (TargetId:102)
+19:28:44.848     1>Target "FinalizeBuildStatus: (TargetId:103)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (target "Build" depends on it):
                    Using "Delete" task from assembly "Microsoft.Build.Tasks.v12.0, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
                    Task "Delete" (TaskId:34)
                      Task Parameter:Files=Debug\SAL_handle_test.tlog\unsuccessfulbuild (TaskId:34)
@@ -2132,137 +2131,137 @@ _NT_SYMBOL_PATH = SRV*C:\SymCache*http://msdl.microsoft.com/download/symbols;SRV
                      Task Parameter:Files=Debug\SAL_handle_test.tlog\SAL_handle_test.lastbuildstate (TaskId:35)
                      Touching "Debug\SAL_handle_test.tlog\SAL_handle_test.lastbuildstate". (TaskId:35)
                    Done executing task "Touch". (TaskId:35)
-19:06:46.044     1>Done building target "FinalizeBuildStatus" in project "SAL_handle_test.vcxproj".: (TargetId:103)
-19:06:46.044     1>Target "Build: (TargetId:104)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.BuildSteps.Targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (entry point):
-19:06:46.044     1>Done building target "Build" in project "SAL_handle_test.vcxproj".: (TargetId:104)
-19:06:46.044     1>Done Building Project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (Build target(s)).
+19:28:44.852     1>Done building target "FinalizeBuildStatus" in project "SAL_handle_test.vcxproj".: (TargetId:103)
+19:28:44.852     1>Target "Build: (TargetId:104)" in file "C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.BuildSteps.Targets" from project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (entry point):
+19:28:44.852     1>Done building target "Build" in project "SAL_handle_test.vcxproj".: (TargetId:104)
+19:28:44.852     1>Done Building Project "C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj" (Build target(s)).
 
 Project Performance Summary:
-     8681 ms  C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj   1 calls
-               8681 ms  Build                                      1 calls
+     9239 ms  C:\Users\Alexander Riccio\Documents\GitHub\SALExaamples\SALExamples\SAL_handle_test\SAL_handle_test\SAL_handle_test.vcxproj   1 calls
+               9239 ms  Build                                      1 calls
 
 Target Performance Summary:
         0 ms  AfterBuild                                 1 calls
+        0 ms  SelectCustomBuild                          1 calls
+        0 ms  _ClCompile                                 1 calls
+        0 ms  GetReferenceAssemblyPaths                  1 calls
+        0 ms  ComputeLinkSwitches                        1 calls
+        0 ms  CreateCustomManifestResourceNames          1 calls
+        0 ms  MakeDirsForBscMake                         1 calls
+        0 ms  ComputeCustomBuildOutput                   1 calls
+        0 ms  _Midl                                      1 calls
+        0 ms  BeforeLink                                 1 calls
+        0 ms  AfterBuildCompileEvent                     1 calls
+        0 ms  _BuildLinkAction                           1 calls
+        0 ms  BeforeResourceCompile                      1 calls
+        0 ms  AfterMidl                                  1 calls
+        0 ms  PreLinkEvent                               1 calls
+        0 ms  _ResourceCompile                           1 calls
+        0 ms  _PrepareForReferenceResolution             1 calls
+        0 ms  ComputeCLInputPDBName                      1 calls
+        0 ms  PostBuildEvent                             1 calls
+        0 ms  _Manifest                                  1 calls
+        0 ms  GetResolvedWinMD                           1 calls
+        0 ms  ComputeLinkInputsFromProject               1 calls
+        0 ms  Build                                      1 calls
+        0 ms  _Link                                      1 calls
+        0 ms  BuildLinkTraverse                          1 calls
+        0 ms  ComputeManifestInputsTargets               1 calls
+        0 ms  ComputeRCOutputs                           1 calls
+        0 ms  _XdcMake                                   1 calls
+        0 ms  CreateSatelliteAssemblies                  1 calls
+        0 ms  ExpandSDKReferences                        1 calls
+        0 ms  BuildCompileTraverse                       1 calls
+        0 ms  AfterBuildGenerateSources                  1 calls
         0 ms  ComputeCLCompileGeneratedXDCFiles          1 calls
         0 ms  ComputeManifestGeneratedLinkerInputs       1 calls
         0 ms  ResolveReferences                          1 calls
         0 ms  SelectClCompile                            1 calls
         0 ms  GetCopyToOutputDirectoryXamlAppDefs        1 calls
         0 ms  _CheckForCompileOutputs                    1 calls
-        0 ms  GetResolvedWinMD                           1 calls
-        0 ms  _Manifest                                  1 calls
-        0 ms  _SelectedFiles                             1 calls
-        0 ms  PostBuildEvent                             1 calls
-        0 ms  _Midl                                      1 calls
-        0 ms  SelectCustomBuild                          1 calls
-        0 ms  _ClCompile                                 1 calls
-        0 ms  CreateCustomManifestResourceNames          1 calls
-        0 ms  ResolveAssemblyReferences                  1 calls
-        0 ms  BeforeLink                                 1 calls
-        0 ms  ComputeCLInputPDBName                      1 calls
-        0 ms  AfterBuildCompileEvent                     1 calls
-        0 ms  _BuildLinkAction                           1 calls
-        0 ms  AfterBuildGenerateSources                  1 calls
-        0 ms  BeforeResourceCompile                      1 calls
-        0 ms  BuildCompileTraverse                       1 calls
-        0 ms  CopyFilesToOutputDirectory                 1 calls
-        0 ms  BuildGenerateSources                       1 calls
-        0 ms  _CopySourceItemsToOutputDirectory          1 calls
-        0 ms  ComputeLinkImportLibraryOutputsForClean    1 calls
-        0 ms  GetFrameworkPaths                          1 calls
-        0 ms  AfterResourceCompile                       1 calls
         0 ms  _Xsd                                       1 calls
-        0 ms  MakeDirsForBscMake                         1 calls
-        0 ms  ComputeLinkSwitches                        1 calls
-        0 ms  _GenerateSatelliteAssemblyInputs           1 calls
-        0 ms  MakeDirsForResourceCompile                 1 calls
-        0 ms  _ResourceCompile                           1 calls
-        0 ms  ComputeLinkInputsFromProject               1 calls
-        0 ms  Build                                      1 calls
-        0 ms  _Link                                      1 calls
-        0 ms  BuildLinkTraverse                          1 calls
-        0 ms  WarnCompileDuplicatedFilename              1 calls
-        0 ms  ComputeRCOutputs                           1 calls
-        0 ms  _XdcMake                                   1 calls
-        0 ms  CreateSatelliteAssemblies                  1 calls
-        0 ms  ExpandSDKReferences                        1 calls
-        0 ms  AfterMidl                                  1 calls
-        0 ms  ComputeMIDLGeneratedCompileInputs          1 calls
+        0 ms  BeforeBuildGenerateSources                 1 calls
         0 ms  _Deploy                                    1 calls
-        0 ms  AfterLink                                  1 calls
-        0 ms  PrepareResourceNames                       1 calls
-        0 ms  AfterBuildGenerateSourcesEvent             1 calls
-        0 ms  BeforeClCompile                            1 calls
-        0 ms  ComputeCLOutputs                           1 calls
-        0 ms  AfterResolveReferences                     1 calls
-        0 ms  PreLinkEvent                               1 calls
-        0 ms  BeforeResolveReferences                    1 calls
-        0 ms  BuildLink                                  1 calls
-        0 ms  ComputeReferenceCLInput                    1 calls
-        0 ms  PrepareForRun                              1 calls
+        0 ms  ResolvedXDCMake                            1 calls
+        0 ms  AfterClCompile                             1 calls
         0 ms  PreBuildEvent                              1 calls
         0 ms  MakeDirsForMidl                            1 calls
         0 ms  _BscMake                                   1 calls
-        0 ms  _BuildGenerateSourcesAction                1 calls
-        0 ms  ComputeCLCompileGeneratedSbrFiles          1 calls
-        0 ms  ComputeRCGeneratedLinkInputs               1 calls
-        0 ms  BuildCompile                               1 calls
-        0 ms  _SplitProjectReferencesByFileExistence     1 calls
-        0 ms  _PrepareForReferenceResolution             1 calls
-        0 ms  ComputeLegacyManifestEmbedding             1 calls
-        0 ms  AssignTargetPaths                          1 calls
-        0 ms  BuildGenerateSourcesTraverse               1 calls
-        0 ms  BeforeBuildGenerateSources                 1 calls
-        0 ms  AfterClCompile                             1 calls
-        0 ms  ResolvedXDCMake                            1 calls
         0 ms  _Appverifier                               1 calls
-        0 ms  ComputeCLGeneratedLinkInputs               1 calls
+        0 ms  RegisterOutput                             1 calls
+        0 ms  _BuildGenerateSourcesAction                1 calls
+        0 ms  BuildLink                                  1 calls
+        0 ms  ComputeCLCompileGeneratedSbrFiles          1 calls
+        0 ms  ResolveSDKReferences                       1 calls
         0 ms  _ALink                                     1 calls
+        0 ms  ComputeCLGeneratedLinkInputs               1 calls
+        0 ms  _SplitProjectReferencesByFileExistence     1 calls
+        0 ms  BuildGenerateSourcesTraverse               1 calls
+        0 ms  _CopySourceItemsToOutputDirectory          1 calls
+        0 ms  ComputeLegacyManifestEmbedding             1 calls
+        0 ms  BuildGenerateSources                       1 calls
+        0 ms  ComputeReferenceCLInput                    1 calls
+        0 ms  DoLinkOutputFilesMatch                     1 calls
+        0 ms  PrepareForRun                              1 calls
+        0 ms  AfterResolveReferences                     1 calls
         0 ms  MakeDirsForXdcMake                         1 calls
         0 ms  GetInstalledSDKLocations                   1 calls
         0 ms  _BuildCompileAction                        1 calls
-        0 ms  PlatformPrepareForBuild                    1 calls
-        1 ms  RegisterOutput                             1 calls
-        1 ms  DoLinkOutputFilesMatch                     1 calls
-        1 ms  ResolveProjectReferences                   1 calls
-        1 ms  FinalizeBuildStatus                        1 calls
-        1 ms  _PrepareForBuild                           1 calls
-        1 ms  ResolveSDKReferences                       1 calls
-        1 ms  MakeDirsForCl                              1 calls
+        0 ms  AfterResourceCompile                       1 calls
+        0 ms  BeforeResolveReferences                    1 calls
+        0 ms  ComputeRCGeneratedLinkInputs               1 calls
+        0 ms  AfterLink                                  1 calls
+        0 ms  BuildCompile                               1 calls
+        0 ms  BeforeClCompile                            1 calls
+        0 ms  AfterBuildGenerateSourcesEvent             1 calls
+        0 ms  MakeDirsForResourceCompile                 1 calls
+        0 ms  PrepareResourceNames                       1 calls
         1 ms  SplitResourcesByCulture                    1 calls
-        1 ms  GetReferenceAssemblyPaths                  1 calls
-        1 ms  MakeDirsForLink                            1 calls
-        1 ms  ComputeManifestInputsTargets               1 calls
-        1 ms  AssignProjectConfiguration                 1 calls
+        1 ms  PlatformPrepareForBuild                    1 calls
+        1 ms  MakeDirsForCl                              1 calls
         1 ms  GetCopyToOutputDirectoryItems              1 calls
-        2 ms  RunMergeNativeCodeAnalysis                 1 calls
-        3 ms  PrepareForBuild                            1 calls
-        3 ms  _CheckForInvalidConfigurationAndPlatform   1 calls
-        4 ms  ComputeCustomBuildOutput                   1 calls
-        4 ms  InitializeBuildStatus                      1 calls
-        4 ms  SetCABuildNativeEnvironmentVariables       1 calls
-        5 ms  RunNativeCodeAnalysis                      1 calls
-        7 ms  SetBuildDefaultEnvironmentVariables        1 calls
-      279 ms  Link                                       1 calls
-     8350 ms  ClCompile                                  1 calls
+        1 ms  CopyFilesToOutputDirectory                 1 calls
+        1 ms  ResolveProjectReferences                   1 calls
+        1 ms  WarnCompileDuplicatedFilename              1 calls
+        1 ms  ComputeCLOutputs                           1 calls
+        1 ms  _SelectedFiles                             1 calls
+        1 ms  _PrepareForBuild                           1 calls
+        1 ms  MakeDirsForLink                            1 calls
+        1 ms  _GenerateSatelliteAssemblyInputs           1 calls
+        1 ms  ComputeLinkImportLibraryOutputsForClean    1 calls
+        1 ms  ResolveAssemblyReferences                  1 calls
+        1 ms  GetFrameworkPaths                          1 calls
+        1 ms  ComputeMIDLGeneratedCompileInputs          1 calls
+        2 ms  AssignProjectConfiguration                 1 calls
+        2 ms  AssignTargetPaths                          1 calls
+        4 ms  FinalizeBuildStatus                        1 calls
+        4 ms  PrepareForBuild                            1 calls
+        6 ms  InitializeBuildStatus                      1 calls
+        8 ms  SetBuildDefaultEnvironmentVariables        1 calls
+       15 ms  RunMergeNativeCodeAnalysis                 1 calls
+       33 ms  _CheckForInvalidConfigurationAndPlatform   1 calls
+      148 ms  SetCABuildNativeEnvironmentVariables       1 calls
+      193 ms  RunNativeCodeAnalysis                      1 calls
+      606 ms  Link                                       1 calls
+     8193 ms  ClCompile                                  1 calls
 
 Task Performance Summary:
-        0 ms  AssignTargetPath                           6 calls
-        0 ms  SetEnvironmentVariable                     1 calls
-        0 ms  Delete                                     1 calls
         0 ms  AssignCulture                              1 calls
-        0 ms  Message                                    3 calls
-        1 ms  WriteLinesToFile                           1 calls
         1 ms  ReadLinesFromFile                          1 calls
+        1 ms  MakeDir                                    9 calls
+        1 ms  SetEnvironmentVariable                     1 calls
         1 ms  AssignProjectConfiguration                 1 calls
-        2 ms  MakeDir                                    9 calls
-        2 ms  MergeNativeCodeAnalysis                    1 calls
-        2 ms  Touch                                      2 calls
-        5 ms  NativeCodeAnalysis                         1 calls
-        7 ms  SetEnv                                     4 calls
-      278 ms  Link                                       1 calls
-     8349 ms  CL                                         1 calls
+        1 ms  AssignTargetPath                           6 calls
+        1 ms  Message                                    3 calls
+        2 ms  Delete                                     1 calls
+        3 ms  Touch                                      2 calls
+        3 ms  SetEnv                                     4 calls
+        4 ms  WriteLinesToFile                           1 calls
+       13 ms  MergeNativeCodeAnalysis                    1 calls
+      193 ms  NativeCodeAnalysis                         1 calls
+      605 ms  Link                                       1 calls
+     8192 ms  CL                                         1 calls
 
 Build succeeded.
 
-Time Elapsed 00:00:08.68
+Time Elapsed 00:00:09.24

@@ -88,6 +88,11 @@
   <ItemGroup>
     <ClCompile Include="SAL_handle_test.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="SAL_handle_test.h" />
+    <ClInclude Include="SAL_handle_test_include_stdlib.h" />
+    <ClInclude Include="SAL_handle_test_macros.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

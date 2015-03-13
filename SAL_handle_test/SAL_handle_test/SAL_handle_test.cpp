@@ -5,21 +5,6 @@ This demonstrates using SAL and static analysis to detect usage of an invalidate
 
 #include "SAL_handle_test.h"
 
-void handle_invalid_handle_value( ) {
-	const rsize_t err_buff_size = 512;
-	const auto last_err = GetLastError( );
-	wchar_t err_buff[ err_buff_size ] = { 0 };
-	rsize_t chars_written = 0;
-	const HRESULT err_res = CStyle_GetLastErrorAsFormattedMessage( err_buff, err_buff_size, chars_written, last_err );
-	if ( SUCCEEDED( err_res ) ) {
-		const auto wpf_res = wprintf( L"Error creating file: %s\r\n", err_buff );
-		SAL_HANDLE_TEST_ASSERT_IF_DEBUG_ELSE_UNREFERENCED( wpf_res, >= , 0 );
-		}
-	else {
-		const auto wpf_res = wprintf( L"Error creating file: %u (also, error getting error message)\r\n", last_err );
-		SAL_HANDLE_TEST_ASSERT_IF_DEBUG_ELSE_UNREFERENCED( wpf_res, >= , 0 );
-		}
-	}
 
 void close_single_handle( _In_ const HANDLE& the_handle ) {
 	//"If the function succeeds, the return value is nonzero."
@@ -37,11 +22,10 @@ void close_single_handle( _In_ const HANDLE& the_handle ) {
 	if ( SUCCEEDED( err_res ) ) {
 		const auto wpf_res = wprintf( L"Error closing handle: %s\r\n", err_buff );
 		SAL_HANDLE_TEST_ASSERT_IF_DEBUG_ELSE_UNREFERENCED( wpf_res, >= , 0 );
+		return;
 		}
-	else {
-		const auto wpf_res = wprintf( L"Error closing handle: %u (also, error getting error message)\r\n", last_err );
-		SAL_HANDLE_TEST_ASSERT_IF_DEBUG_ELSE_UNREFERENCED( wpf_res, >= , 0 );
-		}
+	const auto wpf_res = wprintf( L"Error closing handle: %u (also, error getting error message)\r\n", last_err );
+	SAL_HANDLE_TEST_ASSERT_IF_DEBUG_ELSE_UNREFERENCED( wpf_res, >= , 0 );
 	}
 
 
@@ -59,11 +43,11 @@ void handle_failed_to_create_event( const DWORD last_err, _In_ const HANDLE& fil
 	if ( SUCCEEDED( err_res ) ) {
 		const auto wpf_res = wprintf( L"Error creating event: %s\r\n", err_buff );
 		SAL_HANDLE_TEST_ASSERT_IF_DEBUG_ELSE_UNREFERENCED( wpf_res, >= , 0 );
+		close_single_handle( fileHandle );
+		return;
 		}
-	else {
-		const auto wpf_res = wprintf( L"Error creating event: %u (also, error getting error message)\r\n", last_err );
-		SAL_HANDLE_TEST_ASSERT_IF_DEBUG_ELSE_UNREFERENCED( wpf_res, >= , 0 );
-		}
+	const auto wpf_res = wprintf( L"Error creating event: %u (also, error getting error message)\r\n", last_err );
+	SAL_HANDLE_TEST_ASSERT_IF_DEBUG_ELSE_UNREFERENCED( wpf_res, >= , 0 );
 	close_single_handle( fileHandle );
 	}
 
