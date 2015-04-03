@@ -1,0 +1,29 @@
+//"SAL Annotations: Don’t Hate Me Because I’m Beautiful"
+//by SNoone
+//https://www.osr.com/blog/2015/02/23/sal-annotations-dont-hate-im-beautiful/
+
+bool
+PolicyGetKeyNewFile(
+     _In_ FE_POLICY_PATH_INFORMATION *PolicyPathInfo,
+     _In_ DWORD ThreadId,
+     _Out_ PVOID *PolHeaderData,
+     _Out_ DWORD *PolHeaderDataSize,
+     _Out_ LPCWSTR *PolUniqueAlgorithmId,
+     _Out_ PVOID *PolKey,
+     _Out_ DWORD *PolKeySize,
+     _Out_ PVOID *PolCleanupInfo
+);
+
+
+bool
+_Success_(return == true)
+PolicyGetKeyNewFile(
+     _In_ FE_POLICY_PATH_INFORMATION *PolicyPathInfo,
+     _In_ DWORD ThreadId,
+     _Outptr_result_bytebuffer_(*PolHeaderDataSize) PVOID *PolHeaderData,
+     _Out_ _Deref_out_range_(>, 0) DWORD *PolHeaderDataSize,
+     _Outptr_result_z_ LPCWSTR *PolUniqueAlgorithmId,
+     _Outptr_result_bytebuffer_(*PolKeySize) PVOID *PolKey,
+     _Out_ _Deref_out_range_(>, 0) DWORD *PolKeySize,
+     _Outptr_result_maybenull_ PVOID *PolCleanupInfo
+);
